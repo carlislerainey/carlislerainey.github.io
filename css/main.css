@@ -1,0 +1,154 @@
+/* import fonts */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:300,400,300italic,400italic,600,700);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+/* define body size */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+
+/* style navigation bar */
+
+#navigation {
+  position: fixed;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  margin: 0px;
+  padding: 20px;
+  background-color: rgb(40, 40, 40);
+  text-align: center;
+}
+
+#navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+#navigation a:hover {
+  color: grey;
+}
+
+
+/* styling for main text box */
+
+#main, #footer {
+  margin-left: 250px;
+  margin-top: 50px;
+  max-width: 700px;
+}
+
+/* styling main fonts*/
+
+table, p, ul, a {
+  font-family: 'Josefin Sans';
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  color: rgb(40, 40, 40);
+  }
+
+code {
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  line-height: 22px;
+  color: rgb(40, 40, 40);
+}
+
+/* style links */
+
+a {
+  text-decoration: none;
+  /*border-bottom: 1px grey solid;*/
+  color: rgb(100, 100, 100);
+  }
+a:hover {
+  color: rgb(0,0,0);
+  }
+
+#footer {
+  font-size: 8px;
+  text-align: center;
+}
+
+/* style lists */
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+  font-size: 100%
+}
+
+li {
+  margin: 0.5em 0; /* adjust space between list elements*/
+}
+
+/* headings */
+
+h1, h2, h3, h4 {
+  font-family: 'Josefin Slab';
+  text-align: left;
+  /*padding: 0px;*/
+  /*margin-bottom: 0px;*/
+  color: rgb(40, 40, 40);
+  font-weight: 600;
+  }
+
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  }
+h2 {
+  font-size: 30px;
+  }
+h3 {
+  font-size: 25px;
+  font-variant: small-caps;
+  }
+
+
+h1.carlisle {
+  font-family: 'Josefin Slab';
+  font-size: 22px;
+  text-align: center;
+color: white;
+  font-weight:00;
+  padding: 0px;
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+
+/* header and footer */
+
+#footer, #footer a {
+  font-size: 10pt;
+  font-family: 'Josefin Sans';
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
