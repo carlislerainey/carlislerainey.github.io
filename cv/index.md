@@ -16,7 +16,7 @@ College Station, TX 77843-4348
 
 e-mail: crainey@tamu.edu or carlislerainey@gmail.com  
 Twitter: twitter.com/carlislerainey  
-GitHub: github.com/carlislerainey   
+GitHub: github.com/carlislerainey
 
 ## Appointments
 
@@ -35,9 +35,13 @@ GitHub: github.com/carlislerainey
 
 - B.S., Political Science and Sociology, 2008.
 
-{% markdown _published.md %}
+## Research
 
-{% markdown _unpublished.md %}
+{% capture my_include %}{% include _published.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include _unpublished.md %}{% endcapture %}
+{{ my_include | markdownify }}
 
 ## Software
 

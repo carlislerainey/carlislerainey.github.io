@@ -5,6 +5,8 @@ title: Research | Carlisle Rainey
 
 # Research
 
-{% markdown _unpublished.md %}
+{% capture my_include %}{% include _unpublished.md %}{% endcapture %}
+{{ my_include | markdownify }}
 
-{% markdown _published.md %}
+{% capture my_include %}{% include _published.md %}{% endcapture %}
+{{ my_include | markdownify }}
