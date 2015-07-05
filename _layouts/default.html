@@ -1,31 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
 </head>
+<body>
 
-<div id="navigation">
-  <h1 class = "carlisle">Carlisle Rainey</h1>
-  <a href="mailto:crainey@tamu.edu">crainey@tamu.edu</a></br>
-  <a href="https://twitter.com/carlislerainey" style = "font-size: 14px">Twitter<a/>
-    | <a href="https://github.com/carlislerainey" style = "font-size: 14px">GitHub<a/> </br></br>
-  <a href="/">About</a></br>
-  <a href="/cv">CV</a></br>
-  <a href="/research">Research</a></br>
-  <a href="/teaching">Teaching</a>
-    </div>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <div id="main">
+<div class="section hero">
+  <div class="container">
+    <div class="row">
+      <div class="one-third column">
+        <h2>Carlisle Rainey</h2>
+        <a href="mailto:crainey@tamu.edu">crainey@tamu.edu</a></br>
+        <a href="https://twitter.com/carlislerainey" style = "font-size: 14px">Twitter<a/>
+          | <a href="https://github.com/carlislerainey" style = "font-size: 14px">GitHub<a/> </br></br>
+            <a href="/">About</a></br>
+            <a href="/cv">CV</a></br>
+            <a href="/research">Research</a></br>
+            <a href="/teaching">Teaching</a>        </div>
+            <div class="two-thirds column">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {{ content }}
+</body
+</html>
 
-    </div>
 
-    <div id="footer">
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-    </div>
-  </body>
-
-  </html>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
