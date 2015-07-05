@@ -35,8 +35,6 @@ GitHub: github.com/carlislerainey
 
 - B.S., Political Science and Sociology, 2008.
 
-## Research
-
 {% capture my_include %}{% include _published.md %}{% endcapture %}
 {{ my_include | markdownify }}
 
