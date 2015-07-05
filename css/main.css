@@ -1,66 +1,95 @@
-/* import fonts */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400);
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:300,400,300italic,400italic,600,700);
-@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
-/* define body size */
-  body {
-    padding: 0;
-    margin: 0;
-  }
+/* modified from www.getskeleton.com */
+
+/* Import Fonts
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:600);
 
 
-/* style navigation bar */
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
 
-#navigation {
-  position: fixed;
-  top: 0;
-  width: 150px;
-  height: 100%;
-  margin: 0px;
-  padding: 20px;
-  background-color: rgb(40, 40, 40);
-  text-align: center;
+/* For devices larger than 750px */
+@media (min-width: 750px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .four.columns                   { width: 30.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+
 }
 
-#navigation a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 18px;
-}
 
-#navigation a:hover {
-  color: grey;
-}
-
-
-/* styling for main text box */
-
-#main, #footer {
-  margin-left: 250px;
-  margin-top: 50px;
-  max-width: 700px;
-}
-
-/* styling main fonts*/
-
-table, p, ul, a {
-  font-family: 'Josefin Sans';
-  font-size: 18px;
-  line-height: 22px;
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html { font-size: 62.5%; }
+body {
+  font-size: 1.5rem; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
   font-weight: 400;
+  font-family: 'Josefin Sans'; Helvetica, sans;
+  color: rgb(40, 40, 40); }
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Slab', Times, sans-serif;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 600;
   color: rgb(40, 40, 40);
   }
+h1 { text-align: center; font-size: 4.0rem; line-height: 1.2; }
+h2 { font-size: 3.0rem; line-height: 1.2; }
+h3 { font-size: 2.5rem; line-height: 1.2; font-variant: small-caps;}
+h4 { font-size: 1.5rem; line-height: 1.2; }
 
-code {
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  line-height: 22px;
+h1.carlisle {
+  font-family: 'Josefin Slab', Times, sans-serif;
+  font-size: 2.7rem;
+  text-align: center;
   color: rgb(40, 40, 40);
+  padding: 0px;
+  padding-top: 20px;
+  margin-bottom: 0px;
 }
 
-/* style links */
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+h1 { font-size: 4.0rem; line-height: 1.2; }
+h2 { font-size: 3.0rem; line-height: 1.2; }
+h3 { font-size: 2.0rem; line-height: 1.2; }
+h4 { font-size: 1.5rem; line-height: 1.2; font-variant: small-caps;}
+}
+
+p { margin-top: 0; }
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 a {
   text-decoration: none;
@@ -71,13 +100,9 @@ a:hover {
   color: rgb(0,0,0);
   }
 
-#footer {
-  font-size: 8px;
-  text-align: center;
-}
 
-/* style lists */
-
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
   list-style-type: disc;
 }
@@ -91,64 +116,38 @@ li {
   margin: 0.5em 0; /* adjust space between list elements*/
 }
 
-/* headings */
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px; }
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre; }
 
-h1, h2, h3, h4 {
-  font-family: 'Josefin Slab';
-  text-align: left;
-  /*padding: 0px;*/
-  /*margin-bottom: 0px;*/
-  color: rgb(40, 40, 40);
-  font-weight: 600;
-  }
+/* Menu (Navigation Links)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
-h1 {
-  font-size: 40px;
+ul.menu {
   text-align: center;
+  margin-left: 0;
+  padding-left: 0;
+}
+li.menu {
+    list-style-type: none;
+}
+
+/* Larger than tablet */
+@media (max-width: 750px) {
+  li.menu {
+  display: inline-block;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
   }
-h2 {
-  font-size: 30px;
-  }
-h3 {
-  font-size: 25px;
-  font-variant: small-caps;
-  }
-
-
-h1.carlisle {
-  font-family: 'Josefin Slab';
-  font-size: 22px;
-  text-align: center;
-color: white;
-  font-weight:00;
-  padding: 0px;
-  padding-top: 20px;
-  margin-bottom: 0px;
-}
-
-/* header and footer */
-
-#footer, #footer a {
-  font-size: 10pt;
-  font-family: 'Josefin Sans';
-}
-
-blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote p {
-  display: inline;
 }
