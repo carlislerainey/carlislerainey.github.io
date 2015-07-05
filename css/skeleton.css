@@ -28,9 +28,8 @@
 
 /* Import Fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400);
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:300,400,300italic,400italic,600,700);
-@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:600);
 
 
 /* Grid
@@ -120,17 +119,17 @@ html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html { font-size: 62.5%; }
 body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 1.5rem; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Josefin Sans'; Helvetica, sans;
   color: rgb(40, 40, 40); }
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Josefin Slab';
+  font-family: 'Josefin Slab', Times, sans-serif;
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 600;
@@ -142,7 +141,7 @@ h3 { font-size: 2.5rem; line-height: 1.2; font-variant: small-caps;}
 h4 { font-size: 1.5rem; line-height: 1.2; }
 
 h1.carlisle {
-  font-family: 'Josefin Slab';
+  font-family: 'Josefin Slab', Times, sans-serif;
   font-size: 2.7rem;
   text-align: center;
   color: rgb(40, 40, 40);
@@ -160,10 +159,7 @@ h3 { font-size: 2.0rem; line-height: 1.2; }
 h4 { font-size: 1.5rem; line-height: 1.2; font-variant: small-caps;}
 }
 
-p {
-  text-align: left;
-  font-family: 'Josefin Sans';
-  margin-top: 0; }
+p { margin-top: 0; }
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -211,14 +207,17 @@ pre > code {
 /* Menu (Navigation Links)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+ul.menu {
+  text-align: center;
+  margin-left: 0;
+  padding-left: 0;
+}
+li.menu {
+    list-style-type: none;
+}
 
 /* Larger than tablet */
 @media (max-width: 750px) {
-  ul.menu {
-    text-align: center;
-    margin-left: 0;
-    padding-left: 0;
-  }
   li.menu {
   display: inline-block;
   margin-left: 1.25rem;
