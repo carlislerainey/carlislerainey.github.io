@@ -26,10 +26,9 @@
 @media (min-width: 750px) {
   .container {
     width: 80%; }
-  .column,
   .columns {
-    margin-left: 4%; }
-  .column:first-child,
+    margin-left: 0%;
+    margin-top: 7%; }
   .columns:first-child {
     margin-left: 0; }
 
