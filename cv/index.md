@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Research | Carlisle Rainey
+title: CV | Carlisle Rainey
 ---
 
 # Curriculum Vitae
