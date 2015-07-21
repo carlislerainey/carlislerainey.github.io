@@ -19,7 +19,7 @@
 [[Long Paper](../papers/unreliable.pdf)]
 [[GitHub](https://github.com/carlislerainey/Unreliable)]
 - "Modeling Misreports of Vote Choice: A Comparison of Alternative Approaches." With Robert Jackson. Under review.
-[[Short Paper](../papers/misreports.pdf)]
+[[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
 - "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Under review.
 [[Paper](../papers/meaningful.pdf)]
