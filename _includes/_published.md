@@ -2,10 +2,9 @@
 
 ### Forthcoming
 
-- "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. Accepted for publication.
+- Rainey, Carlisle. "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. Accepted.
 [[Paper](../papers/taiwan.pdf)]
 [[GitHub](https://github.com/carlislerainey/taiwan)]
- [[Paper](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2463871)]
 - Rainey, Carlisle. "Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction." Political Science Research and Methods. Accepted, conditional on replication.
 [[Paper](../papers/compress.pdf)]
 [[Appendix](../papers/compress-appendix.pdf)]
