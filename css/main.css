@@ -146,7 +146,7 @@ li.menu {
 @media (max-width: 750px) {
   li.menu {
   display: inline-block;
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-left: 1.0rem;
+  margin-right: 1.0rem;
   }
 }
