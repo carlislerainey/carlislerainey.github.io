@@ -54,6 +54,8 @@ GitHub: github.com/carlislerainey
 
 - "Dealing with Separation in Logistic Regression Models."
 	- Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
+- "Logistic Regression with Small Samples: Nearly Unbiased Estimation with Penalized Maximum Likelihood." With Kelly McCaskey.
+  - Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
 - "The Effects of Party Control, Electoral Cycles and Institutional Design on Tax Policy Changes." With Kevin R. Stout and Richard F. Winters.
   - State Politics and Policy Conference, Sacramento, CA, May 2015.
 	- Midwest Political Science Association Annual Conference, Chicago, April 2015.
