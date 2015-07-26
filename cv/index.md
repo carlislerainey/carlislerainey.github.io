@@ -97,15 +97,15 @@ GitHub: github.com/carlislerainey
 
 ### Reviewer
 
-*Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *American Journal of Political Science* (2014-2x), *Political Behavior* (2014), *Political Science Research and Methods* (2014, 2015), *Comparative Politics* (2015)
+*American Political Science Review (2015)*, *American Journal of Political Science* (2014-2x), *Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *Political Behavior* (2014), *Political Science Research and Methods* (2014, 2015), and *Comparative Politics* (2015)
 
 ### Discussant
 
-Society for Political Methodology Annual Meeting (2013, 2015)
+Society for Political Methodology Annual Meeting (2014, 2015)
 
 ### Committees
 
-Methodology Search Committee (2012-13, FSU), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2014-2015, UB), Graduate Studies Committee (2013-15, UB)
+Methodology Search Committee (2012-13, FSU), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2014-2015, UB), Graduate Studies Committee (2013-15, UB), Co-director of the Political Methodology Research Program (2015-present)
 
 ## Teaching
 
