@@ -52,7 +52,10 @@ GitHub: github.com/carlislerainey
 
 ## Conference Presentations
 
-- "The Effects of Party Control, Electoral Cycles and Institutional Design on Tax Policy Changes." With Richard F. Winters and Kevin R. Stout.
+- "Dealing with Separation in Logistic Regression Models."
+	- Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
+- "The Effects of Party Control, Electoral Cycles and Institutional Design on Tax Policy Changes." With Kevin R. Stout and Richard F. Winters.
+  - State Politics and Policy Conference, Sacramento, CA, May 2015.
 	- Midwest Political Science Association Annual Conference, Chicago, April 2015.
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model."
 	- Innovations in Comparative Political Methodology Conference at Texas A&M University, March 2015.
@@ -80,7 +83,7 @@ GitHub: github.com/carlislerainey
 	- Midwest Political Science Association Annual Conference, Chicago, IL, April 2012.
 - "Does Magnitude Matter? The Case of Taiwan."
 	- Midwest Political Science Association Annual Conference, Chicago, IL, April 2011.
-- Southern Political Science Association Annual Conference, New Orleans, LA, January 2012.
+  - Southern Political Science Association Annual Conference, New Orleans, LA, January 2012.
 
 ## Grants and Awards
 
