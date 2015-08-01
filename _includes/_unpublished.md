@@ -9,6 +9,9 @@
 - "Logistic Regression with Small Samples: (Nearly) Unbiased Estimation with Penalized Maximum Likelihood." With [Kelly McCaskey](http://www.kellymccaskey.com).
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
+- "Transformation-Induced Bias Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest."
+[[Paper](../papers/bias.pdf)]
+[[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa.
 [[GitHub](https://github.com/carlislerainey/heavy-tails)]
 
