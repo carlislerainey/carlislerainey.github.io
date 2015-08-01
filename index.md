@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home | Carlisle Rainey
+desc: "Assistant Professor of Political Science at Texas A&M University. Writes about political methodology and American and comparative elections."
 ---
 
 # About Me
