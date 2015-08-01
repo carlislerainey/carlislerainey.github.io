@@ -93,10 +93,13 @@ p { margin-top: 0; }
 a {
   text-decoration: none;
   /*border-bottom: 1px grey solid;*/
-  color: rgb(100, 100, 100);
+  color: rgb(100, 0, 0);
   }
 a:hover {
-  color: rgb(0,0,0);
+  color: rgb(255, 0, 0);
+  border-bottom: rgb(255, 0, 0);
+  border-width: 0px 0px 2px 0px;
+  border-style: none none solid none;
   }
 
 
