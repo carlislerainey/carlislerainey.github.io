@@ -14,14 +14,17 @@ Texas A&M University
 4348 TAMU  
 College Station, TX 77843-4348  
 
-e-mail: [crainey@tamu.edu](mailto:crainey@tamu.edu)
-Twitter: [twitter.com/carlislerainey](https://twitter.com/carlislerainey)
-GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
+e-mail: [crainey@tamu.edu](mailto:crainey@tamu.edu)  
+Twitter: [twitter.com/carlislerainey](https://twitter.com/carlislerainey)  
+GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)  
 
-## Appointments
+## Current Appointments
 
 - Assistant Professor, Department of Political Science, Texas A&M University, July 2015 - present.
 - Director, Program in Scientific Political Methodology, Texas A&M University, July 2015 - present.
+
+## Previous Appointment
+
 - Assistant Professor, Department of Political Science, University at Buffalo, SUNY, August 2013 - July 2015.
 
 ## Education
