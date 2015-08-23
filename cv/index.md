@@ -10,18 +10,19 @@ title: CV | Carlisle Rainey
 Carlisle Rainey  
 Department of Political Science  
 Texas A&M University  
-2010 Allen Building  
+2051 Allen Building  
 4348 TAMU  
 College Station, TX 77843-4348  
 
-e-mail: crainey@tamu.edu or carlislerainey@gmail.com  
-Twitter: twitter.com/carlislerainey  
-GitHub: github.com/carlislerainey
+e-mail: [crainey@tamu.edu](mailto:crainey@tamu.edu)
+Twitter: [twitter.com/carlislerainey](https://twitter.com/carlislerainey)
+GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ## Appointments
 
-- Assistant Professor, Department of Political Science, Texas A&M University, 2015 - present.
-- Assistant Professor, Department of Political Science, University at Buffalo, SUNY, 2013-2015.
+- Assistant Professor, Department of Political Science, Texas A&M University, July 2015 - present.
+- Director, Program in Scientific Political Methodology, Texas A&M University, July 2015 - present.
+- Assistant Professor, Department of Political Science, University at Buffalo, SUNY, August 2013 - July 2015.
 
 ## Education
 
@@ -43,7 +44,7 @@ GitHub: github.com/carlislerainey
 
 ## Software
 
-- `compactr`: an R package for creating graphs with compact axis notation.
+- `compactr`: an R package for creating graphs with compact axis notation. This package has been downloaded more than 6,000 times from the RStudio CRAN mirror.
 [[Overview](http://www.carlislerainey.com/compactr/)]
 [[CRAN](http://cran.r-project.org/web/packages/compactr/index.html)]
 [[Github](ttps://github.com/carlislerainey/compactr)]
@@ -86,7 +87,7 @@ GitHub: github.com/carlislerainey
 - "Does Magnitude Matter? The Case of Taiwan."
 	- Midwest Political Science Association Annual Conference, Chicago, IL, April 2011.
   - Southern Political Science Association Annual Conference, New Orleans, LA, January 2012.
-	
+
 ## Grants and Awards
 
 - Dean's Travel Fund for Untenured Faculty, 2014.
@@ -97,7 +98,7 @@ GitHub: github.com/carlislerainey
 
 ### Reviewer
 
-*American Political Science Review (2015)*, *American Journal of Political Science* (2014-2x), *Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *Political Behavior* (2014), *Political Science Research and Methods* (2014, 2015), and *Comparative Politics* (2015)
+*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *Political Behavior* (2014), *Political Science Research and Methods* (2014, 2015), and *Comparative Politics* (2015)
 
 ### Discussant
 
@@ -105,7 +106,7 @@ Society for Political Methodology Annual Meeting (2014, 2015)
 
 ### Committees
 
-Methodology Search Committee (2012-13, FSU), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2014-2015, UB), Graduate Studies Committee (2013-15, UB), Co-director of the Political Methodology Research Program (2015-present)
+Methodology Search Committee (2012-13, FSU), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2014-2015, UB), Graduate Studies Committee (2013-15, UB)
 
 ## Teaching
 
