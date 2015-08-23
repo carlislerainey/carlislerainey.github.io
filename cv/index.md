@@ -154,6 +154,12 @@ Associate Professor of Political Science
 University of Wisconsin--Madison  
 Madison, Wisconsin  
 [jahlquist@wisc.edu](mailto:jahlquist@wisc.edu)  
+Professor John Ahlquist  
+Associate Professor  
+School of Global Policy and Strategy  
+University of California, San Diego  
+La Jolla, California  
+[jahlquist@ucsd.edu](mailto:jahlquist@ucsd.edu)  
 
 Professor Jason Barabas  
 Associate Professor of Political Science  
