@@ -15,7 +15,7 @@ title: POLS 209 | Carlisle Rainey
 - Dec 10: No Class (Reading Day)  
 
 **Exams**  
-- Midterm: Oct 20 during the usual class time
+- Midterm: Oct 22 during the usual class time
 - Final: Dec 15 1-3pm for the 4:40-5:55pm section and Dec 16 8-10am for the 1:30-2:45 section  
 
 **Writing Assignments**
@@ -23,8 +23,10 @@ title: POLS 209 | Carlisle Rainey
 | Topic   | Assigned | Due |
 |:--------------:|:---------------:|:----------:|
 | Self-Reported Turnout | Sep 15        | Sep 29   |
-| Conditional Cash Transfers and Turnout | Sep 27        | Nov 12   |
-| TBD | Nov 19        | Dec 8    |
+| Detecting Fraud in LaCour and Green | Oct 1        | Oct 15   |
+| Conditional Cash Transfers and Turnout | Oct 27        | Nov 10   |
+| TBD | Nov 12        | Dec 1    |
+
 
 These topics are *tentative*.
 
