@@ -7,7 +7,7 @@ title: Teaching | Carlisle Rainey
 
 ## Current Classes
 
-- [POLS 209](teaching/pols-209): Provides an introduction to political methodology or to the analysis of political data. Focuses on both statistical concepts (e.g., causation, regression, hypothesis testing) and computation (e.g., R, ggplot2) and emphasize concepts over mathematical formulas. Includes discussions of the role of models in political science, the fundamental problem of causal inference, the important differences between observational and experimental data, conceptual and operational definitions of variables, histograms, measures of location and spread, measures of association, regression, probability theory, sample surveys, statistical inference.
+- [POLS 209](pols-209): Provides an introduction to political methodology or to the analysis of political data. Focuses on both statistical concepts (e.g., causation, regression, hypothesis testing) and computation (e.g., R, ggplot2) and emphasize concepts over mathematical formulas. Includes discussions of the role of models in political science, the fundamental problem of causal inference, the important differences between observational and experimental data, conceptual and operational definitions of variables, histograms, measures of location and spread, measures of association, regression, probability theory, sample surveys, statistical inference.
 
 ## Previous Classes
 
