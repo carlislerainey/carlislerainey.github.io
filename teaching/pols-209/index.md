@@ -15,7 +15,7 @@ title: POLS 209 | Carlisle Rainey
 - Dec 10: No Class (Reading Day)  
 
 **Exams**  
-- Midterm: Oct 22 during the usual class time
+- Midterm: Oct 22 during the usual class time  
 - Final: Dec 15 1-3pm for the 4:40-5:55pm section and Dec 16 8-10am for the 1:30-2:45 section  
 
 **Writing Assignments**
