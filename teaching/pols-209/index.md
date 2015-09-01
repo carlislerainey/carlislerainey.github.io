@@ -5,7 +5,7 @@ title: POLS 209 | Carlisle Rainey
 
 # Introduction to Political Science Research Methods
 
-**Syllabus** [[pdf](https://dl.dropboxusercontent.com/s/roqafxpixefp5j4/syllabus.pdf?dl=0)]
+**Syllabus** [[pdf](files/syllabus.pdf)]
 
 ## Dates to Note
 
