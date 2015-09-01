@@ -40,7 +40,8 @@ Note that the assignments should be done *before* class on the date they are lis
 
 **Sep 1**: Syllabus and Questions in Political Science  
 - read: syllabus [[pdf](files/syllabus.pdf)]  
-- lecture: "Questions" [[html](files/notes-questions.html)]  
+- lecture: "Questions" [[html](files/notes-questions.html)] [[slides](files/slides-syllabus-questions.pdf)]  
+- code: randomly pair students [[gist](https://gist.github.com/carlislerainey/2bc3064839c735d383f0)]
 
 **Sep 3**: No class (APSA meeting)
 
