@@ -32,22 +32,22 @@ These topics are *tentative*.
 
 ## Data
 
-All the data sets we'll use are available in [this .zip file](https://dl.dropboxusercontent.com/s/f5cuy8igrlsl6cu/qss-data.zip?dl=0).
+All the data sets we'll use are available in [this .zip file](files/data.zip).
 
 ## Schedule
 
 Note that the assignments should be done *before* class on the date they are listed under.
 
 **Sep 1**: Syllabus and Questions in Political Science  
-- read: syllabus [[pdf](https://dl.dropboxusercontent.com/s/roqafxpixefp5j4/syllabus.pdf?dl=1) ]  
-- lecture: "Questions" [[html](https://dl.dropboxusercontent.com/s/iwqv4qsi9qch0li/questions.html?dl=0)]
+- read: syllabus [[pdf](files/syllabus.pdf)]  
+- lecture: "Questions" [[html](files/notes-questions.html)]  
 
 **Sep 3**: No class (APSA meeting)
 
 **Sep 8**: Models  
-- practice: problems on questions [pdf]  
+- practice: problems on questions [[pdf](files/pp-questions.pdf)]  
 - read: Lave and March, chs. 1-3 [pdf on eCampus]  
-- practice: problems on models [pdf]  
+- practice: problems on models [[pdf](files/pp-models.pdf)]  
 - lecture: model building exercises  
 
 **Sep 10**: Computing, Part 1  
