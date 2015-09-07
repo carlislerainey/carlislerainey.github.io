@@ -2,10 +2,6 @@
 
 ### In-Progress
 
-- "Dealing with Separation in Logistic Regression Models."
-[[Paper](../papers/separation.pdf)]
-[[GitHub](https://github.com/carlislerainey/priors-for-separation)]
-[[Software](https://github.com/carlislerainey/separation)]
 - "Logistic Regression with Small Samples: (Nearly) Unbiased Estimation with Penalized Maximum Likelihood." With [Kelly McCaskey](http://www.kellymccaskey.com).
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
@@ -17,6 +13,10 @@
 
 ### Under Review
 
+- "Dealing with Separation in Logistic Regression Models."
+[[Paper](../papers/separation.pdf)]
+[[GitHub](https://github.com/carlislerainey/priors-for-separation)]
+[[Software](https://github.com/carlislerainey/separation)]
 - "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson. Under review.
 [[Short Paper](../papers/unreliable-short.pdf)]
 [[Long Paper](../papers/unreliable.pdf)]
