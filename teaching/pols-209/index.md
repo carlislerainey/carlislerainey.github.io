@@ -49,15 +49,17 @@ Note that the assignments should be done *before* class on the date they are lis
 - practice: problems on questions [[pdf](files/pp-questions.pdf)]  
 - read: Lave and March, chs. 1-3 [pdf on eCampus]  
 - practice: problems on models [[pdf](files/pp-models.pdf)]  
-- lecture: model building exercises  
+- lecture: model building exercises, computing preview [[pdf](files/slides-models-computing.pdf)]
 
 **Sep 10**: Computing, Part 1  
 - read: *QSS*, sections 1.3-1.3.4  
-- practice: problems on computing, 1-x  
+- read: notes on computing, part 1 [[html](files/notes-computing-part1.html)]  
+- practice: problems on computing, part 1 [[pdf](files/pp-computing-part1.pdf)]
 
 **Sep 15**: Computing, Part 2  
 - read: *QSS*, sections 1.3.5-1.3.8  
-- practice: problems on computing, x-x  
+- read: notes on computing, part 2 [html]  
+- practice: problems on computing, part 2 [pdf]  
 - assigned: *Self-Reported Turnout Assignment* (*QSS*, section 1.4.1, questions 1-6, due Sep 29)  
 
 ...
