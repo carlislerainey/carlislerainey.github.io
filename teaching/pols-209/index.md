@@ -54,7 +54,7 @@ Note that the assignments should be done *before* class on the date they are lis
 **Sep 10**: Computing, Part 1  
 - read: *QSS*, sections 1.3-1.3.4  
 - read: notes on computing, part 1 [[html](files/notes-computing-part1.html)]  
-- practice: problems on computing, part 1 [[pdf](files/pp-computing-part1.pdf)]  [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/computing-part1/pp-key-computing-part1.R)]
+- practice: problems on computing, part 1 [[pdf](files/pp-computing-part1.pdf)]  [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/computing-part1/pp-key-computing-part1.R)]  
 - lecture: review of computing problems, preview of reading data [[pdf](files/slides-computing.pdf)]  
 - data: [[UNpop.csv](data/UNpop.csv)] [[UNpop.dta](data/UNpop.dta)] [[nominate.csv](data/nominate.csv)]  
 
