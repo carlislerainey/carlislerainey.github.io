@@ -54,12 +54,15 @@ Note that the assignments should be done *before* class on the date they are lis
 **Sep 10**: Computing, Part 1  
 - read: *QSS*, sections 1.3-1.3.4  
 - read: notes on computing, part 1 [[html](files/notes-computing-part1.html)]  
-- practice: problems on computing, part 1 [[pdf](files/pp-computing-part1.pdf)]
+- practice: problems on computing, part 1 [[pdf](files/pp-computing-part1.pdf)]  
+- lecture: review of computing problems, preview of reading data [[pdf](files/slides-computing.pdf)]  
+- data: [[UNpop.csv](data/UNpop.csv)] [[UNpop.dta](data/UNpop.dta)] [[nominate.csv](data/nominate.csv)]  
+
 
 **Sep 15**: Computing, Part 2  
 - read: *QSS*, sections 1.3.5-1.3.8  
-- read: notes on computing, part 2 [html]  
-- practice: problems on computing, part 2 [pdf]  
+- read: notes on computing, part 2 [[html](files/notes-computing-part2.html)]  
+- practice: problems on computing, part 2 [[pdf](files/pp-computing-part2.pdf)]  
 - assigned: *Self-Reported Turnout Assignment* (*QSS*, section 1.4.1, questions 1-6, due Sep 29)  
 
 ...
