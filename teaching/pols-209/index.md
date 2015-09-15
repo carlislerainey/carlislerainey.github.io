@@ -63,7 +63,12 @@ Note that the assignments should be done *before* class on the date they are lis
 - read: *QSS*, sections 1.3.5-1.3.8  
 - read: notes on computing, part 2 [[html](files/notes-computing-part2.html)]  
 - practice: problems on computing, part 2 [[pdf](files/pp-computing-part2.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/computing-part2/pp-key-computing-part2.R)]  
-- assigned: *Self-Reported Turnout Assignment* (*QSS*, section 1.4.1, questions 1-6, due Sep 29)  
+- assigned: [*Self-Reported Turnout Assignment*](files/wa1.pdf) (due Sep 29)  
+
+**Sep 17**: Causality  
+- read: *QSS*, sections 2.1-2.5 (this is a little long, so plan accordingly)  
+- practice: problems on causality [[pdf](files/pp-causality.pdf)]  
+- data: [[resume.csv](data/resume.csv)]  
 
 ...
 
