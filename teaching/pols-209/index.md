@@ -68,7 +68,7 @@ Note that the assignments should be done *before* class on the date they are lis
 **Sep 17**: Causality  
 - read: *QSS*, sections 2.1-2.5 (this is a little long, so plan accordingly)  
 - practice: problems on causality [[pdf](files/pp-causality.pdf)]  
-- lecture: analysis of resume names [[html]()]
+- lecture: analysis of resume names [[html](files/slides-causality.html)] 
 - data: [[resume.csv](data/resume.csv)]  
 
 **Sep 22**: Description  
