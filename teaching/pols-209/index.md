@@ -58,7 +58,6 @@ Note that the assignments should be done *before* class on the date they are lis
 - lecture: review of computing problems, preview of reading data [[pdf](files/slides-computing.pdf)]  
 - data: [[UNpop.csv](data/UNpop.csv)] [[UNpop.dta](data/UNpop.dta)] [[nominate.csv](data/nominate.csv)]  
 
-
 **Sep 15**: Computing, Part 2  
 - read: *QSS*, sections 1.3.5-1.3.8  
 - read: notes on computing, part 2 [[html](files/notes-computing-part2.html)]  
@@ -72,8 +71,24 @@ Note that the assignments should be done *before* class on the date they are lis
 - data: [[resume.csv](data/resume.csv)]  
 
 **Sep 22**: Description  
-- read: **QSS**, section 2.6-2.7  
-- practice: problems on description [[pdf](files/pp-description.pdf)]  
+- read: *QSS*, sections 2.6-2.7  
+- practice: problems on description [[pdf](files/pp-description.pdf)]   [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/description/pp-key-description.R)]  
+- lecture: describing polarization [[html](files/slides-description.html)]  
+
+**Sep 24**: Measurement  
+- read: *QSS*, sections 3.1-3.3  
+- read: Deirdre McCloskey's "Economical Writing" [[pdf](http://www.deirdremccloskey.com/docs/pdf/Article_86.pdf)]  
+- practice: problems on measurement [[pdf](files/pp-measurement.pdf)]   [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/measurement/pp-key-measurement.R)]  
+- lecture: measuring democracy  
+
+**Sep 29**: Sample Surveys  
+- due: [*Self-Reported Turnout Assignment*](files/wa1.pdf)  
+- practice: additional problems on measurement [pdf]  
+- read: *QSS*, section 3.4  
+- read: "Large Study of Internet Use Finds Six Percent Are Addicts" [[pdf](files/internet-addiction.pdf)]  
+- practice: problems on sample surveys [pdf]  
+- lecture: How large is your family?  
+
 
 ...
 
