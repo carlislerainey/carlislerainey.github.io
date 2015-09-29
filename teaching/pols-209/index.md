@@ -79,7 +79,7 @@ Note that the assignments should be done *before* class on the date they are lis
 - read: *QSS*, sections 3.1-3.3  
 - read: Deirdre McCloskey's "Economical Writing" [[pdf](http://www.deirdremccloskey.com/docs/pdf/Article_86.pdf)]  
 - practice: problems on measurement [[pdf](files/pp-measurement.pdf)]   [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/measurement/pp-key-measurement.R)]  
-- lecture: measuring democracy [[pdf](files/slides-measuring-democracy.pdf)]   
+- lecture: measuring democracy [[pdf](files/slides-measuring-democracy.pdf)]
 
 **Sep 29**: Sample Surveys  
 - due: [*Self-Reported Turnout Assignment*](files/wa1.pdf)  
@@ -87,8 +87,12 @@ Note that the assignments should be done *before* class on the date they are lis
 - read: *QSS*, section 3.4  
 - read: "Large Study of Internet Use Finds Six Percent Are Addicts" [[pdf](files/internet-addiction.pdf)]  
 - practice: problems on sample surveys [[pdf](files/pp-sample-surveys.pdf)]  
-- lecture: How large is your family?  
 
+**Oct 1**: Predicting Elections  
+- read: *QSS*, section 4.1  
+- practice: problems on predicting presidential elections  [[pdf](files/pp-prediction.pdf)]  
+- assigned: *Detecting Fraud Assignment* (due Oct 15)  
+- lecture: How large is your family?
 
 ...
 
