@@ -96,7 +96,7 @@ Note that the assignments should be done *before* class on the date they are lis
 
 **Oct 6**: Correlation and Scatterplot  
 read: *QSS* sections 3.6 and 4.2-4.2.2  
-practice: problems on scatterplots and correlation [[pdf](files/pp-scatterplots.pdf)]  
+practice: problems on scatterplots and correlation [[pdf](files/pp-scatterplots.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/scatterplots/pp-key-scatterplots.R)]  
 lecture: TBD  
 -
 
