@@ -91,8 +91,14 @@ Note that the assignments should be done *before* class on the date they are lis
 **Oct 1**: Predicting Elections  
 - read: *QSS*, section 4.1  
 - practice: problems on predicting presidential elections  [[pdf](files/pp-prediction.pdf)]  
-- assigned: *Detecting Fraud Assignment* (due Oct 15)  
-- lecture: How large is your family?
+- assigned: [*Detecting Fraud Assignment*](files/wa2.pdf) (due Oct 15)  
+- lecture: How large is your family?  
+
+**Oct 6**: Correlation and Scatterplot  
+read: *QSS* sections 3.6 and 4.2-4.2.2  
+practice: problems on scatterplots and correlation [[pdf](files/pp-scatterplots.pdf)]  
+lecture: TBD  
+-
 
 ...
 
