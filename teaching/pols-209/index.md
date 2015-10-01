@@ -90,15 +90,19 @@ Note that the assignments should be done *before* class on the date they are lis
 
 **Oct 1**: Predicting Elections  
 - read: *QSS*, section 4.1  
-- practice: problems on predicting presidential elections  [[pdf](files/pp-prediction.pdf)]  
+- practice: problems on predicting presidential elections  [[pdf](files/pp-prediction.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/prediction/pp-key-prediction.R)]  
 - assigned: [*Detecting Fraud Assignment*](files/wa2.pdf) (due Oct 15)  
 - lecture: How large is your family?  
 
 **Oct 6**: Correlation and Scatterplot  
 read: *QSS* sections 3.6 and 4.2-4.2.2  
 practice: problems on scatterplots and correlation [[pdf](files/pp-scatterplots.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/scatterplots/pp-key-scatterplots.R)]  
+lecture: an exercise fitting a line through data  
+
+**Oct 13**: Least Squares  
+read: *QSS* section 4.2.2  
+practice: problems on least squares [[pdf](files/pp-scatterplots.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
 lecture: TBD  
--
 
 ...
 
