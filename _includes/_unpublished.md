@@ -13,6 +13,9 @@
 
 ### Under Review
 
+- "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Invitation to revise and resubmit to *Statistics, Politics, and Policy*.
+[[Paper](../papers/meaningful.pdf)]
+[[GitHub](https://github.com/carlislerainey/meaningful-inferences)]
 - "Dealing with Separation in Logistic Regression Models."
 [[Paper](../papers/separation.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
@@ -24,6 +27,3 @@
 - "Modeling Misreports of Vote Choice: A Comparison of Alternative Approaches." With Robert Jackson. Under review.
 [[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
-- "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Under review.
-[[Paper](../papers/meaningful.pdf)]
-[[GitHub](https://github.com/carlislerainey/meaningful-inferences)]

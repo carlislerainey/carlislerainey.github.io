@@ -7,7 +7,7 @@
 [[Journal](http://dx.doi.org/10.1016/j.electstud.2015.08.009)]
 [[Dataverse](http://dx.doi.org/10.7910/DVN/FMLYTY)]
 [[GitHub](https://github.com/carlislerainey/taiwan)]
-- Rainey, Carlisle. "Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction." *Political Science Research and Methods*. Accepted, conditional on replication.
+- Rainey, Carlisle. "Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction." *Political Science Research and Methods*. Accepted.
 [[Paper](../papers/compress.pdf)]
 [[Appendix](../papers/compress-appendix.pdf)]
 [[GitHub](https://github.com/carlislerainey/compress)]
