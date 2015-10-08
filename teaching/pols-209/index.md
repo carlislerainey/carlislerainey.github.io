@@ -101,7 +101,7 @@ lecture: an exercise fitting a line through data
 
 **Oct 8**: Least Squares  
 read: *QSS* section 4.2.2  
-practice: problems on least squares [[pdf](files/pp-key-least-squares.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
+practice: problems on least squares [[pdf](files/pp-least-squares.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
 lecture: discussion of writing  
 
 **October 13**: Interpreting a Regression  
