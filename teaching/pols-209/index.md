@@ -99,11 +99,25 @@ read: *QSS* sections 3.6 and 4.2-4.2.2
 practice: problems on scatterplots and correlation [[pdf](files/pp-scatterplots.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/scatterplots/pp-key-scatterplots.R)]  
 lecture: an exercise fitting a line through data  
 
-**Oct 13**: Least Squares  
+**Oct 8**: Least Squares  
 read: *QSS* section 4.2.2  
-practice: problems on least squares [[pdf](files/pp-scatterplots.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
-lecture: TBD  
+practice: problems on least squares [[pdf](files/pp-key-least-squares.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
+lecture: discussion of writing  
 
+**October 13**: Interpreting a Regression
+review: for midterm exam
+lecture: interpreting a regression model
+
+
+**October 15**: Multiple Regression
+review: for midterm exam
+- due: [*Detecting Fraud Assignment*](files/wa2.pdf)  
+
+**October 20**: Review for Midterm
+- come prepared with questions from the practice problems
+
+**October 22**: Midterm Exam  
+- mostly from practice problems  
 ...
 
 **Nov 26**: No class (Thanksgiving holiday)
