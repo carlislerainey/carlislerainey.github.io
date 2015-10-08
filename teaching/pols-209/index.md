@@ -104,20 +104,23 @@ read: *QSS* section 4.2.2
 practice: problems on least squares [[pdf](files/pp-key-least-squares.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/least-squares/pp-key-least-squares.R)]  
 lecture: discussion of writing  
 
-**October 13**: Interpreting a Regression
-review: for midterm exam
-lecture: interpreting a regression model
+**October 13**: Interpreting a Regression  
+- lecture: interpreting a regression model [pdf]  
 
-
-**October 15**: Multiple Regression
-review: for midterm exam
+**October 15**: First-Half Wrap  
 - due: [*Detecting Fraud Assignment*](files/wa2.pdf)  
+- practice: problems on interpreting regression [pdf]  
+- review: for midterm exam, especially practice problems  
 
-**October 20**: Review for Midterm
-- come prepared with questions from the practice problems
+**October 20**: Review for Midterm  
+- review: for midterm, especially practice problems  
+- practice: extra problems [[pdf](files/pp-midterm.pdf)]  
+- note: I added a problem to the problems on description and the problems on correlation  
+- lecture: Q&A (come prepared with questions, especially from the practice problems)  
 
 **October 22**: Midterm Exam  
-- mostly from practice problems  
+- note: the exam comes mostly from the practice problems  
+
 ...
 
 **Nov 26**: No class (Thanksgiving holiday)
