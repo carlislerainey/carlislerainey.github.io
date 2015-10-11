@@ -2,9 +2,6 @@
 
 ### In-Progress
 
-- "Logistic Regression with Small Samples: (Nearly) Unbiased Estimation with Penalized Maximum Likelihood." With [Kelly McCaskey](http://www.kellymccaskey.com).
-[[Paper](../papers/small.pdf)]
-[[GitHub](https://github.com/kellymccaskey/small)]
 - "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest."
 [[Paper](../papers/bias.pdf)]
 [[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
@@ -13,9 +10,12 @@
 
 ### Under Review
 
-- "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Invitation to revise and resubmit to *Statistics, Politics, and Policy*.
+- "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Revised and resubmitted to *Statistics, Politics, and Policy*.
 [[Paper](../papers/meaningful.pdf)]
 [[GitHub](https://github.com/carlislerainey/meaningful-inferences)]
+- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
+[[Paper](../papers/small.pdf)]
+[[GitHub](https://github.com/kellymccaskey/small)]
 - "Dealing with Separation in Logistic Regression Models."
 [[Paper](../papers/separation.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
