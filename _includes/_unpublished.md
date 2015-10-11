@@ -1,7 +1,7 @@
 ## Unpublished Papers
 
 ### In-Progress
-- - "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
+- "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
 [[Short Paper](../papers/unreliable-short.pdf)]
 [[Long Paper](../papers/unreliable.pdf)]
 [[GitHub](https://github.com/carlislerainey/Unreliable)]
