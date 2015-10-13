@@ -105,11 +105,11 @@ practice: problems on least squares [[pdf](files/pp-least-squares.pdf)] [[key](h
 lecture: discussion of writing  
 
 **October 13**: Interpreting a Regression  
-- lecture: interpreting a regression model [pdf]  
+- lecture: interpreting a regression model [[html](files/slides-interpreting-linear-regression.html)]  
 
 **October 15**: First-Half Wrap  
 - due: [*Detecting Fraud Assignment*](files/wa2.pdf)  
-- practice: problems on interpreting regression [pdf]  
+- practice: problems on interpreting regression [[pdf](files/pp-interpreting-linear-regression.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/interpreting-linear-regression/pp-key-interpreting-linear-regression.R)]
 - review: for midterm exam, especially practice problems  
 
 **October 20**: Review for Midterm  
