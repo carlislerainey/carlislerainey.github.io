@@ -109,7 +109,7 @@ lecture: discussion of writing
 
 **October 15**: First-Half Wrap  
 - due: [*Detecting Fraud Assignment*](files/wa2.pdf)  
-- practice: problems on interpreting regression [[pdf](files/pp-interpreting-linear-regression.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/interpreting-linear-regression/pp-key-interpreting-linear-regression.R)]
+- practice: problems on interpreting regression [[pdf](files/pp-interpreting-linear-regression.pdf)] [[key](https://github.com/carlislerainey/pols-209/blob/gh-pages/practice-problems/interpreting-linear-regression/pp-key-interpreting-linear-regression.R)]  
 - review: for midterm exam, especially practice problems  
 
 **October 20**: Review for Midterm  
