@@ -16,9 +16,6 @@
 
 ### Under Review
 
-- "Meaningful Inferences: The Importance of Explicit Statistical Arguments for Substantive Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). Revised and resubmitted to *Statistics, Politics, and Policy*.
-[[Paper](../papers/meaningful.pdf)]
-[[GitHub](https://github.com/carlislerainey/meaningful-inferences)]
 - "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
