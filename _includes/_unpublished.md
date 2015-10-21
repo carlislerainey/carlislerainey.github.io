@@ -8,9 +8,6 @@
 - "Modeling Misreports of Vote Choice: A Comparison of Alternative Approaches." With Robert Jackson.
 [[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
-- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest."
-[[Paper](../papers/bias.pdf)]
-[[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa.
 [[GitHub](https://github.com/carlislerainey/heavy-tails)]
 
@@ -23,3 +20,6 @@
 [[Paper](../papers/separation.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
 [[Software](https://github.com/carlislerainey/separation)]
+- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest."
+[[Paper](../papers/bias.pdf)]
+[[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
