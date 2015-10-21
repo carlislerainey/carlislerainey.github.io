@@ -120,6 +120,8 @@ lecture: discussion of writing
 
 **October 22**: Midterm Exam  
 - note: the exam comes mostly from the practice problems  
+- note: you may bring a *pocket* calculator  
+- note: you may bring a 3-by-5 note card with notes on the front and back  
 
 ...
 
