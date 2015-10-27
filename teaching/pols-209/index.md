@@ -125,7 +125,7 @@ lecture: discussion of writing
 
 **October 27**: The Lady Tasting Tea  
 - lecture: The Lady Tasting Tea [[notes](https://docs.google.com/document/d/1HlNJD9FWIJPn9cobkD0B4o04sJc61dI2dZoJM4p_aJo/edit?usp=sharing)] [[slides](https://docs.google.com/presentation/d/1By_JvKuG0bZiA-m1RPQu3zAbUOLOl0UCPOzKRHLefTg/edit?usp=sharing)]  
-- assigned: [*Money in Politics*](files/wa3.pdf) (due Nov 12)  
+- assigned: [*Money in Politics*](files/wa3.pdf) (due Nov 10)  
 
 **October 29**: Discrete Random Variables  
 - practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]  
