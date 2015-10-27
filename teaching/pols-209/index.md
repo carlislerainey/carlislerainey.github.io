@@ -24,7 +24,7 @@ title: POLS 209 | Carlisle Rainey
 |:--------------:|:---------------:|:----------:|
 | Self-Reported Turnout | Sep 15        | Sep 29   |
 | Detecting Fraud in LaCour and Green | Oct 1        | Oct 15   |
-| Conditional Cash Transfers and Turnout | Oct 27        | Nov 10   |
+| Money in Politics | Oct 27        | Nov 10   |
 | TBD | Nov 12        | Dec 1    |
 
 
@@ -122,6 +122,14 @@ lecture: discussion of writing
 - note: the exam comes mostly from the practice problems  
 - note: you may bring a *pocket* calculator  
 - note: you may bring a 3-by-5 note card with notes on the front and back  
+
+**October 27**: The Lady Tasting Tea  
+- lecture: The Lady Tasting Tea [[notes](https://docs.google.com/document/d/1HlNJD9FWIJPn9cobkD0B4o04sJc61dI2dZoJM4p_aJo/edit?usp=sharing)] [[slides](https://docs.google.com/presentation/d/1By_JvKuG0bZiA-m1RPQu3zAbUOLOl0UCPOzKRHLefTg/edit?usp=sharing)]  
+- assigned: [*Money in Politics*](files/wa3.pdf) (due Nov 12)  
+
+**October 29**: Discrete Random Variables  
+- practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]  
+- lecture: discrete random variables
 
 ...
 
