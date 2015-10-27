@@ -127,9 +127,10 @@ lecture: discussion of writing
 - lecture: The Lady Tasting Tea [[notes](https://docs.google.com/document/d/1HlNJD9FWIJPn9cobkD0B4o04sJc61dI2dZoJM4p_aJo/edit?usp=sharing)] [[slides](https://docs.google.com/presentation/d/1By_JvKuG0bZiA-m1RPQu3zAbUOLOl0UCPOzKRHLefTg/edit?usp=sharing)]  
 - assigned: [*Money in Politics*](files/wa3.pdf) (due Nov 10)  
 
-**October 29**: Discrete Random Variables  
-- practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]  
-- lecture: discrete random variables
+**October 29**: Probability  
+- practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]
+- read: notes on probability [[pdf](files/notes-probability.pdf)]
+- lecture: probability   
 
 ...
 
