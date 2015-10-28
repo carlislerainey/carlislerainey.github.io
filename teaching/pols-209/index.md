@@ -130,7 +130,9 @@ lecture: discussion of writing
 **October 29**: Probability  
 - practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]
 - read: notes on probability [[pdf](files/notes-probability.pdf)]
-- lecture: probability   
+- lecture: probability
+
+Note: I'll not be holding my usual office hours on Nov. 10, Nov. 17, Dec. 1, and Dec. 15. I am available other times by appointment and after class for quick questions.
 
 ...
 
