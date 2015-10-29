@@ -125,14 +125,31 @@ lecture: discussion of writing
 
 **October 27**: The Lady Tasting Tea  
 - lecture: The Lady Tasting Tea [[notes](https://docs.google.com/document/d/1HlNJD9FWIJPn9cobkD0B4o04sJc61dI2dZoJM4p_aJo/edit?usp=sharing)] [[slides](https://docs.google.com/presentation/d/1By_JvKuG0bZiA-m1RPQu3zAbUOLOl0UCPOzKRHLefTg/edit?usp=sharing)]  
-- assigned: [*Money in Politics*](files/wa3.pdf) (due Nov 10)  
+- assigned: [*Money in Politics Assignment*](files/wa3.pdf) (due Nov 10)  
 
-**October 29**: Probability  
-- practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]
-- read: notes on probability [[pdf](files/notes-probability.pdf)]
-- lecture: probability
+**October 29**: Probability Basics  
+- practice: problems on the lady tasting tea [[pdf](files/pp-lady.pdf)]  
+- read: notes on probability [[pdf](files/notes-probability.pdf)]  
+- lecture: birthday problem, probability, simulation, biased coin, conditional probability, multiplication rule  
 
-Note: I'll not be holding my usual office hours on Nov. 10, Nov. 17, Dec. 1, and Dec. 15. I am available other times by appointment and after class for quick questions.
+**November 3**: Probability Basics, cont.  
+- complete: the R component of the [*Money in Politics Assignment*](files/wa3.pdf) writing assignment  
+- continue to read: notes on probability [[pdf](files/notes-probability.pdf)]  
+- practice: problems on probability (see notes on probability)  
+- lecture: independence, addition rule, mutually exclusive, faking random numbers, birthday problem  
+
+**November 5**: Probability Distributions
+
+**November 10**: Large Random Samples
+- note: no office hours today (available by appointment)
+- due: [*Money in Politics Assignment*](files/wa3.pdf) (due Nov 10)  
+
+**November 12**: Sampling Distributions
+
+**November 17**: Hypothesis Testing  
+- note: no office hours today (available by appointment)  
+
+Note: I'll not be holding my usual office hours on Dec. 1 or Dec. 15. I am available other times by appointment and before and after class for quick questions.
 
 ...
 
