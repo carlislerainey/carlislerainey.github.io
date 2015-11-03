@@ -101,7 +101,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Reviewer
 
-*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Journal of Politics* (2015), *Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *Political Behavior* (2014, 2015), *Political Science Research and Methods* (2014, 2015), and *Comparative Politics* (2015)
+*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Journal of Politics* (2015), *Political Analysis* (2015), *Party Politics* (2012), *State Politics and Policy Quarterly* (2013-2x, 2014), *Political Behavior* (2014, 2015), *Political Science Research and Methods* (2014, 2015), and *Comparative Politics* (2015)
 
 ### Discussant
 
