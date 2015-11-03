@@ -137,7 +137,7 @@ lecture: discussion of writing
 - complete: the R component of the [*Money in Politics Assignment*](files/wa3.pdf) writing assignment  
 - continue to read: notes on probability [[pdf](files/notes-probability.pdf)]  
 - practice: problems on probability (see notes on probability)  
-- lecture: independence, addition rule, mutually exclusive, faking random numbers, birthday problem  
+- lecture: discussion of fraud assignment [[html](files/discussion-fraud.html)], independence, addition rule, mutually exclusive, faking random numbers, birthday problem  
 
 **November 5**: Probability Distributions
 
