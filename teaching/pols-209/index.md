@@ -133,7 +133,7 @@ lecture: discussion of writing
 - lecture: birthday problem, probability, simulation, biased coin, conditional probability, multiplication rule  
 
 **November 3**: Probability Basics, cont.  
-- extra office hours: in Allen 2003 from 12-1:30pm
+- extra office hours: in Allen 2003 from 12-1:30pm  
 - complete: the R component of the [*Money in Politics Assignment*](files/wa3.pdf) writing assignment  
 - continue to read: notes on probability [[pdf](files/notes-probability.pdf)]  
 - practice: problems on probability (see notes on probability)  
@@ -141,8 +141,8 @@ lecture: discussion of writing
 
 **November 5**: Probability Distributions
 
-**November 10**: Large Random Samples
-- note: no office hours today (available by appointment)
+**November 10**: Large Random Samples  
+- note: no office hours today (available by appointment)  
 - due: [*Money in Politics Assignment*](files/wa3.pdf) (due Nov 10)  
 
 **November 12**: Sampling Distributions
