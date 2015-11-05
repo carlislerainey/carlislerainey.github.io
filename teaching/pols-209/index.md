@@ -140,6 +140,8 @@ lecture: discussion of writing
 - lecture: discussion of fraud assignment [[html](files/discussion-fraud.html)], independence, addition rule, mutually exclusive, faking random numbers, birthday problem  
 
 **November 5**: Probability Distributions
+- preview: in-progress notes on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)]  
+- lecture: discrete probability distributions  
 
 **November 10**: Large Random Samples  
 - note: no office hours today (available by appointment)  
