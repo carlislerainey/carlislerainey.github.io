@@ -139,17 +139,20 @@ lecture: discussion of writing
 - practice: problems on probability (see notes on probability)  
 - lecture: discussion of fraud assignment [[html](files/discussion-fraud.html)], independence, addition rule, mutually exclusive, faking random numbers, birthday problem  
 
-**November 5**: Probability Distributions  
+**November 5**: Discrete Random Variables  
 - preview: in-progress notes on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)]  
 - lecture: discrete probability distributions  
 
-**November 10**: Large Random Samples  
+**November 10**: Continuous Random Variables  
+- due: [*Money in Politics Assignment*](files/wa3.pdf)  
 - note: no office hours today (available by appointment)  
-- due: [*Money in Politics Assignment*](files/wa3.pdf) (due Nov 10)  
+- preview: in-progress notes on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)]  
+- lecture: continuous random variables  
 
-**November 12**: Sampling Distributions
+**November 12**: Large Random Samples  
+- practice: problems on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)]  
 
-**November 17**: Hypothesis Testing  
+**November 17**: Sampling Distributions  
 - note: no office hours today (available by appointment)  
 
 Note: I'll not be holding my usual office hours on Dec. 1 or Dec. 15. I am available other times by appointment and before and after class for quick questions.
