@@ -150,7 +150,7 @@ lecture: discussion of writing
 - lecture: continuous random variables  
 
 **November 12**: Large Random Samples  
-- practice: problems on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)]  
+- practice: problems on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)] (problems and key at bottom)  
 
 **November 17**: Sampling Distributions  
 - note: no office hours today (available by appointment)  
