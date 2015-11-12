@@ -151,6 +151,8 @@ lecture: discussion of writing
 
 **November 12**: Large Random Samples  
 - practice: problems on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)] (problems and key at bottom)  
+- preview: in-progress notes on large random samples [[Dropbox](https://www.dropbox.com/s/qe728deuj0xxvzh/notes-large-samples.pdf?dl=0)]  
+- lecture: Law of Large Numbers and the Central Limit Theorem  
 
 **November 17**: Sampling Distributions  
 - note: no office hours today (available by appointment)  
