@@ -156,6 +156,7 @@ lecture: discussion of writing
 
 **November 17**: Sampling Distributions  
 - note: no office hours today (available by appointment)  
+- practice: problems in notes on large random samples [[Dropbox](https://www.dropbox.com/s/qe728deuj0xxvzh/notes-large-samples.pdf?dl=0)]  
 
 Note: I'll not be holding my usual office hours on Dec. 1 or Dec. 15. I am available other times by appointment and before and after class for quick questions.
 
