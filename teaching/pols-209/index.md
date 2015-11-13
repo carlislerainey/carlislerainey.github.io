@@ -25,7 +25,7 @@ title: POLS 209 | Carlisle Rainey
 | Self-Reported Turnout | Sep 15        | Sep 29   |
 | Detecting Fraud in LaCour and Green | Oct 1        | Oct 15   |
 | Money in Politics | Oct 27        | Nov 10   |
-| TBD | Nov 12        | Dec 1    |
+| Democracy and Development | Nov 12        | Dec 8    |
 
 
 These topics are *tentative*.
@@ -153,6 +153,7 @@ lecture: discussion of writing
 - practice: problems on probability distributions [[Dropbox](https://www.dropbox.com/s/z7jb8wbfr3kcm1t/notes-distributions.pdf?dl=0)] (problems and key at bottom)  
 - preview: in-progress notes on large random samples [[Dropbox](https://www.dropbox.com/s/qe728deuj0xxvzh/notes-large-samples.pdf?dl=0)]  
 - lecture: Law of Large Numbers and the Central Limit Theorem  
+- assigned: [*Democracy and Development Assignment*](files/wa4.pdf) (due Dec 8)  
 
 **November 17**: Sampling Distributions  
 - note: no office hours today (available by appointment)  
