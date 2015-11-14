@@ -1,6 +1,7 @@
 ## Unpublished Papers
 
 ### In-Progress
+
 - "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
 [[Short Paper](../papers/unreliable-short.pdf)]
 [[Long Paper](../papers/unreliable.pdf)]
@@ -9,7 +10,7 @@
 [[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa.
-[[GitHub](https://github.com/carlislerainey/heavy-tails)]
+[[Paper](../papers/heavy-tails.pdf)] [[GitHub](https://github.com/carlislerainey/heavy-tails)]
 
 ### Under Review
 
