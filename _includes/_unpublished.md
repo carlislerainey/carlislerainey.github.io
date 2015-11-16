@@ -3,8 +3,7 @@
 ### In-Progress
 
 - "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
-[[Short Paper](../papers/unreliable-short.pdf)]
-[[Long Paper](../papers/unreliable.pdf)]
+[[Paper](../papers/unreliable.pdf)]
 [[GitHub](https://github.com/carlislerainey/Unreliable)]
 - "Modeling Misreports of Vote Choice: A Comparison of Alternative Approaches." With Robert Jackson.
 [[Paper](../papers/misreports.pdf)]
