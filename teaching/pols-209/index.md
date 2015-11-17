@@ -155,9 +155,15 @@ lecture: discussion of writing
 - lecture: Law of Large Numbers and the Central Limit Theorem  
 - assigned: [*Democracy and Development Assignment*](files/wa4.pdf) (due Dec 8)  
 
-**November 17**: Sampling Distributions  
+**November 17**: Sample Surveys
 - note: no office hours today (available by appointment)  
 - practice: problems in notes on large random samples [[Dropbox](https://www.dropbox.com/s/qe728deuj0xxvzh/notes-large-samples.pdf?dl=0)]  
+- lecture: sample surveys [[notes](https://www.dropbox.com/s/1pz343t0amkyg84/notes-sample-surveys.pdf?dl=0)] [[slides](https://www.dropbox.com/s/rea33b6jgzpado6/slides-sample-surveys.pdf?dl=0)]  
+
+**November 19**: Confidence Intervals  
+- read: notes on sample surveys [[notes](https://www.dropbox.com/s/1pz343t0amkyg84/notes-sample-surveys.pdf?dl=0)]  
+- practice: problems on sample surveys [[notes](https://www.dropbox.com/s/1pz343t0amkyg84/notes-sample-surveys.pdf?dl=0)]  
+- lecture: confidence intervals, midterm review
 
 Note: I'll not be holding my usual office hours on Dec. 1 or Dec. 15. I am available other times by appointment and before and after class for quick questions.
 
