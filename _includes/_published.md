@@ -2,7 +2,7 @@
 
 ### Forthcoming
 
-- "Substantive Importance and the Veil of Statistical Significance." With [Kelly McCaskey](http://www.kellymccaskey.com). *Statistics, Politics, and Policy*. Accepted.
+- McCaskey, Kelly and Carlisle Rainey. "Substantive Importance and the Veil of Statistical Significance." McCaskey](http://www.kellymccaskey.com). *Statistics, Politics, and Policy*. Accepted.
 [[Paper](../papers/meaningful.pdf)]
 [[GitHub](https://github.com/carlislerainey/meaningful-inferences)]
 - Rainey, Carlisle. "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. Accepted.
