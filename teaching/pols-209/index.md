@@ -163,10 +163,10 @@ lecture: discussion of writing
 **November 19**: Confidence Intervals for Proportions  
 - read: notes on sample surveys [[notes](https://www.dropbox.com/s/1pz343t0amkyg84/notes-sample-surveys.pdf?dl=0)]  
 - practice: problems on sample surveys [[notes](https://www.dropbox.com/s/1pz343t0amkyg84/notes-sample-surveys.pdf?dl=0)]  
-- lecture: confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]
+- lecture: confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)] [[slides](https://www.dropbox.com/s/1mn3qp34f7275x8/slides-cis.pdf?dl=0)]
 
-**November 24**: Writing Workshop
-- read: notes on confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]       - practice: problems on confidence intervals for proportions[[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]
+**November 24**: Writing Workshop  
+- read: notes on confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]       - practice: problems on confidence intervals for proportions[[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]  
 
 **Nov 26**: No class (Thanksgiving holiday)  
 
