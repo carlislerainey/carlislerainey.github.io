@@ -166,17 +166,29 @@ lecture: discussion of writing
 - lecture: confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)] [[slides](https://www.dropbox.com/s/1mn3qp34f7275x8/slides-cis.pdf?dl=0)]
 
 **November 24**: Writing Workshop  
-- note: no office hours today   
+- note: no office hours today
 - read: notes on confidence intervals for proportions [[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]         - practice: problems on confidence intervals for proportions[[notes](https://www.dropbox.com/s/xu5b2myv48uhzpn/notes-cis.pdf?dl=0)]  
 
 **Nov 26**: No class (Thanksgiving holiday)  
 
-Note: I'll not be holding my usual office hours on Dec. 1 or Dec. 15. I am available other times by appointment and before and after class for quick questions.
+**Dec 1**: Other Confidence Intervals
+- note: no office hours today (contact me for an appointment)  
+- lecture: other confidence intervals [[notes](https://www.dropbox.com/s/ddeyb03fgetw9aq/notes-cis-part2.pdf?dl=0)]  
 
-...
+**Dec 3**: Confidence Intervals for Slopes  
+- read: notes on other confidence intervals  
+- practice: problems in notes on other confidence intervals  
+- lecture: confidence intervals for slopes  
 
-**Dec 10**: No class (Reading day)
+**Dec 8**: Final Exam Review  
+- due: assigned: [*Democracy and Development Assignment*](files/wa4.pdf)  
+- read: notes on confidence intervals for slopes
+- practice: problems in notes on confidence intervals for slopes  
 
-Final Exam  
+**Dec 10**: No Class (reading day)  
+- note: I'll hold my usual office hours today  
+
+**Dec 15/16**: Final Exam  
 - for Section 902 (4:40-5:55pm): Dec 15, 1-3pm  
 - for Section 909 (1:30-2:45pm): Dec 16, 8-10am  
+- note: I'll not be holding my usual office hours on Dec. 15  
