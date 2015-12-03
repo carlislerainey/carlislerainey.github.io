@@ -178,12 +178,13 @@ lecture: discussion of writing
 **Dec 3**: Confidence Intervals for Slopes  
 - read: notes on other confidence intervals  
 - practice: problems in notes on other confidence intervals  
-- lecture: confidence intervals for slopes  
+- lecture: confidence intervals for slopes [[notes](https://www.dropbox.com/s/03768yqvgese6oi/notes-cis-slopes.pdf?dl=0)]  
 
 **Dec 8**: Final Exam Review  
 - due: assigned: [*Democracy and Development Assignment*](files/wa4.pdf)  
 - read: notes on confidence intervals for slopes
 - practice: problems in notes on confidence intervals for slopes  
+- note: you should e-mail me any particular practice problems that you'd like me to talk about in class
 
 **Dec 10**: No Class (reading day)  
 - note: I'll hold my usual office hours today  
