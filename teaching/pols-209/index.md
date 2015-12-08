@@ -171,7 +171,7 @@ lecture: discussion of writing
 
 **Nov 26**: No class (Thanksgiving holiday)  
 
-**Dec 1**: Other Confidence Intervals
+**Dec 1**: Other Confidence Intervals  
 - note: no office hours today (contact me for an appointment)  
 - lecture: other confidence intervals [[notes](https://www.dropbox.com/s/ddeyb03fgetw9aq/notes-cis-part2.pdf?dl=0)]  
 
@@ -181,8 +181,8 @@ lecture: discussion of writing
 - lecture: confidence intervals for slopes [[notes](https://www.dropbox.com/s/03768yqvgese6oi/notes-cis-slopes.pdf?dl=0)]  
 
 **Dec 8**: Final Exam Review  
-- due: assigned: [*Democracy and Development Assignment*](files/wa4.pdf)  
-- read: notes on confidence intervals for slopes
+- due: [*Democracy and Development Assignment*](files/wa4.pdf)  
+- read: notes on confidence intervals for slopes  
 - practice: problems in notes on confidence intervals for slopes  
 - note: you should e-mail me any particular practice problems that you'd like me to talk about in class
 
