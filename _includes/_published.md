@@ -16,7 +16,7 @@
 
 ### 2015
 
-- McCaskey, Kelly and Carlisle Rainey. "Substantive Importance and the Veil of Statistical Significance." McCaskey](http://www.kellymccaskey.com). *Statistics, Politics, and Policy* 6(1-2): 77-96.
+- McCaskey, Kelly and Carlisle Rainey. "Substantive Importance and the Veil of Statistical Significance." *Statistics, Politics, and Policy* 6(1-2): 77-96.
 [[Paper](../papers/meaningful.pdf)]
 [[Journal](http://www.degruyter.com/view/j/spp.2015.6.issue-1-2/spp-2015-0001/spp-2015-0001.xml?format=INT)]
 [[GitHub](https://github.com/carlislerainey/meaningful-inferences)]
