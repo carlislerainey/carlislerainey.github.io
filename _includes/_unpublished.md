@@ -9,7 +9,7 @@
 
 ### Under Review
 
-- - "Dealing with Separation in Logistic Regression Models." Invitation to revise and resubmit to *Political Analysis*.
+- "Dealing with Separation in Logistic Regression Models." Invitation to revise and resubmit to *Political Analysis*.
 [[Paper](../papers/separation.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
 [[Software](https://github.com/carlislerainey/separation)]
