@@ -58,12 +58,14 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 - "Dealing with Separation in Logistic Regression Models."
 	- Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
+	- Southern Political Science Association Annual Conference, San Juan, PR, January 2016.
 - "Logistic Regression with Small Samples: Nearly Unbiased Estimation with Penalized Maximum Likelihood." With Kelly McCaskey.
   - Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
 - "The Effects of Party Control, Electoral Cycles and Institutional Design on Tax Policy Changes." With Kevin R. Stout and Richard F. Winters.
   - State Politics and Policy Conference, Sacramento, CA, May 2015.
   - Midwest Political Science Association Annual Conference, Chicago, April 2015.
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model."
+  - Southern Political Science Association Annual Conference, San Juan, PR, January 2016.
 	- Innovations in Comparative Political Methodology Conference at Texas A&M University, March 2015.
 - "Compression and Conditional Effects."
 	- Society for Political Methodology Annual Meeting, Athens, GA, July 2014.
@@ -93,8 +95,9 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ## Grants and Awards
 
+- Artinian Award, 2016.
 - Dean's Travel Fund for Untenured Faculty, 2014.
-- Congress of Graduate Students Travel Grant Award, Florida State University, 2011, 2012
+- Congress of Graduate Students Travel Grant Award, Florida State University, 2011, 2012.
 - Graduate Assistantship, Florida State University Department of Political Science, 2008-2013.
 
 ## Service
@@ -105,7 +108,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Discussant
 
-Society for Political Methodology Annual Meeting (2014, 2015)
+Society for Political Methodology Annual Meeting (2014, 2015), Southern Political Science Association Annual Conference (2016)
 
 ### Committees
 
@@ -115,11 +118,12 @@ Methodology Search Committee (2012-13, FSU), American Politics Search Committee 
 
 ### Experience
 
+- Introduction to Political Science Research Methods (2 sections), Fall 2015.
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014
 - Political Science Research Methods: Summer 2011, Summer 2012
-- Linear Models (Graduate): Spring 2014, Sping 2015.
+- Linear Models (Graduate): Spring 2014, Spring 2015.
 - Generalized Linear Models (Graduate): Fall 2010 (TA), Spring 2015.
 - An Introduction to R Programming: Fall 2010 (Lab Instructor).
 - A Brief Introduction to Hierarchical Models (Two Guest Lectures): Spring 2012, Fall 2013.
