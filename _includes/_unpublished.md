@@ -6,6 +6,9 @@
 [[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
 - "Tax Policy Changes in the American States." With Kevin Stout and Richard F. Winters.
+- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
+[[Paper](../papers/small.pdf)]
+[[GitHub](https://github.com/kellymccaskey/small)]
 
 ### Under Review
 
@@ -13,10 +16,7 @@
 [[Paper](../papers/separation.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
 [[Software](https://github.com/carlislerainey/separation)]
-- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
-[[Paper](../papers/small.pdf)]
-[[GitHub](https://github.com/kellymccaskey/small)]
-- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest."
+- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." Invitation to revise and resubmit to *Political Analysis*.
 [[Paper](../papers/bias.pdf)]
 [[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
 - "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
