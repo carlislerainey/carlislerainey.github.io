@@ -19,9 +19,9 @@
 - "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." Invitation to revise and resubmit to *Political Analysis*.
 [[Paper](../papers/bias.pdf)]
 [[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
-- "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson.
+- "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson. Invitation to revise and resubmit to *Political Science Research and Methods*.
 [[Paper](../papers/unreliable.pdf)]
 [[GitHub](https://github.com/carlislerainey/Unreliable)]
-- "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa.
+- "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa. Invitation to revise and resubmit to *Political Science Research and Methods*.
 [[Paper](../papers/heavy-tails.pdf)]
 [[GitHub](https://github.com/carlislerainey/heavy-tails)]
