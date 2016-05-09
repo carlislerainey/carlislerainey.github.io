@@ -2,6 +2,11 @@
 
 ### Forthcoming
 
+- Rainey, Carlisle. "Dealing with Separation in Logistic Regression Models." *Political Analysis*. Accepted.
+[[Paper](../papers/separation.pdf)]
+[[Appendix](../papers/separation-appendix.pdf)]
+[[GitHub](https://github.com/carlislerainey/priors-for-separation)]
+[[Software](https://github.com/carlislerainey/separation)]
 - Rainey, Carlisle. "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. Accepted.
 [[Paper](../papers/taiwan.pdf)]
 [[Journal](http://dx.doi.org/10.1016/j.electstud.2015.08.009)]

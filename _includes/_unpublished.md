@@ -12,10 +12,6 @@
 
 ### Under Review
 
-- "Dealing with Separation in Logistic Regression Models." Invitation to revise and resubmit to *Political Analysis*.
-[[Paper](../papers/separation.pdf)]
-[[GitHub](https://github.com/carlislerainey/priors-for-separation)]
-[[Software](https://github.com/carlislerainey/separation)]
 - "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." Invitation to revise and resubmit to *Political Analysis*.
 [[Paper](../papers/bias.pdf)]
 [[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
