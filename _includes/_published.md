@@ -4,6 +4,7 @@
 
 - Rainey, Carlisle. "Dealing with Separation in Logistic Regression Models." *Political Analysis*. Accepted.
 [[Paper](../papers/separation.pdf)]
+[[Slides](../papers/separation-presentation-10min.pdf)]
 [[Appendix](../papers/separation-appendix.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
 [[Software](https://github.com/carlislerainey/separation)]
