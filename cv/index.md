@@ -108,7 +108,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Discussant
 
-Society for Political Methodology Annual Meeting (2014, 2015), Southern Political Science Association Annual Conference (2016)
+Society for Political Methodology Annual Meeting (2014, 2015, 2016), Southern Political Science Association Annual Conference (2016)
 
 ### Committees
 

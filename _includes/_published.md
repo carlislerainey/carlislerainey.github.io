@@ -1,24 +1,24 @@
 ## Published Papers
 
-### Forthcoming
+### 2016
 
-- Rainey, Carlisle. "Dealing with Separation in Logistic Regression Models." *Political Analysis*. Accepted.
+- Rainey, Carlisle. 2016. "Dealing with Separation in Logistic Regression Models." *Political Analysis*. 24(3): 339-355.
 [[Paper](../papers/separation.pdf)]
+[[Journal](http://pan.oxfordjournals.org/content/24/3/339.abstract)]
 [[Slides](../papers/separation-presentation-10min.pdf)]
 [[Appendix](../papers/separation-appendix.pdf)]
 [[GitHub](https://github.com/carlislerainey/priors-for-separation)]
 [[Software](https://github.com/carlislerainey/separation)]
-- Rainey, Carlisle. "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. Accepted.
+- Rainey, Carlisle. 2016. "Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction." *Political Science Research and Methods*. 4(3): 621-639.
+[[Paper](../papers/compress.pdf)]
+[[Appendix](../papers/compress-appendix.pdf)]
+[[Journal](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=10047140&fulltextType=RA&fileId=S204984701500059X)]
+[[GitHub](https://github.com/carlislerainey/compress)]
+- Rainey, Carlisle. 2016. "Does District Magnitude Matter: The Case of Taiwan." *Electoral Studies*. 41: 202-212.
 [[Paper](../papers/taiwan.pdf)]
 [[Journal](http://dx.doi.org/10.1016/j.electstud.2015.08.009)]
 [[Dataverse](http://dx.doi.org/10.7910/DVN/FMLYTY)]
 [[GitHub](https://github.com/carlislerainey/taiwan)]
-- Rainey, Carlisle. "Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction." *Political Science Research and Methods*. Accepted.
-[[Paper](../papers/compress.pdf)]
-[[Appendix](../papers/compress-appendix.pdf)]
-[[Journal](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=10047140&fulltextType=RA&fileId=S204984701500059X)]
-[[Dataverse]()]
-[[GitHub](https://github.com/carlislerainey/compress)]
 
 ### 2015
 
