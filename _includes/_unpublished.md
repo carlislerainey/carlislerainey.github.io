@@ -6,18 +6,18 @@
 [[Paper](../papers/misreports.pdf)]
 [[GitHub](https://github.com/carlislerainey/misreports)]
 - "Tax Policy Changes in the American States." With Kevin Stout and Richard F. Winters.
-- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
-[[Paper](../papers/small.pdf)]
-[[GitHub](https://github.com/kellymccaskey/small)]
 
 ### Under Review
 
-- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." Invitation to revise and resubmit to *Political Analysis*.
+- "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." Conditionally accepted at *Political Analysis*.
 [[Paper](../papers/bias.pdf)]
 [[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
-- "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson. Invitation to revise and resubmit to *Political Science Research and Methods*.
+- "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." With Robert Jackson. Conditionally accepted at *Political Science Research and Methods*.
 [[Paper](../papers/unreliable.pdf)]
 [[GitHub](https://github.com/carlislerainey/Unreliable)]
 - "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa. Invitation to revise and resubmit to *Political Science Research and Methods*.
 [[Paper](../papers/heavy-tails.pdf)]
 [[GitHub](https://github.com/carlislerainey/heavy-tails)]
+- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com).
+[[Paper](../papers/small.pdf)]
+[[GitHub](https://github.com/kellymccaskey/small)]
