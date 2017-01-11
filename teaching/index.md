@@ -7,7 +7,7 @@ title: Teaching | Carlisle Rainey
 
 ## Current Classes
 
-- [POLS 209](teaching/pols-209): Introduction to Political Science Research Methods
+- [POLS 209](pols-209): Introduction to Political Science Research Methods
 
 ## Previous Classes
 
