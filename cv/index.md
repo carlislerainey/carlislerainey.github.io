@@ -47,7 +47,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ## Software
 
-- `compactr`: an R package for creating graphs with compact axis notation. This package has been downloaded more than 6,000 times from the RStudio CRAN mirror.
+- `compactr`: an R package for creating graphs with compact axis notation. This package has been downloaded more than 9,000 times from the RStudio CRAN mirror.
 [[Overview](http://www.carlislerainey.com/compactr/)]
 [[CRAN](http://cran.r-project.org/web/packages/compactr/index.html)]
 [[Github](ttps://github.com/carlislerainey/compactr)]
@@ -104,7 +104,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Reviewer
 
-*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Journal of Politics* (2016, 2015), *Political Analysis* (2015), *Party Politics* (2012), *State Politics and Policy Quarterly* (2014, 2013-2x), *Political Behavior* (2014, 2015), *Political Science Research and Methods* (2016, 2015, 2014), and *Comparative Politics* (2015)
+*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Journal of Politics* (2016, 2015), *Political Analysis* (2015), *Research and Politics* (2016), *Party Politics* (2012), *State Politics and Policy Quarterly* (2014, 2013-2x), *Political Behavior* (2014, 2015), *Political Science Research and Methods* (2016, 2015, 2014), and *Comparative Politics* (2015), *Comparative Political Studies* (2016)
 
 ### Discussant
 
