@@ -9,7 +9,7 @@ title: POLS 209 | Carlisle Rainey
 
 ### Carlisle Rainey (Instructor)
 
-Allen 2051
+Allen 2051  
 Monday and Wednesday, 11am-12pm  
 Thursday, 10-11am
 
@@ -17,14 +17,14 @@ Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 
 ### Austin Johnson (TA)
 
-Allen 2122
+Allen 2122  
 Tuesday, 2-4pm
 
 ## Assigned Exercises
 - Chapters 1-6 [[pdf](files/fpp-exercises-1.pdf)]  
 - Chapters 7-12  
 - Chapters 13-27  
-- *Foundation* [[pdf](files/foundation-question.pdf)]
+- *Foundation* [[pdf](files/foundation-question.pdf)]  
 
 ## Schedule
 
