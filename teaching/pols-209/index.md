@@ -43,15 +43,15 @@ Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 
 **Jan 25**: Computing  
 - assignment [[pdf](files/assign-04-computing.pdf)]  
-- R Assignment 1 [[pdf](files/r-01.pdf)]  
 - notes [[pdf](files/notes-04-computing.pdf)]  
 
 **Jan 27**: Loading Data  
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
-- R Assignment 2 [[pdf](files/r-02.pdf)]  
+- R Assignment 1 [[pdf](files/r-01.pdf)]  
 - notes [[pdf](files/notes-05-loading-data.pdf)]  
 
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
+- R Assignment 2 [[pdf](files/r-02.pdf)]  
 - notes [[pdf](files/notes-06-causal-inf.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
