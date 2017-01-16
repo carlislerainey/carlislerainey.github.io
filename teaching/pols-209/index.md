@@ -7,10 +7,18 @@ title: POLS 209 | Carlisle Rainey
 
 ## Office Hours
 
+### Carlisle Rainey (Instructor)
+
+Allen 2051
 Monday and Wednesday, 11am-12pm  
 Thursday, 10-11am
 
 Please reserve your slot [here](http://www.calendly.com/carlislerainey).
+
+### Austin Johnson (TA)
+
+Allen 2122
+Tuesday, 2-4pm
 
 ## Assigned Exercises from FPP
 - Chapters 1-6 [[pdf](files/fpp-exercises-1.pdf)]  
