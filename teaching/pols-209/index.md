@@ -20,10 +20,11 @@ Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 Allen 2122
 Tuesday, 2-4pm
 
-## Assigned Exercises from FPP
+## Assigned Exercises
 - Chapters 1-6 [[pdf](files/fpp-exercises-1.pdf)]  
 - Chapters 7-12  
 - Chapters 13-27  
+- *Foundation* [[pdf](files/foundation-question.pdf)]
 
 ## Schedule
 
