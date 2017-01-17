@@ -50,6 +50,8 @@ Tuesday, 2-4pm
 - R [[web](https://cran.r-project.org)]  
 - RStudio [[web](https://www.rstudio.com/products/rstudio/#Desktop)]  
 
+<!---
+
 **Jan 25**: Computing  
 - assignment [[pdf](files/assign-04-computing.pdf)]  
 - notes [[pdf](files/notes-04-computing.pdf)]  
@@ -64,3 +66,5 @@ Tuesday, 2-4pm
 - R Assignment 2 [[pdf](files/r-02.pdf)]  
 - notes [[pdf](files/notes-06-causal-inf.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
+
+-->
