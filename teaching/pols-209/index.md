@@ -50,11 +50,11 @@ Tuesday, 2-4pm
 - R [[web](https://cran.r-project.org)]  
 - RStudio [[web](https://www.rstudio.com/products/rstudio/#Desktop)]  
 
-<!---
-
 **Jan 25**: Computing  
 - assignment [[pdf](files/assign-04-computing.pdf)]  
 - notes [[pdf](files/notes-04-computing.pdf)]  
+
+<!---
 
 **Jan 27**: Loading Data  
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
