@@ -57,12 +57,11 @@ Tuesday, 2-4pm
 
 **Jan 27**: Loading Data  
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
-- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  
+- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  **updated**  
 - notes [[pdf](files/notes-05-loading-data.pdf)]  
 - nominate data set [[csv](data/nominate.csv)] [[dta](data/nominate.dta)] [[rds](data/nominate.rds)]
 
 <!---
-
 
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
