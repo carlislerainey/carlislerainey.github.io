@@ -67,7 +67,11 @@ Tuesday, 2-4pm
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
 - R Assignment 2 [[pdf](files/r-assign-02.pdf)]  
-- notes [[pdf](files/notes-06-causal-inf.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
 
--->
+<!---
+
+- notes [[pdf](files/notes-06-causal-inf.pdf)]  
+
+
+--->
