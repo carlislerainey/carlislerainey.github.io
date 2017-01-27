@@ -59,13 +59,14 @@ Tuesday, 2-4pm
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
 - Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  **updated**  
 - notes [[pdf](files/notes-05-loading-data.pdf)]  
-- nominate data set [[csv](data/nominate.csv)] [[dta](data/nominate.dta)] [[rds](data/nominate.rds)]
+- nominate data set [[csv](data/nominate.csv)] [[dta](data/nominate.dta)] [[rds](data/nominate.rds)]  
+- submit_times data set [[csv](data/submit_times.csv)] [[dta](data/submit_times.dta)] [[rds](data/submit_times.rds)] [[xlsx](data/submit_times.xlsx)]  
+- calories data set [[csv](data/calories.csv)] [[dta](data/calories.dta)] [[rds](data/calories.rds)] [[xlsx](data/calories.xlsx)]  
 
-<!---
 
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
-- R Assignment 2 [[pdf](files/r-02.pdf)]  
+- R Assignment 2 [[pdf](files/r-assign-02.pdf)]  
 - notes [[pdf](files/notes-06-causal-inf.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
 
