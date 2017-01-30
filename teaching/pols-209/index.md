@@ -69,6 +69,11 @@ Tuesday, 2-4pm
 - R Assignment 2 [[pdf](files/r-assign-02.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
 
+**Feb 1**: Histograms  
+- assignment [[pdf](files/assign-07-histograms.pdf)]  
+- handedness survey [[pdf](files/handedness.pdf)]  
+- submit handedness survey [[web](https://docs.google.com/forms/d/e/1FAIpQLSeTb9_M0heBW5rnCiHiv_OCaufvdpCE6zV_EzZd7uyKvLsMmQ/viewform)]  
+- code to load handedness data [[gist](https://gist.github.com/carlislerainey/fc7209627f2854f76b16f9c3d8678355)]  
 <!---
 
 - notes [[pdf](files/notes-06-causal-inf.pdf)]  
