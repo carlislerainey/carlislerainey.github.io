@@ -75,7 +75,7 @@ Tuesday, 2-4pm
 - code to load handedness data [[gist](https://gist.github.com/carlislerainey/fc7209627f2854f76b16f9c3d8678355)]  
 
 **Feb 3**: Histograms in R  
-- assignment [[pdf](files/assign-08-histograms-r.pdf)]
+- assignment [[pdf](files/assign-08-histograms-r.pdf)]  
 - notes [[pdf](files/notes-08-histograms-r.pdf)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
