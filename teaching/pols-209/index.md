@@ -79,9 +79,3 @@ Tuesday, 2-4pm
 - notes [[pdf](files/notes-08-histograms-r.pdf)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
-<!---
-
-- notes [[pdf](files/notes-06-causal-inf.pdf)]  
-
-
---->
