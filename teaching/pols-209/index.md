@@ -54,10 +54,9 @@ Tuesday, 2-4pm
 - assignment [[pdf](files/assign-04-computing.pdf)]  
 - notes [[pdf](files/notes-04-computing.pdf)]  
 
-
 **Jan 27**: Loading Data  
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
-- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  **updated**  
+- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  
 - notes [[pdf](files/notes-05-loading-data.pdf)]  
 - nominate data set [[csv](data/nominate.csv)] [[dta](data/nominate.dta)] [[rds](data/nominate.rds)]  
 - submit_times data set [[csv](data/submit_times.csv)] [[dta](data/submit_times.dta)] [[rds](data/submit_times.rds)] [[xlsx](data/submit_times.xlsx)]  
@@ -75,6 +74,11 @@ Tuesday, 2-4pm
 - submit handedness survey [[web](https://docs.google.com/forms/d/e/1FAIpQLSeTb9_M0heBW5rnCiHiv_OCaufvdpCE6zV_EzZd7uyKvLsMmQ/viewform)]  
 - code to load handedness data [[gist](https://gist.github.com/carlislerainey/fc7209627f2854f76b16f9c3d8678355)]  
 
+**Feb 3**: Histograms in R  
+- assignment [[pdf](files/assign-08-histograms-r.pdf)]
+- notes [[pdf](files/notes-08-histograms-r.pdf)]  
+
+additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
 <!---
 
 - notes [[pdf](files/notes-06-causal-inf.pdf)]  
