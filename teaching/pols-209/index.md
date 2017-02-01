@@ -76,6 +76,6 @@ Tuesday, 2-4pm
 
 **Feb 3**: Histograms in R  
 - assignment [[pdf](files/assign-08-histograms-r.pdf)]  
-- notes [[pdf](files/notes-08-histograms-r.pdf)]  
+- notes [[web](https://www.dropbox.com/s/63mtxuadzsafox4/notes-08-histograms-r-annotations-2017-02-01.pdf?dl=0)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
