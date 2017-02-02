@@ -62,10 +62,9 @@ Tuesday, 2-4pm
 - submit_times data set [[csv](data/submit_times.csv)] [[dta](data/submit_times.dta)] [[rds](data/submit_times.rds)] [[xlsx](data/submit_times.xlsx)]  
 - calories data set [[csv](data/calories.csv)] [[dta](data/calories.dta)] [[rds](data/calories.rds)] [[xlsx](data/calories.xlsx)]  
 
-
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
-- R Assignment 2 [[pdf](files/r-assign-02.pdf)]  
+- Computing Assignment 2 [[pdf](files/r-assign-02.pdf)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
 
 **Feb 1**: Histograms  
@@ -77,5 +76,10 @@ Tuesday, 2-4pm
 **Feb 3**: Histograms in R  
 - assignment [[pdf](files/assign-08-histograms-r.pdf)]  
 - notes [[web](https://www.dropbox.com/s/63mtxuadzsafox4/notes-08-histograms-r-annotations-2017-02-01.pdf?dl=0)]  
+
+**Feb 6**: Average and SD  
+- assignment [[pdf](files/assign-09-mean-sd.pdf)]  
+- Computing Assignment 3 [[pdf](files/r-assign-03.pdf)]  
+- state-legislators data set [[csv](data/state-legislators.csv)] [[dta](data/state-legislators.dta)] [[rds](data/state-legislators.rds)] [[xlsx](data/state-legislators.xlsx)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
