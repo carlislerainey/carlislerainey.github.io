@@ -78,7 +78,7 @@ Tuesday, 2-4pm
 - notes [[web](https://www.dropbox.com/s/63mtxuadzsafox4/notes-08-histograms-r-annotations-2017-02-01.pdf?dl=0)]  
 
 **Feb 6**: Average and SD  
-- assignment [[pdf](files/assign-09-mean-sd.pdf)]  
+- assignment [[pdf](files/assign-09-average-sd.pdf)]  
 - Computing Assignment 3 [[pdf](files/r-assign-03.pdf)]  
 - state-legislators data set [[csv](data/state-legislators.csv)] [[dta](data/state-legislators.dta)] [[rds](data/state-legislators.rds)] [[xlsx](data/state-legislators.xlsx)]  
 
