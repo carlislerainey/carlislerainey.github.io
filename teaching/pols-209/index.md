@@ -76,6 +76,7 @@ Tuesday, 2-4pm
 **Feb 3**: Histograms in R  
 - assignment [[pdf](files/assign-08-histograms-r.pdf)]  
 - notes [[web](https://www.dropbox.com/s/63mtxuadzsafox4/notes-08-histograms-r-annotations-2017-02-01.pdf?dl=0)]  
+- slides explaining data frames [[web](https://www.dropbox.com/s/ayr6zbwb917jxdo/data-frames-2017-02-03-comments.pdf?dl=0]  
 
 **Feb 6**: Average and SD  
 - assignment [[pdf](files/assign-09-average-sd.pdf)]  
