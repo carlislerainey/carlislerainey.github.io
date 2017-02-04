@@ -56,7 +56,7 @@ Tuesday, 2-4pm
 
 **Jan 27**: Loading Data  
 - assignment [[pdf](files/assign-05-loading-data.pdf)]  
-- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)]  
+- Computing Assignment 1 [[pdf](files/r-assign-01.pdf)] [[key](https://gist.github.com/carlislerainey/6b2e078a350bac387bf75c2b90b87a8c)]  
 - notes [[pdf](files/notes-05-loading-data.pdf)]  
 - nominate data set [[csv](data/nominate.csv)] [[dta](data/nominate.dta)] [[rds](data/nominate.rds)]  
 - submit_times data set [[csv](data/submit_times.csv)] [[dta](data/submit_times.dta)] [[rds](data/submit_times.rds)] [[xlsx](data/submit_times.xlsx)]  
@@ -64,7 +64,7 @@ Tuesday, 2-4pm
 
 **Jan 30**: Causal Inference  
 - assignment [[pdf](files/assign-06-causal-inf.pdf)]  
-- Computing Assignment 2 [[pdf](files/r-assign-02.pdf)]  
+- Computing Assignment 2 [[pdf](files/r-assign-02.pdf)] [[key](https://gist.github.com/carlislerainey/4cd07ce8faac9872cccf34d1b05176a0#file-r-assign-02-key-r)]  
 - slides [[pdf](files/slides-06-causal-inf.pdf)]  
 
 **Feb 1**: Histograms  
