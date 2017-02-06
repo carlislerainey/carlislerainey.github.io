@@ -83,4 +83,8 @@ Tuesday, 2-4pm
 - Computing Assignment 3 [[pdf](files/r-assign-03.pdf)]  
 - state-legislators data set [[csv](data/state-legislators.csv)] [[dta](data/state-legislators.dta)] [[rds](data/state-legislators.rds)] [[xlsx](data/state-legislators.xlsx)]  
 
+**Feb 8**: Average and SD in R  
+- assignment [[pdf](files/assign-10-average-sd-r.pdf)]  
+- notes [[web](https://www.dropbox.com/s/vn9bphmoaljvux4/notes-10-average-sd-r-annotations-2017-02-06.pdf?dl=0)]  
+
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
