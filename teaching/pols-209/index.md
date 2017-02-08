@@ -89,7 +89,7 @@ Tuesday, 2-4pm
 - slides [[pdf](files/mean-sd.pdf)]  
 
 **Feb 10**: Normal Approximation  
-- assignment [[pdf](files/assign-10-normal-approx.pdf)]  
+- assignment [[pdf](files/assign-11-normal-approx.pdf)]  
 - Computing Assignment 4 [[pdf](files/r-assign-04.pdf)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
