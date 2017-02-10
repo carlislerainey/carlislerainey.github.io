@@ -92,4 +92,8 @@ Tuesday, 2-4pm
 - assignment [[pdf](files/assign-11-normal-approx.pdf)]  
 - Computing Assignment 4 [[pdf](files/r-assign-04.pdf)]  
 
+
+**Feb 13**: ECDFs in R  
+- assignment [[pdf](files/assign-12-ecdf.pdf)]  
+
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
