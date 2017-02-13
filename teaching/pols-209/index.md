@@ -95,7 +95,7 @@ Tuesday, 2-4pm
 
 **Feb 13**: ECDFs in R  
 - assignment [[pdf](files/assign-12-ecdf.pdf)]  
-- notes [[pdf](files/notes-12-ecdf.pdf)]  
+- notes [[web](https://www.dropbox.com/s/hn0dnfc53va5i3p/notes-12-ecdf-annotations-2017-02-13.pdf?dl=0)]  
 
 **Feb 15**: Measurement  
 - assignment [[pdf](files/assign-13-measurement-1.pdf)]  
