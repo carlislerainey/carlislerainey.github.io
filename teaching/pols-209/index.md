@@ -95,5 +95,12 @@ Tuesday, 2-4pm
 
 **Feb 13**: ECDFs in R  
 - assignment [[pdf](files/assign-12-ecdf.pdf)]  
+- notes [[pdf](files/notes-12-ecdf.pdf)]  
+
+**Feb 15**: Measurement  
+- assignment [[pdf](files/assign-13-measurement-1.pdf)]  
+- Computing Assignment 5 [[pdf](files/r-assign-05.pdf)]  
+- survey [[web](https://tamu.qualtrics.com/SE/?SID=SV_eM3uWqJShw9E7MV)]  
+- leadership extremity exercise [[pdf](files/leadership-extremity.pdf)]  
 
 additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
