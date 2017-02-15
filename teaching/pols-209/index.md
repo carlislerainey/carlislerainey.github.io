@@ -104,8 +104,11 @@ Tuesday, 2-4pm
 - leadership extremity exercise [[pdf](files/leadership-extremity.pdf)]  
 
 **Feb 17**: Survey Measurement  
-- assignment [coming soon]  
+- assignment [[]()]  
 - slides [[web](https://www.dropbox.com/s/evg4yfxyn5w1mh9/measures-annotations-2017-02-15.pdf?dl=0)]  
 - web form [[web](https://docs.google.com/forms/d/e/1FAIpQLSewo-cwbC-wvqY7N0_-5Ylxuypqc3VnqhxS0JuVebNnxmkPog/viewform#responses)]  
 
-additional review questions for exam [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
+**Feb 20**: Review  
+
+**Feb 22**: Exam 1  
+-  study guide [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
