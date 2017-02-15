@@ -104,7 +104,7 @@ Tuesday, 2-4pm
 - leadership extremity exercise [[pdf](files/leadership-extremity.pdf)]  
 
 **Feb 17**: Survey Measurement  
-- assignment [[]()]  
+- assignment [[pdf](files/assign-14-measurement-2.pdf)]  
 - slides [[web](https://www.dropbox.com/s/evg4yfxyn5w1mh9/measures-annotations-2017-02-15.pdf?dl=0)]  
 - web form [[web](https://docs.google.com/forms/d/e/1FAIpQLSewo-cwbC-wvqY7N0_-5Ylxuypqc3VnqhxS0JuVebNnxmkPog/viewform#responses)]  
 
