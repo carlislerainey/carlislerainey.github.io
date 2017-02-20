@@ -102,13 +102,17 @@ Tuesday, 1-4pm
 - Computing Assignment 5 [[pdf](files/r-assign-05.pdf)] [[key](https://gist.github.com/carlislerainey/c2273db46ea22db9fa0b0d963477faed)]  
 - survey [[web](https://tamu.qualtrics.com/SE/?SID=SV_eM3uWqJShw9E7MV)]  
 - leadership extremity exercise [[pdf](files/leadership-extremity.pdf)]  
+- slides [[web](https://www.dropbox.com/s/evg4yfxyn5w1mh9/measures-annotations-2017-02-15.pdf?dl=0)]  
 
 **Feb 17**: Survey Measurement  
 - assignment [[pdf](files/assign-14-measurement-2.pdf)]  
-- slides [[web](https://www.dropbox.com/s/evg4yfxyn5w1mh9/measures-annotations-2017-02-15.pdf?dl=0)]  
+- slides [[pdf](https://www.dropbox.com/s/y2do9nmygjnquhi/austin-writing-survey-questions.pdf?dl=0)]  
 - web form [[web](https://docs.google.com/forms/d/e/1FAIpQLSewo-cwbC-wvqY7N0_-5Ylxuypqc3VnqhxS0JuVebNnxmkPog/viewform#responses)]  
 
 **Feb 20**: Review  
 
 **Feb 22**: Exam 1  
 - study guide [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
+
+**Feb 24**: Scatterplots and Correlation, Part 1  
+- Writing Assignment 1 [[web](https://www.dropbox.com/s/b7pjrjmgo3mej5i/writing-assignment-1-annotations-2017-02-20.pdf?dl=0)]  
