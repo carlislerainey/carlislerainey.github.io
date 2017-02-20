@@ -18,7 +18,7 @@ Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 ### Austin Johnson (TA)
 
 Allen 2122  
-Tuesday, 2-4pm
+Tuesday, 1-4pm
 
 ## Assigned Exercises
 - Chapters 1-6 [[pdf](files/fpp-exercises-1.pdf)]  
@@ -80,7 +80,7 @@ Tuesday, 2-4pm
 
 **Feb 6**: Average and SD  
 - assignment [[pdf](files/assign-09-average-sd.pdf)]  
-- Computing Assignment 3 [[pdf](files/r-assign-03.pdf)]  
+- Computing Assignment 3 [[pdf](files/r-assign-03.pdf)] [[key](https://gist.github.com/carlislerainey/fcd437f28c441ae497a15641467a8689)]  
 - state-legislators data set [[csv](data/state-legislators.csv)] [[dta](data/state-legislators.dta)] [[rds](data/state-legislators.rds)] [[xlsx](data/state-legislators.xlsx)]  
 
 **Feb 8**: Average and SD in R  
@@ -90,7 +90,7 @@ Tuesday, 2-4pm
 
 **Feb 10**: Normal Approximation  
 - assignment [[pdf](files/assign-11-normal-approx.pdf)]  
-- Computing Assignment 4 [[pdf](files/r-assign-04.pdf)]  
+- Computing Assignment 4 [[pdf](files/r-assign-04.pdf)] [[key](https://gist.github.com/carlislerainey/19e212c791b0ee53d650724341bfb310)]  
 
 
 **Feb 13**: ECDFs in R  
@@ -99,7 +99,7 @@ Tuesday, 2-4pm
 
 **Feb 15**: Measurement  
 - assignment [[pdf](files/assign-13-measurement-1.pdf)]  
-- Computing Assignment 5 [[pdf](files/r-assign-05.pdf)]  
+- Computing Assignment 5 [[pdf](files/r-assign-05.pdf)] [[key](https://gist.github.com/carlislerainey/c2273db46ea22db9fa0b0d963477faed)]  
 - survey [[web](https://tamu.qualtrics.com/SE/?SID=SV_eM3uWqJShw9E7MV)]  
 - leadership extremity exercise [[pdf](files/leadership-extremity.pdf)]  
 
@@ -111,4 +111,4 @@ Tuesday, 2-4pm
 **Feb 20**: Review  
 
 **Feb 22**: Exam 1  
--  study guide [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
+- study guide [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
