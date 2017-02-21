@@ -22,7 +22,7 @@ Tuesday, 1-4pm
 
 ## Assigned Exercises
 - Chapters 1-6 [[pdf](files/fpp-exercises-1.pdf)]  
-- Chapters 7-12  
+- Chapters 7-12 [[pdf](files/fpp-exercises-2.pdf)]  
 - Chapters 13-27  
 - *Foundation* [[pdf](files/foundation-questions.pdf)]  
 
