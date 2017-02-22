@@ -115,6 +115,6 @@ Tuesday, 1-4pm
 - study guide [[web](https://docs.google.com/document/d/1qaPadMhKrYBhuk9zGA8T7llP3wkxbenGt8G14pkfpno/edit?usp=sharing)]  
 
 **Feb 24**: Scatterplots and Correlation, Part 1  
-- assignment [coming]  
+- assignment [[pdf](files/assign-17-correlation-1.pdf)]  
+- survey [[web](https://docs.google.com/forms/d/e/1FAIpQLSdMzn_lTF0pWXWn1Z6TP6P2hzzgGMe13R4sqaKf6Ld2R-npNQ/viewform)]  
 - Writing Assignment 1 [[web](https://www.dropbox.com/s/b7pjrjmgo3mej5i/writing-assignment-1-annotations-2017-02-20.pdf?dl=0)]  
-- Silva, chs. 1-2 [[web](https://www.dropbox.com/s/7t5mrdxof9cnuxv/silva-ch-1-2.pdf?dl=0)]  
