@@ -118,3 +118,13 @@ Tuesday, 1-4pm
 - assignment [[pdf](files/assign-17-correlation-1.pdf)]  
 - survey [[web](https://docs.google.com/forms/d/e/1FAIpQLSdMzn_lTF0pWXWn1Z6TP6P2hzzgGMe13R4sqaKf6Ld2R-npNQ/viewform)]  
 - Writing Assignment 1 [[web](https://www.dropbox.com/s/b7pjrjmgo3mej5i/writing-assignment-1-annotations-2017-02-20.pdf?dl=0)]  
+
+**Feb 27**: Scatterplots and Correlation in R  
+- assignment [[pdf](files/assign-18-correlation-r.pdf)]  
+- notes [[web](https://www.dropbox.com/s/q1rrf45cgqnwzzh/notes-18-correlation-r.pdf?dl=0)]  
+- Rainey (2015) [[pdf](http://www.carlislerainey.com/papers/taiwan.pdf)]  
+- Clark, Golder, and Golder (2013, pp. 477-478) [[pdf](files/gamsons-law.pdf)]  
+- taiwan data set [[rds](data/taiwan.rds)]  
+- gamson data set [[rds](data/gamson.rds)]  
+- run log [[web](https://docs.google.com/spreadsheets/d/19aZA5_xnMiNfrpJpVur1FxNWGxUe3l-LlJ8vPp7_uBc/edit#gid=0)]  
+- code to load run log [[gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)]  
