@@ -118,6 +118,7 @@ Tuesday, 1-4pm
 - assignment [[pdf](files/assign-17-correlation-1.pdf)]  
 - survey [[web](https://docs.google.com/forms/d/e/1FAIpQLSdMzn_lTF0pWXWn1Z6TP6P2hzzgGMe13R4sqaKf6Ld2R-npNQ/viewform)]  
 - Writing Assignment 1 [[web](https://www.dropbox.com/s/b7pjrjmgo3mej5i/writing-assignment-1-annotations-2017-02-20.pdf?dl=0)]  
+- measurement collection form [[web](https://docs.google.com/forms/d/e/1FAIpQLSe3O7PpFgMegyl8G0uGfw1G3b4KjUULdkjy61c1tjKkSom8dQ/viewform)]  
 
 **Feb 27**: Scatterplots and Correlation in R  
 - assignment [[pdf](files/assign-18-correlation-r.pdf)]  
