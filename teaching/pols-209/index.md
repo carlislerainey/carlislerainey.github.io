@@ -121,7 +121,7 @@ Tuesday, 1-4pm
 - measurement collection form [[web](https://docs.google.com/forms/d/e/1FAIpQLSe3O7PpFgMegyl8G0uGfw1G3b4KjUULdkjy61c1tjKkSom8dQ/viewform)]  
 
 **Feb 27**: Scatterplots and Correlation in R  
-- assignment [[pdf](files/assign-18-correlation-r.pdf)]*  
+- assignment [[pdf](files/assign-18-correlation-r.pdf)]  
 - notes [[web](https://www.dropbox.com/s/q1rrf45cgqnwzzh/notes-18-correlation-r.pdf?dl=0)]  
 - Rainey (2015) [[pdf](http://www.carlislerainey.com/papers/taiwan.pdf)]  
 - Clark, Golder, and Golder (2013, pp. 477-478) [[pdf](files/gamsons-law.pdf)]  
