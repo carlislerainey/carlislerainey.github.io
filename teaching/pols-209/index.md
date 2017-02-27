@@ -129,3 +129,7 @@ Tuesday, 1-4pm
 - gamson data set [[rds](data/gamson.rds)]  
 - run log [[web](https://docs.google.com/spreadsheets/d/19aZA5_xnMiNfrpJpVur1FxNWGxUe3l-LlJ8vPp7_uBc/edit#gid=0)]  
 - code to load run log [[gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)]  
+
+**Mar 1**: Scatterplots and Correlation, Part 2  
+- assignment [coming]  
+- Computing Assignment 5 [[pdf](files/r-assign-06.pdf)] [key]  
