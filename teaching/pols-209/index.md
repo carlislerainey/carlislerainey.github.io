@@ -132,7 +132,7 @@ Tuesday, 1-4pm
 - code to load run log [[gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)]  
 
 **Mar 1**: Scatterplots and Correlation, Part 2  
-- assignment [coming]  
+- assignment [[pdf](files/assign-19-correlation-2.pdf)]  
 - Computing Assignment 5 [[pdf](files/r-assign-06.pdf)] [key]  
 - guns data set [[rds](data/guns.rds)]  
 - Brady data score card [[pdf](files/brady-scorecard-2013.pdf)]  
