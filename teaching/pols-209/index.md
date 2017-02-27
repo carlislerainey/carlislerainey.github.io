@@ -127,9 +127,11 @@ Tuesday, 1-4pm
 - Clark, Golder, and Golder (2013, pp. 477-478) [[pdf](files/gamsons-law.pdf)]  
 - taiwan data set [[rds](data/taiwan.rds)]  
 - gamson data set [[rds](data/gamson.rds)]  
+- bodies data set [[rds](data/bodies.rds)]
 - run log [[web](https://docs.google.com/spreadsheets/d/19aZA5_xnMiNfrpJpVur1FxNWGxUe3l-LlJ8vPp7_uBc/edit#gid=0)]  
 - code to load run log [[gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)]  
 
 **Mar 1**: Scatterplots and Correlation, Part 2  
 - assignment [coming]  
 - Computing Assignment 5 [[pdf](files/r-assign-06.pdf)] [key]  
+- guns data set [[rds](data/guns.rds)]  
