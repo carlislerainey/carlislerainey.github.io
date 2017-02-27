@@ -135,3 +135,4 @@ Tuesday, 1-4pm
 - assignment [coming]  
 - Computing Assignment 5 [[pdf](files/r-assign-06.pdf)] [key]  
 - guns data set [[rds](data/guns.rds)]  
+- Brady data score card [[pdf](files/brady-scorecard-2013.pdf)]  
