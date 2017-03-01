@@ -133,6 +133,10 @@ Tuesday, 1-4pm
 
 **Mar 1**: Scatterplots and Correlation, Part 2  
 - assignment [[pdf](files/assign-19-correlation-2.pdf)]  
-- Computing Assignment 5 [[pdf](files/r-assign-06.pdf)] [key]  
+- Computing Assignment 6 [[pdf](files/r-assign-06.pdf)] [key]  
 - guns data set [[rds](data/guns.rds)]  
 - Brady data score card [[pdf](files/brady-scorecard-2013.pdf)]  
+
+**Mar 3**: Regression, Part 1  
+- assignment [coming soon]  
+- rubric for writing assignment [[web](https://www.dropbox.com/s/3203jedj4zbawz8/rubric.pdf?dl=0)]  
