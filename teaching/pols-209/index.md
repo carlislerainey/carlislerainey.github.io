@@ -138,5 +138,5 @@ Tuesday, 1-4pm
 - Brady data score card [[pdf](files/brady-scorecard-2013.pdf)]  
 
 **Mar 3**: Regression, Part 1  
-- assignment [coming soon]  
+- assignment [[pdf](files/assign-20-regression-1.pdf)]  
 - rubric for writing assignment [[web](https://www.dropbox.com/s/3203jedj4zbawz8/rubric.pdf?dl=0)]  
