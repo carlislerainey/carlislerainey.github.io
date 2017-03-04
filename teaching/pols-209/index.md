@@ -140,3 +140,7 @@ Tuesday, 1-4pm
 **Mar 3**: Regression, Part 1  
 - assignment [[pdf](files/assign-20-regression-1.pdf)]  
 - rubric for writing assignment [[web](https://www.dropbox.com/s/3203jedj4zbawz8/rubric.pdf?dl=0)]  
+
+**Mar 6**: Regression, Part 2  
+- assignment [[pdf](files/assign-21-regression-2.pdf)]  
+- peer review questions [[pdf](files/peer-review-questions.pdf)]  
