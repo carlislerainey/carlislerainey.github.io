@@ -144,3 +144,6 @@ Tuesday, 1-4pm
 **Mar 6**: Regression, Part 2  
 - assignment [[pdf](files/assign-21-regression-2.pdf)]  
 - peer review questions [[pdf](files/peer-review-questions.pdf)]  
+
+**Mar 8**: Regression, Part 3  
+- assignment [[pdf](files/assign-22-regression-3.pdf)]  
