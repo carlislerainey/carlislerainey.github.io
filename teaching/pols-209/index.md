@@ -10,7 +10,8 @@ title: POLS 209 | Carlisle Rainey
 ### Carlisle Rainey (Instructor)
 
 Allen 2051  
-Monday, Wednesday, and Thursday, 11am-12pm  
+Monday, Wednesday, 11am-12pm  
+Thursday, 2-3pm  
 
 Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 
