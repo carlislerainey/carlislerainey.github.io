@@ -158,5 +158,9 @@ Tuesday, 1-4pm
 **Mar 20**: Multiple Regression, Part 1  
 - assignment: Have an excellent Spring Break!  
 
+**Mar 22**: Multiple Regression, Part 2  
+- assignment [[pdf](files/assign-25-multiple-regression-2.pdf)]  
+- notes [coming soon]  
+
 
 exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
