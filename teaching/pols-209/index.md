@@ -160,7 +160,7 @@ Tuesday, 1-4pm
 
 **Mar 22**: Multiple Regression, Part 2  
 - assignment [[pdf](files/assign-25-multiple-regression-2.pdf)]  
-- slides [[html](files/mulitple-regression.html)]  
+- slides [[html](files/multiple-regression.html)]  
 
 
 exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
