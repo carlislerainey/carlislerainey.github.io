@@ -150,7 +150,7 @@ Tuesday, 1-4pm
 
 **Mar 10**: Regression in R  
 - assignment [[pdf](files/assign-23-regression-r.pdf)]  
-- notes [[web](https://www.dropbox.com/s/226f24fhhypcggt/notes-23-regression-r-annotation-2017-02-10.pdf?dl=0)]   
+- notes [[web](https://www.dropbox.com/s/226f24fhhypcggt/notes-23-regression-r-annotation-2017-02-10.pdf?dl=0)]
 - therms data set [[rds](data/therms.rds)]  
 - taxes training set [[rds](data/taxes-training.rds)]  
 - taxes prediction set [[rds](data/taxes-prediction.rds)]  
@@ -162,5 +162,7 @@ Tuesday, 1-4pm
 - assignment [[pdf](files/assign-25-multiple-regression-2.pdf)]  
 - slides [[html](files/multiple-regression.html)]  
 
+**Mar 24**: Multiple Regression in R
+- assignment [[pdf](files/assign-26-multiple-regression-r.pdf)]  
 
 exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
