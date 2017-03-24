@@ -164,5 +164,7 @@ Tuesday, 1-4pm
 
 **Mar 24**: Multiple Regression in R
 - assignment [[pdf](files/assign-26-multiple-regression-r.pdf)]  
+- formula examples [[R script](files/notes-26-multiple-regression-r.R)]  
+- code to compare models [[R script](files/in-class-prediction.R)]  
 
 exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
