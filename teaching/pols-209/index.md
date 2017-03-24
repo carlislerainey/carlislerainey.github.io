@@ -167,4 +167,7 @@ Tuesday, 1-4pm
 - formula examples [[R script](files/notes-26-multiple-regression-r.R)]  
 - code to compare models [[R script](files/in-class-prediction.R)]  
 
-exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
+**Mar 27**: Review  
+- assignment [[pdf](files/assign-27-exam-2-review.pdf)]  
+- Computing Assignment 8 [[pdf](files/r-assign-08.pdf)]  
+- exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]  
