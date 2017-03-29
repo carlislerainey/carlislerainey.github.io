@@ -171,3 +171,7 @@ Tuesday, 1-4pm
 - assignment [[pdf](files/assign-27-exam-2-review.pdf)]  
 - Computing Assignment 8 [[pdf](files/r-assign-08.pdf)]  
 - exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]  
+**Mar 29**: Exam 2
+
+**Mar 31**: Probability, Part 1  
+- assignment [[pdf](files/assign-29-probability-1.pdf)]  
