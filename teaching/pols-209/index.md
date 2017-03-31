@@ -175,3 +175,6 @@ Tuesday, 1-4pm
 
 **Mar 31**: Probability, Part 1  
 - assignment [[pdf](files/assign-29-probability-1.pdf)]  
+
+**Apr 3**: Probability, Part 2
+- assignment [[pdf](files/assign-30-probability-2.pdf)]  
