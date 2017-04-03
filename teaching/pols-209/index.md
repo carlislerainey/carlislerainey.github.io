@@ -179,3 +179,6 @@ Tuesday, 1-4pm
 **Apr 3**: Probability, Part 2
 - assignment [[pdf](files/assign-30-probability-2.pdf)]  
 - code to create predictions [[Gist](https://gist.github.com/carlislerainey/fa2bbe336ed8dd97ff8fc49173507a8e)]  
+
+**Apr 5**: Law of Averages  
+- assignment  [[pdf](files/assign-31-law-of-averages.pdf)]  
