@@ -182,3 +182,4 @@ Tuesday, 1-4pm
 
 **Apr 5**: Law of Averages  
 - assignment  [[pdf](files/assign-31-law-of-averages.pdf)]  
+- codebook for taxes data [[web](https://www.dropbox.com/s/ljoy1qpmxd7d492/taxes-codebook.pdf?dl=0)]  
