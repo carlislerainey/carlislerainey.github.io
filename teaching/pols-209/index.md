@@ -184,3 +184,6 @@ Tuesday, 1-4pm
 - assignment  [[pdf](files/assign-31-law-of-averages.pdf)]  
 - codebook for taxes data [[web](https://www.dropbox.com/s/ljoy1qpmxd7d492/taxes-codebook.pdf?dl=0)]  
 - Writing Assignment 2 [[web](https://docs.google.com/document/d/1nZ-cF5caC8Ug7PyXT6D5jOW24E6XF9g6LT_EXe2XeOI/edit)]  
+
+**Apr 7**: Expected Value and Standard Error  
+- assignment  [[pdf](files/assign-32-expected-value-and-standard-error.pdf)]
