@@ -170,8 +170,8 @@ Tuesday, 1-4pm
 **Mar 27**: Review  
 - assignment [[pdf](files/assign-27-exam-2-review.pdf)]  
 - Computing Assignment 8 [[pdf](files/r-assign-08.pdf)]  
-- exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]  
-**Mar 29**: Exam 2
+- exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
+**Mar 29**: Exam 2  
 
 **Mar 31**: Probability, Part 1  
 - assignment [[pdf](files/assign-29-probability-1.pdf)]  
@@ -190,3 +190,7 @@ Tuesday, 1-4pm
 
 **Apr 10**: Discussion of Writing Assignment and the Box Model  
 - box model code [[Gist](https://gist.github.com/carlislerainey/77b344e4190dda3fc26bd4b41d32751c)]  
+
+**Aor 12**: Central Limit Theorem  
+- assignment  [[pdf](files/assign-34-clt.pdf)]  
+- rubric at the bottom of WA2 [[web](https://docs.google.com/document/d/1nZ-cF5caC8Ug7PyXT6D5jOW24E6XF9g6LT_EXe2XeOI/edit?usp=sharing)]  
