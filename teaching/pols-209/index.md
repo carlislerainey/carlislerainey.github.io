@@ -187,3 +187,6 @@ Tuesday, 1-4pm
 
 **Apr 7**: Expected Value and Standard Error  
 - assignment  [[pdf](files/assign-32-expected-value-and-standard-error.pdf)]
+
+**Apr 10**: Discussion of Writing Assignment and the Box Model  
+- box model code [[Gist](https://gist.github.com/carlislerainey/77b344e4190dda3fc26bd4b41d32751c)]  
