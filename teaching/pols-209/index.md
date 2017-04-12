@@ -191,6 +191,12 @@ Tuesday, 1-4pm
 **Apr 10**: Discussion of Writing Assignment and the Box Model  
 - box model code [[Gist](https://gist.github.com/carlislerainey/77b344e4190dda3fc26bd4b41d32751c)]  
 
-**Aor 12**: Central Limit Theorem  
+**Apr 12**: Central Limit Theorem  
 - assignment  [[pdf](files/assign-34-clt.pdf)]  
 - rubric at the bottom of WA2 [[web](https://docs.google.com/document/d/1nZ-cF5caC8Ug7PyXT6D5jOW24E6XF9g6LT_EXe2XeOI/edit?usp=sharing)]  
+- upload initial predictions [[web](https://www.dropbox.com/request/v6O22zSdGPAUNf74SdiZ)]  
+
+**Apr 17**: Sample Surveys  
+- assignment [[pdf](files/assign-35-sample-surveys.pdf)]  
+- upload initial predictions [[web](https://www.dropbox.com/request/v6O22zSdGPAUNf74SdiZ)]  
+- ANES codebook [[pdf](http://www.electionstudies.org/studypages/anes_timeseries_2016/anes_timeseries_2016_userguidecodebook.pdf)]  
