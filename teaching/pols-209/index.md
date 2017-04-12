@@ -194,7 +194,6 @@ Tuesday, 1-4pm
 **Apr 12**: Central Limit Theorem  
 - assignment  [[pdf](files/assign-34-clt.pdf)]  
 - rubric at the bottom of WA2 [[web](https://docs.google.com/document/d/1nZ-cF5caC8Ug7PyXT6D5jOW24E6XF9g6LT_EXe2XeOI/edit?usp=sharing)]  
-- upload initial predictions [[web](https://www.dropbox.com/request/v6O22zSdGPAUNf74SdiZ)]  
 
 **Apr 17**: Sample Surveys  
 - assignment [[pdf](files/assign-35-sample-surveys.pdf)]  
