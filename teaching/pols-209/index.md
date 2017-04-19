@@ -204,3 +204,6 @@ Tuesday, 1-4pm
 **Apr 19**: The Accuracy of Percentages  
 - assignment [[pdf](files/assign-36-accuracy-of-percentages.pdf)]  
 - exercises to discuss [[web](https://docs.google.com/document/d/1bh4HWCibC6GBkWIi3RR-TI7ObPTSv9W3FudsWw5PkUc/edit?usp=sharing)]  
+
+**Apr 21**: The Accuracy of Averages  
+- assignment [[pdf](files/assign-37-accuracy-of-averages.pdf)]  
