@@ -171,6 +171,7 @@ Tuesday, 1-4pm
 - assignment [[pdf](files/assign-27-exam-2-review.pdf)]  
 - Computing Assignment 8 [[pdf](files/r-assign-08.pdf)]  
 - exam 2 study guide [[web](https://docs.google.com/document/d/1ptsAIiZHFbrH2zNuQI5Y_5XSLbIrVZJqpbe-NoanCoo/edit?usp=sharing)]
+
 **Mar 29**: Exam 2  
 
 **Mar 31**: Probability, Part 1  
@@ -207,3 +208,10 @@ Tuesday, 1-4pm
 
 **Apr 21**: The Accuracy of Averages  
 - assignment [[pdf](files/assign-37-accuracy-of-averages.pdf)]  
+
+**Apr 24**: Class Canceled
+
+**Apr 26**: Hypothesis Testing, *z*-Statistics, and *p*-Values
+
+**Apr 28**: *t*-Tests or "Why `sd()` Divides by *N-1*, not *N*"
+- assignment [[pdf](files/assign-38-hypothesis-tests.pdf)]   
