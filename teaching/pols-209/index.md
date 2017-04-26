@@ -209,9 +209,15 @@ Tuesday, 1-4pm
 **Apr 21**: The Accuracy of Averages  
 - assignment [[pdf](files/assign-37-accuracy-of-averages.pdf)]  
 
-**Apr 24**: Class Canceled
+**Apr 24**: Class Cancelled
 
-**Apr 26**: Hypothesis Testing, *z*-Statistics, and *p*-Values
+**Apr 26**: Hypothesis Testing, *z*-Statistics, and *p*-Values  
 
-**Apr 28**: *t*-Tests or "Why `sd()` Divides by *N-1*, not *N*"
-- assignment [[pdf](files/assign-38-hypothesis-tests.pdf)]   
+**Apr 28**: *t*-Tests or "Why sd() Divides by *N-1*, not *N*"
+- assignment [[pdf](files/assign-38-hypothesis-tests.pdf)]  
+
+**May 1**: Review for Final Exam  
+- add to this document [[web](https://docs.google.com/document/d/1bh4HWCibC6GBkWIi3RR-TI7ObPTSv9W3FudsWw5PkUc/edit?usp=sharing)]  
+
+**May 4**: Final Exam for Section 901 from 8-10am  
+**May 5**: Final Exam for Section 902 from 8-10am  
