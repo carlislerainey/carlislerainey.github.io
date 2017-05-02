@@ -221,3 +221,4 @@ Tuesday, 1-4pm
 
 **May 4**: Final Exam for Section 901 from 8-10am  
 **May 5**: Final Exam for Section 902 from 8-10am  
+  - study guide [web](https://docs.google.com/document/d/1WpqtkdZyK3BkKaA5iV44Cw2_Fp0BJqHOAUhnrporWV8/edit?usp=sharing)]  
