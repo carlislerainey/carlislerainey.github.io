@@ -17,6 +17,16 @@ Allen 2051, MTWRF, 10:30-11:30am. Please reserve your slot [here](http://www.cal
 
 Tasks (bullets) below the date should be completed before the next class unless a date is given.
 
+**Jan 18**: Introduction  
+- assignment [[pdf](files/assign-01-intro.pdf)]  
+- textbook [[Amazon](https://www.amazon.com/Statistics-4th-David-Freedman/dp/0393929728)]  
+- *Foundation* [[Amazon](https://www.amazon.com/Foundation-Isaac-Asimov/dp/0553293354)]  
+- syllabus [[pdf](files/syllabus.pdf)]  
+- *New York Times*, "For Today’s Graduate, Just One Word: Statistics" [[web](http://www.nytimes.com/2009/08/06/technology/06stats.html)]  
+- *Chronicle of Higher Education*, "Liberal-Arts Majors Have Plenty of Job Prospects..." [[web](http://www.chronicle.com/article/Liberal-Arts-Majors-Have/236749/)]  
+- Hans Rosling talk [[web](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen)]  
+- Gapminder World [[web](http://www.gapminder.org/world)]  
+
 **Jul 5**: No class meeting  
 - Read the syllabus carefully.  
     - Install R and RStudio (complete by Jul 7).  
