@@ -18,10 +18,10 @@ Allen 2051, MTWRF, 10:30-11:30am. Please reserve your slot [here](http://www.cal
 Tasks (bullets) below the date should be completed before the next class unless a date is given.
 
 **Jul 5**: No class meeting
-~ Read the syllabus carefully.  
-~ Install R and RStudio (complete by Jul 7).  
-~ Order textbook (have by Jul 11).  
-~ Fill out survey questionnaire [pdf].  
+. Read the syllabus carefully.  
+. Install R and RStudio (complete by Jul 7).  
+. Order textbook (have by Jul 11).  
+. Fill out survey questionnaire [pdf].  
 
 **Jul 6**: Questions + Models  
 ~ Review Notes on Questions [pdf]. Complete exercises.  
