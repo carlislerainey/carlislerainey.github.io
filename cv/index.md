@@ -104,7 +104,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Reviewer
 
-*American Political Science Review (2015)*, *American Journal of Political Science* (2015, 2014-2x), *Journal of Politics* (2016, 2015), *Political Analysis* (2015), *Research and Politics* (2016), *Party Politics* (2012), *State Politics and Policy Quarterly* (2014, 2013-2x), *Political Behavior* (2014, 2015), *Political Science Research and Methods* (2016, 2015, 2014), and *Comparative Politics* (2015), *Comparative Political Studies* (2016)
+*American Political Science Review (2015)*, *American Journal of Political Science* (2017, 2015, 2014-2x), *Journal of Politics* (2017, 2016, 2015), *Political Analysis* (2015), *Research and Politics* (2016), *Party Politics* (2012), *State Politics and Policy Quarterly* (2014, 2013-2x), *Political Behavior* (2014, 2015), *Political Research Quarterly* (2017), *Political Science Research and Methods* (2016, 2015, 2014), and *Comparative Politics* (2015), *Comparative Political Studies* (2016)
 
 ### Discussant
 
@@ -112,13 +112,13 @@ Society for Political Methodology Annual Meeting (2014, 2015, 2016), Southern Po
 
 ### Committees
 
-Methodology Search Committee (2012-13, FSU), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2014-2015, UB), Graduate Studies Committee (2013-15, UB)
+Head's Advisory Committee (2017-2018), Graduate Studies Committee (2013-15, UB), Methodology Search Committee (2014-2015, UB), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2012-13, FSU)
 
 ## Teaching
 
 ### Experience
 
-- Introduction to Political Science Research Methods (2 sections), Fall 2015.
+- Introduction to Political Science Research Methods: Fall 2015 (2 sections, 19 students each), Spring 2017 (2 sections, 20 students each), Summer 2017 (scheduled for 1 section, 20 students), Fall 2017 (scheduled for 2 sections, 20 students each)
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014
@@ -161,7 +161,7 @@ La Jolla, California
 [jahlquist@ucsd.edu](mailto:jahlquist@ucsd.edu)  
 
 Professor Jason Barabas  
-Associate Professor of Political Science  
+Professor of Political Science  
 Stony Brook University  
 Stony Brook, New York  
 [jason.barabas@stonybrook.edu](mailto:jason.barabas@stonybrook.edu)  
