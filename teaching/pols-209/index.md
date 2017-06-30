@@ -21,7 +21,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read the syllabus carefully.  
 . Install R and RStudio (complete by Jul 7).  
 . Order textbook (have by Jul 11).  
-. Obtain a pocket calculator (have by Jul 11).
+. Obtain a pocket calculator (have by Jul 11).  
 . Fill out survey questionnaire [[pdf](files/first-day-survey.pdf)].  
 
 **Jul 6**: Questions + Models  
