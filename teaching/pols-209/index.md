@@ -5,9 +5,9 @@ title: POLS 209 | Carlisle Rainey
 
 # Introduction to Political Science Research Methods
 
-. syllabus [[pdf](files/syllabus.pdf)]
-. assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
-. data sets [[pdf](data/data.zip)]  
+syllabus [[pdf](files/syllabus.pdf)]  
+assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
+data sets [[zip](data/data.zip)]  
 
 ## Office Hours
 
