@@ -5,9 +5,9 @@ title: POLS 209 | Carlisle Rainey
 
 # Introduction to Political Science Research Methods
 
-. syllabus [pdf]  
-. assigned exercises from FPP [[pdf](files/fpp-exercises-1.pdf)]  
-. data sets [zip]  
+. syllabus [[pdf](files/syllabus.pdf)]
+. assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
+. data sets [[pdf](data/data.zip)]  
 
 ## Office Hours
 
@@ -21,15 +21,16 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read the syllabus carefully.  
 . Install R and RStudio (complete by Jul 7).  
 . Order textbook (have by Jul 11).  
-. Fill out survey questionnaire [pdf].  
+. Obtain a pocket calculator (have by Jul 11).
+. Fill out survey questionnaire [[pdf](files/first-day-survey.pdf)].  
 
 **Jul 6**: Questions + Models  
-. Review Notes on Questions [pdf]. Complete exercises.  
-. Review Notes on Models [pdf]. Complete exercises.  
+. Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
+. Review Notes on Models [[pdf](files/notes-03-models.pdf)] (and slides from lecture [[pdf](files/slides-03-models.pdf)]). Complete exercises.  
 . Install R and RStudio.  
 
 **Jul 7**: Computing in R  
-. Read Notes on Computing in R [pdf]. Complete exercises.  
+. Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
 
 **Jul 10**: Model Building Exercise + Causal Inference  
 . Have textbook.  
