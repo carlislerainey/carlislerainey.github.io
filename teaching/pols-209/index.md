@@ -35,7 +35,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 **Jul 10**: Model Building Exercise + Causal Inference  
 . Have textbook and calculator.  
 . Read chs. 1-2 of FPP. Complete assigned exercises.  
-. Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inference.pdf)]. Complete exercises at the end.  
+. Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inf.pdf)]. Complete exercises at the end.  
 
 **July 11**: Loading Data in R + Histograms  
 . Review Notes on Loading Data in R [pdf]. Complete exercises.  
