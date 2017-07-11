@@ -38,8 +38,8 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inf.pdf)]. Complete exercises at the end.  
 
 **July 11**: Loading Data in R + Histograms  
-. Review Notes on Loading Data in R [pdf]. Complete exercises.  
-. Review your notes from my Lecture on Data Frames [pdf]. Complete the exercises at the end.  
+. Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
+. Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
 . Read ch. 3 of FPP. Complete assigned exercises.  
 
 **July 12**: Histograms in R + Average and SD  
