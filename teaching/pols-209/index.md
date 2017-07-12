@@ -43,8 +43,8 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read ch. 3 of FPP. Complete assigned exercises.  
 
 **July 12**: Histograms in R + Average and SD  
-. Review Notes on Histograms in R [pdf]. Complete exercises.  
-. Read ch. 4 of FPP. Complete assigned exercises.  
+. Review Notes on Histograms in R [[pdf](files/notes-08-histograms-r.pdf)]. Complete exercises.  
+. Read ch. 4 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)] ).  
 
 **July 13**: Average and SD in R + Normal Approximation  
 . Review Notes on Average and SD in R [pdf]. Complete exercises.  
