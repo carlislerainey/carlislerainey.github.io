@@ -47,12 +47,12 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read ch. 4 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)] ).  
 
 **July 13**: Average and SD in R + Normal Approximation  
-. Read Writing Assignment 1 [[pdf](files/writing-assignment-1.pdf)](polished draft due July 20).  
+. Read Writing Assignment 1 [[pdf](files/writing-assignment-1.pdf)] (polished draft due July 20).  
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
 . Read ch. 5 of FPP. Complete assigned exercises.  
 
-**July 14**: Measurement + Measurement Exercises  
+**July 14**: Measurement + Measurement Exercise  
 . Review your notes from my Lecture on Measurement [pdf]. Complete exercises at the end.  
 . Read ch. 6 of FPP. Complete assigned exercises.  
 
