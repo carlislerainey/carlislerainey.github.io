@@ -51,6 +51,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
 . Read ch. 5 of FPP. Complete assigned exercises.  
+. Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].
 
 **July 14**: Measurement + Measurement Exercise  
 . Review your notes from my Lecture on Measurement [pdf]. Complete exercises at the end.  
