@@ -54,7 +54,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].  
 
 **July 14**: Measurement + Measurement Exercise  
-. Review your notes from my Lecture on Measurement [[pdf](files/measurement.pdf)]. Complete exercises at the end.  
+. Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
 . Read ch. 6 of FPP. Complete assigned exercises.  
 . Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.  
 
