@@ -60,3 +60,21 @@ Tasks (bullets) below the date should be completed before the next class unless 
 
 **July 17**: Exam 1 + Scatterplots and Correlation, Part 1  
 . Read chs. 7-8 of FPP. Complete assigned exercises.  
+
+**July 18**: Scatterplots and Correlation in R + Scatterplots and Correlation, Part 2  
+. Review Notes on Scatterplots and Correlation in R [[pdf](files/notes-18-correlation-r.pdf)]. Complete exercises.  
+. Read ch. 9 of FPP. Complete assigned exercises.  
+
+**July 19**: Regression, Part 1 + Regression, Part 2  
+. Read chs. 10-11 of FPP. Complete assigned exercises.  
+
+**July 20**: Regression, Part 3 + Regression in R
+. Read ch. 12 of FPP. Complete assigned exercises.  
+. Review Notes on Regression in R [[pdf](files/notes-23-regression-r.pdf)]. Complete exercises.  
+
+**July 21**: Multiple Regression (and in R) + Review for Exam 2
+. Review your notes from my Lecture on Multiple Regression (and in R) [[pdf](files/notes-25-multiple-regression.pdf)]. Complete exercises.  
+
+
+**July 24**: Exam 2 + Probability, Part 1  
+. Read ch. 12 of FPP. Complete assigned exercises.  
