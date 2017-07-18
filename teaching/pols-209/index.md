@@ -60,6 +60,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 
 **July 17**: Exam 1 + Scatterplots and Correlation, Part 1  
 . Read chs. 7-8 of FPP. Complete assigned exercises.  
+. See this sheet for p. 137, #9(a) [[Google Sheet](https://docs.google.com/spreadsheets/d/1Y2EuRIcbuZk6eu9WWUaNXSWnqJMi9XBXrA27BzqSeKk/edit?usp=sharing)].  
 
 **July 18**: Scatterplots and Correlation in R + Scatterplots and Correlation, Part 2  
 . Use this code to load runs data [[Gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)].  
