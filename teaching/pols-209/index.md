@@ -62,8 +62,10 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read chs. 7-8 of FPP. Complete assigned exercises.  
 
 **July 18**: Scatterplots and Correlation in R + Scatterplots and Correlation, Part 2  
+. Use this code to load runs data [[Gist](https://gist.github.com/carlislerainey/0111324011a7a86d8b2584c16694c826)].  
 . Review Notes on Scatterplots and Correlation in R [[pdf](files/notes-18-correlation-r.pdf)]. Complete exercises.  
 . Read ch. 9 of FPP. Complete assigned exercises.  
+. Play this game [[web](http://www.rossmanchance.com/applets/GuessCorrelation.html)] and track your performance.  
 
 **July 19**: Regression, Part 1 + Regression, Part 2  
 . Read chs. 10-11 of FPP. Complete assigned exercises.  
