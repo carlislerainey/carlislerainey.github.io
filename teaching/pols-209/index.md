@@ -72,7 +72,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Read ch. 12 of FPP. Complete assigned exercises.  
 . Review Notes on Regression in R [[pdf](files/notes-23-regression-r.pdf)]. Complete exercises.  
 
-**July 21**: Multiple Regression (and in R) + Review for Exam 2
+**July 21**: Multiple Regression (and in R) + Review for Exam 2  
 . Review your notes from my Lecture on Multiple Regression (and in R) [[pdf](files/notes-25-multiple-regression.pdf)]. Complete exercises.  
 
 
