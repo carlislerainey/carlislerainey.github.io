@@ -11,7 +11,7 @@ data sets [[zip](data/data.zip)]
 
 ## Office Hours
 
-Allen 2051, MTWRF, 1:35-2:35pm. Please reserve your slot [here](http://www.calendly.com/carlislerainey).
+Allen 2051, MTWRF, 10:35-11:35am. Please reserve your slot [here](http://www.calendly.com/carlislerainey).
 
 ## Schedule
 
