@@ -69,6 +69,8 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Play this game [[web](http://www.rossmanchance.com/applets/GuessCorrelation.html)] and track your performance.  
 
 **July 19**: Regression, Part 1 + Regression, Part 2  
+. Do this exercise in class [[Google Form](https://docs.google.com/forms/d/e/1FAIpQLScYZz0bJLj8qLvKmRlkSLiq2dSrBVNsKTem-HmtWANdoa9qfw/viewform?usp=sf_link)].  
+. I used this code in class [[Gist](https://gist.github.com/carlislerainey/d651887552184794a467cf806f481803)].  
 . Read chs. 10-11 of FPP. Complete assigned exercises.  
 
 **July 20**: Regression, Part 3 + Regression in R
