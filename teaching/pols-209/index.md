@@ -78,7 +78,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . Review Notes on Regression in R [[pdf](files/notes-23-regression-r.pdf)]. Complete exercises.  
 
 **July 21**: Multiple Regression (and in R) + Review for Exam 2  
-. Review your notes from my Lecture on Multiple Regression (and in R) [[pdf](files/notes-25-multiple-regression.pdf)]. Complete exercises.  
+. Review your notes from my Lecture on Multiple Regression (and in R) [[html](files/notes-25-multiple-regression.html)]. Complete exercises.  
 
 
 **July 24**: Exam 2 + Probability, Part 1  
