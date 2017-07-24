@@ -73,7 +73,7 @@ Tasks (bullets) below the date should be completed before the next class unless 
 . I used this code in class [[Gist](https://gist.github.com/carlislerainey/d651887552184794a467cf806f481803)].  
 . Read chs. 10-11 of FPP. Complete assigned exercises.  
 
-**July 20**: Regression, Part 3 + Regression in R
+**July 20**: Regression, Part 3 + Regression in R  
 . Read ch. 12 of FPP. Complete assigned exercises.  
 . Review Notes on Regression in R [[pdf](files/notes-23-regression-r.pdf)]. Complete exercises.  
 
@@ -82,4 +82,4 @@ Tasks (bullets) below the date should be completed before the next class unless 
 
 
 **July 24**: Exam 2 + Probability, Part 1  
-. Read ch. 12 of FPP. Complete assigned exercises.  
+. Read ch. 13 of FPP. Complete assigned exercises.  
