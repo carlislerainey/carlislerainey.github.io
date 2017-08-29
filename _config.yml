@@ -1,7 +1,7 @@
 # Where things are
 source:      .
 destination: ./_site
-plugins:     ./_plugins
+plugins:     plugins_dir
 layouts:     ./_layouts
 data_source: ./_data
 collections: null
