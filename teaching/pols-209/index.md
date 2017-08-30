@@ -83,3 +83,5 @@ Tasks (bullets) below the date should be completed before the next class unless 
 
 **July 24**: Exam 2 + Probability, Part 1  
 . Read ch. 13 of FPP. Complete assigned exercises.  
+
+test
