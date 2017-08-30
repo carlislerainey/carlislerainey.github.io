@@ -20,7 +20,6 @@ Tasks (bullets) below the date should be completed before the next class (unless
 
 **August 30**: Introduction  
 . Read the syllabus [[pdf](files/syllabus.pdf)] carefully.  
-. If you missed this class, you might want to review my notes [[pdf](files/syllabus.pdf)] and slides for the motivation.  
 . Install R and RStudio (complete by Sep 6).  
 . Order textbook (have by Sep 11).  
 . Obtain a pocket calculator (have by Sep 11).  
