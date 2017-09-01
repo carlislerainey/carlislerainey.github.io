@@ -27,16 +27,16 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 1**: Questions  
 . Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
 
-**Sep 4**: Models
+**Sep 4**: Models  
 . Review Notes on Models [[pdf](files/notes-03-models.pdf)] (and slides from lecture [[pdf](files/slides-03-models.pdf)]). Complete exercises.  
 . Install R and RStudio.  
 
 **Sep 6**: Model-Building Exercise  
 
-**Sep 8**: Computing in R
+**Sep 8**: Computing in R  
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
 
-**Sep 11**: Loading Data in R
+**Sep 11**: Loading Data in R  
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.
 . Computing Assignment 1 [TBA]  
@@ -61,11 +61,11 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
 
-**Sep 27**: Normal Approximation
+**Sep 27**: Normal Approximation  
 . Read ch. 5 of FPP. Complete assigned exercises.  
 . Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].  
 
-**Sep 29**: Measurement
+**Sep 29**: Measurement  
 . Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
 . Read ch. 6 of FPP. Complete assigned exercises.  
 . Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.  
