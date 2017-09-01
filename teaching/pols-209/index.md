@@ -113,7 +113,6 @@ Regression, Part 2
 
 **Nov 6**: Probability, Part 2  
 . Read ch. 14 of FPP. Complete assigned exercises.  
-. Submit peer review by noon on July 26.
 
 **Nov 8**: Law of Averages  
 . Read ch. 16 of FPP. Complete assigned exercises.  
