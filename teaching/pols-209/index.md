@@ -24,7 +24,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Order textbook (have by Sep 11).  
 . Obtain a pocket calculator (have by Sep 11).  
 
-**Sep 1**: Questions
+**Sep 1**: Questions  
 . Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
 
 **Sep 4**: Models
