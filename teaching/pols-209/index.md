@@ -29,6 +29,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 
 **Sep 4**: Models  
 . Review Notes on Models [[pdf](files/notes-03-models.pdf)] (and slides from lecture [[pdf](files/slides-03-models.pdf)]). Complete exercises.  
+. Read Lave and March, chs. 1-3, (on eCampus under Readings) if you need greater detail on the model-building process. The notes above are simply an abridged version of these chapters.  
 . Install R and RStudio.  
 
 **Sep 6**: Model-Building Exercise  
