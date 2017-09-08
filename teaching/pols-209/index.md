@@ -40,15 +40,16 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 11**: Loading Data in R  
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.
-. Computing Assignment 1 [TBA]  
 
 **Sep 13**: Causal Inference  
+. Computing Assignment 1 [TBA]  
 . Have textbook and calculator.  
 . Read chs. 1-2 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)]).  
 . Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inf.pdf)]. Complete exercises at the end.  
 
 **Sep 15**: Histograms  
 . Read ch. 3 of FPP. Complete assigned exercises.  
+. Computing Assignment 2 [TBD]  
 
 **Sep 18**: Histograms in R  
 . Review Notes on Histograms in R [[pdf](files/notes-08-histograms-r.pdf)]. Complete exercises.  
