@@ -36,6 +36,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 
 **Sep 8**: Computing in R  
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
+. Schedule meeting at Writing Center for Extra Credit [[pdf](files/wc.pdf)]  
 
 **Sep 11**: Loading Data in R  
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
