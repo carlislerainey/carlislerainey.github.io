@@ -39,11 +39,11 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Schedule meeting at Writing Center for Extra Credit [[pdf](files/wc.pdf)]  
 
 **Sep 11**: Loading Data in R  
-. Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
-. Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.
 . Begin working on Computing Assignment 1 (see Sep 13).  
 
-**Sep 13**: Causal Inference  
+**Sep 13**: Causal Inference  (+ catching up on Loading Data)
+. (catching up) Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
+. (catching up) Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.
 . Submit Computing Assignment 1 [[pdf](files/r-assign-01.pdf)].  
 . Have textbook and calculator.  
 . Read chs. 1-2 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)]).  
