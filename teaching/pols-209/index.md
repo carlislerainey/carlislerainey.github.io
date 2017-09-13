@@ -36,7 +36,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
 
 **Sep 11**: Loading Data in R   
-- Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
+. Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
 . Computing Assignment 1 [TBA]  
 
