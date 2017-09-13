@@ -26,7 +26,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 1**: Questions
 . Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
 
-**Sep 4**: Models
+**Sep 4**: Models  
 . Review Notes on Models [[pdf](files/notes-03-models.pdf)] (and slides from lecture [[pdf](files/slides-03-models.pdf)]). Complete exercises.  
 . Install R and RStudio.  
 
