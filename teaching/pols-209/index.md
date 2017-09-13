@@ -5,7 +5,6 @@ title: POLS 209 | Carlisle Rainey
 
 # Introduction to Political Science Research Methods
 
-
 syllabus [[pdf](files/syllabus.pdf)]  
 assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
 data sets [[zip](data/data.zip)]  
@@ -19,39 +18,34 @@ Allen 2051, MW, 11am-12pm. Please reserve your slot [here](http://www.calendly.c
 Tasks (bullets) below the date should be completed before the next class (unless a due-date is listed).
 
 **August 30**: Introduction  
-. Read the syllabus [[pdf](files/syllabus.pdf)] carefully.  
+. Read the syllabus carefully.  
 . Install R and RStudio (complete by Sep 6).  
 . Order textbook (have by Sep 11).  
 . Obtain a pocket calculator (have by Sep 11).  
 
-**Sep 1**: Questions  
+**Sep 1**: Questions
 . Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
 
-**Sep 4**: Models  
+**Sep 4**: Models
 . Review Notes on Models [[pdf](files/notes-03-models.pdf)] (and slides from lecture [[pdf](files/slides-03-models.pdf)]). Complete exercises.  
-. Read Lave and March, chs. 1-3, (on eCampus under Readings) if you need greater detail on the model-building process. The notes above are simply an abridged version of these chapters.  
 . Install R and RStudio.  
 
 **Sep 6**: Model-Building Exercise  
 
-**Sep 8**: Computing in R  
+**Sep 8**: Computing in R
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
-. Schedule meeting at Writing Center for Extra Credit [[pdf](files/wc.pdf)]  
 
-**Sep 11**: Loading Data in R  
-. Begin working on Computing Assignment 1 (see Sep 13).  
+**Sep 11**: Loading Data in R   
+- Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
+. Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
+. Computing Assignment 1 [TBA]  
 
-**Sep 13**: Causal Inference  (+ catching up on Loading Data)
-. (catching up) Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
-. (catching up) Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.
-. Submit Computing Assignment 1 [[pdf](files/r-assign-01.pdf)].  
+**Sep 13**: Causal Inference  
 . Have textbook and calculator.  
 . Read chs. 1-2 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)]).  
 . Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inf.pdf)]. Complete exercises at the end.  
-. Begin working on Computing Assignment 2 (see Sep 15).  
 
 **Sep 15**: Histograms  
-. Submit Computing Assignment 2 [TBD]  
 . Read ch. 3 of FPP. Complete assigned exercises.  
 
 **Sep 18**: Histograms in R  
@@ -66,11 +60,11 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
 
-**Sep 27**: Normal Approximation  
+**Sep 27**: Normal Approximation
 . Read ch. 5 of FPP. Complete assigned exercises.  
 . Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].  
 
-**Sep 29**: Measurement  
+**Sep 29**: Measurement
 . Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
 . Read ch. 6 of FPP. Complete assigned exercises.  
 . Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.  
@@ -118,6 +112,7 @@ Regression, Part 2
 
 **Nov 6**: Probability, Part 2  
 . Read ch. 14 of FPP. Complete assigned exercises.  
+. Submit peer review by noon on July 26.
 
 **Nov 8**: Law of Averages  
 . Read ch. 16 of FPP. Complete assigned exercises.  
