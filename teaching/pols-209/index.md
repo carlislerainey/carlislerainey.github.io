@@ -40,7 +40,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 13**: Loading Data in R   
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
-. Computing Assignment 1 [][pdf](files/r-assign-01.pdf)]      
+. Complete Computing Assignment 1 [[pdf](files/r-assign-01.pdf)].  
 
 **Sep 15**: Causal Inference and Histograms  
 . Have textbook and calculator.  
