@@ -33,19 +33,19 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 6**: Model-Building Exercise  
 
 **Sep 8**: Computing in R
+
+**Sep 11**: Computing in R, part 2  
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
 
-**Sep 11**: Loading Data in R   
+**Sep 13**: Loading Data in R   
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
-. Computing Assignment 1 [TBA]  
+. Computing Assignment 1 [][pdf](files/r-assign-01.pdf)]      
 
-**Sep 13**: Causal Inference  
+**Sep 15**: Causal Inference and Histograms  
 . Have textbook and calculator.  
 . Read chs. 1-2 of FPP. Complete assigned exercises (remember that assigned exercises are [[at the top](files/fpp-exercises.pdf)]).  
 . Review your notes from my Lecture on Causal Inference [[pdf](files/slides-06-causal-inf.pdf)]. Complete exercises at the end.  
-
-**Sep 15**: Histograms  
 . Read ch. 3 of FPP. Complete assigned exercises.  
 
 **Sep 18**: Histograms in R  
