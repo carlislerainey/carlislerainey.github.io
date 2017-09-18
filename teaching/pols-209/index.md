@@ -50,9 +50,11 @@ Tasks (bullets) below the date should be completed before the next class (unless
 
 **Sep 18**: Histograms in R  
 . Review Notes on Histograms in R [[pdf](files/notes-08-histograms-r.pdf)]. Complete exercises.  
+. Begin to work on Computing Assignment 2 [[pdf](files/r-assign-02.pdf)] (due Sep 22).  
 
 **Sep 20**: Average and SD  
 . Read ch. 4 of FPP. Complete assigned exercises.  
+. Submit Computing Assignment 2 [[pdf](files/r-assign-02.pdf)].  
 
 **Sep 22**: FSAB Panel Day  
 
