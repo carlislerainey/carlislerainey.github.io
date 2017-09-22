@@ -47,11 +47,11 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ## Software
 
-- `compactr`: an R package for creating graphs with compact axis notation. This package has been downloaded more than 9,000 times from the RStudio CRAN mirror.
+- compactr: an R package for creating graphs with compact axis notation. This package has been downloaded more than 9,000 times from the RStudio CRAN mirror.
 [[Overview](http://www.carlislerainey.com/compactr/)]
 [[CRAN](http://cran.r-project.org/web/packages/compactr/index.html)]
 [[Github](ttps://github.com/carlislerainey/compactr)]
-- `separation`: an R package for handling separation by choosing an informative prior.
+- separation: an R package for handling separation by choosing an informative prior.
 [[Background Paper](http://www.carlislerainey.com/papers/separation.pdf)] [[GitHub](https://github.com/carlislerainey/separation)]
 
 ## Conference Presentations
