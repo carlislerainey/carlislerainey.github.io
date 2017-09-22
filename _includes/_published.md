@@ -1,5 +1,22 @@
 ## Published Papers
 
+### Forthcoming
+
+- Rainey, Carlisle and Robert Jackson. "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." Forthcoming at *Political Science Research and Methods*.
+[[Paper](../papers/unreliable.pdf)]
+[[GitHub](https://github.com/carlislerainey/Unreliable)]
+- Baissa, Daniel K. and Carlisle Rainey. "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa. Forthcoming at *Political Science Research and Methods*.
+[[Paper](../papers/heavy-tails.pdf)]
+[[GitHub](https://github.com/carlislerainey/heavy-tails)]
+
+### 2017
+
+- Rainey, Carlisle. 2017. "Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest." *Political Analysis* 25(3): 402-409.
+[[Paper](../papers/bias.pdf)]
+[[Journal](https://www.cambridge.org/core/journals/political-analysis/article/transformationinduced-bias-unbiased-coefficients-do-not-imply-unbiased-quantities-of-interest/03D30CD9B8851C67717B8782D8BDC122)]
+[[Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CYXFB8)]
+[[GitHub](https://github.com/carlislerainey/transformation-induced-bias)]
+
 ### 2016
 
 - Rainey, Carlisle. 2016. "Dealing with Separation in Logistic Regression Models." *Political Analysis*. 24(3): 339-355.
