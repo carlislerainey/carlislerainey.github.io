@@ -56,7 +56,8 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Read ch. 4 of FPP. Complete assigned exercises.  
 . Submit Computing Assignment 2 [[pdf](files/r-assign-02.pdf)].  
 
-**Sep 22**: FSAB Panel Day  
+**Sep 22**: Catch-Up Day  
+. Begin working on Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]. Come prepared with questions.    
 
 **Sep 25**: Average and SD in R  
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
