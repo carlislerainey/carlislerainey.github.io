@@ -62,10 +62,12 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 25**: Average and SD in R  
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
+. Begin working on Computing Assignment 3 [[pdf](files/r-assign-03.pdf)].  
 
 **Sep 27**: Normal Approximation
 . Read ch. 5 of FPP. Complete assigned exercises.  
 . Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].  
+. Submit Computing Assignment 3 [[pdf](files/r-assign-03.pdf)].  
 
 **Sep 29**: Measurement
 . Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
