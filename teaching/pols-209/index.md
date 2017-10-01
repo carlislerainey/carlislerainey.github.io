@@ -64,13 +64,12 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Review Notes on Average and SD in R [[pdf](files/notes-10-average-sd-r.pdf)]. Complete exercises.  
 . Begin working on Computing Assignment 3 [[pdf](files/r-assign-03.pdf)].  
 
-**Sep 27**: Normal Approximation
+**Sep 27**: Normal Approximation  
 . Read ch. 5 of FPP. Complete assigned exercises.  
 . Finish the leadership extremity exercise we began in class [[pdf](files/leadership-extremity.pdf)].  
 . Submit Computing Assignment 3 [[pdf](files/r-assign-03.pdf)].  
 
-**Sep 29**: Measurement
-. Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
+**Sep 29**: Measurement  
 . Read ch. 6 of FPP. Complete assigned exercises.  
 . Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.  
 
@@ -79,6 +78,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Oct 4**: Exam 1 (bring pencil, pocket calculator, and small green Scantron)  
 
 **Oct 6**: Scatterplots and Correlation, Part 1  
+. Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
 . Read chs. 7-8 of FPP. Complete assigned exercises.  
 . See this sheet for p. 137, #9(a) [[Google Sheet](https://docs.google.com/spreadsheets/d/1Y2EuRIcbuZk6eu9WWUaNXSWnqJMi9XBXrA27BzqSeKk/edit?usp=sharing)].  
 
