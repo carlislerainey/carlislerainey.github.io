@@ -23,7 +23,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Order textbook (have by Sep 11).  
 . Obtain a pocket calculator (have by Sep 11).  
 
-**Sep 1**: Questions
+**Sep 1**: Questions  
 . Review Notes on Questions [[pdf](files/notes-02-questions.pdf)]. Complete exercises.  
 
 **Sep 4**: Models  
@@ -74,6 +74,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.  
 
 **Oct 2**: Review for Exam 1  
+. Study Guide [[Google Doc](https://docs.google.com/document/d/19WF7hCjFCnCWdCwYDDisxWmMCUmapI4wJdb-rnOdsuo/edit?usp=sharing)]  
 
 **Oct 4**: Exam 1 (bring pencil, pocket calculator, and small green Scantron)  
 
