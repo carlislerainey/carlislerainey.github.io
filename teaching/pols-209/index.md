@@ -77,6 +77,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Study Guide [[Google Doc](https://docs.google.com/document/d/19WF7hCjFCnCWdCwYDDisxWmMCUmapI4wJdb-rnOdsuo/edit?usp=sharing)]  
 
 **Oct 4**: Exam 1 (bring pencil, pocket calculator, and small green Scantron)  
+. Read "Politics and the English Language" [[pdf](https://faculty.washington.edu/rsoder/EDLPS579/HonorsOrwellPoliticsEnglishLanguage.pdf)]. Expect a reading quiz.  
 
 **Oct 6**: Scatterplots and Correlation, Part 1  
 . Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
