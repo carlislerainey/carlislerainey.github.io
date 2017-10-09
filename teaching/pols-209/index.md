@@ -79,15 +79,15 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Oct 4**: Exam 1 (bring pencil, pocket calculator, and small green Scantron)  
 . Read "Politics and the English Language" [[pdf](https://faculty.washington.edu/rsoder/EDLPS579/HonorsOrwellPoliticsEnglishLanguage.pdf)]. Expect a reading quiz.  
 
-**Oct 6**: Scatterplots and Correlation, Part 1  
-. Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
+**Oct 6**: Discussion of "Politics and the English Language"Scatterplots and Correlation, Part 1  
 . Read chs. 7-8 of FPP. Complete assigned exercises.  
 . See this sheet for p. 137, #9(a) [[Google Sheet](https://docs.google.com/spreadsheets/d/1Y2EuRIcbuZk6eu9WWUaNXSWnqJMi9XBXrA27BzqSeKk/edit?usp=sharing)].  
 
-**Oct 9**: Scatterplots and Correlation in R  
-. Review Notes on Scatterplots and Correlation in R [[pdf](files/notes-18-correlation-r.pdf)]. Complete exercises.  
+**Oct 9**: Measurement, Part 2  
+. Review your notes from my Lecture on Measurement [[pdf](files/measures.pdf)]. Complete exercises at the end.  
 
-**Oct 11**: Scatterplots and Correlation, Part 2  
+**Oct 11**: Scatterplots and Correlation in R  
+. Review Notes on Scatterplots and Correlation in R [[pdf](files/notes-18-correlation-r.pdf)]. Complete exercises.  
 . Read ch. 9 of FPP. Complete assigned exercises.  
 . Play this game [[web](http://www.rossmanchance.com/applets/GuessCorrelation.html)] and track your performance.  
 
