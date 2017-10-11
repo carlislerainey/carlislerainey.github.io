@@ -9,6 +9,9 @@ syllabus [[pdf](files/syllabus.pdf)]
 assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
 data sets [[zip](data/data.zip)]  
 
+Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]
+
+
 ## Office Hours
 
 Allen 2051, MW, 11am-12pm. Please reserve your slot [here](http://www.calendly.com/carlislerainey).  
