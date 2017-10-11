@@ -9,7 +9,8 @@ syllabus [[pdf](files/syllabus.pdf)]
 assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]  
 data sets [[zip](data/data.zip)]  
 
-Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]
+- Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]  
+- Rubric [[Dropbox](https://www.dropbox.com/s/zkz7nv7jt0dkquf/Rubric-Writing%20Assignment%201.pdf?dl=0)]
 
 
 ## Office Hours
