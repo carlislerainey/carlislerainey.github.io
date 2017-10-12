@@ -94,6 +94,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Review Notes on Scatterplots and Correlation in R [[pdf](files/notes-18-correlation-r.pdf)]. Complete exercises.  
 . Read ch. 9 of FPP. Complete assigned exercises.  
 . Play this game [[web](http://www.rossmanchance.com/applets/GuessCorrelation.html)] and track your performance.  
+. Don't forget to submit Writing Assignment 1.  
 
 **Oct 13**: Regression, Part 1  
 . Read ch. 11 of FPP. Complete assigned exercises.
