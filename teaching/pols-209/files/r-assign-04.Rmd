@@ -1,0 +1,72 @@
+---
+title: "Computing Assignment 4"
+output: pdf_document
+---
+
+Due Friday, Friday, October 20, before class. 
+
+## The Assignment
+
+Load and examing the data set `guns.rds`.
+
+This data set has the following variables:
+
+- `state`: the full name of the state.
+- `state_abbr`: the state's two-letter abbreviation.
+- `firearm_death_rate`: the (age-adjusted) death rate due to firearms per 100,000 in 2014. Suicides, accidental deaths, and homicides are included in this category, if the death was causes by a gun.
+- `homicide_death_rate`:  the (age-adjusted) death rate due to homicide per 100,000 in 2014. These homicides do not necessarily involve firearms.
+- `total_points`: the measure of gun control laws in a state in 2013 by the Brady Campaign. Higher values indicate more gun control. The Brady Campaign created this variable by summing the 38 indicators discussed and shown below.
+- 38 other variables that are the components of `total_points`. These data come from this [document](https://www.bradycampaign.org/sites/default/files/SCGLM-Final10-spreads-points.pdf) produced by the (pro-control) Brady Campaign. See the last several pages for the points assigned to each policy. Note that more points indicate more control and fewer points indicate less control. Negative values indicate a explicit law that reduces control (e.g., stand your ground laws or laws that allow guns on school campuses). Because there are so many predictors, the figure below shows each components importance in predicting the firearm death rate and the homicide death rate. I'm intentionally being vague about the meaning of "importance," but it roughly corresponds to your intuitive notion.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6, fig.width=10}
+
+rm(list = ls())
+
+library(tidyverse)
+library(magrittr)
+library(party)
+
+
+df <- readRDS("data/guns.rds")
+
+rf_df <- df %>% 
+  mutate_at(vars(background_checks:medical_gag), funs(as.factor(.))) %>%
+  select(-state, -state_abbr, -total_points) %>%
+  na.omit()
+
+# random forest
+rf1 <- cforest(firearm_death_rate ~ ., data = select(rf_df, -homicide_death_rate), 
+               control = cforest_unbiased(ntree = 1000))
+vi1 <- varimp(rf1)
+vi1_df <- data.frame(variable = names(vi1), importance = as.numeric(vi1), outcome = "Firearm Death Rate")
+
+rf2 <- cforest(homicide_death_rate ~ ., data = select(rf_df, -firearm_death_rate),
+               control = cforest_unbiased(ntree = 1000))
+vi2 <- varimp(rf2)
+vi2_df <- data.frame(variable = names(vi2), importance = as.numeric(vi2), outcome =  "Homicide Death Rate")
+
+vi_df <- rbind(vi1_df, vi2_df) %>%
+  mutate(variable = reorder(variable, importance))
+ggplot(vi_df, aes(x = importance, y = variable)) +
+  geom_point() + 
+  facet_wrap(~outcome) + 
+  labs(title = "Variable Importance According to a Machine Learning Algorithm",
+       x = "Variable Importance\n(Higher Values Indicate a More Important Predictor)",
+       y = "Variable\n(Sorted by the Average Importance Across Two Outcomes)")
+
+```
+
+Write an R script that does the following, thoroughly commenting your code along the way:
+
+1. Completes any prerequisites for the actions below, such as setting the working directory, loading needed packages, and loading the `guns` data.
+1. Create a scatterplot of and calculate the correlation between `total_points` and `firearm_death_rate`. Rather than use `geom_point()`, use `geom_text()` and include the `label = state_abbr` as an aesthetic. In a comment, briefly interpret the correlation and scatterplot. 
+1. Create similar scatterplot (i.e., with `geom_text()`) of and calculate the correlation between `total_points` and `homicide_death_rate`. In a comment, briefly interpret the correlation and scatterplot.
+1. Choose one or two (or more) particular policies that you explect to correlate strongly with the at least one of the outcomes of interest. Draw a scatterplot and calculate a correlation coefficient between your chosen policies and both outcomes of interest. In a comment, briefly interpret each.
+1. (I want you to add a "comment" in eCampus along with your compiled notebook. For now, simply write it in a Word document, Google Doc, or some place similar.) Write a **2-3 paragraph discussion** explaining the implications for policy. In light of these data, what should the law be? Should we have less gun control or more? Is one outcome more relevant for policy than the other? Clearly distinguish between normative, descriptive, and causal claims and the evidence for each.
+
+Compile a report and submit the report via eCampus using the usual process. Before submitting, copy-and-paste your **2-3 paragraph discussion** into the comment box on eCampus. If you have any questions about the process, earlier assignments provide a more complete description.
+
+I expect you to submit the assignment on eCampus *before* class. However, I have given you until noon in case you encounter technical difficulties. 
+
+
+
