@@ -97,11 +97,12 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Don't forget to submit Writing Assignment 1.  
 
 **Oct 13**: Regression, Part 1  
-. Read ch. 11 of FPP. Complete assigned exercises.
+. Read ch. 10 of FPP. Complete assigned exercises.
 Regression, Part 2  
 
 **Oct 16**: Regression, Part 2  
 . Read ch. 11 of FPP. Complete assigned exercises.  
+. Note that I accidentally assigned ch. 11 on the 13th as well. I meant to assign ch. 10. Make sure you've finished both ch. 10 and 11.  
 
 **Oct 18**: Regression, Part 3  
 . Read ch. 12 of FPP. Complete assigned exercises.  
