@@ -103,8 +103,7 @@ Regression, Part 2
 **Oct 16**: Regression, Part 2  
 . Read ch. 11 of FPP. Complete assigned exercises.  
 . Note that I accidentally assigned ch. 11 on the 13th as well. I meant to assign ch. 10. Make sure you've finished both ch. 10 and 11.  
-. Submit Computing Assignment 4 [[pdf](files/r-assign-04.pdf)].  
-
+. Begin Computing Assignment 4 [[pdf](files/r-assign-04.pdf)].  
 
 **Oct 18**: Regression, Part 3  
 . Read ch. 12 of FPP. Complete assigned exercises.  
