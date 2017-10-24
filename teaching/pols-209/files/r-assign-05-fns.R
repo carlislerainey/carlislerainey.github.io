@@ -71,8 +71,11 @@ write_predictions_to_file <- function() {
                    "Too Complicated")
   name_stub <- str_to_lower(my_name) %>%
     str_replace(" ", "-") %>%
-    str_replace("\\.", "-")
-  where_to_save_predictions <- paste0("data/", name_stub, "election-predictions.csv")
+    str_replace("\\.", "")
+  where_to_save_predictions <- paste0("data/",
+                                      "election-predictions-", 
+                                      name_stub, 
+                                      ".csv")
   fits <- list(m1, m2, m3)
   submit_df <- NULL
   for (i in 1:length(fits)) {
