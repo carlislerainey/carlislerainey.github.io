@@ -116,8 +116,10 @@ Regression, Part 2
 **Oct 23**: Multiple Regression, Part 1  
 
  **Oct 25**: Multiple Regression, Part 2  
+ - Review your notes on my lecture on econometric notation. Make sure you can explain the similarities and differences between FPP's simple notation and the more complicated econometric notation. What are the two advantages of econometric notation?  
+ - Computing Assignment 5 [[pdf](files/r-assign-04.pdf)]  
 
-**Oct 27**: Multiple Regression in R  
+**Oct 27**: "Breakfast with Ben"
 
 **Oct 30**: Exam 2 Review  
 
