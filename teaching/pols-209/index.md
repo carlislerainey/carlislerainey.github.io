@@ -116,14 +116,16 @@ Regression, Part 2
 **Oct 23**: Multiple Regression, Part 1  
 
  **Oct 25**: Multiple Regression, Part 2  
- - Review your notes on my lecture on econometric notation. Make sure you can explain the similarities and differences between FPP's simple notation and the more complicated econometric notation. What are the two advantages of econometric notation?  
- - Review your notes on my lecture [[pdf](files/slides-regression.pdf)] on regression for prediction.  
- - Complete Computing Assignment 5 [[pdf](files/r-assign-05.pdf)].  
+ . Review your notes on my lecture on econometric notation. Make sure you can explain the similarities and differences between FPP's simple notation and the more complicated econometric notation. What are the two advantages of econometric notation?  
+ . Review your notes on my lecture [[pdf](files/slides-regression.pdf)] on regression for prediction.  
+ . Read these notes [[pdf](files/notes-multiple-regression-r.pdf)] for more detail on prediction and BIC.  
+ . Complete Computing Assignment 5 [[pdf](files/r-assign-05.pdf)].  
+ . Read "5 Steps toward Constructing a Better Sentence" [[web](https://eebatou.wordpress.com/2011/09/02/writing-5-steps-toward-constructing-a-better-sentence/)].  
+ . Read "5 Steps toward Writing an Effective Paragraph" [[web](https://eebatou.wordpress.com/2007/01/21/5-steps-to-a-writing-an-effective-paragraph/)].  
+ . Use this example response memo [[pdf](files/response-memo-example.pdf)] when writing your own response memo.  
 
 **Oct 27**: "Breakfast with Ben"  
-. Read "5 Steps toward Constructing a Better Sentence" [[web](https://eebatou.wordpress.com/2011/09/02/writing-5-steps-toward-constructing-a-better-sentence/)].  
-. Read "5 Steps toward Writing an Effective Paragraph" [[web](https://eebatou.wordpress.com/2007/01/21/5-steps-to-a-writing-an-effective-paragraph/)].  
-. Use this example response memo [[pdf](files/response-memo-example.pdf)] when writing your own response memo.  
+
 
 **Oct 30**: Exam 2 Review  
 
