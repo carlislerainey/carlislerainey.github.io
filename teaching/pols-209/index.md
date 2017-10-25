@@ -120,8 +120,8 @@ Regression, Part 2
  - Computing Assignment 5 [[pdf](files/r-assign-05.pdf)]  
 
 **Oct 27**: "Breakfast with Ben"  
-. Read "5 Steps toward Constructing a Better Sentence" [[https://eebatou.wordpress.com/2011/09/02/writing-5-steps-toward-constructing-a-better-sentence/](web)].  
-. Read "5 Steps toward Writing an Effective Paragraph" [[https://eebatou.wordpress.com/2007/01/21/5-steps-to-a-writing-an-effective-paragraph/](web)].  
+. Read "5 Steps toward Constructing a Better Sentence" [[web](https://eebatou.wordpress.com/2011/09/02/writing-5-steps-toward-constructing-a-better-sentence/)].  
+. Read "5 Steps toward Writing an Effective Paragraph" [[web](https://eebatou.wordpress.com/2007/01/21/5-steps-to-a-writing-an-effective-paragraph/)].  
 . Use this example response memo [[pdf](files/example-response-memo.pdf)] when writing your own response memo.  
 
 **Oct 30**: Exam 2 Review  
