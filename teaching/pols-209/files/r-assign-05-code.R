@@ -13,8 +13,8 @@ library(stringr)
 my_name <- "Carlisle R."
 
 # load training and prediction sets from the web
-train <- read_csv("data/pres-election-train.csv")
-pred <- read_csv("data/pres-election-prediction.csv")
+train <- read_csv(url("http://www.carlislerainey.com/teaching/pols-209/files/r-assign-05-train.csv"))
+pred <- read_csv(url("http://www.carlislerainey.com/teaching/pols-209/files/r-assign-05-pred.csv"))
 
 # fit models  **CHANGE**
 ## note: the formulas below are simply placeholders, change all of them
@@ -28,6 +28,6 @@ m3 <- lm(inc1 ~ G + P + Z, data = train)  # too complicated
 # I wrote some custom code that does two things:
 # 1. prints and plots the rms error, BIC, and oos rms error for each model
 # 2. saves a .csv file of each models predictions to your data folder.
-source("computing-assignments/r-assign-05-fns.R")
+source(url("http://www.carlislerainey.com/teaching/pols-209/files/r-assign-05-fns.R"))
 compute_measures_of_fit()
 write_predictions_to_file()
