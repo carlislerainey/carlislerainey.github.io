@@ -55,10 +55,10 @@ compute_measures_of_fit <- function() {
   ev_tall <- mutate(ev_tall, model = factor(model, c("Too Simple", 
                                                      "Just Right",
                                                      "Too Complicated")))
-  gg <- ggplot(ev_tall, aes(x = model, y = fit)) + 
+  gg <- ggplot(subset(ev_tall, measure_of_fit != "oos_rms_error"), aes(x = model, y = fit)) + 
     geom_col() + 
     facet_wrap(~ measure_of_fit, scale = "free_y")
-  print(ev, digits = 3)
+  print(select(ev, -oos_rms_error, digits = 3))
   print(gg)
 }
 
