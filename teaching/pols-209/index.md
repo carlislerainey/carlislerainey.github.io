@@ -126,8 +126,9 @@ Regression, Part 2
 
 **Oct 27**: "Breakfast with Ben"  
 
-
 **Oct 30**: Exam 2 Review  
+. Study Guide [[Google Doc](https://docs.google.com/document/d/1aRe1GgbJhoUTltteX-WPEJb-ImDVXq4FHz4QMuhThBY/edit?usp=sharing)]  
+
 
 **Nov 1**:  Exam 2 (bring pencil, pocket calculator, and small green Scantron)  
 . Final submission of Writing Assignment 1.
