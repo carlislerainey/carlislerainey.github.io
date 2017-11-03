@@ -134,6 +134,7 @@ Regression, Part 2
 . Final submission of Writing Assignment 1.
 
 **Nov 3**: Probability, Part 1  
+. We'll look at the Federalist papers [[web](http://www.foundingfathers.info/federalistpapers/fedindex.htm)] in class.  
 . Read ch. 13 of FPP. Complete assigned exercises.  
 
 **Nov 6**: Probability, Part 2  
