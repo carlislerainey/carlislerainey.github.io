@@ -10,7 +10,8 @@ assigned exercises from FPP [[pdf](files/fpp-exercises.pdf)]
 data sets [[zip](data/data.zip)]  
 
 - Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]  
-- Rubric [[Dropbox](https://www.dropbox.com/s/zkz7nv7jt0dkquf/Rubric-Writing%20Assignment%201.pdf?dl=0)]
+- Rubric [[Dropbox](https://www.dropbox.com/s/zkz7nv7jt0dkquf/Rubric-Writing%20Assignment%201.pdf?dl=0)]  
+- Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/icggw47uza08841/writing-assignment-2.pdf?dl=0)]  
 
 
 ## Office Hours
@@ -41,7 +42,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Sep 11**: Computing in R, part 2  
 . Read Notes on Computing in R [[pdf](files/notes-04-computing.pdf)]. Complete exercises.  
 
-**Sep 13**: Loading Data in R   
+**Sep 13**: Loading Data in R
 . Review your notes from my Lecture on Data Frames [[pdf](files/data-frames.pdf)].  
 . Review Notes on Loading Data in R [[pdf](files/notes-05-loading-data.pdf)]. Complete exercises.  
 . Complete Computing Assignment 1 [[pdf](files/r-assign-01.pdf)].  
@@ -61,7 +62,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Submit Computing Assignment 2 [[pdf](files/r-assign-02.pdf)].  
 
 **Sep 22**: Catch-Up Day  
-. Begin working on Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]. Come prepared with questions.    
+. Begin working on Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]. Come prepared with questions.
 
 **Sep 25**: Average and SD in R  
 . Review your notes from my Lecture on Average and SD in R [[pdf](files/mean-sd.pdf)].  
@@ -146,6 +147,7 @@ Regression, Part 2
 
 **Nov 10**: Expected Value and Standard Error  
 . Read ch. 17 of FPP. Complete assigned exercises.  
+. Begin Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/icggw47uza08841/writing-assignment-2.pdf?dl=0)]  
 
 **Nov 13**: Normal Approximation for Probability Histograms  
 . Read ch. 18 of FPP. Complete assigned exercises.  
@@ -166,7 +168,7 @@ Regression, Part 2
 **Nov 27**: The Accuracy of Averages  
 . Read ch. 23 of FPP. Complete assigned exercises.  
 
-**Nov 29**: Tests for Averages, Part 1   
+**Nov 29**: Tests for Averages, Part 1
 . Read ch. 26 of FPP. Complete assigned exercises.  
 
 **Dec 1**: Testing Averages in R  
@@ -177,5 +179,5 @@ Regression, Part 2
 **Dec 6**: Final Exam Review  
 
 **Dec 8 or 11**: Final Exam  
-. For 901 (8:35-9:25am), 10am-12pm on Dec 8   
-. For 902 (9:45-10:35am), 8-1am on Dec 11   
+. For 901 (8:35-9:25am), 10am-12pm on Dec 8
+. For 902 (9:45-10:35am), 8-1am on Dec 11
