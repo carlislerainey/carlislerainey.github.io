@@ -98,9 +98,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Don't forget to submit Writing Assignment 1.  
 
 **Oct 13**: Regression, Part 1  
-. Read ch. 10 of FPP. Complete assigned exercises.  
-. In class, fill in this table [[Google Sheet](https://docs.google.com/spreadsheets/d/1uiBoSY49F_o3C9_H_9cpaAFtP9Cpby16z9XW_aymZXc/edit?usp=sharing)].  
-. In class, use these slides as needed [[Google Slides](https://docs.google.com/presentation/d/1SOUFFnB3VvILGscV5qOGxJnKJjHIHdbhFzxyB7SEJ8Y/edit?usp=sharing)].
+. Read ch. 10 of FPP. Complete assigned exercises.
 
 **Oct 16**: Regression, Part 2  
 . Read ch. 11 of FPP. Complete assigned exercises.  
@@ -151,7 +149,9 @@ Tasks (bullets) below the date should be completed before the next class (unless
 . Begin Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/icggw47uza08841/writing-assignment-2.pdf?dl=0)]  
 
 **Nov 13**: Normal Approximation for Probability Histograms  
-. Read ch. 18 of FPP. Complete assigned exercises.  
+. Read ch. 18 of FPP. Complete assigned exercises.
+. In class, fill in this table [[Google Sheet](https://docs.google.com/spreadsheets/d/1uiBoSY49F_o3C9_H_9cpaAFtP9Cpby16z9XW_aymZXc/edit?usp=sharing)].  
+. In class, use these slides as needed [[Google Slides](https://docs.google.com/presentation/d/1SOUFFnB3VvILGscV5qOGxJnKJjHIHdbhFzxyB7SEJ8Y/edit?usp=sharing)].  
 
 **Nov 15**: Sample Surveys, Part 1  
 . Read ch. 19 of FPP. Complete assigned exercises.  
