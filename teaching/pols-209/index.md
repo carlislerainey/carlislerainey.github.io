@@ -159,22 +159,23 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Nov 17**: Sample Surveys, Part 2  
 . Read ch. 20 of FPP. Complete assigned exercises.  
 
-**Nov 20**: The Accuracy of Percentages  
-. Read ch. 21 of FPP. Complete assigned exercises.  
+**Nov 20**: FSAB Panel Day  
+. Catch-up on any review exercises you haven't done.
 
 **Nov 22**: No Class (Reading Day)  
 
 **Nov 24**: No Class (Thanksgiving Holiday)  
 
-**Nov 27**: The Accuracy of Averages  
+**Nov 27**: The Accuracy of Percentages  
+. Read ch. 21 of FPP. Complete assigned exercises.  
+
+**Nov 29**: The Accuracy of Averages  
 . Read ch. 23 of FPP. Complete assigned exercises.  
 
-**Nov 29**: Tests for Averages, Part 1
+**Dec 1**: Tests for Averages, Part 1
 . Read ch. 26 of FPP. Complete assigned exercises.  
 
-**Dec 1**: Testing Averages in R  
-
-**Dec 4**: Problems with Significance Testing  
+**Dec 4**: Testing Averages in R and Problems with Significance Testing  
 . Read ch. 26 of FPP. Complete TBA exercises.  
 
 **Dec 6**: Final Exam Review  
