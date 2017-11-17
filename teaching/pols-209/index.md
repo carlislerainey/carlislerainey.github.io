@@ -11,7 +11,7 @@ data sets [[zip](data/data.zip)]
 
 - Writing Assignment 1 [[Dropbox](https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0)]  
 - Rubric [[Dropbox](https://www.dropbox.com/s/zkz7nv7jt0dkquf/Rubric-Writing%20Assignment%201.pdf?dl=0)]  
-- Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/icggw47uza08841/writing-assignment-2.pdf?dl=0)]  
+- Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/kl1t43w55i2jumh/writing-assignment-2.pdf?dl=0)]  
 
 
 ## Office Hours
@@ -146,7 +146,7 @@ Tasks (bullets) below the date should be completed before the next class (unless
 
 **Nov 10**: Expected Value and Standard Error  
 . Read ch. 17 of FPP. Complete assigned exercises.  
-. Begin Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/icggw47uza08841/writing-assignment-2.pdf?dl=0)]  
+. Begin Writing Assignment 2 [[Dropbox](https://www.dropbox.com/s/kl1t43w55i2jumh/writing-assignment-2.pdf?dl=0)]  
 
 **Nov 13**: Normal Approximation for Probability Histograms  
 . Read ch. 18 of FPP. Complete assigned exercises.
