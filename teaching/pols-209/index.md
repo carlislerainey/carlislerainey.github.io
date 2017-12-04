@@ -176,11 +176,13 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Dec 1**: The Accuracy of Averages  
 . Read ch. 23 of FPP. Complete assigned exercises.  
 
-**Dec 4**: Tests for Averages (in Theory and in R)  
+**Dec 4**: Hypothesis Tests
 . Read ch. 26 of FPP. Complete assigned exercises.  
 
 **Dec 6**: Final Exam Review  
+. Example problem for hypothesis test and 95% CI for percent [[Dropbox](https://www.dropbox.com/s/e7glla0sqomku5h/ci-and-p-for-percent.pdf?dl=0)].  
+. Final submission of Writing Assignment 2 due.  
 
 **Dec 8 or 11**: Final Exam  
 . For 901 (8:35-9:25am), 10am-12pm on Dec 8
-. For 902 (9:45-10:35am), 8-1am on Dec 11
+. For 902 (9:45-10:35am), 8-10am on Dec 11
