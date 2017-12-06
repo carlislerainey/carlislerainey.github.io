@@ -182,7 +182,8 @@ Tasks (bullets) below the date should be completed before the next class (unless
 **Dec 6**: Final Exam Review  
 . Example problem for hypothesis test and 95% CI for percent [[Dropbox](https://www.dropbox.com/s/e7glla0sqomku5h/ci-and-p-for-percent.pdf?dl=0)].  
 . Final submission of Writing Assignment 2 due.  
+. Study Guide [[Google Doc](https://docs.google.com/document/d/1svjCL8aK1YyL8yGnbHgnqU9MJpLwdLLniqcgwTr6Kso/edit?usp=sharing)]  
 
-**Dec 8 or 11**: Final Exam  
-. For 901 (8:35-9:25am), 10am-12pm on Dec 8
-. For 902 (9:45-10:35am), 8-10am on Dec 11
+**Dec 8 or 11**: Final Exam (bring pencil, pocket calculator, and small green Scantron)
+. For 901 (8:35-9:25am), 10am-12pm on Dec 8  
+. For 902 (9:45-10:35am), 8-10am on Dec 11  
