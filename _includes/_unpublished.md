@@ -9,6 +9,6 @@
 
 ### Under Review
 
-- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). Invitation to revises and resubmit to *Political Science Research and Methods*.
+- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). Conditionally accepted at *Political Science Research and Methods*.
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]

@@ -21,11 +21,12 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 ## Current Appointments
 
 - Assistant Professor, Department of Political Science, Texas A&M University, July 2015 - present.
-- Director, Program in Scientific Political Methodology, Texas A&M University, July 2015 - present.
 
 ## Previous Appointment
 
 - Assistant Professor, Department of Political Science, University at Buffalo, SUNY, August 2013 - July 2015.
+- Director, Program in Scientific Political Methodology, Texas A&M University, July 2015 - July 2017.
+
 
 ## Education
 
@@ -118,7 +119,7 @@ Head's Advisory Committee (2017-2018), Graduate Studies Committee (2013-15, UB),
 
 ### Experience
 
-- Introduction to Political Science Research Methods: Fall 2015 (2 sections, 19 students each), Spring 2017 (2 sections, 20 students each), Summer 2017 (scheduled for 1 section, 20 students), Fall 2017 (scheduled for 2 sections, 20 students each)
+- Introduction to Political Science Research Methods: Fall 2015 (2 sections, 19 students each), Spring 2017 (2 sections, 20 students each), Summer 2017 (scheduled for 1 section, 20 students), Fall 2017 (2 sections, 20 students each)
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014
@@ -137,31 +138,4 @@ Head's Advisory Committee (2017-2018), Graduate Studies Committee (2013-15, UB),
 
 - Methods training: probability theory (through measure-theoretic probability); experimental and survey design; linear and generalized linear models; likelihood-based, Bayesian, and non-parametric inference; hierarchical, dynamic, and time-series models; MCMC and other computationally-intensive methods
 - Formal theory training: Game theory, computational (agent-based) modeling, experimental economics
-- Programming: R, BUGS/JAGS, Stan, Git/GitHub, Matlab, Stata, LaTeX, Linux, z-Tree, Medialab, Qualtrix
-
-## References
-
-Professor Robert Jackson  
-Professor of Political Science  
-Florida State University  
-Tallahassee, Florida  
-[rjackson@fsu.edu](mailto:rjackson@fsu.edu)  
-
-Professor Dave Siegel  
-Associate Professor of Political Science  
-Duke University  
-Durham, North Carolina  
-[david.siegel@duke.edu](mailto:david.siegel@duke.edu)  
-
-Professor John Ahlquist  
-Associate Professor  
-School of Global Policy and Strategy  
-University of California, San Diego  
-La Jolla, California  
-[jahlquist@ucsd.edu](mailto:jahlquist@ucsd.edu)  
-
-Professor Jason Barabas  
-Professor of Political Science  
-Stony Brook University  
-Stony Brook, New York  
-[jason.barabas@stonybrook.edu](mailto:jason.barabas@stonybrook.edu)  
+- Programming: R, Stan, git/GitHub, Matlab, Stata, LaTeX, Linux, z-Tree, Medialab, Qualtrix
