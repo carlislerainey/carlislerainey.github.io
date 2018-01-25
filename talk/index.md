@@ -11,3 +11,5 @@ The talk is based on an in-progress paper with Holger Kern titled "Unnecessary B
 - slides [TBA]
 
 ![](ge-fd.png)
+
+<script async class="speakerdeck-embed" data-id="a5d31e94c89245eb902065fea1f0fe83" data-ratio="1.29456384323641" src="//speakerdeck.com/assets/embed.js"></script>
