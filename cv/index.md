@@ -18,15 +18,16 @@ e-mail: [crainey@tamu.edu](mailto:crainey@tamu.edu)
 Twitter: [twitter.com/carlislerainey](https://twitter.com/carlislerainey)  
 GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)  
 
-## Current Appointments
+## Current Appointment
 
-- Assistant Professor, Department of Political Science, Texas A&M University, July 2015 - present.
+- Associate Professor, Department of Political Science, Florida State University, July 2018 - present.
+
 
 ## Previous Appointment
 
-- Assistant Professor, Department of Political Science, University at Buffalo, SUNY, August 2013 - July 2015.
+- Assistant Professor, Department of Political Science, Texas A&M University, July 2015 - July 2018.
 - Director, Program in Scientific Political Methodology, Texas A&M University, July 2015 - July 2017.
-
+- Assistant Professor, Department of Political Science, University at Buffalo, SUNY, August 2013 - July 2015.
 
 ## Education
 
