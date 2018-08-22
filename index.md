@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Carlisle Rainey
-desc: "Assistant Professor of Political Science at Texas A&M University. Writes about political methodology and American and comparative elections."
+desc: "Associate Professor of Political Science at FSU. Writes about political methodology and American and comparative elections."
 ---
 
 # About Me
 
-I'm an Assistant Professor in the Department of Political Science at Texas A&M University. I was previously an Assistant Professor in the Department of Political Science at the University at Buffalo, SUNY, and a graduate student in the Department of Political Science and the Department of Statistics at Florida State University.
+I'm an Associate Professor in the Department of Political Science at Florida State University. I was previously an Assistant Professor in the Department of Political Science at the University at Buffalo, SUNY, and the Department of Political Science at Texas A&M University.
 
 My research has appeared in the *American Political Science Review*, the *American Journal of Political Science*, *Political Analysis*, and other peer-reviewed journals. I teach undergraduate courses in American politics, comparative politics, and political methodology and graduate courses in quantitative methods.
 
