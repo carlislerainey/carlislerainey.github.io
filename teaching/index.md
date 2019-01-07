@@ -7,12 +7,13 @@ title: Teaching | Carlisle Rainey
 
 ## Current Classes
 
-- [POS 5737](https://pos5737.github.io): Introduction to Data Analysis
+- [POS 3713](http://pos3713.github.io): Introduction to Political Science Research Methods
 
 ## Previous Classes
 
 ### Undergraduate
 
+- [POS 5737](https://pos5737.github.io): Introduction to Data Analysis
 - [POLS 209](pols-209): Introduction to Political Science Research Methods
 - PSC 101: Introduction to American Government
 - PSC 103: Introduction to Comparative Politics
