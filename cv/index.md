@@ -9,12 +9,11 @@ title: CV | Carlisle Rainey
 
 Carlisle Rainey  
 Department of Political Science  
-Texas A&M University  
-2051 Allen Building  
-4348 TAMU  
-College Station, TX 77843-4348  
+Florida State University  
+600 W. College Avenue
+Tallahassee, FL 32306
 
-e-mail: [crainey@tamu.edu](mailto:crainey@tamu.edu)  
+e-mail: [crainey@fsu.edu](mailto:crainey@fsu.edu)  
 Twitter: [twitter.com/carlislerainey](https://twitter.com/carlislerainey)  
 GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)  
 
@@ -106,7 +105,7 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ### Reviewer
 
-*American Political Science Review (2015)*, *American Journal of Political Science* (2017, 2015, 2014-2x), *Journal of Politics* (2017, 2016, 2015), *Political Analysis* (2015), *International Studies Quarterly* (2017), *Research and Politics* (2016), *Party Politics* (2012), *State Politics and Policy Quarterly* (2014, 2013-2x), *Political Behavior* (2014, 2015), *Political Research Quarterly* (2017), *Political Science Research and Methods* (2016, 2015, 2014), and *Comparative Politics* (2015), *Comparative Political Studies* (2016)
+*American Political Science Review*, *American Journal of Political Science* , *Journal of Politics* , *Political Analysis* ,  *Comparative Politics*, *Comparative Political Studies*, *International Studies Quarterly*, *Party Politics*, *Political Behavior*, *Political Research Quarterly*, *Political Science Research and Methods*, *Research and Politics* , *State Politics and Policy Quarterly*.
 
 ### Discussant
 
@@ -120,7 +119,8 @@ Head's Advisory Committee (2017-2018), Graduate Studies Committee (2013-15, UB),
 
 ### Experience
 
-- Introduction to Political Science Research Methods: Fall 2015 (2 sections, 19 students each), Spring 2017 (2 sections, 20 students each), Summer 2017 (scheduled for 1 section, 20 students), Fall 2017 (2 sections, 20 students each)
+- Introduction to Political Science Research Methods (Undergraduate): Fall 2015, Spring 2017, Summer 2017, Fall 2017, Spring 2019.
+- Introduction to Political Science Research Methods (Graduate): Fall 2018.
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014

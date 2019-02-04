@@ -2,12 +2,19 @@
 
 ### Forthcoming
 
-- Rainey, Carlisle and Robert Jackson. "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." Forthcoming at *Political Science Research and Methods*.
-[[Paper](../papers/unreliable.pdf)]
-[[GitHub](https://github.com/carlislerainey/Unreliable)]
 - Baissa, Daniel K. and Carlisle Rainey. "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa. Forthcoming at *Political Science Research and Methods*.
 [[Paper](../papers/heavy-tails.pdf)]
 [[GitHub](https://github.com/carlislerainey/heavy-tails)]
+- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). Forthcoming at *Political Science Research and Methods*.
+[[Paper](../papers/small.pdf)]
+[[GitHub](https://github.com/kellymccaskey/small)]
+
+### 2018
+
+- Rainey, Carlisle and Robert Jackson. "Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models." *Political Science Research and Methods* 6(2): 381-391.
+[[Paper](../papers/unreliable.pdf)]
+[[Journal](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/unreliable-inferences-about-unobserved-processes-a-critique-of-partial-observability-models/E6BAEE370786F2238238B0EABBE4C224)
+[[GitHub](https://github.com/carlislerainey/Unreliable)]
 
 ### 2017
 
