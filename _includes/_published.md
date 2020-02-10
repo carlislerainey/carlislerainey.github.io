@@ -2,12 +2,15 @@
 
 ### Forthcoming
 
-- Baissa, Daniel K. and Carlisle Rainey. "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." With Daniel K. Baissa. Forthcoming at *Political Science Research and Methods*.
-[[Paper](../papers/heavy-tails.pdf)]
-[[GitHub](https://github.com/carlislerainey/heavy-tails)]
 - "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). Forthcoming at *Political Science Research and Methods*.
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
+
+### 2020
+
+- Baissa, Daniel K. and Carlisle Rainey. 2020. "When BLUE Is Not Best: Non-Normal Errors and the Linear Model." *Political Science Research and Methods* 8(1) 136-148.
+[[Paper](../papers/heavy-tails.pdf)]
+[[GitHub](https://github.com/carlislerainey/heavy-tails)]
 
 ### 2018
 
