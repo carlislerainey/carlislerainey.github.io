@@ -57,6 +57,10 @@ GitHub: [github.com/carlislerainey](https://github.com/carlislerainey)
 
 ## Conference Presentations
 
+- "Increasing the Generalizability of Survey Experiments Using Randomized Topics: An Application to Party Cues." With Scott Clifford and Thomas Leeper.
+	- American Political Science Association Annual Conference, Washington, D.C., August 2019.
+- "Simulation-Induced Bias in Quantities of Interest." With Holger Kern.
+	- Tex Meth 2018, College Station, TX, April 2018.
 - "Dealing with Separation in Logistic Regression Models."
 	- Society for Political Methodology Annual Meeting, Rochester, NY, July 2015.
 	- Southern Political Science Association Annual Conference, San Juan, PR, January 2016.
@@ -113,14 +117,14 @@ Society for Political Methodology Annual Meeting (2014, 2015, 2016), Southern Po
 
 ### Committees
 
-Head's Advisory Committee (2017-2018), Graduate Studies Committee (2013-15, UB), Methodology Search Committee (2014-2015, UB), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2012-13, FSU)
+Promotion and Tenure Committee (Fall 2018 to present), Executive Committee (2019 to present), Methods Field Head (Fall 2019 to present), Head's Advisory Committee (2017-2018, TAMU), Graduate Studies Committee (2013-15, UB), Methodology Search Committee (2014-2015, UB), American Politics Search Committee (2013-14, UB), Methodology Search Committee (2012-13, FSU)
 
 ## Teaching
 
 ### Experience
 
-- Introduction to Political Science Research Methods (Undergraduate): Fall 2015, Spring 2017, Summer 2017, Fall 2017, Spring 2019.
-- Introduction to Political Science Research Methods (Graduate): Fall 2018.
+- Introduction to Political Science Research Methods (Undergraduate): Fall 2015, Spring 2017, Summer 2017, Fall 2017, Spring 2019, Spring 2020
+- Introduction to Political Science Research Methods (Graduate): Fall 2018, Fall 2020
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014
