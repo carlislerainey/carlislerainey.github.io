@@ -123,8 +123,8 @@ Promotion and Tenure Committee (Fall 2018 to present), Executive Committee (2019
 
 ### Experience
 
-- Introduction to Political Science Research Methods (Undergraduate): Fall 2015, Spring 2017, Summer 2017, Fall 2017, Spring 2019, Spring 2020
-- Introduction to Political Science Research Methods (Graduate): Fall 2018, Fall 2020
+- Introduction to Political Science Research Methods (Undergraduate): Fall 2015, Spring 2017, Summer 2017, Fall 2017, Spring 2019, Spring 2020, Fall 2020 (RIBC)
+- Introduction to Political Science Research Methods (Graduate): Fall 2018, Fall 2019, Fall 2020
 - Introduction to American Government: Summer 2013 (2 sections), Fall 2013.
 - Introduction to Comparative Politics: Summer 2010, Summer 2011, Fall 2011, Spring 2012, Spring 2014, Spring 2015.
 - Empirical Political Science: Fall 2013, Fall 2014
