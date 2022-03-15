@@ -1,8 +1,8 @@
 ## Published Papers
 
-### Forthcoming
+### 2021
 
-- "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). Forthcoming at *Political Science Research and Methods*.
+- McCaskey, Kelly and Carlisle Rainey. 2021 "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). *Political Science Research and Methods* 9(3) 549-564.
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
 
