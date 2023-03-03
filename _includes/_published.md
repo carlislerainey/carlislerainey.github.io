@@ -1,8 +1,14 @@
 ## Published Papers
 
+### Forthcoming
+
+- Clifford, Scott, Thomas Leeper, and Carlisle Rainey. “Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues.” Forthcoming in *Political Behavior*. [[Draft](https://www.dropbox.com/s/ng0pdkvef7xgadt/manuscript_blind.docx?dl=0)]
+- Rainey, Carlisle. "A Careful Consideration of CLARIFY: Simulation-Induced Bias in Point Estimates of Quantities of Interest." Forthcoming in *Political Science Research and Methods.* [[GitHub](https://github.com/carlislerainey/unnecessary/blob/master/doc/unnecessary.pdf)]
+
+
 ### 2021
 
-- McCaskey, Kelly and Carlisle Rainey. 2021 "Estimating Logit Models with Small Samples." With [Kelly McCaskey](http://www.kellymccaskey.com). *Political Science Research and Methods* 9(3) 549-564.
+- McCaskey, Kelly and Carlisle Rainey. 2021 "Estimating Logit Models with Small Samples." *Political Science Research and Methods* 9(3) 549-564.
 [[Paper](../papers/small.pdf)]
 [[GitHub](https://github.com/kellymccaskey/small)]
 
