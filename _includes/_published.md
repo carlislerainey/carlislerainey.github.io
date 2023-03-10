@@ -2,7 +2,7 @@
 
 ### Forthcoming
 
-- Clifford, Scott, Thomas Leeper, and Carlisle Rainey. “Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues.” Forthcoming in *Political Behavior*. [[Draft](https://www.dropbox.com/s/ng0pdkvef7xgadt/manuscript_blind.docx?dl=0)]
+- Clifford, Scott, Thomas Leeper, and Carlisle Rainey. “Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues.” Forthcoming in *Political Behavior*. [[Draft](https://www.dropbox.com/s/aeahcmrdix5t6zy/gte.pdf?dl=0)]
 - Rainey, Carlisle. "A Careful Consideration of CLARIFY: Simulation-Induced Bias in Point Estimates of Quantities of Interest." Forthcoming in *Political Science Research and Methods.* [[GitHub](https://github.com/carlislerainey/unnecessary/blob/master/doc/unnecessary.pdf)]
 
 
