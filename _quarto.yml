@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!pols-209/files/"  # dir has .Rmd (-> .pdf) files that should be re-compiled.
+    - "!papers2/"
+    - "!notebook/"
+    
+website:
+  title: "Carlisle Rainey"
+  site-url: https://www.carlislerainey.com
+  google-analytics: "G-F57WQLHH67"
+  navbar:
+    right:
+      - icon: rss
+        href: notebook/index.xml
+      - icon: twitter
+        href: https://twitter.com/carlislerainey
+      - icon: mastodon
+        href: https://sciences.social/@CarlisleRainey
+      - icon: github
+        href: https://github.com/carlislerainey
+    left:
+      - href: index.qmd
+        text: About
+      #- href: papers/index.qmd
+      #  text: Papers
+      - href: research/index.qmd
+        text: Research
+      - href: teaching/index.qmd
+        text: Teaching  
+      - href: talks/index.qmd
+        text: Talks
+      #- href: notebook/index.qmd
+      #  text: Notebook
+        
+    
+  margin-header: subscribe.html
+      
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+
+editor: source
+

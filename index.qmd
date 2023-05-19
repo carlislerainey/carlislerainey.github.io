@@ -1,0 +1,37 @@
+---
+title: "Carlisle Rainey"
+image: profile.png
+about:
+  id: hero-heading
+  template: trestles
+  image-shape: rectangle
+  links:
+    - icon: envelope
+      text: email
+      href: mailto:carlislerainey@gmail.com
+    - icon: filetype-pdf
+      text: CV
+      href: https://www.carlislerainey.com/cv.pdf
+    # - icon: twitter
+    #   text: Twitter
+    #   href: https://twitter.com/carlislerainey
+    # - icon: github
+    #   text: Github
+    #   href: https://github.com/carlislerainey
+margin-header: |
+  "test"
+---
+
+::: {#hero-heading}
+
+I'm an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the *American Political Science Review*, the *American Journal of Political Science*, *Political Analysis*, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.
+
+### Connect 
+
+If you want to stay up-to-date on my work, please join my [email list](https://carlislerainey.ck.page/2074a1c37d).
+
+
+
+I'm on [Twitter](https://twitter.com/carlislerainey) and [Mastodon](https://twitter.com/carlislerainey). I publicly version-control many of research projects and courses on [GitHub](https://github.com/carlislerainey). I upload my talks to [Speaker Deck](https://speakerdeck.com/carlislerainey). I'm on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en), [ORCID](https://orcid.org/0000-0002-8728-4696) and [OSF](https://osf.io/ewbyc/).
+
+:::

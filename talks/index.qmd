@@ -1,0 +1,17 @@
+---
+title: "Talks"
+listing:
+  id: grids
+  type: grid
+  sort: "date"
+  grid-columns: 2
+  image-height: 285px
+---
+
+::: {#grids}
+:::
+
+For older talks, see [Speaker Deck](https://speakerdeck.com/carlislerainey/).
+
+
+
