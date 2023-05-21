@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Carlisle Rainey</title>
+<link>https://www.carlislerainey.com/blog/index.html</link>
+<atom:link href="https://www.carlislerainey.com/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.3.353</generator>
+<lastBuildDate>Sun, 21 May 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Power, Part I: Power Is for You, Not for Reviewer Two</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</link>
+  <description><![CDATA[ There’s been some really good work lately on statistical power. I’ll point you to two really great papers. ]]></description>
+  <category>statistical power</category>
+  <category>hypothesis tests</category>
+  <category>power analysis</category>
+  <category>methodology</category>
+  <guid>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</guid>
+  <pubDate>Sun, 21 May 2023 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

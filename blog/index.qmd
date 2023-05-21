@@ -1,0 +1,12 @@
+---
+title: "Blog"
+listing:
+  type: table
+  fields: [date, title, reading-time]
+  categories: true
+  feed: 
+    type: 
+      partial
+comments: false
+---
+

@@ -1,0 +1,108 @@
+---
+title: "Power, Part I: Power Is for *You*, Not for Reviewer Two"
+subtitle: "Type II Errors Are Not Errors, They Wasted Opportunities"
+author: "Carlisle Rainey"
+date: "2023-05-21"
+categories: [statistical power, hypothesis tests, power analysis, methodology]
+reference-location: margin
+toc: false
+draft: false
+---
+
+## Background
+
+There's been some really good work lately on statistical power. I'll point you to two really great papers.
+
+1. Arel-Bundock, Vincent, Ryan C. Briggs, Hristos Doucouliagos, Marco Mendoza Aviña, and T.D. Stanley. 2022. "Quantitative Political Science Research Is Greatly Underpowered." OSF Preprints. July 5. [doi: 10.31219/osf.io/7vy2f](https://doi.org/10.31219/osf.io/7vy2f).
+2. Kane, John V. 2023. "More Than Meets the ITT:  A Guide for Investigating Null Results
+." APSA Preprints. [doi: 10.33774/apsa-2023-h4p0q-v2](https://doi.org/10.33774/apsa-2023-h4p0q-v2). 
+
+I've been long interested in statistical power (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf)^[Rainey, Carlisle. 2014. "Arguing for a Negligible Effect." *American Journal of Political Science* 58(4): 1083-1091.] and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf)^[McCaskey, Kelly and Carlisle Rainey. 2015. "Substantive Importance and the Veil of Statistical Significance." Statistics, Politics, and Policy 6(1-2): 77-96.]), and these new papers have me thinking even more about the importance of power.
+
+In this post, I argue that statistical power isn't something ancillary. Power is *primary*. I also argue that power isn't something you--the researcher--build to satisfy an especially cranky Reviewer 2, it's something you do for *yourself*, to make sure that your study succeeds.
+
+## The Hypothesis Testing Framework
+
+In the hypothesis testing framework, you consider two hypotheses: the null hypothesis and the alternative hypothesis. 
+
+The hypothesis test is all about arguing *against* the null hypothesis $H_0$ (leaving the alternative $H_A$ as the only remaining possibility). You will (try to) show that your data would be "unusual" if the null hypothesis were correct.^[When hypothesizing about the average treatment effect (ATE), this can take a variety of forms. The form doesn't really matter.]
+
+If the data would *NOT* be unusual under the null hypothesis, then you *do not* reject the null hypothesis.
+
+## Intepreting a Failure to Reject
+
+A failure to reject means that the data "would not be unusual under the null hypothesis." This does not imply that you should conclude the data are *only* consistent with the null. Indeed, there is a sharp asymmetry in hypothesis testing. I describe this in my [2014 *AJPS*]((http://www.carlislerainey.com/papers/nme.pdf)):
+
+> Political scientists commonly interpret a lack of statistical significance (i.e., a failure to reject the null) as evidence for a negligible effect (Gill 1999), but this approach acts as a broken compass... If the sample size is too small, the researcher often concludes that the effect is negligible even though the data are also consistent with large, meaningful effects. This occurs because the small sample leads to a large confidence interval, which is likely to contain both "no effect" and large effects.
+
+[Gill (1999)](https://www.jstor.org/stable/449153)^[Gill, Jeff. 1999. "The Insignificance of Null Hypothesis Significance Testing." *Political Research Quarterly* 52(3): 647-674.] describes this more forcefully:
+
+> We teach graduate students to be very careful when describing the occurrence of not rejecting the null hypothesis. This is because failing to reject the null hypothesis does not rule out an infinite number of other competing research hypotheses. Null hypothesis significance testing is asymmetric: if the test statistic is sufficiently atypical given the null hypothesis then the null hypothesis is rejected, but if the test statistic is insufficiently atypical given the null hypothesis then the null hypothesis is not accepted. This is a double standard: H1 is held innocent until proven guilty and Ho is held guilty until proven innocent (Rozeboom 1960)...
+
+> There are two problems that develop as a result of asymmetry. The first is a misinterpretation of the asymmetry to assert that finding a non-statistically significant difference or effect is evidence that it is equal to zero or nearly zero. Regarding the impact of this acceptance error Schmidt (1996: 126) asserts that this: "belief held by many researchers is the most devastating of all to the research enterprise." This acceptance of the null hypothesis is damaging because it inhibits the exploration of competing research hypotheses. The second problem pertains to the correct interpretation of failing to reject the null hypotheses. Failing to reject the null hypothesis essentially provides almost no information about the state of the world. It simply means that given the evidence at hand one cannot make an assertion about some relationship: all you can conclude is that you can't conclude that the null was false (Cohen 1962).
+
+There are many incorrect, but somewhat innocent interpretations of *p*-values. Interpreting a lack of statistical significance as evidence for the null is incorrect *and wildly misleading* in many cases.
+
+::: {.callout-important}
+## Important Point
+A non-statistically significant difference is not evidence that an effect is equal to zero or nearly zero. Interpreting a non-statistically significant effect otherwise is "devastating."
+:::
+
+## The Implication of a Non-Conclusion
+
+If you cannot draw a conclusion then, what exactly has happened? Obtaining $p > 0.05$ will not be an "error" because you won't make a strong claim that the research hypothesis is wrong. Instead, you will simply admit that you failed to uncover evidence against the null. Failing to uncover evidence isn't an error.
+
+Indeed, [Jones and Tukey (2000)](https://psycnet.apa.org/fulltext/2000-16737-001.pdf)^[Jones, Lyle V., and John W. Tukey. 2000. "A Sensible Formulation of the Significance Test." *Psychological Methods* 5(4): 411-414.] write: 
+
+> A conclusion is in error only when it is "a reversal," when it asserts one direction while the (unknown) truth is the other direction. Asserting that the direction is not yet established may constitute a wasted opportunity, but it is not an error.
+
+::: {.callout-important}
+## Important Point
+Failing to uncover evidence isn't an "error," it is a "wasted effort."
+:::
+
+This is worth emphasizing in a different way. Tests are not magical tools that tell you which hypothesis is correct. Instead, tests summarize the evidence against the null. There are two critical pieces to "evidence against the null": (1) the amount of evidence and (2) whether the evidence is against the null. If you buy your own argument that the null is false (surely you do!), then (2) is taken care of. Only the amount of evidence remains, and you--the researcher--choose the amount of evidence to supply.
+
+## The Implication for Power Calculations
+
+This perspective helps motivate power calculations. By their design, tests control the error rate in certain situations (when then null is correct). You do not need to worry about Type I errors. First, the test controls the error rate under the null. Second, you are pretty sure the null is wrong (see your theory section).
+
+::: {.callout-important}
+## Important Point
+The hypothesis test takes care of the the Type I error rate. If you choose a properly-sized test, you don't need to worry about those errors any more.
+:::
+
+If you aren't worried about Type I errors, what are you worried about? They only thing left to worry about is wasting your time and money. **Statistical power** is the chance not of wasting your time and money. 
+
+Power isn't a secondary quantity that you compute for thoroughness or in anticipation of a comment from Reviewer 2. Power is something that you build *for yourself*.
+
+Statisticians talk a lot about Type I errors because that's their contribution. It's your job to bring the power.
+
+And importantly, power is under your control. [Kane](https://doi.org/10.33774/apsa-2023-h4p0q-v2) provides a rich summary of ways to increase the power of your experiment. At a minimum, you have brute force control through sample size.
+
+Power isn't an ancillary concern, it's the entire game from the very beginning of the planning stage. It should be at the forefront of the researchers mind from the very beginning. You should want the power as high as possible.^[I hear that 80% is the standard, but I'm pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem "high" or "acceptable," but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.]
+
+You have to supply a test *overwhelming* evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.
+
+Power isn't about Type S and M errors ([Gelman and Carlin 2014](https://journals.sagepub.com/doi/pdf/10.1177/1745691614551642))^[Gelman, Andrew, and John Carlin. "Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors." *Perspectives on Psychological Science* 9(6): 641-651.]. Power is about you protecting yourself from a failed study. And that seems like a protection worth pursuing carefully.^[Of course it's also about Type S and M errors, but those are discipline-level concerns. I'm talking about *your* incentives as a researcher.]
+
+## Summary
+
+Here are the takeaways:
+
+1. Statistical power is the chance of using your time and money productively (i.e., not wasting it).
+1. Statistical power is under your control (see [Kane](https://doi.org/10.33774/apsa-2023-h4p0q-v2)).
+1. Your power might be (much) lower than you think--you should check (see [Arel-Bundock *et al*](https://doi.org/10.31219/osf.io/7vy2f).).
+1. Power should be a *primary* concern throughout the design. The researcher should care deeply about power, perhaps more than anything else.
+
+::: {.callout-important}
+## Important Point
+The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that's not *a* task, that's *the* task.
+:::
+
+<hr>
+<script async data-uid="cc2c555603" src="https://carlislerainey.ck.page/cc2c555603/index.js"></script>
+
+
+
+

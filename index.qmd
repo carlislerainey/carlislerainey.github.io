@@ -11,15 +11,13 @@ about:
       href: mailto:carlislerainey@gmail.com
     - icon: filetype-pdf
       text: CV
-      href: https://www.carlislerainey.com/cv.pdf
+      href: cv.pdf
     # - icon: twitter
     #   text: Twitter
     #   href: https://twitter.com/carlislerainey
     # - icon: github
     #   text: Github
     #   href: https://github.com/carlislerainey
-margin-header: |
-  "test"
 ---
 
 ::: {#hero-heading}
