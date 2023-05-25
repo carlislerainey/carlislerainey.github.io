@@ -100,9 +100,10 @@ Here are the takeaways:
 The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that's not *a* task, that's *the* task.
 :::
 
-<hr>
-<script async data-uid="cc2c555603" src="https://carlislerainey.ck.page/cc2c555603/index.js"></script>
 
+## Email List
+
+If you like this content, you should subscribe to my [email list](http://subscribepage.io/nkcoNh) for twice per year content. Similar topics, but more thoughtful. It's a dense digest of things I'm thinking about, finding useful, and working on.
 
 
 
