@@ -11,6 +11,7 @@ project:
 
 website:
   title: "Carlisle Rainey"
+  favicon: favicon.ico
   site-url: https://www.carlislerainey.com
   google-analytics: "G-F57WQLHH67"
   twitter-card: 
