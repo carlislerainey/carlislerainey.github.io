@@ -13,6 +13,9 @@ website:
   title: "Carlisle Rainey"
   site-url: https://www.carlislerainey.com
   google-analytics: "G-F57WQLHH67"
+  twitter-card: 
+    creator: "Carlisle Rainey"
+  open-graph: true
   navbar:
     #right:
     tools:    
