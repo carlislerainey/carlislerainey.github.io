@@ -40,8 +40,8 @@ website:
       - href: blog/index.qmd
         text: Blog
       - icon: rocket-takeoff
-        href: https://carlislerainey.ck.page/2074a1c37d
-        text: "Email List"
+        href: email-list/index.qmd
+        text: "Get Updates!"
         
   #margin-header: subscribe.html
       

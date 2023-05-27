@@ -11,3 +11,6 @@ freeze: true
 comments:
   giscus:
     repo: carlislerainey/blog-discussions    
+format:    
+  html:
+    include-after-body: ../email-list-footer.html    

@@ -6,9 +6,11 @@ listing:
     - "date desc"
   fields: [date, title, reading-time]
   categories: true
-  feed: 
-    type: 
-      partial
+  feed:
+    categories: [R]
 comments: false
+format: 
+  html: 
+    footer: false
 ---
 
