@@ -294,7 +294,7 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
-<td style="text-align: left;">81%</td>
+<td style="text-align: left;">80%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
@@ -802,20 +802,20 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
-<td style="text-align: left;">19%</td>
-<td style="text-align: left;">37%</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">35%</td>
+<td style="text-align: left;">45%</td>
 <td style="text-align: left;">44%</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;">54%</td>
+<td style="text-align: left;">56%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
 <td style="text-align: left;">49%</td>
-<td style="text-align: left;">34%</td>
-<td style="text-align: left;">18%</td>
-<td style="text-align: left;">65%</td>
 <td style="text-align: left;">35%</td>
+<td style="text-align: left;">17%</td>
+<td style="text-align: left;">68%</td>
+<td style="text-align: left;">32%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>

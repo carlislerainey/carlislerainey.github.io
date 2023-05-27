@@ -15,7 +15,7 @@ website:
   google-analytics: "G-F57WQLHH67"
   twitter-card: 
     creator: "@carlislerainey"
-    image: profile.png
+    image: "/profile.png"
   open-graph: true
   navbar:
     #right:
