@@ -7,6 +7,9 @@ listing:
   fields: [date, title, reading-time]
   categories: true
   feed:
+    type: full
+    title: "Carlisle's Blog"
+    image: profile.png
     categories: [R]
 comments: false
 format: 
