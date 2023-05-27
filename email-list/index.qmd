@@ -1,5 +1,5 @@
 ---
-title-meta: "Get Updates!"
+pagetitle: "Get Updates!"
 toc: false
 ---
 
