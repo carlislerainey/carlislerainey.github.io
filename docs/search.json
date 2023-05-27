@@ -98,13 +98,6 @@
     "text": "Summary\nIn this post, I address confidence intervals that are nestled right up against zero. These intervals can suggest a perfectly powered study—not too much, not too little. But instead, a confidence interval nestled right up against zero indicates that one of two things has happened: either you were (1) unlucky or (2) under-powered.\nBecause “unlucky” is always a possibility, we can’t learn much from a particular confidence interval, but we can learn a lot from a literature. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, do tend to produce confidence intervals that nestle right up against zero.\n\n\n\n\n\n\nKey Takeaway\n\n\n\nUnder-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies."
   },
   {
-    "objectID": "blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html#email-list",
-    "href": "blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html#email-list",
-    "title": "Power, Part II: What Do Confidence Intervals from High-Powered Studies Look Like?",
-    "section": "Email List",
-    "text": "Email List\nIf you like this content, you should subscribe to my email list to a receive twice-per-year digest of things I’m thinking about, finding useful, and working on."
-  },
-  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
@@ -116,7 +109,7 @@
     "href": "index.html",
     "title": "Carlisle Rainey",
     "section": "",
-    "text": "email\n  \n  \n    \n     CV\n  \n\n  \n  \nI’m an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the American Political Science Review, the American Journal of Political Science, Political Analysis, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.\n\nConnect\nIf want to stay up-to-date on my work, please join my email list. Each semester, I send around a brief summary of things I’m working on, finding useful, and thinking about. You can also subscribe to blog posts and working papers, if you want.\n\n  \n      Get Updates!\n  \n\n\nYou can also subscribe to blog posts via RSS. I’m also on Twitter and Mastodon. I publicly version-control many of research projects and courses on GitHub. I upload my talks to Speaker Deck. I’m on Google Scholar, ORCID and OSF."
+    "text": "email\n  \n  \n    \n     CV\n  \n\n  \n  \nI’m an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the American Political Science Review, the American Journal of Political Science, Political Analysis, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.\n\nConnect\nIf want to stay up-to-date on my work, please join my email list. Each semester, I send around a brief summary of things I’m working on, finding useful, and thinking about. You can also subscribe to blog posts and working papers, if you want.\n\n  \n      Get Updates!\n  \n\n\nYou can also subscribe to blog posts via RSS. I’m on Twitter and Mastodon. I publicly version-control many of research projects and courses on GitHub. I upload my talks to Speaker Deck. I’m on Google Scholar, ORCID and OSF."
   },
   {
     "objectID": "research/index.html",
