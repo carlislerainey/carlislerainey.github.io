@@ -8,7 +8,7 @@ reference-location: margin
 code-fold: true
 toc: false
 twitter-card:
-  image: "image.png"
+  image: "twitter-card.png"
 description: "Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies."
 draft: false
 format: 
