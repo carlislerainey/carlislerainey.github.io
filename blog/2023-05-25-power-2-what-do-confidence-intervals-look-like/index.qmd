@@ -11,6 +11,10 @@ twitter-card:
   image: "image.png"
 description: "Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies."
 draft: false
+format: 
+  html: 
+    include-in-header: 
+      - "../../pop-up-footer.html"
 ---
 
 ## Background
@@ -181,5 +185,6 @@ Because "unlucky" is always a possibility, we can't learn much from a *particula
 ## Key Takeaway
 Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies.
 :::
+
 
 
