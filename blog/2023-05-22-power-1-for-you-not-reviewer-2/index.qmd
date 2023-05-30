@@ -8,7 +8,7 @@ description: "The hypothesis test is no oracle. It will not consistently reject 
 reference-location: margin
 toc: false
 twitter-card:
-  type: summary_large_image
+  card-style: summary_large_image
   image: "twitter-card.png"
   title: "Power Is for *You*, Not for Reviewer Two"  # less than 55 chars
   description: "In experimental design, building statistical power is not *a* task, it's *the* task."  # less than 125 chars

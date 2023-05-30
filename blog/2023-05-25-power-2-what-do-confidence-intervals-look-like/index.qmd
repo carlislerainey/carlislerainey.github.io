@@ -9,7 +9,7 @@ code-fold: true
 toc: false
 description: "Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies."
 twitter-card:
-  type: summary_large_image
+  card-style: summary_large_image
   image: "twitter-card.png"
   title: "What Do CIs from Well-Powered Studies Look Like?"  # less than 55 chars
   description: "A literature with confidence intervals that nestle right up against zero is likely a collection of under-powered studies."  # less than 125 chars
