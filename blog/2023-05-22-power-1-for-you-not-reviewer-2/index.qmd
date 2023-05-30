@@ -4,16 +4,19 @@ subtitle: "Type II Errors Are Not Errors, They Wasted Opportunities"
 author: "Carlisle Rainey"
 date: "2023-05-21"
 categories: [statistical power, hypothesis tests, power analysis, methodology]
-twitter-card:
-  image: "twitter-card.png"
 description: "The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that's not *a* task, that's *the* task."
 reference-location: margin
 toc: false
+twitter-card:
+  type: summary_large_image
+  image: "twitter-card.png"
+  title: "Power Is for *You*, Not for Reviewer Two"  # less than 55 chars
+  description: "In experimental design, building statistical power is not *a* task, it's *the* task."  # less than 125 chars
+open-graph:   
+  image: "twitter-card.png"
+  title: "Power Is for *You*, Not for Reviewer Two"  # less than 55 chars
+  description: "In experimental design, building statistical power is not *a* task, it's *the* task."  # less than 125 chars
 draft: false
-format: 
-  html: 
-    include-in-header: 
-      - "../../pop-up-footer.html"
 ---
 
 ## Background
