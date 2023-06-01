@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Carlisle Rainey">
+<meta name="dcterms.date" content="2023-05-21">
+<meta name="description" content="I share R code to create a static and dynamic plot of confidence intervals that illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
+
+<title>Carlisle Rainey - Teaching Confidence Intervals and Hypothesis Testing with gganimate</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F57WQLHH67"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Teaching Confidence Intervals with gganimate">
+<meta property="og:description" content="I share R code to illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/twitter-card.png">
+<meta property="og:site-name" content="Carlisle Rainey">
+<meta name="twitter:title" content="Teaching Confidence Intervals with gganimate">
+<meta name="twitter:description" content="I share R code to illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/twitter-card.png">
+<meta name="twitter:creator" content="@carlislerainey">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Carlisle Rainey</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../email-list/index.html" rel="" target=""><i class="bi bi-rocket-takeoff" role="img">
+</i> 
+ <span class="menu-text">Get Updates!</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="../../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Teaching Confidence Intervals and Hypothesis Testing with gganimate</h1>
+<p class="subtitle lead">Showing Students Just How Noisy Confidence Intervals Are</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">methodology</div>
+    <div class="quarto-category">hypothesis tests</div>
+    <div class="quarto-category">confidence intervals</div>
+    <div class="quarto-category">computing</div>
+    <div class="quarto-category">R</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    I share R code to create a static and dynamic plot of confidence intervals that illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlisle Rainey </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 21, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>When I give students formula for confidence intervals, I find that students don’t have a sharp concept of how those confidence intervals work—even if I explain the <em>components</em> of the formula well.</p>
+<p>Even though they understand—seemingly very well—that the point estimate is noisy, they struggle to conceptualize that a confidence interval can often include values on the incorrect side of zero. Stated differently, they have a hard time understanding how a hypothesis test can fail to reject the null (when the null is incorrect). Their intuition suggests that a “test” should give you the correct answer.</p>
+<p>Because their instincts are wrong, I want to undermine their trust in hypothesis tests. I want them to <em>feel</em> the riskiness of poorly-powered experiments that <a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">consistently nestle confidence intervals right up against zero</a>. I want them ready and eager to work hard to avoid that risk—to make sure they have adequate statistical power.</p>
+<p>To help undermine their confidence in confidence intervals, I like three exercises that mimic a test with 80% power. In each case, we are assuming that we have formulated a correct hypothesis and designed an excellent experiment with 80% power.</p>
+<ol type="1">
+<li>First, I have students roll a six-sided die. If the die produces a <i class="bi bi-dice-6"></i>, then their study fails—they wasted their opportunity. See <a href="../../blog/2023-05-22-power-1-for-you-not-reviewer-2">this post</a> for details on this perspective. This simulates the riskiness of an experiment with 80% power quite well. They get lots of failed experiments in a short period of time. They become well-aware of the possibility of a failed study and grow increasingly interested in reducing this risk.</li>
+<li>Second, I use a computer to produce a plot of many (about 50 seems right) confidence intervals from the same repeated study. I explain that the interval we will get in the study we actually conduct is like a random draw from this collection. (See below for an example of this figure.)</li>
+<li>Third, I make the plot <em>dynamic</em>. I find that dynamics make the plot more memorable and convey the (appropriate) idea that hypothesis tests and confidence intervals are chaotic, noisy quantities.</li>
+</ol>
+<p>These exercises make it clear that failed studies are real possibilities. Hopefully they clearly see and “feel”:</p>
+<blockquote class="blockquote">
+<p>The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that’s not a task, that’s the task.</p>
+</blockquote>
+<p>Below, I walk through the plots I use in parts 2 and 3.</p>
+</section>
+<section id="an-experiment-that-we-can-repeat" class="level2">
+<h2 class="anchored" data-anchor-id="an-experiment-that-we-can-repeat">An Experiment that We Can Repeat</h2>
+<p>First, let’s choose to conduct an experiment with 80% power. To get this, we’ll suppose that the true effect is 1 and the standard error is 0.4. To obtain 80% power, you can use the guideline that the standard error should be about 40% of the true effect (or the true effect divided by 2.48). I’ll show where these guidelines come from in a future post. With the true effect and standard error in hand, we can compute the long-run properties of the experiment.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-1_1a67a411c4cbb8a37b283565094b0331">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.40</span>  <span class="co"># 1/2.48</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># identify effects of interest</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>eoi <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Effect, <span class="sc">~</span>Description,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  true_effect, <span class="st">"True Effect (known in this exercise)"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># compute quantities of interest regarding power</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>eoi <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Power =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, Effect, se),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">Power =</span> scales<span class="sc">::</span><span class="fu">percent</span>(Power, <span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type S</span><span class="st">`</span> <span class="ot">=</span> retrodesign<span class="sc">::</span><span class="fu">type_s</span>(Effect, se)<span class="sc">$</span>type_s,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type S</span><span class="st">`</span> <span class="ot">=</span> scales<span class="sc">::</span><span class="fu">number</span>(<span class="st">`</span><span class="at">Type S</span><span class="st">`</span>, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type M</span><span class="st">`</span> <span class="ot">=</span> retrodesign<span class="sc">::</span><span class="fu">type_m</span>(Effect, se)<span class="sc">$</span>type_m,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type M</span><span class="st">`</span> <span class="ot">=</span> scales<span class="sc">::</span><span class="fu">number</span>(<span class="st">`</span><span class="at">Type M</span><span class="st">`</span>, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">Effect =</span> scales<span class="sc">::</span><span class="fu">number</span>(Effect, <span class="at">accuracy =</span> <span class="fl">0.01</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Effect<span class="sc">:</span><span class="st">`</span><span class="at">Type M</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>, <span class="at">col.names =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Effect</td>
+<td style="text-align: left;">1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Description</td>
+<td style="text-align: left;">True Effect (known in this exercise)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Power</td>
+<td style="text-align: left;">81%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type S</td>
+<td style="text-align: left;">0.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Type M</td>
+<td style="text-align: left;">1.20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="a-static-plot" class="level2">
+<h2 class="anchored" data-anchor-id="a-static-plot">A Static Plot</h2>
+<p>But these long-run properties remain a bit abstract and seem “distant” from the practical implications of our <em>particular</em> experiment. This is where the three exercises above come in handy.</p>
+<p>The second exercise is a static plot. The plot shows 50 intervals; we can see that several include zero. These are wasted opporunities. We set out to reject a null hypothesis that the effect was less than or equal to zero, and we failed to do that.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_78347fc1f4c6c4bd4803caf03747ec05">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of studies to simulate</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n_studies <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame of studies </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span><span class="sc">:</span>n_studies,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">est =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(n_studies, true_effect, se))) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reject_null =</span> <span class="fu">ifelse</span>(est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>)) </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the confidence intervals for each study</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ests, <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> study_id, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmin =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmax =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">color =</span> reject_null)) <span class="sc">+</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true_effect, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">color =</span> <span class="cn">NULL</span>), </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"#1b9e77"</span>)) <span class="sc">+</span>  <span class="co"># from https://colorbrewer2.org/#type=qualitative&amp;scheme=Dark2&amp;n=3</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate and 90% Confidence Interval"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Study ID"</span>, </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Reject Null?"</span>, </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Rug shows distribution of lower bound of confidence interval."</span>) </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># print plot</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+</section>
+<section id="dynamic-plot" class="level2">
+<h2 class="anchored" data-anchor-id="dynamic-plot">Dynamic Plot</h2>
+<p>The static plot above is nice, but doesn’t convey an appropriate sense of randomness or “you don’t know what you’ll get this time.” To convey this feeling, I like to add dynamics. In particular, I like a confidence interval that’s moving and you’re not sure if it will cover zero or not. This conveys the sense that “something bad might happen” with each draw. Even though only about 10 of the 50 confidence intervals will cross zero, you feel the danger on all 50 simulations.</p>
+<p>In designing this plot, two features are in tension:</p>
+<ol type="1">
+<li>The plot conveys the ideas.</li>
+<li>The code is easy to update and understand.</li>
+</ol>
+<p>In the past, I’ve prioritized making the plot look <em>exactly</em> like I want. But there are concrete downsides to using hacky solutions—using functions in ways not intended. The code is brittle and difficult. For examples that clearly convey the ideas, see <a href="https://presidential-plinko.com">Presidential Plinko</a> and this <a href="https://stackoverflow.com/questions/61446108/animated-dot-histogram-built-observation-by-observation-using-gganimate-in-r">“raindrop” plot</a>. These are great ways to convey the randomness, but producing these plots requires some “tedious” coding.</p>
+<p>With this code, I tried to illustrate the concept well while avoid hacky solutions to minor problems. This makes the code easier to understand, change, and update.</p>
+<p>First, let’s start by creating the data frame to plot. We need to make two small changes to the data frame above. These are both hacks, but worth it.</p>
+<ol type="1">
+<li>Add a dummy row to the data frame to trick gganimate into starting with an empty plot.</li>
+<li>Add a grouping variable to indicate the states for the transitions. This is simply a row ID variable.</li>
+</ol>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_9b63ee8ce76ffb30d27f3e7b36871be3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add two things to the data frame of confidence intervals</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. an initial row with study_id = 1 and est = NA so that </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    the plot starts empty (gganimate would start with the </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    first observation in place otherwise).</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. a group variable that defines the row. This is the same</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    as the study_id, except the dummy row from (1) and the </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    actual first row have different groups.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>animate_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span>, <span class="at">est =</span> <span class="cn">NA</span>),  <span class="co"># study_id = 1, est = NA</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  ests                             <span class="co"># combine dummy row with ests data frame from above</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())            <span class="co"># group (row index)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now let’s plot the confidence intervals much like above, except with expanded scales to give some more room for movement.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_bccf09b3a4e33d5f2ca2fc0b58d685fc">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same ggplot, except three annotated changes</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>gg_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(animate_data, <span class="fu">aes</span>(<span class="at">x =</span> est,</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> study_id, </span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmin =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmax =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">color =</span> reject_null, </span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-7" class="code-annotation-target"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true_effect, </span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-11"><a href="#annotated-cell-4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">color =</span> <span class="cn">NULL</span>), </span>
+<span id="annotated-cell-4-15"><a href="#annotated-cell-4-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"#1b9e77"</span>)) <span class="sc">+</span>  </span>
+<span id="annotated-cell-4-18"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-4-20"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-4-21"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate and 90% Confidence Interval"</span>,</span>
+<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Study ID"</span>, </span>
+<span id="annotated-cell-4-25"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Reject Null?"</span>, </span>
+<span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Rug shows distribution of lower bound of confidence interval.</span></span>
+<span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a><span class="st">                  Solid lines shows zero.</span></span>
+<span id="annotated-cell-4-28"><a href="#annotated-cell-4-28" aria-hidden="true" tabindex="-1"></a><span class="st">                  Dotted line shows the true effect."</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-4-29"><a href="#annotated-cell-4-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># new scales here</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3">3</button><span id="annotated-cell-4-30" class="code-annotation-target"><a href="#annotated-cell-4-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">1</span>))) <span class="sc">+</span></span>
+<span id="annotated-cell-4-31"><a href="#annotated-cell-4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">2</span>))</span>
+<span id="annotated-cell-4-32"><a href="#annotated-cell-4-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="annotated-cell-4-33"><a href="#annotated-cell-4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-34"><a href="#annotated-cell-4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># print plot</span></span>
+<span id="annotated-cell-4-35"><a href="#annotated-cell-4-35" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gg_exp)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-annotation="2" data-code-lines="7" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-annotation="3" data-code-lines="30,31" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>Now let’s add the animation. I like the confidence intervals to be shooting toward zero. This gives the feeling that “it might cross!” and makes the fear of a failed study real for each simulation.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_236bebccc7652d1281d53a4c6479b599">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1">1</button><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> gg_exp <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2">2</button><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> group) <span class="sc">+</span></span>
+<span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points enter</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3">3</button><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_drift</span>(<span class="at">x_mod =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4">4</button><span id="annotated-cell-5-6" class="code-annotation-target"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_grow</span>() <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="5">5</button><span id="annotated-cell-5-7" class="code-annotation-target"><a href="#annotated-cell-5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_recolor</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="6">6</button><span id="annotated-cell-5-8" class="code-annotation-target"><a href="#annotated-cell-5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="at">color =</span> <span class="st">"exponential-in"</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-5-9"><a href="#annotated-cell-5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points exit/remain</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="7">7</button><span id="annotated-cell-5-10" class="code-annotation-target"><a href="#annotated-cell-5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_fade</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="8">8</button><span id="annotated-cell-5-11" class="code-annotation-target"><a href="#annotated-cell-5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span>
+<span id="annotated-cell-5-12"><a href="#annotated-cell-5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-5-13"><a href="#annotated-cell-5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># make magic happen!</span></span>
+<span id="annotated-cell-5-14"><a href="#annotated-cell-5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>)</span>
+<span id="annotated-cell-5-15"><a href="#annotated-cell-5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#anim_save(file = "dynamic-cis.gif") # save plot</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-annotation="7" data-code-lines="10" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-annotation="8" data-code-lines="11" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The dynamic plot above is a good tool to help students understand that confidence intervals can quite easily include values on the wrong side of zero. Stated differently, it’s easy for a hypothesis test to fail to reject the null (when the null is wrong). Their intuition suggests that the test should tell you the correct answer.</p>
+<p>The exercises above (appropriately) undermine their trust in hypothesis tests. I want them to feel the riskiness of poorly-powered experiments that <a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">consistently nestle confidence intervals right up against zero</a>. I want them ready to work hard to avoid that risk—to make sure they have statistical power. Hopefully, they see that carefully building power into your experiment isn’t <em>a</em> task, it’s <em>the</em> task of experimental design.</p>
+<p>As a concluding example, here’s the same dynamic plot for a study with about 98% power. Notice how “safe” this study feels compared to the one above with 80% power. I think this plot does a good job a translating probabilities into an appropriate sense of “danger.”</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_f96caa82ffb06651285c2077dd67b219">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.27</span>  <span class="co"># 1/3.64</span></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># identify effects of interest</span></span>
+<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>eoi <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="annotated-cell-6-6"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Effect, <span class="sc">~</span>Description,</span>
+<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>  true_effect, <span class="st">"True Effect (known in this exercise)"</span></span>
+<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># compute quantities of interest regarding power</span></span>
+<span id="annotated-cell-6-11"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a>eoi <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-6-12"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Power =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, Effect, se),</span>
+<span id="annotated-cell-6-13"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Power =</span> scales<span class="sc">::</span><span class="fu">percent</span>(Power, <span class="at">accuracy =</span> <span class="dv">1</span>),</span>
+<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type S</span><span class="st">`</span> <span class="ot">=</span> retrodesign<span class="sc">::</span><span class="fu">type_s</span>(Effect, se)<span class="sc">$</span>type_s,</span>
+<span id="annotated-cell-6-15"><a href="#annotated-cell-6-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type S</span><span class="st">`</span> <span class="ot">=</span> scales<span class="sc">::</span><span class="fu">number</span>(<span class="st">`</span><span class="at">Type S</span><span class="st">`</span>, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="annotated-cell-6-16"><a href="#annotated-cell-6-16" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type M</span><span class="st">`</span> <span class="ot">=</span> retrodesign<span class="sc">::</span><span class="fu">type_m</span>(Effect, se)<span class="sc">$</span>type_m,</span>
+<span id="annotated-cell-6-17"><a href="#annotated-cell-6-17" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type M</span><span class="st">`</span> <span class="ot">=</span> scales<span class="sc">::</span><span class="fu">number</span>(<span class="st">`</span><span class="at">Type M</span><span class="st">`</span>, <span class="at">accuracy =</span> <span class="fl">0.01</span>),</span>
+<span id="annotated-cell-6-18"><a href="#annotated-cell-6-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">Effect =</span> scales<span class="sc">::</span><span class="fu">number</span>(Effect, <span class="at">accuracy =</span> <span class="fl">0.01</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="annotated-cell-6-19"><a href="#annotated-cell-6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Effect<span class="sc">:</span><span class="st">`</span><span class="at">Type M</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-6-20"><a href="#annotated-cell-6-20" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>, <span class="at">col.names =</span> <span class="cn">NULL</span>)</span>
+<span id="annotated-cell-6-21"><a href="#annotated-cell-6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-22"><a href="#annotated-cell-6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame of studies </span></span>
+<span id="annotated-cell-6-23"><a href="#annotated-cell-6-23" aria-hidden="true" tabindex="-1"></a>ests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span><span class="sc">:</span>n_studies,</span>
+<span id="annotated-cell-6-24"><a href="#annotated-cell-6-24" aria-hidden="true" tabindex="-1"></a>               <span class="at">est =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(n_studies, true_effect, se))) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-6-25"><a href="#annotated-cell-6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reject_null =</span> <span class="fu">ifelse</span>(est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>)) </span>
+<span id="annotated-cell-6-26"><a href="#annotated-cell-6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-27"><a href="#annotated-cell-6-27" aria-hidden="true" tabindex="-1"></a>animate_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="annotated-cell-6-28"><a href="#annotated-cell-6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span>, <span class="at">est =</span> <span class="cn">NA</span>),  <span class="co"># study_id = 1, est = NA</span></span>
+<span id="annotated-cell-6-29"><a href="#annotated-cell-6-29" aria-hidden="true" tabindex="-1"></a>  ests                             <span class="co"># combine dummy row with ests data frame from above</span></span>
+<span id="annotated-cell-6-30"><a href="#annotated-cell-6-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-6-31"><a href="#annotated-cell-6-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>())            <span class="co"># group (row index)</span></span>
+<span id="annotated-cell-6-32"><a href="#annotated-cell-6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-33"><a href="#annotated-cell-6-33" aria-hidden="true" tabindex="-1"></a><span class="co"># same ggplot, except three annotated changes</span></span>
+<span id="annotated-cell-6-34"><a href="#annotated-cell-6-34" aria-hidden="true" tabindex="-1"></a>gg_exp <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(animate_data, <span class="fu">aes</span>(<span class="at">x =</span> est,</span>
+<span id="annotated-cell-6-35"><a href="#annotated-cell-6-35" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> study_id, </span>
+<span id="annotated-cell-6-36"><a href="#annotated-cell-6-36" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmin =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="annotated-cell-6-37"><a href="#annotated-cell-6-37" aria-hidden="true" tabindex="-1"></a>                         <span class="at">xmax =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="annotated-cell-6-38"><a href="#annotated-cell-6-38" aria-hidden="true" tabindex="-1"></a>                         <span class="at">color =</span> reject_null, </span>
+<span id="annotated-cell-6-39"><a href="#annotated-cell-6-39" aria-hidden="true" tabindex="-1"></a>                         <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="annotated-cell-6-40"><a href="#annotated-cell-6-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true_effect, </span>
+<span id="annotated-cell-6-41"><a href="#annotated-cell-6-41" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-42"><a href="#annotated-cell-6-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-43"><a href="#annotated-cell-6-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="annotated-cell-6-44"><a href="#annotated-cell-6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-45"><a href="#annotated-cell-6-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="annotated-cell-6-46"><a href="#annotated-cell-6-46" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">color =</span> <span class="cn">NULL</span>), </span>
+<span id="annotated-cell-6-47"><a href="#annotated-cell-6-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="annotated-cell-6-48"><a href="#annotated-cell-6-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-49"><a href="#annotated-cell-6-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span>, <span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"#1b9e77"</span>)) <span class="sc">+</span>  </span>
+<span id="annotated-cell-6-50"><a href="#annotated-cell-6-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="annotated-cell-6-51"><a href="#annotated-cell-6-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-6-52"><a href="#annotated-cell-6-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-6-53"><a href="#annotated-cell-6-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="annotated-cell-6-54"><a href="#annotated-cell-6-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-55"><a href="#annotated-cell-6-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate and 90% Confidence Interval"</span>,</span>
+<span id="annotated-cell-6-56"><a href="#annotated-cell-6-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Study ID"</span>, </span>
+<span id="annotated-cell-6-57"><a href="#annotated-cell-6-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Reject Null?"</span>, </span>
+<span id="annotated-cell-6-58"><a href="#annotated-cell-6-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Rug shows distribution of lower bound of confidence interval.</span></span>
+<span id="annotated-cell-6-59"><a href="#annotated-cell-6-59" aria-hidden="true" tabindex="-1"></a><span class="st">                  Solid lines shows zero.</span></span>
+<span id="annotated-cell-6-60"><a href="#annotated-cell-6-60" aria-hidden="true" tabindex="-1"></a><span class="st">                  Dotted line shows the true effect."</span>) <span class="sc">+</span> </span>
+<span id="annotated-cell-6-61"><a href="#annotated-cell-6-61" aria-hidden="true" tabindex="-1"></a>  <span class="co"># new scales here</span></span>
+<span id="annotated-cell-6-62"><a href="#annotated-cell-6-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="dv">1</span>))) <span class="sc">+</span></span>
+<span id="annotated-cell-6-63"><a href="#annotated-cell-6-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">2</span>))</span>
+<span id="annotated-cell-6-64"><a href="#annotated-cell-6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-65"><a href="#annotated-cell-6-65" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<span id="annotated-cell-6-66"><a href="#annotated-cell-6-66" aria-hidden="true" tabindex="-1"></a>anim <span class="ot">&lt;-</span> gg_exp <span class="sc">+</span></span>
+<span id="annotated-cell-6-67"><a href="#annotated-cell-6-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> group) <span class="sc">+</span></span>
+<span id="annotated-cell-6-68"><a href="#annotated-cell-6-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points enter</span></span>
+<span id="annotated-cell-6-69"><a href="#annotated-cell-6-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_drift</span>(<span class="at">x_mod =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-6-70"><a href="#annotated-cell-6-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_grow</span>() <span class="sc">+</span></span>
+<span id="annotated-cell-6-71"><a href="#annotated-cell-6-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_recolor</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-6-72"><a href="#annotated-cell-6-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ease_aes</span>(<span class="at">color =</span> <span class="st">"exponential-in"</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-6-73"><a href="#annotated-cell-6-73" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points exit/remain</span></span>
+<span id="annotated-cell-6-74"><a href="#annotated-cell-6-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_fade</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="annotated-cell-6-75"><a href="#annotated-cell-6-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span>
+<span id="annotated-cell-6-76"><a href="#annotated-cell-6-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-77"><a href="#annotated-cell-6-77" aria-hidden="true" tabindex="-1"></a><span class="co"># make magic happen!</span></span>
+<span id="annotated-cell-6-78"><a href="#annotated-cell-6-78" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Effect</td>
+<td style="text-align: left;">1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Description</td>
+<td style="text-align: left;">True Effect (known in this exercise)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Power</td>
+<td style="text-align: left;">98%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type S</td>
+<td style="text-align: left;">0.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Type M</td>
+<td style="text-align: left;">1.02</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.gif" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="email-list" class="level2">
+<h2 class="anchored" data-anchor-id="email-list">Email List!</h2>
+<p>I have an email list where I share things I’m thinking about and projects I’m working on. I write about substance, methods, productivity, writing, talks, and more. If you found this content useful, you should <a href="../../email-list/">join in</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="carlislerainey/blog-discussions" data-repo-id="R_kgDOJjpCog" data-category="General" data-category-id="DIC_kwDOJjpCos4CWhBd" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
