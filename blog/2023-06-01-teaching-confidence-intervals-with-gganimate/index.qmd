@@ -246,8 +246,9 @@ anim <- gg_exp +  # <1>
   shadow_mark(alpha = 0.3)  # <8> 
 
 # make magic happen!
-animate(anim, duration = n_studies, fps = 10)
-#anim_save(file = "dynamic-cis.gif") # save plot
+animate(anim, duration = n_studies, fps = 10, 
+        height = 6, width = 8, units = "in", res = 150)
+anim_save(file = "dynamic-cis.gif") # save plot
 ```
 
 1. 'gg' is created earlier. It's the plot we want to make dynamic. 
@@ -351,7 +352,9 @@ anim <- gg_exp +  # <1>
   shadow_mark(alpha = 0.3)  # <8> 
 
 # make magic happen!
-animate(anim, duration = n_studies, fps = 10)
+animate(anim, duration = n_studies, fps = 10, 
+        height = 6, width = 8, units = "in", res = 150)
+
 ```
 
 ## Email List!

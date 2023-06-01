@@ -426,15 +426,15 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
+<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="7" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
+<span data-code-lines="7" data-code-annotation="2" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="30,31" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
+<span data-code-lines="30,31" data-code-annotation="3" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -443,7 +443,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </div>
 </div>
 <p>Now let’s add the animation. I like the confidence intervals to be shooting toward zero. This gives the feeling that “it might cross!” and makes the fear of a failed study real for each simulation.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_236bebccc7652d1281d53a4c6479b599">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_ce4a98da4dd696f9673d16905a010d17">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
@@ -459,42 +459,43 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="8">8</button><span id="annotated-cell-5-11" class="code-annotation-target"><a href="#annotated-cell-5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span>
 <span id="annotated-cell-5-12"><a href="#annotated-cell-5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-5-13"><a href="#annotated-cell-5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># make magic happen!</span></span>
-<span id="annotated-cell-5-14"><a href="#annotated-cell-5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>)</span>
-<span id="annotated-cell-5-15"><a href="#annotated-cell-5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#anim_save(file = "dynamic-cis.gif") # save plot</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-5-14"><a href="#annotated-cell-5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>, </span>
+<span id="annotated-cell-5-15"><a href="#annotated-cell-5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">6</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> <span class="dv">150</span>)</span>
+<span id="annotated-cell-5-16"><a href="#annotated-cell-5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="at">file =</span> <span class="st">"dynamic-cis.gif"</span>) <span class="co"># save plot</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-lines="8" data-code-annotation="6" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-lines="10" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-lines="10" data-code-annotation="7" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-annotation="8" data-code-lines="11" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-lines="11" data-code-annotation="8" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
@@ -508,7 +509,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <p>The dynamic plot above is a good tool to help students understand that confidence intervals can quite easily include values on the wrong side of zero. Stated differently, it’s easy for a hypothesis test to fail to reject the null (when the null is wrong). Their intuition suggests that the test should tell you the correct answer.</p>
 <p>The exercises above (appropriately) undermine their trust in hypothesis tests. I want them to feel the riskiness of poorly-powered experiments that <a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">consistently nestle confidence intervals right up against zero</a>. I want them ready to work hard to avoid that risk—to make sure they have statistical power. Hopefully, they see that carefully building power into your experiment isn’t <em>a</em> task, it’s <em>the</em> task of experimental design.</p>
 <p>As a concluding example, here’s the same dynamic plot for a study with about 98% power. Notice how “safe” this study feels compared to the one above with 80% power. I think this plot does a good job a translating probabilities into an appropriate sense of “danger.”</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_f96caa82ffb06651285c2077dd67b219">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_9b11699860662891bf88257a5185a78d">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
@@ -588,7 +589,8 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <span id="annotated-cell-6-75"><a href="#annotated-cell-6-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span>
 <span id="annotated-cell-6-76"><a href="#annotated-cell-6-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-6-77"><a href="#annotated-cell-6-77" aria-hidden="true" tabindex="-1"></a><span class="co"># make magic happen!</span></span>
-<span id="annotated-cell-6-78"><a href="#annotated-cell-6-78" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-6-78"><a href="#annotated-cell-6-78" aria-hidden="true" tabindex="-1"></a><span class="fu">animate</span>(anim, <span class="at">duration =</span> n_studies, <span class="at">fps =</span> <span class="dv">10</span>, </span>
+<span id="annotated-cell-6-79"><a href="#annotated-cell-6-79" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">6</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> <span class="dv">150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
