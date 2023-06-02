@@ -46,7 +46,7 @@ website:
         text: Blog
       - icon: rocket-takeoff
         href: email-list/index.qmd
-        text: "Get Updates!"
+        text: "Join My Email List!"
         
   #margin-header: subscribe.html
       

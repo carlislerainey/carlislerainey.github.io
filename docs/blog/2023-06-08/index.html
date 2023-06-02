@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlisle Rainey">
+<meta name="dcterms.date" content="2023-05-21">
+<meta name="description" content="I share R code to create a static and dynamic plot of confidence intervals that illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
 
-<title>Carlisle Rainey - POLS 209</title>
+<title>Carlisle Rainey - Power, Part III: Two Guidelines</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,16 +74,19 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Carlisle Rainey - POLS 209">
-<meta property="og:description" content="">
+<meta property="og:title" content="Teaching Confidence Intervals with gganimate">
+<meta property="og:description" content="I share R code to illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-06-08/twitter-card.png">
 <meta property="og:site-name" content="Carlisle Rainey">
-<meta name="twitter:title" content="Carlisle Rainey - POLS 209">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.carlislerainey.com/profile.png">
+<meta property="og:image:height" content="360">
+<meta property="og:image:width" content="720">
+<meta name="twitter:title" content="Teaching Confidence Intervals with gganimate">
+<meta name="twitter:description" content="I share R code to illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2023-06-08/twitter-card.png">
 <meta name="twitter:creator" content="@carlislerainey">
-<meta name="twitter:image-height" content="2304">
-<meta name="twitter:image-width" content="3456">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="360">
+<meta name="twitter:image-width" content="720">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -146,14 +152,39 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">POLS 209</h1>
-</div>
+<h1 class="title">Power, Part III: Two Guidelines</h1>
+<p class="subtitle lead">Showing Students Just How Noisy Confidence Intervals Are</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">methodology</div>
+    <div class="quarto-category">hypothesis tests</div>
+    <div class="quarto-category">confidence intervals</div>
+    <div class="quarto-category">computing</div>
+    <div class="quarto-category">R</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    I share R code to create a static and dynamic plot of confidence intervals that illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlisle Rainey </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 21, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,148 +192,23 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 </header>
 
-<section id="introduction-to-political-science-research-methods" class="level1">
-<h1>Introduction to Political Science Research Methods</h1>
-<p>syllabus [<a href="files/syllabus.pdf">pdf</a>]<br>
-assigned exercises from FPP [<a href="files/fpp-exercises.pdf">pdf</a>]<br>
-data sets [<a href="data/data.zip">zip</a>]</p>
-<ul>
-<li>Writing Assignment 1 [<a href="https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0">Dropbox</a>]<br>
-</li>
-<li>Rubric [<a href="https://www.dropbox.com/s/zkz7nv7jt0dkquf/Rubric-Writing%20Assignment%201.pdf?dl=0">Dropbox</a>]<br>
-</li>
-<li>Writing Assignment 2 [<a href="https://www.dropbox.com/s/e09ssdffbd4yqiv/writing-assignment-2.pdf?dl=0">Dropbox</a>] [<a href="https://www.dropbox.com/s/cdb7o9tokuxio2c/Rubric%20and%20Checklist-Writing%20Assignment%202.docx?dl=0">checklist</a>]</li>
-</ul>
-<section id="office-hours" class="level2">
-<h2 class="anchored" data-anchor-id="office-hours">Office Hours</h2>
-<p>Allen 2051, MW, 11am-12pm. Please reserve your slot <a href="http://www.calendly.com/carlislerainey">here</a>.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>I’ve wrapped up the argument that you should pursue statistical power in your experiments.</p>
+<ol type="1">
+<li><a href="../../blog/2023-05-22-power-1-">“Power Is For You, Not For Reviewer 2”</a></li>
+<li><a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">“What Do Confidence Intervals From Well-Powered Studies Look Like?”</a></li>
+</ol>
 </section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p>Tasks (bullets) below the date should be completed before the next class (unless a due-date is listed).</p>
-<p><strong>August 30</strong>: Introduction<br>
-. Read the syllabus carefully.<br>
-. Install R and RStudio (complete by Sep 6).<br>
-. Order textbook (have by Sep 11).<br>
-. Obtain a pocket calculator (have by Sep 11).</p>
-<p><strong>Sep 1</strong>: Questions<br>
-. Review Notes on Questions [<a href="files/notes-02-questions.pdf">pdf</a>]. Complete exercises.</p>
-<p><strong>Sep 4</strong>: Models<br>
-. Review Notes on Models [<a href="files/notes-03-models.pdf">pdf</a>] (and slides from lecture [<a href="files/slides-03-models.pdf">pdf</a>]). Complete exercises.<br>
-. Install R and RStudio.</p>
-<p><strong>Sep 6</strong>: Model-Building Exercise</p>
-<p><strong>Sep 8</strong>: Computing in R</p>
-<p><strong>Sep 11</strong>: Computing in R, part 2<br>
-. Read Notes on Computing in R [<a href="files/notes-04-computing.pdf">pdf</a>]. Complete exercises.</p>
-<p><strong>Sep 13</strong>: Loading Data in R . Review your notes from my Lecture on Data Frames [<a href="files/data-frames.pdf">pdf</a>].<br>
-. Review Notes on Loading Data in R [<a href="files/notes-05-loading-data.pdf">pdf</a>]. Complete exercises.<br>
-. Complete Computing Assignment 1 [<a href="files/r-assign-01.pdf">pdf</a>].</p>
-<p><strong>Sep 15</strong>: Causal Inference and Histograms<br>
-. Have textbook and calculator.<br>
-. Read chs.&nbsp;1-2 of FPP. Complete assigned exercises (remember that assigned exercises are [<a href="files/fpp-exercises.pdf">at the top</a>]).<br>
-. Review your notes from my Lecture on Causal Inference [<a href="files/slides-06-causal-inf.pdf">pdf</a>]. Complete exercises at the end.<br>
-. Read ch.&nbsp;3 of FPP. Complete assigned exercises.</p>
-<p><strong>Sep 18</strong>: Histograms in R<br>
-. Review Notes on Histograms in R [<a href="files/notes-08-histograms-r.pdf">pdf</a>]. Complete exercises.<br>
-. Begin to work on Computing Assignment 2 [<a href="files/r-assign-02.pdf">pdf</a>] (due Sep 22).</p>
-<p><strong>Sep 20</strong>: Average and SD<br>
-. Read ch.&nbsp;4 of FPP. Complete assigned exercises.<br>
-. Submit Computing Assignment 2 [<a href="files/r-assign-02.pdf">pdf</a>].</p>
-<p><strong>Sep 22</strong>: Catch-Up Day<br>
-. Begin working on Writing Assignment 1 [<a href="https://www.dropbox.com/s/jfq0quuzklroesq/writing-assignment-1.docx?dl=0">Dropbox</a>]. Come prepared with questions.</p>
-<p><strong>Sep 25</strong>: Average and SD in R<br>
-. Review your notes from my Lecture on Average and SD in R [<a href="files/mean-sd.pdf">pdf</a>].<br>
-. Review Notes on Average and SD in R [<a href="files/notes-10-average-sd-r.pdf">pdf</a>]. Complete exercises.<br>
-. Begin working on Computing Assignment 3 [<a href="files/r-assign-03.pdf">pdf</a>].</p>
-<p><strong>Sep 27</strong>: Normal Approximation<br>
-. Read ch.&nbsp;5 of FPP. Complete assigned exercises.<br>
-. Finish the leadership extremity exercise we began in class [<a href="files/leadership-extremity.pdf">pdf</a>].<br>
-. Submit Computing Assignment 3 [<a href="files/r-assign-03.pdf">pdf</a>].</p>
-<p><strong>Sep 29</strong>: Measurement<br>
-. Read ch.&nbsp;6 of FPP. Complete assigned exercises.<br>
-. Prepare for Exam 1. Focus on the review exercises from notes, slides, and textbook.</p>
-<p><strong>Oct 2</strong>: Review for Exam 1<br>
-. Study Guide [<a href="https://docs.google.com/document/d/19WF7hCjFCnCWdCwYDDisxWmMCUmapI4wJdb-rnOdsuo/edit?usp=sharing">Google Doc</a>]</p>
-<p><strong>Oct 4</strong>: Exam 1 (bring pencil, pocket calculator, and small green Scantron)<br>
-. Read “Politics and the English Language” [<a href="https://faculty.washington.edu/rsoder/EDLPS579/HonorsOrwellPoliticsEnglishLanguage.pdf">pdf</a>]. Expect a reading quiz.</p>
-<p><strong>Oct 6</strong>: Discussion of “Politics and the English Language”Scatterplots and Correlation, Part 1<br>
-. Read chs.&nbsp;7-8 of FPP. Complete assigned exercises.<br>
-. See this sheet for p.&nbsp;137, #9(a) [<a href="https://docs.google.com/spreadsheets/d/1Y2EuRIcbuZk6eu9WWUaNXSWnqJMi9XBXrA27BzqSeKk/edit?usp=sharing">Google Sheet</a>].</p>
-<p><strong>Oct 9</strong>: Measurement, Part 2<br>
-. Review your notes from my Lecture on Measurement [<a href="files/measures.pdf">pdf</a>]. Complete exercises at the end.</p>
-<p><strong>Oct 11</strong>: Scatterplots and Correlation in R<br>
-. Review Notes on Scatterplots and Correlation in R [<a href="files/notes-18-correlation-r.pdf">pdf</a>]. Complete exercises.<br>
-. Read ch.&nbsp;9 of FPP. Complete assigned exercises.<br>
-. Play this game [<a href="http://www.rossmanchance.com/applets/GuessCorrelation.html">web</a>] and track your performance.<br>
-. Don’t forget to submit Writing Assignment 1.</p>
-<p><strong>Oct 13</strong>: Regression, Part 1<br>
-. Read ch.&nbsp;10 of FPP. Complete assigned exercises.</p>
-<p><strong>Oct 16</strong>: Regression, Part 2<br>
-. Read ch.&nbsp;11 of FPP. Complete assigned exercises.<br>
-. Note that I accidentally assigned ch.&nbsp;11 on the 13th as well. I meant to assign ch.&nbsp;10. Make sure you’ve finished both ch.&nbsp;10 and 11.<br>
-. Begin Computing Assignment 4 [<a href="files/r-assign-04.pdf">pdf</a>].</p>
-<p><strong>Oct 18</strong>: Regression, Part 3<br>
-. Read ch.&nbsp;12 of FPP. Complete assigned exercises.<br>
-. Submit Computing Assignment 4 [<a href="files/r-assign-04.pdf">pdf</a>].<br>
-. Submit peer review for Writing Assignment 1. Details on eCampus.</p>
-<p><strong>Oct 20</strong>: Regression in R<br>
-. Review Notes on Regression in R [<a href="files/notes-23-regression-r.pdf">pdf</a>]. Complete exercises.</p>
-<p><strong>Oct 23</strong>: Multiple Regression, Part 1</p>
-<p><strong>Oct 25</strong>: Multiple Regression, Part 2<br>
-. Review your notes on my lecture on econometric notation. Make sure you can explain the similarities and differences between FPP’s simple notation and the more complicated econometric notation. What are the two advantages of econometric notation?<br>
-. Review your notes on my lecture [<a href="files/slides-regression.pdf">pdf</a>] on regression for prediction.<br>
-. Read these notes [<a href="files/notes-multiple-regression-r.pdf">pdf</a>] for more detail on prediction and BIC.<br>
-. Complete Computing Assignment 5 [<a href="files/r-assign-05.pdf">pdf</a>].<br>
-. Read “5 Steps toward Constructing a Better Sentence” [<a href="https://eebatou.wordpress.com/2011/09/02/writing-5-steps-toward-constructing-a-better-sentence/">web</a>].<br>
-. Read “5 Steps toward Writing an Effective Paragraph” [<a href="https://eebatou.wordpress.com/2007/01/21/5-steps-to-a-writing-an-effective-paragraph/">web</a>].<br>
-. Use this example response memo [<a href="files/response-memo-example.pdf">pdf</a>] when writing your own response memo.</p>
-<p><strong>Oct 27</strong>: “Breakfast with Ben”</p>
-<p><strong>Oct 30</strong>: Exam 2 Review<br>
-. Study Guide [<a href="https://docs.google.com/document/d/1aRe1GgbJhoUTltteX-WPEJb-ImDVXq4FHz4QMuhThBY/edit?usp=sharing">Google Doc</a>]</p>
-<p><strong>Nov 1</strong>: Exam 2 (bring pencil, pocket calculator, and small green Scantron)<br>
-. Final submission of Writing Assignment 1.</p>
-<p><strong>Nov 3</strong>: Probability, Part 1<br>
-. We’ll look at the Federalist papers [<a href="http://www.foundingfathers.info/federalistpapers/fedindex.htm">web</a>] in class.<br>
-. Read ch.&nbsp;13 of FPP. Complete assigned exercises.</p>
-<p><strong>Nov 6</strong>: Probability, Part 2<br>
-. Read ch.&nbsp;14 of FPP. Complete assigned exercises.<br>
-. Submit peer review by noon on July 26.</p>
-<p><strong>Nov 8</strong>: Law of Averages<br>
-. Read ch.&nbsp;16 of FPP. Complete assigned exercises.</p>
-<p><strong>Nov 10</strong>: Expected Value and Standard Error<br>
-. Read ch.&nbsp;17 of FPP. Complete assigned exercises.<br>
-. Begin Writing Assignment 2 [<a href="https://www.dropbox.com/s/e09ssdffbd4yqiv/writing-assignment-2.pdf?dl=0">Dropbox</a>]</p>
-<p><strong>Nov 13</strong>: Normal Approximation for Probability Histograms<br>
-. Read ch.&nbsp;18 of FPP. Complete assigned exercises. . In class, fill in this table [<a href="https://docs.google.com/spreadsheets/d/1uiBoSY49F_o3C9_H_9cpaAFtP9Cpby16z9XW_aymZXc/edit?usp=sharing">Google Sheet</a>].<br>
-. In class, use these slides as needed [<a href="https://docs.google.com/presentation/d/1SOUFFnB3VvILGscV5qOGxJnKJjHIHdbhFzxyB7SEJ8Y/edit?usp=sharing">Google Slides</a>].</p>
-<p><strong>Nov 15</strong>: Sample Surveys, Part 1<br>
-. Read ch.&nbsp;19 of FPP. Complete assigned exercises.</p>
-<p><strong>Nov 17</strong>: Sample Surveys, Part 2<br>
-. Read ch.&nbsp;20 of FPP. Complete assigned exercises.</p>
-<p><strong>Nov 20</strong>: FSAB Panel Day<br>
-. Catch-up on any review exercises you haven’t done.<br>
-. Writing Assignment 2 due (postponed to Tuesday, Nov.&nbsp;28).</p>
-<p><strong>Nov 22</strong>: No Class (Reading Day)</p>
-<p><strong>Nov 24</strong>: No Class (Thanksgiving Holiday)</p>
-<p><strong>Nov 27</strong>: Catch-up Day<br>
-. Make sure you’ve read through ch.&nbsp;20 of FPP and completed assigned exercises.</p>
-<p><strong>Nov 29</strong>: The Accuracy of Percentages<br>
-. Read ch.&nbsp;21 of FPP. Complete assigned exercises.</p>
-<p><strong>Dec 1</strong>: The Accuracy of Averages<br>
-. Read ch.&nbsp;23 of FPP. Complete assigned exercises.</p>
-<p><strong>Dec 4</strong>: Hypothesis Tests . Read ch.&nbsp;26 of FPP. Complete assigned exercises.</p>
-<p><strong>Dec 6</strong>: Final Exam Review<br>
-. Example problem for hypothesis test and 95% CI for percent [<a href="https://www.dropbox.com/s/e7glla0sqomku5h/ci-and-p-for-percent.pdf?dl=0">Dropbox</a>].<br>
-. Final submission of Writing Assignment 2 due.<br>
-. Study Guide [<a href="https://docs.google.com/document/d/1svjCL8aK1YyL8yGnbHgnqU9MJpLwdLLniqcgwTr6Kso/edit?usp=sharing">Google Doc</a>]</p>
-<p><strong>Dec 8 or 11</strong>: Final Exam (bring pencil, pocket calculator, and small green Scantron) . For 901 (8:35-9:25am), 10am-12pm on Dec 8<br>
-. For 902 (9:45-10:35am), 8-10am on Dec 11</p>
+<section id="email-list" class="level2">
+<h2 class="anchored" data-anchor-id="email-list">Email List!</h2>
+<p>I have an email list where I share things I’m thinking about and projects I’m working on. I write about substance, methods, productivity, writing, talks, and more. If you found this content useful, you should <a href="../../email-list/">join in</a>!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -477,25 +383,90 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
           }
-        });
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
@@ -535,6 +506,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://giscus.app/client.js" data-repo="carlislerainey/blog-discussions" data-repo-id="R_kgDOJjpCog" data-category="General" data-category-id="DIC_kwDOJjpCos4CWhBd" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 
