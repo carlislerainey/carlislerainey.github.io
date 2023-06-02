@@ -410,5 +410,5 @@ gg <- ggplot(ests, aes(x = est,
        color = "Reject Null?", 
        caption = "Rug shows distribution of lower bound of confidence interval.") 
 
-ggsave(plot = gg, filename = "twittter-card.png", height = 3, width = 6, dpi = 120)
+ggsave(plot = gg, filename = "twitter-card.png", height = 3, width = 6, dpi = 120)
 ```
