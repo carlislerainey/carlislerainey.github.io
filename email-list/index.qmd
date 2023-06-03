@@ -4,12 +4,12 @@ toc: false
 twitter-card:
   card-style: summary
   image: "small-twitter-card.png"
-  title: "Things I'm working on, finding useful, and thinking about."  # less than 55 chars
-  description: "I write about my favorite papers and professionalization topics like writing, talks, and productivity."
+  title: "Things I'm thinking about and finding useful."  # less than 55 chars
+  description: "I write about my favorite papers and topics like writing, talks, and productivity."
 open-graph:   
   image: "small-twitter-card.png"
-  title: "Things I'm working on, finding useful, and thinking about."  # less than 55 chars
-  description: "I write about my favorite papers and professionalization topics like writing, talks, and productivity."
+  title: "Things I'm thinking about and finding useful."  # less than 55 chars
+  description: "I write about my favorite papers and topics like writing, talks, and productivity."
 ---
 
 
