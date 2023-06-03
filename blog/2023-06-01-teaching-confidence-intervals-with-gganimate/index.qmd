@@ -2,7 +2,7 @@
 title: "Teaching Confidence Intervals and Hypothesis Testing with gganimate"
 subtitle: "Showing Students Just How Noisy Confidence Intervals Are"
 author: "Carlisle Rainey"
-date: "2023-05-21"
+date: "2023-06-01"
 categories: [methodology, hypothesis tests, confidence intervals, computing, R]
 description: "I share R code to create a static and dynamic plot of confidence intervals that illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities."
 image: "twitter-card.png"

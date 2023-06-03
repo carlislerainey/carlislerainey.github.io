@@ -1,13 +1,13 @@
 ---
-pagetitle: "Get Updates!"
+pagetitle: "Join Carlisle's Email List"
 toc: false
 twitter-card:
   card-style: summary
   image: "small-twitter-card.png"
-  title: "Subscribe to Carlisle's Email List for Updates"  # less than 55 chars
+  title: "Join Carlisle's Email List"  # less than 55 chars
 open-graph:   
   image: "small-twitter-card.png"
-  title: "Subscribe to Carlisle's Email List for Updates"  # less than 55 chars
+  title: "Join Carlisle's Email List"  # less than 55 chars
 ---
 
 
