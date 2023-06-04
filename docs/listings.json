@@ -2,8 +2,19 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html",
       "/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html",
       "/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html"
+    ]
+  },
+  {
+    "listing": "/papers2/index.html",
+    "items": [
+      "/papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html",
+      "/papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html",
+      "/papers2/published-papers/2016-rainey-compression/index.html",
+      "/papers2/published-papers/2014-barabas-questions/index.html",
+      "/papers2/published-papers/2014-rainey-arguing/index.html"
     ]
   },
   {
