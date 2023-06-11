@@ -369,7 +369,6 @@ animate(anim, duration = n_studies, fps = 10,
 
 
 
-
 ```{=html}
 <h2> <i class="bi bi-rocket-takeoff-fill"></i> Email List </h2>
 
@@ -385,8 +384,7 @@ animate(anim, duration = n_studies, fps = 10,
 <br>
 And if you found this fun or useful, don't forget to like and retweet the tweet below! 🚀
 
-<blockquote class="twitter-tweet" data-theme="light"><p lang="en" dir="ltr">I use 🎲 and gganimate to help students &quot;feel&quot; the riskiness of under-powered tests.<a href="https://t.co/Qvredn4tPr">https://t.co/Qvredn4tPr</a></p>&mdash; Carly 📈👨‍🏫📊 (@carlislerainey) <a href="https://twitter.com/carlislerainey/status/1665689931513995264?ref_src=twsrc%5Etfw">June 5, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-```        
+<blockquote class="twitter-tweet" data-theme="light"><p lang="en" dir="ltr">I use 🎲 and gganimate to help students &quot;feel&quot; the riskiness of under-powered tests.<a href="https://t.co/Qvredn4tPr">https://t.co/Qvredn4tPr</a></p>&mdash; Carly 📈👨‍🏫📊 (@carlislerainey) <a href="https://twitter.com/carlislerainey/status/1665689931513995264?ref_src=twsrc%5Etfw">June 5, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
 
 
 

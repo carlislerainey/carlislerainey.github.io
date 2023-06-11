@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Carlisle Rainey">
+<meta name="dcterms.date" content="2023-06-08">
+<meta name="description" content="Power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I encourage students to think about the ratio of the true effect to the standard error. I explain why trying to make the ratio at least 2.48 is equivalent to a target power of 80%. But you want to almost always reject the null, so you should shoot for a ratio of 3.64. These guideless help you build a bit of actionable intuition about statistical power.">
+
+<title>Carlisle Rainey - Power, Part III: The Rule of 3.64 for Power’s Key Ratio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F57WQLHH67"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="The Rule of 3.64">
+<meta property="og:description" content="I develop the intuition of simple, actionable guidelines for statistical power.">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png">
+<meta property="og:site-name" content="Carlisle Rainey">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="1000">
+<meta name="twitter:title" content="The Rule of 3.64">
+<meta name="twitter:description" content="I develop the intuition of simple, actionable guidelines for statistical power.">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png">
+<meta name="twitter:creator" content="@carlislerainey">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="500">
+<meta name="twitter:image-width" content="1000">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Carlisle Rainey</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../email-list/index.html" rel="" target=""><i class="bi bi-rocket-takeoff" role="img">
+</i> 
+ <span class="menu-text">Join My Email List!</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="../../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Power, Part III: The Rule of 3.64 for Power’s Key Ratio</h1>
+<p class="subtitle lead">Simple, Actionable Guidelines for Statistical Power</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistical power</div>
+    <div class="quarto-category">hypothesis tests</div>
+    <div class="quarto-category">power analysis</div>
+    <div class="quarto-category">methodology</div>
+    <div class="quarto-category">confidence intervals</div>
+    <div class="quarto-category">computing</div>
+    <div class="quarto-category">R</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I encourage students to think about the ratio of the true effect to the standard error. I explain why trying to make the ratio at least 2.48 is equivalent to a target power of 80%. But you want to almost always reject the null, so you should shoot for a ratio of 3.64. These guideless help you build a bit of actionable intuition about statistical power.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlisle Rainey </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 8, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>I’ve wrapped up the argument that you should pursue statistical power in your experiments. In sum, you should do it for <em>you</em> (not a future Reviewer 2) and you shouldn’t see confidence intervals nestle consistently against zero.</p>
+<ol type="1">
+<li><a href="../../blog/2023-05-22-power-1-for-you-not-reviewer-2">“Power Is For You, Not For Reviewer 2”</a></li>
+<li><a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">“What Do Confidence Intervals From Well-Powered Studies Look Like?”</a></li>
+</ol>
+<p>In this post, I’d like to develop the intuition for power calculations, two helpful guidelines, and one implication.</p>
+<p>Main takeaway: You need the ratio of the true effect and the standard error to be more than 3.64.</p>
+</section>
+<section id="starting-point-the-sampling-distribution" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="starting-point-the-sampling-distribution">Starting Point: The Sampling Distribution</h2>
+<p>When you run one experiment, you realize <em>one</em> of many possible patterns of randomization. This particular realization produces a single <strong>estimate</strong> of the treatment effect from a <em>distribution</em> of possible estimates. The distribution of possibilities is called a “<strong>sampling distribution</strong>.”</p>
+<p>Thus, we can think of the estimate as a random variable and its distribution as the sampling distribution. The sampling distribution is key to everything I do in this post, so let’s spend some time with it.</p>
+<div class="page-columns page-full"><p>Let’s imagine that we did the exact same study 50 times. Let’s say that we computed a difference-in-means in dollars ($) donated.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in $). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.</p></li></div></div>
+<p>We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.</p>
+<div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-1_163f8939340f7b3b0baeede37d900593">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gif pars</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>duration <span class="ot">&lt;-</span> <span class="dv">24</span> <span class="co"># must be even</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fps <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>nframes <span class="ot">&lt;-</span> duration<span class="sc">*</span>fps</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>scale <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="dv">125</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># number of times to repeat the study</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>n_studies <span class="ot">&lt;-</span> <span class="dv">50</span> <span class="co"># nframes</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># create a data frame of confidence intervals</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>ests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span><span class="sc">:</span>n_studies, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">est =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(n_studies, true_effect, se))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reject_null =</span> <span class="fu">ifelse</span>(est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># add two things to the data frame of confidence intervals</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. an initial row with study_id = 1 and est = NA so that </span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#    the plot starts empty (gganimate would start with the </span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#    first observation in place otherwise).</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. a group variable that defines the row. This is the same</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#    as the study_id, except the dummy row from (1) and the </span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#    actual first row have different groups.</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>animate_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span>, <span class="at">est =</span> <span class="cn">NA</span>),  <span class="co"># study_id = 1, est = NA</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  ests                             <span class="co"># actual cis</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>split_animate_data <span class="ot">&lt;-</span> animate_data <span class="sc">%&gt;%</span>        <span class="co"># group (row index)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(.<span class="sc">$</span>group) <span class="sc">%&gt;%</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">accumulate</span>(<span class="sc">~</span> <span class="fu">bind_rows</span>(.x, .y)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"frame"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">frame =</span> <span class="fu">as.integer</span>(frame))</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>se_lines <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>se_, <span class="sc">~</span>label, <span class="sc">~</span>chance, <span class="sc">~</span>ch_loc_,  <span class="co"># trailing _ means not rescaeld to study se</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="st">"True Effect"</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="st">"+1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">0.5</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="st">"+2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">1.5</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="st">"+3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">2.5</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">1</span>, <span class="st">"-1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">0</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">2</span>, <span class="st">"-2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">1.5</span>,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">3</span>, <span class="st">"-3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">2.5</span>,</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ch_loc =</span> ch_loc_<span class="sc">*</span>se <span class="sc">+</span> true_effect,</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>         <span class="at">se =</span> se_<span class="sc">*</span>se <span class="sc">+</span> true_effect)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co"># start with a ggplot</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(animate_data, <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>                               <span class="at">y =</span> study_id,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>                               <span class="at">group =</span> group)) <span class="sc">+</span> </span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">xintercept =</span> se, </span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_)), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> se, <span class="at">y =</span> n_studies <span class="sc">+</span> <span class="dv">2</span>, <span class="at">label =</span> label, <span class="at">group =</span> <span class="cn">NULL</span>, <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_))) <span class="sc">+</span> </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> ch_loc, <span class="at">y =</span> <span class="dv">4</span>, <span class="at">label =</span> chance, <span class="at">group =</span> <span class="cn">NULL</span>)) <span class="sc">+</span> </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>((est<span class="sc">-</span> true_effect)<span class="sc">/</span>se)),</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>((est<span class="sc">-</span> true_effect)<span class="sc">/</span>se)), </span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of Effect"</span>,</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Study Number"</span>) <span class="sc">+</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>gg1_anim <span class="ot">&lt;-</span> gg1 <span class="sc">+</span>  </span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> group) <span class="sc">+</span> </span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points enter</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_drift</span>(<span class="at">y_mod =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_grow</span>() <span class="sc">+</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_fade</span>() <span class="sc">+</span> </span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points exit/remain</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_fade</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_shrink</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>gg1_gif<span class="ot">&lt;-</span> <span class="fu">animate</span>(gg1_anim, <span class="at">nframes =</span> nframes, <span class="at">duration =</span> duration, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> res)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gg1.gif"</span>)</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>gg1_mgif <span class="ot">&lt;-</span> <span class="fu">image_read</span>(<span class="st">"gg1.gif"</span>)</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="do">## plot 2: histogram</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="co"># start with a ggplot</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(split_animate_data, <span class="fu">aes</span>(<span class="at">x =</span> est, <span class="at">group =</span> frame)) <span class="sc">+</span> </span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> se, <span class="at">boundary =</span> true_effect, <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span> </span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">xintercept =</span> se, </span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_)), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> se, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> label, <span class="at">group =</span> <span class="cn">NULL</span>, <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_)), <span class="at">vjust =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> ch_loc, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> chance, <span class="at">group =</span> <span class="cn">NULL</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_density(linewidth = 2) + </span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>((est<span class="sc">-</span> true_effect)<span class="sc">/</span>se)), </span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of Effect"</span>,</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span> </span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>gg2_anim <span class="ot">&lt;-</span> gg2 <span class="sc">+</span>  </span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> frame)</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>gg2_gif<span class="ot">&lt;-</span> <span class="fu">animate</span>(gg2_anim, <span class="at">nframes =</span> nframes, <span class="at">duration =</span> duration, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> res)</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gg2.gif"</span>)</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>gg2_mgif <span class="ot">&lt;-</span> <span class="fu">image_read</span>(<span class="st">"gg2.gif"</span>)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>new_gif <span class="ot">&lt;-</span> <span class="fu">image_append</span>(<span class="fu">c</span>(gg1_mgif[<span class="dv">1</span>], gg2_mgif[<span class="dv">1</span>]), <span class="at">stack =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>nframes){</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>  combined_gif <span class="ot">&lt;-</span> <span class="fu">image_append</span>(<span class="fu">c</span>(gg1_mgif[i], gg2_mgif[i]), <span class="at">stack =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  new_gif <span class="ot">&lt;-</span> <span class="fu">c</span>(new_gif, combined_gif)</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>new_gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display column-screen-inset-right">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"gg1.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"gg2.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Before the study, we can predict two features of this sampling distribution.</p>
+<ol type="1">
+<li>First, it will usually have a bell-shaped, normal distribution.</li>
+<li>Second, we can predict the standard deviation of this distribution with good accuracy before conducting a single study and excellent accuracy after just one study. We call the standard deviation of the sampling distribution the <strong>standard error</strong> or <strong>SE</strong>.</li>
+</ol>
+<p>For our purposes, then, we can describe the sampling distribution as normally distributed with an assumed mean and SD. The mean is the assumed true effect and the SD is the well-predicted SE.</p>
+<p>This is the key claim: <strong>In order to build power into your experiment, you must build certain properties into the sampling distribution.</strong></p>
+<p>The design of your experiment will not affect the normality of the sampling distribution, but it will change the true effect and the SE. Changing the true effect and the SE will change the power.</p>
+</section>
+<section id="thinking-about-true-effect-and-standard-error-as-targets" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="thinking-about-true-effect-and-standard-error-as-targets">Thinking about True Effect and Standard Error as <em>Targets</em></h2>
+<p>I’m leaving aside how to predict the standard error of the experiment or choose the true effect. This post is about the <em>target</em> standard error and true effect.</p>
+<div class="page-columns page-full"><p>Predicting the standard error is a mechanical process mixed with a little guesswork.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Choose a true effect is a mostly substantive decision.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’ll suggest two methods I like. First, use <span class="math inline">\(\text{predicted SE} \frac{SD of same outcome in different data set}{2 \sqrt{\text{sample size}}}\)</span>. I like to confirm this estimate with a small pilot. I sample observations from this pilot dataset, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;<a href="https://twitter.com/cdsamii/status/1661091885580992517?s=20">Cyrus Samii</a> likes to use the MME, I like a conservatively choosen guess of what the effect actually is.</p></li></div></div>
+<p>But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)—power is just not a very intuitive quantity.</p>
+<p>To understand how the true effect and the SE relate to power, we need to introduce the confidence interval.</p>
+</section>
+<section id="testing-with-confidence-intervals" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="testing-with-confidence-intervals">Testing with Confidence Intervals</h2>
+<p>I like to use 90% confidence intervals to test hypotheses (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.] The formula for a 90% CI is <span class="math inline">\(\text{estimate} \pm 1.64\text{SE}\)</span>. That is, we put “arms” around our estimate—one to the left and another to the right. Each arm is 1.64 standard errors long.</p>
+<div class="page-columns page-full"><p>I’ll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound (<span class="math inline">\(\text{estimate} - 1.64\text{SE}\)</span>) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;This is equivalent to a <em>z</em>-test in a standard hypothesis testing framework using a <em>p</em>-value of less than 0.05 as the threshold for rejecting the null hypothesis.</p></li></div></div>
+<p>This focus on <em>testing</em> rather than <em>estimation</em> changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.</p>
+<p>But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that *if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.</p>
+<p>We can reconstruct the figure above using this logic. Rather than plot the points continuously along the x-axis, we can color the points (and now error bars) according to whether the lower bound falls above zero or not. And we can use a bar plot showing the number of rejections and non-rejections.</p>
+<div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-2_773d9060805f2430fb380b75c96c3076">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gif pars</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>duration <span class="ot">&lt;-</span> <span class="dv">24</span> <span class="co"># must be even</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>fps <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>nframes <span class="ot">&lt;-</span> duration<span class="sc">*</span>fps</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>scale <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="dv">125</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># number of times to repeat the study</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>n_studies <span class="ot">&lt;-</span> <span class="dv">50</span> <span class="co"># nframes</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># create a data frame of confidence intervals</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ests <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span><span class="sc">:</span>n_studies, </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">est =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(n_studies, true_effect, se))) <span class="sc">%&gt;%</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reject_null =</span> <span class="fu">ifelse</span>(est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">lwr =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">upr =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># add two things to the data frame of confidence intervals</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. an initial row with study_id = 1 and est = NA so that </span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">#    the plot starts empty (gganimate would start with the </span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#    first observation in place otherwise).</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. a group variable that defines the row. This is the same</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co">#    as the study_id, except the dummy row from (1) and the </span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co">#    actual first row have different groups.</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>animate_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">study_id =</span> <span class="dv">1</span>, <span class="at">est =</span> <span class="cn">NA</span>),  <span class="co"># study_id = 1, est = NA</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  ests                             <span class="co"># actual cis</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) </span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>split_animate_data <span class="ot">&lt;-</span> animate_data <span class="sc">%&gt;%</span>        <span class="co"># group (row index)</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(.<span class="sc">$</span>group) <span class="sc">%&gt;%</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">accumulate</span>(<span class="sc">~</span> <span class="fu">bind_rows</span>(.x, .y)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="at">.id =</span> <span class="st">"frame"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">frame =</span> <span class="fu">as.integer</span>(frame))</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>se_lines <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>se_, <span class="sc">~</span>label, <span class="sc">~</span>chance, <span class="sc">~</span>ch_loc_,  <span class="co"># trailing _ means not rescaeld to study se</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="st">"True Effect"</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="st">"+1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">0.5</span>,</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="st">"+2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">1.5</span>,</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="st">"+3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">2.5</span>,</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">1</span>, <span class="st">"-1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">0</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">2</span>, <span class="st">"-2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">1.5</span>,</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">3</span>, <span class="st">"-3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">2.5</span>,</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ch_loc =</span> ch_loc_<span class="sc">*</span>se <span class="sc">+</span> true_effect,</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>         <span class="at">se =</span> se_<span class="sc">*</span>se <span class="sc">+</span> true_effect)</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="co"># start with a ggplot</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>gg1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(animate_data, <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>                                <span class="at">y =</span> study_id,</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>                                <span class="at">group =</span> group)) <span class="sc">+</span> </span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">1.64</span><span class="sc">*</span>se) <span class="sc">+</span> </span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> <span class="dv">5</span>, <span class="at">label =</span> <span class="st">"1.64 SEs"</span>) <span class="sc">+</span> </span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="at">height =</span> <span class="dv">0</span>, <span class="fu">aes</span>(<span class="at">xmin =</span> lwr, <span class="at">xmax =</span> upr, <span class="at">color =</span> reject_null)) <span class="sc">+</span> </span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> reject_null),</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"b"</span>, </span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> est, </span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> reject_null), </span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.5</span>, </span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>           <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.025</span>, <span class="st">"npc"</span>)) <span class="sc">+</span> </span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of Effect"</span>,</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Study Number"</span>) <span class="sc">+</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"#1b9e77"</span>, <span class="st">"No"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span>))</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>gg1_anim <span class="ot">&lt;-</span> gg1 <span class="sc">+</span>  </span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> group) <span class="sc">+</span> </span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points enter</span></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_drift</span>(<span class="at">y_mod =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_grow</span>() <span class="sc">+</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enter_fade</span>() <span class="sc">+</span> </span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>  <span class="co"># how points exit/remain</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_fade</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">exit_shrink</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shadow_mark</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>gg1_gif<span class="ot">&lt;-</span> <span class="fu">animate</span>(gg1_anim, <span class="at">nframes =</span> nframes, <span class="at">duration =</span> duration, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> res)</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gg1.gif"</span>)</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>gg1_mgif <span class="ot">&lt;-</span> <span class="fu">image_read</span>(<span class="st">"gg1.gif"</span>)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="do">## plot 2: histogram</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="co"># start with a ggplot</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>gg2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(split_animate_data, <span class="fu">aes</span>(<span class="at">x =</span> reject_null, <span class="at">fill =</span> reject_null),  <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Reject Null"</span>,</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span> </span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">na.translate =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Yes"</span> <span class="ot">=</span> <span class="st">"#1b9e77"</span>, <span class="st">"No"</span> <span class="ot">=</span> <span class="st">"#d95f02"</span>))</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="co"># add dyamics to the plot</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>gg2_anim <span class="ot">&lt;-</span> gg2 <span class="sc">+</span>  </span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_states</span>(<span class="at">states =</span> frame)</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>gg2_gif<span class="ot">&lt;-</span> <span class="fu">animate</span>(gg2_anim, <span class="at">nframes =</span> nframes, <span class="at">duration =</span> duration, <span class="at">width =</span> width, <span class="at">height =</span> height, <span class="at">units =</span> <span class="st">"in"</span>, <span class="at">res =</span> res)</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gg2.gif"</span>)</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>gg2_mgif <span class="ot">&lt;-</span> <span class="fu">image_read</span>(<span class="st">"gg2.gif"</span>)</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>new_gif <span class="ot">&lt;-</span> <span class="fu">image_append</span>(<span class="fu">c</span>(gg1_mgif[<span class="dv">1</span>], gg2_mgif[<span class="dv">1</span>]), <span class="at">stack =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>nframes){</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>  combined_gif <span class="ot">&lt;-</span> <span class="fu">image_append</span>(<span class="fu">c</span>(gg1_mgif[i], gg2_mgif[i]), <span class="at">stack =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>  new_gif <span class="ot">&lt;-</span> <span class="fu">c</span>(new_gif, combined_gif)</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>new_gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display column-screen-inset-right">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"gg1.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.remove</span>(<span class="st">"gg2.gif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="the-key-ratio" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-key-ratio">The Key Ratio</h2>
+<p>The key to building statistical power into your experiment is to get “almost all” of the sampling distribution above 1.64 standard errors above zero. The portion of the sampling distribution that falls below 1.64 standard errors above zero does not allow the researcher to reject the null.</p>
+<div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-3_ae148b7ae499c1f0d3d536545760eb36">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>se_lines <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>se_, <span class="sc">~</span>label, <span class="sc">~</span>chance, <span class="sc">~</span>ch_loc_,  <span class="co"># trailing _ means not rescaeld to study se</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="st">"True Effect"</span>, <span class="cn">NA</span>, <span class="cn">NA</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="st">"+1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">0.5</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="st">"+2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">1.5</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="st">"+3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="fl">2.5</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">1</span>, <span class="st">"-1 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="dv">0</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">2</span>, <span class="st">"-2 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">1.5</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="dv">3</span>, <span class="st">"-3 SE"</span>, scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">3</span>), <span class="at">accuracy =</span> <span class="dv">1</span>), <span class="sc">-</span><span class="fl">2.5</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ch_loc =</span> ch_loc_<span class="sc">*</span>se <span class="sc">+</span> true_effect,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">se =</span> se_<span class="sc">*</span>se <span class="sc">+</span> true_effect) </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500000</span>, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>bg_alpha <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data =</span> df, </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">binwidth =</span> se, <span class="at">boundary =</span> true_effect, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> bg_alpha) <span class="sc">+</span> </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">xintercept =</span> se, </span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_)), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> bg_alpha) <span class="sc">+</span> </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> se, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> label, <span class="at">group =</span> <span class="cn">NULL</span>), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="fu">alpha</span>(<span class="st">'black'</span>, bg_alpha)) <span class="sc">+</span> </span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> ch_loc, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> chance, <span class="at">group =</span> <span class="cn">NULL</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">alpha</span>(<span class="st">'black'</span>, bg_alpha)) <span class="sc">+</span> </span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of Effect"</span>,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span> </span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="dv">3</span><span class="sc">*</span>se <span class="sc">+</span> true_effect, <span class="at">by =</span> <span class="fl">0.1</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x), </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> true_effect, <span class="at">sd =</span> se),</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"#d95f02"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="dv">3</span><span class="sc">**</span>se <span class="sc">+</span> true_effect)) <span class="sc">+</span> </span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">1.3</span>, <span class="at">y =</span> .<span class="dv">1</span>, <span class="at">label =</span> <span class="st">"fraction rejected"</span>, <span class="at">color =</span> <span class="st">"#d95f02"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">xend =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="fu">dnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), <span class="at">color =</span> <span class="st">"#1b9e77"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> <span class="fu">dnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se)<span class="sc">/</span><span class="dv">2</span>, <span class="at">label =</span> <span class="st">"1.64 SEs above zero"</span>, <span class="at">color =</span> <span class="st">"#1b9e77"</span>) <span class="sc">+</span> </span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">dnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), </span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">yend =</span> <span class="fu">dnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), </span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"#7570b3"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">0.5</span><span class="sc">*</span><span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> <span class="fu">dnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), <span class="at">label =</span> <span class="st">"width of 90% CI"</span>, <span class="at">color =</span> <span class="st">"#7570b3"</span>) <span class="sc">+</span> </span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display column-screen-inset-right">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+<p>You’ll remember that “almost all” of the normal distribution falls within two standard errors of its mean. So as a starting point, let’s use this rule: get the sampling distribution two standard errors above 1.64 standard errors above zero. We can just add 1.64 and 2 together to get a sampling distribution 3.64 standard errors above zero. That is, we need <span class="math inline">\(\frac{\text{true effect}}{\text{standard error}} &gt; 3.64\)</span>. If the true effect is larger than 3.64 standard errors, then the confidence interval will “rarely” overlap zero (about 2% of the time).</p>
+<div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-4_a91efc73b8d2befdc4dcd25504202cf9">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># study parameters</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="fl">3.84</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500000</span>, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data =</span> df, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">binwidth =</span> se, <span class="at">boundary =</span> true_effect, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> bg_alpha) <span class="sc">+</span> </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">xintercept =</span> se, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> <span class="sc">-</span><span class="fu">dnorm</span>(se_)), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> bg_alpha) <span class="sc">+</span> </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> se, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> label, <span class="at">group =</span> <span class="cn">NULL</span>), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="fu">alpha</span>(<span class="st">'black'</span>, bg_alpha)) <span class="sc">+</span> </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> se_lines, <span class="fu">aes</span>(<span class="at">x =</span> ch_loc, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> chance, <span class="at">group =</span> <span class="cn">NULL</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">alpha</span>(<span class="st">'black'</span>, bg_alpha)) <span class="sc">+</span> </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Estimate of Effect"</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="dv">3</span><span class="sc">*</span>se <span class="sc">+</span> true_effect, <span class="at">by =</span> <span class="fl">0.1</span>)), <span class="fu">aes</span>(<span class="at">x =</span> x), </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> true_effect, <span class="at">sd =</span> se),</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"#d95f02"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">1.64</span><span class="sc">*</span>se, <span class="dv">3</span><span class="sc">**</span>se <span class="sc">+</span> true_effect)) <span class="sc">+</span> </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">#annotate("label", x = 1.3, y = .1, label = "fraction rejected", color = "#d95f02", size = 6) +</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> true_effect, <span class="at">xend =</span> true_effect, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="fu">dnorm</span>(true_effect, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se), <span class="at">color =</span> <span class="st">"#d95f02"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> true_effect, <span class="at">y =</span> <span class="fu">dnorm</span>(true_effect, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se)<span class="sc">/</span><span class="dv">2</span>, <span class="at">label =</span> <span class="st">"true effect"</span>, <span class="at">color =</span> <span class="st">"#d95f02"</span>) <span class="sc">+</span>   </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">xend =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> .<span class="dv">75</span>, <span class="at">color =</span> <span class="st">"#1b9e77"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> .<span class="dv">75</span>, <span class="at">label =</span> <span class="st">"1.64 SEs above zero"</span>, <span class="at">color =</span> <span class="st">"#1b9e77"</span>) <span class="sc">+</span> </span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> .<span class="dv">125</span>, </span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>           <span class="at">yend =</span> .<span class="dv">125</span>, </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"#7570b3"</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">linejoin =</span> <span class="st">"round"</span>, <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">ends =</span> <span class="st">"both"</span>)) <span class="sc">+</span> </span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">0.5</span><span class="sc">*</span><span class="fl">1.64</span><span class="sc">*</span>se, <span class="at">y =</span> .<span class="dv">125</span>, <span class="at">label =</span> <span class="st">"1.64 SEs"</span>, <span class="at">color =</span> <span class="st">"#7570b3"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> true_effect, <span class="at">xend =</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> .<span class="dv">125</span>, </span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">yend =</span> .<span class="dv">125</span>, </span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">linejoin =</span> <span class="st">"round"</span>, <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">ends =</span> <span class="st">"both"</span>)) <span class="sc">+</span> </span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> <span class="fl">1.64</span><span class="sc">*</span>se <span class="sc">+</span> (true_effect <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se)<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> .<span class="dv">125</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  , <span class="at">label =</span> <span class="st">"ideally 2 SEs"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> true_effect, <span class="at">xend =</span> <span class="dv">0</span>, </span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">1</span>, <span class="at">yend =</span> <span class="dv">1</span>, </span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">linejoin =</span> <span class="st">"round"</span>, <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">"inches"</span>), <span class="at">ends =</span> <span class="st">"both"</span>)) <span class="sc">+</span> </span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> true_effect<span class="sc">/</span><span class="dv">2</span>, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="st">"ideally 3.64 SEs"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">2.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display column-screen-inset-right">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+<section id="the-resulting-guidelines" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-resulting-guidelines">The Resulting Guidelines</h2>
+<p>There are a few ways to write the ratio:</p>
+<ol type="1">
+<li><span class="math inline">\(\frac{\text{true effect}}{\text{standard error}} &gt; 3.64\)</span></li>
+<li><span class="math inline">\(\text{true effect} &gt; 3.64 \times \text{standard error}\)</span></li>
+<li><span class="math inline">\(\text{standard error} &lt; \frac{1}{3.64} \times \text{true effect} \approx 0.27 \times \text{true effect}\)</span></li>
+</ol>
+<p>These are all the same goals. I prefer the first, but they are all equivalent targets for power.</p>
+<p>I like this ratio because it points to <em>strategies</em> to increase power. You can do two things:</p>
+<ol type="1">
+<li>Increase the true effect.</li>
+<li>Decrease the standard error.</li>
+</ol>
+<div class="page-columns page-full"><p>This ratio gets you thinking not <em>what</em> your power is, but <em>how to increase it</em>. Again, power isn’t <em>a</em> task for the experimenter, it’s <em>the</em> task.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane (2023)</a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> suggests several ways researchers can increase the true effect or decrease the standard error.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;I’m leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.</p></li><li id="fn6"><p><sup>6</sup>&nbsp;Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results.” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</p></li></div></div>
+<p>I’ll highlight a few examples here. To increase the treatment effect, you can:</p>
+<ol type="1">
+<li>Increase attentiveness.</li>
+<li>Ensure that respondents are not pre-treated.</li>
+<li>Write strong treatments or “hit them between the eyes” <a href="https://www.jstor.org/stable/2647960">(Kuklinski <em>et al.</em> 2000)</a>.</li>
+</ol>
+<p>To decrease the standard error, you can:</p>
+<ol type="1">
+<li>Increase the sample size.</li>
+<li>Use multiple measurements for the outcome.</li>
+<li>Use a pre-post design <a href="https://doi.org/10.1017/S0003055421000241">(Clifford, Sheagley, and Piston 2022)</a>.</li>
+</ol>
+</section>
+<section id="implication" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="implication">Implication</h2>
+<div class="page-columns page-full"><p>If you get the ratio to 3.64, then you’ll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> But notice that 3.64 and 2.48 are not very different. This has an important implication.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Find this by adding 1.64 to <code>-qnorm(0.2)</code>.</p></li></div></div>
+<p>A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.</p>
+<p>The implication is this: when you are on the cusp of a well-powered study (about 80% power), then small increases in the ratio have a disproportionate impact on your risk of a failed study.</p>
+</section>
+<section id="computing-power-from-the-ratio" class="level2">
+<h2 class="anchored" data-anchor-id="computing-power-from-the-ratio">Computing Power from the Ratio</h2>
+<p>Following the logic of the picture above, we need to compute the fraction of the sampling distributin that lies above 1.64 SEs. The <code>pnorm()</code> function returns normal probabilities, but <em>below</em> specfic thresholds. By supplying the argument <code>lower.tail = FALSE</code>, we can get the probabilities of falling <em>above</em> a specific threshold.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_d9afb3bbe1456ba18f58ca7b98720c3e">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="fl">1.00</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># compute power</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.64</span><span class="sc">*</span>se,   <span class="co"># want fraction above 1.64 SE</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean =</span> true_effect,  <span class="co"># mean of sampling distribution</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">sd =</span> se,  <span class="co"># sd of sampling distribution</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)  <span class="co"># fraction above, not below</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8051055</code></pre>
+</div>
+</div>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Statistical power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I explain why the target <span class="math inline">\(\frac{\text{true effect}}{\text{standard error}} &gt; 2.48\)</span> is equivalent to a target power of 80%. But you want to “almost always” reject the null, so you should shoot for <span class="math inline">\(\frac{\text{true effect}}{\text{standard error}} &gt; 3.64\)</span>. Hopefully these guidelines help you build a bit of actionable intuition about statistical power.</p>
+<p>If you found this fun or useful, don’t forget subscribe! 🚀</p>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '438589');
+</script>
+<!-- End MailerLite Universal -->
+<div class="ml-embedded" data-form="3lK3qC">
+
+</div>
+
+
+</section>
+
+
+</main> <!-- /main -->
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="carlislerainey/blog-discussions" data-repo-id="R_kgDOJjpCog" data-category="General" data-category-id="DIC_kwDOJjpCos4CWhBd" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
