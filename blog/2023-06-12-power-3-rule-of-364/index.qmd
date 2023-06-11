@@ -1,6 +1,6 @@
 ---
-title: "Power, Part III: The Rule of 3.64 for Power's Key Ratio"
-subtitle: "Simple, Actionable Guidelines for Statistical Power"
+title: "Power, Part III: The Rule of 3.64 for Statistical Power"
+subtitle: "Simple, Actionable Guidelines Using Statistical Power's Key Ratio"
 author: "Carlisle Rainey"
 date: "2023-06-12"
 categories: [statistical power, hypothesis tests, power analysis, methodology, confidence intervals, computing, R]
@@ -182,10 +182,6 @@ for(i in 2:nframes){
 }
 new_gif
 
-file.remove("gg1.gif")
-file.remove("gg2.gif")
-
-
 ```
 
 Before the study, we can predict two features of this sampling distribution.
@@ -351,9 +347,6 @@ for(i in 2:nframes){
   new_gif <- c(new_gif, combined_gif)
 }
 new_gif
-
-file.remove("gg1.gif")
-file.remove("gg2.gif")
 ```
 
 ## The Key Ratio
