@@ -11,11 +11,11 @@ toc: false
 twitter-card:
   card-style: summary_large_image
   image: "twitter-card.png"
-  title: "The Rule of 3.64"  # less than 55 chars
+  title: "The Rule of 3.64 for Statistical Power"  # less than 55 chars
   description: "I develop the intuition of simple, actionable guidelines for statistical power."  # less than 125 chars
 open-graph:   
   image: "twitter-card.png"
-  title: "The Rule of 3.64"  # less than 55 chars
+  title: "The Rule of 3.64 for Statistical Power"  # less than 55 chars
   description: "I develop the intuition of simple, actionable guidelines for statistical power."  # less than 125 chars
 code-annotations: hover
 code-fold: true
