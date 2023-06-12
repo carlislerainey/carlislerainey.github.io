@@ -199,7 +199,7 @@ The design of your experiment will not affect the normality of the sampling dist
 
 I'm leaving aside how to predict the standard error of the experiment or choose the true effect. This post is about the *target* standard error and true effect.
 
-Predicting the standard error is a mechanical process mixed with a little guesswork.^[I'll suggest two methods I like. First, use $\text{predicted SE} \frac{SD of same outcome in different data set}{2 \sqrt{\text{sample size}}}$. I like to confirm this estimate with a small pilot. I sample observations from this pilot dataset, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.] Choose a true effect is a mostly substantive decision.^[[Cyrus Samii](https://twitter.com/cdsamii/status/1661091885580992517?s=20) likes to use the MME, I like a conservatively choosen guess of what the effect actually is.]
+Predicting the standard error is a mechanical process mixed with a little guesswork.^[I'll suggest two methods I like. First, use $\text{predicted SE} = \frac{\text{SD of same outcome in different data set}}{2 \sqrt{\text{sample size}}}$. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.] Choose a true effect is a mostly substantive decision.^[[Cyrus Samii](https://twitter.com/cdsamii/status/1661091885580992517?s=20) likes to use the MME, I like a conservatively choosen guess of what the effect actually is.]
 
 
 But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)---power is just not a very intuitive quantity.
@@ -534,7 +534,7 @@ pnorm(1.64*se,   # want fraction above 1.64 SE
 
 Statistical power is an abstract quantity. It's easy to understand what it means, but harder to think about how to manipulate it. I explain why the target $\frac{\text{true effect}}{\text{standard error}} > 2.48$ is equivalent to a target power of 80%. But you want to "almost always" reject the null, so you should shoot for $\frac{\text{true effect}}{\text{standard error}} > 3.64$. Hopefully these guidelines help you build a bit of actionable intuition about statistical power.
 
-If you found this fun or useful, don't forget subscribe! 🚀 
+If you found this fun or useful, please subscribe! 🚀 
 
 ```{=html}
 <!-- MailerLite Universal -->
