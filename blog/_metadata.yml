@@ -6,11 +6,3 @@ freeze: true
 
 # Enable banner style title blocks
 #title-block-banner: true
-
-# giscus comments
-comments:
-  giscus:
-    repo: carlislerainey/blog-discussions    
-format:    
-  html:
-    include-after-body: ../email-list-footer.html    

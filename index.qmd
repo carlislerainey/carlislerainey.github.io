@@ -26,7 +26,7 @@ I'm an Associate Professor in the Department of Political Science at Florida Sta
 
 ### Connect 
 
-If want to stay up-to-date on my work, please join my [email list](email-list/). Each semester, I send around a brief summary of things I'm working on, finding useful, and thinking about. You can also subscribe to blog posts and working papers, if you want.
+If want to stay up-to-date on my work, please join my [email list](email-list/). Each semester, I send around a brief summary of things I'm working on, finding useful, and thinking about.
 
 ```{=html}
 <div style="display: flex; justify-content: center;">

@@ -44,9 +44,8 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
-      - icon: rocket-takeoff
-        href: email-list/index.qmd
-        text: "Join My Email List!"
+      - href: email-list/index.qmd
+        text: "Email List"
         
   #margin-header: subscribe.html
       

@@ -137,7 +137,7 @@
     "href": "blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html#summary",
     "title": "Teaching Confidence Intervals and Hypothesis Testing with gganimate",
     "section": "Summary",
-    "text": "Summary\nThe dynamic plot above is a good tool to help students understand that confidence intervals can quite easily include values on the wrong side of zero. Stated differently, it’s easy for a hypothesis test to fail to reject the null (when the null is wrong). Their intuition suggests that the test should tell you the correct answer.\nThe exercises above (appropriately) undermine their trust in hypothesis tests. I want them to feel the riskiness of poorly-powered experiments that consistently nestle confidence intervals right up against zero. I want them ready to work hard to avoid that risk—to make sure they have statistical power. Hopefully, they see that carefully building power into your experiment isn’t a task, it’s the task of experimental design.\nAs a concluding example, here’s the same dynamic plot for a study with about 98% power. Notice how “safe” this study feels compared to the one above with 80% power. I think this plot does a good job a translating probabilities into an appropriate sense of “danger.”\n\n\nCode\n# study parameters\nse &lt;- 0.27  # 1/3.64\n\n# identify effects of interest\neoi &lt;- tribble(\n  ~Effect, ~Description,\n  true_effect, \"True Effect (known in this exercise)\"\n) \n\n# compute quantities of interest regarding power\neoi %&gt;%\n  mutate(Power = 1 - pnorm(1.64*se, Effect, se),\n         Power = scales::percent(Power, accuracy = 1),\n         `Type S` = retrodesign::type_s(Effect, se)$type_s,\n         `Type S` = scales::number(`Type S`, accuracy = 0.01),\n         `Type M` = retrodesign::type_m(Effect, se)$type_m,\n         `Type M` = scales::number(`Type M`, accuracy = 0.01),\n         Effect = scales::number(Effect, accuracy = 0.01)) %&gt;% \n  pivot_longer(cols = Effect:`Type M`) %&gt;%\n  kableExtra::kable(format = \"markdown\", col.names = NULL)\n\n# a data frame of studies \nests &lt;- tibble(study_id = 1:n_studies,\n               est = c(rnorm(n_studies, true_effect, se))) %&gt;%\n  mutate(reject_null = ifelse(est - 1.64*se &gt; 0, \"Yes\", \"No\")) \n\nanimate_data &lt;- bind_rows(\n  tibble(study_id = 1, est = NA),  # study_id = 1, est = NA\n  ests                             # combine dummy row with ests data frame from above\n  ) %&gt;%\n  mutate(group = 1:n())            # group (row index)\n\n# same ggplot, except three annotated changes\ngg_exp &lt;- ggplot(animate_data, aes(x = est,\n                         y = study_id, \n                         xmin = est - 1.64*se, \n                         xmax = est + 1.64*se, \n                         color = reject_null, \n                         group = group)) +\n  geom_vline(xintercept = true_effect, \n             linetype = \"dotted\") + \n  geom_vline(xintercept = 0) + \n  geom_point() + \n  geom_errorbarh(height = 0) + \n  geom_rug(sides = \"b\", \n           aes(x = est - 1.64*se, color = NULL), \n           alpha = 0.5, \n           length = unit(0.025, \"npc\")) + \n  scale_color_manual(values = c(\"No\" = \"#d95f02\", \"Yes\" = \"#1b9e77\")) +  \n  theme_bw() +\n    theme(panel.grid = element_blank(),\n        axis.text.y = element_blank(),\n        axis.ticks.y = element_blank(),\n        axis.title.y = element_blank()) + \n  labs(x = \"Estimate and 90% Confidence Interval\",\n       y = \"Study ID\", \n       color = \"Reject Null?\", \n       caption = \"Rug shows distribution of lower bound of confidence interval.\n                  Solid line shows zero.\n                  Dotted line shows the true effect.\") + \n  # new scales here\n  scale_x_continuous(expand = expansion(add = c(0.6, 1))) +\n  scale_y_continuous(expand = expansion(add = 2))\n\n# add dyamics to the plot\nanim &lt;- gg_exp +\n  transition_states(states = group) +\n  # how points enter\n  enter_drift(x_mod = 2) +\n  enter_grow() +\n  enter_recolor(color = \"black\") +\n  ease_aes(color = \"exponential-in\") +\n  # how points exit/remain\n  exit_fade(alpha = 0.3) +\n  shadow_mark(alpha = 0.3)\n\n# make magic happen!\nanimate(anim, duration = n_studies, fps = 10, \n        height = 6, width = 8, units = \"in\", res = 150)\n\n\n\n\n\nEffect\n1.00\n\n\nDescription\nTrue Effect (known in this exercise)\n\n\nPower\n98%\n\n\nType S\n0.00\n\n\nType M\n1.02\n\n\n\n\n\n\n\n\n\n Email List\n\n\nIf you like this content, you should subscribe to my email list. Each semester, I send around a dense digest of things I’m thinking about, finding useful, and working on. You can also subscribe to blog posts and working papers, if you want more frequent updates. You can also subscribe to blog posts via   RSS if you prefer that format.\n\n\n   Join the Email List! \n\n And if you found this fun or useful, don’t forget to like and retweet the tweet below! 🚀\n\n\nI use 🎲 and gganimate to help students \"feel\" the riskiness of under-powered tests.https://t.co/Qvredn4tPr\n\n— Carly 📈👨‍🏫📊 (@carlislerainey) June 5, 2023"
+    "text": "Summary\nThe dynamic plot above is a good tool to help students understand that confidence intervals can quite easily include values on the wrong side of zero. Stated differently, it’s easy for a hypothesis test to fail to reject the null (when the null is wrong). Their intuition suggests that the test should tell you the correct answer.\nThe exercises above (appropriately) undermine their trust in hypothesis tests. I want them to feel the riskiness of poorly-powered experiments that consistently nestle confidence intervals right up against zero. I want them ready to work hard to avoid that risk—to make sure they have statistical power. Hopefully, they see that carefully building power into your experiment isn’t a task, it’s the task of experimental design.\nAs a concluding example, here’s the same dynamic plot for a study with about 98% power. Notice how “safe” this study feels compared to the one above with 80% power. I think this plot does a good job a translating probabilities into an appropriate sense of “danger.”\n\n\nCode\n# study parameters\nse &lt;- 0.27  # 1/3.64\n\n# identify effects of interest\neoi &lt;- tribble(\n  ~Effect, ~Description,\n  true_effect, \"True Effect (known in this exercise)\"\n) \n\n# compute quantities of interest regarding power\neoi %&gt;%\n  mutate(Power = 1 - pnorm(1.64*se, Effect, se),\n         Power = scales::percent(Power, accuracy = 1),\n         `Type S` = retrodesign::type_s(Effect, se)$type_s,\n         `Type S` = scales::number(`Type S`, accuracy = 0.01),\n         `Type M` = retrodesign::type_m(Effect, se)$type_m,\n         `Type M` = scales::number(`Type M`, accuracy = 0.01),\n         Effect = scales::number(Effect, accuracy = 0.01)) %&gt;% \n  pivot_longer(cols = Effect:`Type M`) %&gt;%\n  kableExtra::kable(format = \"markdown\", col.names = NULL)\n\n# a data frame of studies \nests &lt;- tibble(study_id = 1:n_studies,\n               est = c(rnorm(n_studies, true_effect, se))) %&gt;%\n  mutate(reject_null = ifelse(est - 1.64*se &gt; 0, \"Yes\", \"No\")) \n\nanimate_data &lt;- bind_rows(\n  tibble(study_id = 1, est = NA),  # study_id = 1, est = NA\n  ests                             # combine dummy row with ests data frame from above\n  ) %&gt;%\n  mutate(group = 1:n())            # group (row index)\n\n# same ggplot, except three annotated changes\ngg_exp &lt;- ggplot(animate_data, aes(x = est,\n                         y = study_id, \n                         xmin = est - 1.64*se, \n                         xmax = est + 1.64*se, \n                         color = reject_null, \n                         group = group)) +\n  geom_vline(xintercept = true_effect, \n             linetype = \"dotted\") + \n  geom_vline(xintercept = 0) + \n  geom_point() + \n  geom_errorbarh(height = 0) + \n  geom_rug(sides = \"b\", \n           aes(x = est - 1.64*se, color = NULL), \n           alpha = 0.5, \n           length = unit(0.025, \"npc\")) + \n  scale_color_manual(values = c(\"No\" = \"#d95f02\", \"Yes\" = \"#1b9e77\")) +  \n  theme_bw() +\n    theme(panel.grid = element_blank(),\n        axis.text.y = element_blank(),\n        axis.ticks.y = element_blank(),\n        axis.title.y = element_blank()) + \n  labs(x = \"Estimate and 90% Confidence Interval\",\n       y = \"Study ID\", \n       color = \"Reject Null?\", \n       caption = \"Rug shows distribution of lower bound of confidence interval.\n                  Solid line shows zero.\n                  Dotted line shows the true effect.\") + \n  # new scales here\n  scale_x_continuous(expand = expansion(add = c(0.6, 1))) +\n  scale_y_continuous(expand = expansion(add = 2))\n\n# add dyamics to the plot\nanim &lt;- gg_exp +\n  transition_states(states = group) +\n  # how points enter\n  enter_drift(x_mod = 2) +\n  enter_grow() +\n  enter_recolor(color = \"black\") +\n  ease_aes(color = \"exponential-in\") +\n  # how points exit/remain\n  exit_fade(alpha = 0.3) +\n  shadow_mark(alpha = 0.3)\n\n# make magic happen!\nanimate(anim, duration = n_studies, fps = 10, \n        height = 6, width = 8, units = \"in\", res = 150)\n\n\n\n\n\nEffect\n1.00\n\n\nDescription\nTrue Effect (known in this exercise)\n\n\nPower\n98%\n\n\nType S\n0.00\n\n\nType M\n1.02"
   },
   {
     "objectID": "blog/2023-06-12-power-3-rule-of-364/index.html",
@@ -207,7 +207,7 @@
     "href": "blog/2023-06-12-power-3-rule-of-364/index.html#summary",
     "title": "Power, Part III: The Rule of 3.64 for Statistical Power",
     "section": "Summary",
-    "text": "Summary\nStatistical power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I explain why the target \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 2.48\\) is equivalent to a target power of 80%. But you want to “almost always” reject the null, so you should shoot for \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 3.64\\). Hopefully these guidelines help you build a bit of actionable intuition about statistical power.\nIf you found this fun or useful, please subscribe! 🚀"
+    "text": "Summary\nStatistical power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I explain why the target \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 2.48\\) is equivalent to a target power of 80%. But you want to “almost always” reject the null, so you should shoot for \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 3.64\\). Hopefully these guidelines help you build a bit of actionable intuition about statistical power."
   },
   {
     "objectID": "blog/index.html",
@@ -221,161 +221,7 @@
     "href": "index.html",
     "title": "Carlisle Rainey",
     "section": "",
-    "text": "email\n  \n  \n    \n     CV\n  \n\n  \n  \nI’m an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the American Political Science Review, the American Journal of Political Science, Political Analysis, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.\n\nConnect\nIf want to stay up-to-date on my work, please join my email list. Each semester, I send around a brief summary of things I’m working on, finding useful, and thinking about. You can also subscribe to blog posts and working papers, if you want.\n\n  \n      Join My Email List!\n  \n\n\nYou can also subscribe to blog posts via RSS. I’m on Twitter, Bluesky, and Mastodon. I publicly version-control many of research projects and courses on GitHub. I upload my talks to Speaker Deck. I’m on Google Scholar, ORCID and OSF."
-  },
-  {
-    "objectID": "papers2/index.html",
-    "href": "papers2/index.html",
-    "title": "Papers",
-    "section": "",
-    "text": "You can find my papers on Google Scholar as well."
-  },
-  {
-    "objectID": "papers2/index.html#working-papers",
-    "href": "papers2/index.html#working-papers",
-    "title": "Papers",
-    "section": "Working Papers",
-    "text": "Working Papers\n\n\n\n\n    \n      Generation Effects on Americans’ Symbolic Ideology and Attitudes Toward the Economic Role of Government \n      \n      \n      \n        \n          Aug 2, 2023. Robert Jackson, Carlisle Rainey. Working paper.\n        \n      \n      \n         \n           Preprint \n         \n      \n      \n      \n    \n    \n      Hypothesis Tests Under Separation \n      \n      \n      \n        \n          Jul 30, 2023. Carlisle Rainey. Conditionally accepted at Political Analysis.\n        \n      \n      \n         \n           Preprint \n         \n         \n           OSF \n        \n         \n           GitHub \n        \n      \n        \n          See also Rainey (2016)    \n        \n      \n      \n    \n\n\nNo matching items"
-  },
-  {
-    "objectID": "papers2/index.html#forthcoming",
-    "href": "papers2/index.html#forthcoming",
-    "title": "Papers",
-    "section": "Forthcoming",
-    "text": "Forthcoming\n\n\n\n\n    \n      Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues \n      \n      \n      \n        \n          Mar 26, 2023. Scott Clifford, Thomas Leeper, Carlisle Rainey. Forthcoming at Political Behavior.\n        \n      \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      A Careful Consideration of CLARIFY: Simulation-Induced Bias in Point Estimates of Quantities of Interest \n      \n      \n      \n        \n          Mar 26, 2023. Carlisle Rainey. Forthcoming at Political Science Research and Methods.\n        \n      \n      \n         \n           Errata\n         \n         \n           PDF \n         \n         \n           Open Access\n        \n         \n           Dataverse \n        \n         \n           GitHub \n        \n      \n      \n      \n    \n\n\nNo matching items"
-  },
-  {
-    "objectID": "papers2/index.html#published-papers",
-    "href": "papers2/index.html#published-papers",
-    "title": "Papers",
-    "section": "Published Papers",
-    "text": "Published Papers\n\n\n\n\n    \n      Estimating Logit Models with Small Samples \n      \n      \n      \n      \n        \n          2021. Carlisle Rainey, Kelly McCaskey. Political Science Research and Methods.\n        \n      \n         \n           PDF \n         \n         \n           Open Access\n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      When BLUE Is Not Best: Non-Normal Errors and the Linear Model \n      \n      \n      \n      \n        \n          2020. Daniel Baissa, Carlisle Rainey. Political Science Research and Methods.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models \n      \n      \n      \n      \n        \n          2018. Carlisle Rainey, Robert Jackson. Political Science Research and Methods.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest \n      \n      \n      \n      \n        \n          2017. Carlisle Rainey. Political Analysis.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction \n      \n      \n      \n      \n        \n          2016. Carlisle Rainey. Political Science Research and Methods.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Appendix \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Dealing with Separation in Logistic Regression Models \n      \n      \n      \n      \n        \n          2016. Carlisle Rainey. Political Analysis.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Appendix \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Does District Magnitude Matter: The Case of Taiwan \n      \n      \n      \n      \n        \n          2016. Carlisle Rainey. Electoral Studies.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Strategic Mobilization: Why Proportional Representation Decreases Voter Mobilization \n      \n      \n      \n      \n        \n          2015. Carlisle Rainey. Electoral Studies.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Appendix \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Substantive Importance and the Veil of Statistical Significance \n      \n      \n      \n      \n        \n          2015. Kelly McCaskey, Carlisle Rainey. Statistics, Politics, and Policy.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           GitHub \n        \n      \n      \n      \n    \n    \n      Moral Concerns and Policy Attitudes: Investigating the Influence of Elite Rhetoric \n      \n      \n      \n      \n        \n          2015. Scott Clifford, Jennifer Jerit, Carlisle Rainey, Matt Motyl. Political Communication.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n      \n      \n      \n    \n    \n      The Politics of Need: Examining Governors' Decisions to Oppose the 'Obamacare' Medicaid Expansion \n      \n      \n      \n      \n        \n          2014. Charles Barrillleaux, Carlisle Rainey. State Politics and Policy Quarterly.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Appendix \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      The Question(s) of Political Knowledge \n      \n      \n      \n      \n        \n          2014. Jason Barabas, Jennifer Jerit, William Pollock, Carlisle Rainey. American Political Science Review.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n    \n      Arguing for a Negligible Effect \n      \n      \n      \n      \n        \n          2014. Carlisle Rainey. American Journal of Political Science.\n        \n      \n         \n           PDF \n         \n         \n           Publisher's Version \n        \n         \n           Appendix \n        \n         \n           Dataverse \n        \n      \n      \n      \n    \n\n\nNo matching items"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-barabas-questions/index.html",
-    "href": "papers2/published-papers/2014-barabas-questions/index.html",
-    "title": "The Question(s) of Political Knowledge",
-    "section": "",
-    "text": "Paper\nJournal\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-barabas-questions/index.html#important-links",
-    "href": "papers2/published-papers/2014-barabas-questions/index.html#important-links",
-    "title": "The Question(s) of Political Knowledge",
-    "section": "",
-    "text": "Paper\nJournal\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-barabas-questions/index.html#summary",
-    "href": "papers2/published-papers/2014-barabas-questions/index.html#summary",
-    "title": "The Question(s) of Political Knowledge",
-    "section": "Summary",
-    "text": "Summary\nIn this paper, we look at the types of facts that one might ask questions about in measuring political knowledge. We categorize facts by whether they came to be in the recent or distant past (i.e., “static” or “surveillance” facts) and by whether the question deal with policy-relevant or general facts (e.g., people and players). This leads to what we term the “temporal-topical space.” We focus conceptually on the four “quadrants” or types of facts that people might learn about politics and discuss the implications for focusing on particular quadrants for particular research questions.\nWe write:\n\nAside from individual, environmental, and procedural determinants, two question-level characteristics influence how and whether a particular fact is learned. The first factor has to do with how recently the fact came into being (the “temporal dimension”). The second characteristic pertains to the type of fact—in particular, whether the question has to do with public policy concerns or the institutions and people/players of government (the “topical dimension”). Figure 1 illustrates that the two dimensions can be crossed to yield four theoretically relevant types of knowledge questions.\n\n\nFor the example of education on political knowledge, we write:\n\n…the information transmitted in primary and secondary schools does not relate uniformly to subjects in the temporal-topical space. Indeed, Delli Carpini and Keeter (1996, 190) observe that schools “teach particular aspects of politics, most notably the institutions and processes of government.” It is noteworthy that although dozens of studies have documented the association between education and political knowledge, the empirical analyses often focus on questions at the top of Figure 1’s vertical dimension—namely, items measuring general political knowledge (e.g., Bennett 1988, 1989; Bennett and Bennett 1993; Elo and Rapeli 2010; Mondak 2000; Lambert et al. 1988). There is emerging evidence that education is associated with greater levels of policy-specific knowledge (e.g., Jerit, Barabas, and Bolsen 2006 or Barabas and Jerit 2009), but the evidentiary basis for this claim is sparse.\n\n\nMoreover, the logic of the ability-opportunity-motivation framework suggests that although the relationship between years of formal education and political knowledge may be evident across all four quadrants, the strength of that association will vary. For questions having to do with general political knowledge, the relationship should be strong because these topics comprise the curriculum of primary and secondary schools (Delli Carpini and Keeter 1996, 190). By contrast, policy-specific knowledge may exhibit a weaker relationship with education if particular issue publics (e.g., the elderly, African-Americans) are motivated to seek out information despite being otherwise disadvantaged in terms of level of education or the gains reaped from formal schooling (e.g., Dow 2009).\n\nThe key point is that the effect education varies across the quadrants of the temporal-topical space. This is exactly what we find in a large data set with over 300 knowledge questions.\nIn the figure below, the grey lines represent the estimated relationship between education and political knowledge for each quadrants (for an otherwise “typical” respondent asked and otherwise “typical” question). The black lines represent the average effects across questions in each quadrant. Notice that the effects are about twice as large for the general questions.\n\nPerhaps most importantly, we also think our typology can improve the way scholars link political knowledge and democratic theory.\n\nAdditionally, our typology may reshape scholarly thinking about the relevance of knowledge among some critics. For example, Lupia (2006, 219) observes that “Most political knowledge questions are not derived from a replicable or transparent logic about how their answers bear on a voter’s ability to make decisions of a particular quality in the voting booth.” Developing such a rationale may come more naturally when thinking about analytical types (e.g., surveillance-general facts) rather than the overarching concept (e.g., political knowledge). Above all, the temporal-topical framework provides a more differentiated conceptualization of political knowledge, which may create interesting possibilities for future research and, ideally, a better understanding of the causes and consequences of this important political resource."
-  },
-  {
-    "objectID": "papers2/published-papers/2014-barabas-questions/index.html#citation",
-    "href": "papers2/published-papers/2014-barabas-questions/index.html#citation",
-    "title": "The Question(s) of Political Knowledge",
-    "section": "Citation",
-    "text": "Citation\nBarabas, Jason, Jennifer Jerit, William Pollock, and Carlisle Rainey. 2014. “The Question(s) of Political Knowledge.” American Political Science Review 108(4): 840-855.\n@article{barabas-2014-question,\n  title={The Question(s) of Political Knowledge},\n  author={Barabas, Jason and Jerit, Jennifer and Pollock, William and Rainey, Carlisle},\n  journal={American Political Science Review},\n  volume={108},\n  number={4},\n  pages={840--855},\n  year={2014}\n}"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-rainey-arguing/index.html",
-    "href": "papers2/published-papers/2014-rainey-arguing/index.html",
-    "title": "Arguing for a Negligible Effect",
-    "section": "",
-    "text": "Paper\nAppendix (preprint)\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-rainey-arguing/index.html#important-links",
-    "href": "papers2/published-papers/2014-rainey-arguing/index.html#important-links",
-    "title": "Arguing for a Negligible Effect",
-    "section": "",
-    "text": "Paper\nAppendix (preprint)\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2014-rainey-arguing/index.html#data-and-code",
-    "href": "papers2/published-papers/2014-rainey-arguing/index.html#data-and-code",
-    "title": "Arguing for a Negligible Effect",
-    "section": "Data and code",
-    "text": "Data and code\nThis projects code and data are availabe through Dataverse and GitHub."
-  },
-  {
-    "objectID": "papers2/published-papers/2014-rainey-arguing/index.html#citation",
-    "href": "papers2/published-papers/2014-rainey-arguing/index.html#citation",
-    "title": "Arguing for a Negligible Effect",
-    "section": "Citation",
-    "text": "Citation\n\nRainey, Carlisle. 2014. “Arguing for a Negligible Effect.” American Journal of Political Science 58(4): 1083-1091.\n Add to Zotero \n\n@article{rainey-2014-arguing,\n    author = {Carlisle Rainey},\n    year = {2014}\n    journal = {American Journal of Political Science},\n    month = {10},\n    number = {S5},\n    pages = {45--58},\n    title = {Arguing for a Negligible Effect},\n    volume = {58},\n    issue = {4}\n    doi = {10.1111/1758-5899.12984},\n}"
-  },
-  {
-    "objectID": "papers2/published-papers/2016-rainey-compression/index.html",
-    "href": "papers2/published-papers/2016-rainey-compression/index.html",
-    "title": "Compression and Conditional Effects",
-    "section": "",
-    "text": "PDF\nAppendix (preprint)\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2016-rainey-compression/index.html#important-links",
-    "href": "papers2/published-papers/2016-rainey-compression/index.html#important-links",
-    "title": "Compression and Conditional Effects",
-    "section": "",
-    "text": "PDF\nAppendix (preprint)\nDataverse\nGitHub"
-  },
-  {
-    "objectID": "papers2/published-papers/2016-rainey-compression/index.html#data-and-code",
-    "href": "papers2/published-papers/2016-rainey-compression/index.html#data-and-code",
-    "title": "Compression and Conditional Effects",
-    "section": "Data and code",
-    "text": "Data and code\nThis projects code and data are availabe through Dataverse and GitHub."
-  },
-  {
-    "objectID": "papers2/published-papers/2016-rainey-compression/index.html#citation",
-    "href": "papers2/published-papers/2016-rainey-compression/index.html#citation",
-    "title": "Compression and Conditional Effects",
-    "section": "Citation",
-    "text": "Citation\nRainey, Carlisle. 2016. “Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction.” Political Science Research and Methods.4(3): 621-639.\n\n  Add to Zotero \n\n@article{rainey-2014-arguing,\n    author = {Carlisle Rainey},\n    year = {2014}\n    journal = {American Journal of Political Science},\n    pages = {45--58},\n    title = {Arguing for a Negligible Effect},\n    volume = {58},\n    issue = {4}\n    doi = {10.1111/1758-5899.12984},\n    month = {10}\n}"
-  },
-  {
-    "objectID": "papers2/published-papers/2016-rainey-compression/index.html#related-papers",
-    "href": "papers2/published-papers/2016-rainey-compression/index.html#related-papers",
-    "title": "Compression and Conditional Effects",
-    "section": "Related Papers",
-    "text": "Related Papers\n\nBerry, William D., Jaqueline H. R. DeMeritt, and Justin Esarey. 2010. “Testing for Interaction in Binary Logit and Probit Models: Is a Product Term Essential?.” American Journal of Political Science 54: 248-266. DOI\nBerry, William D., Jaqueline H. R. DeMeritt, and Justin Esarey. 2016. “Bias and Overconfidence in Parametric Models of Interactive Processes.” American Journal of Political Science 60(2): 521–539. DOI"
-  },
-  {
-    "objectID": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html",
-    "href": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html",
-    "title": "The Marginal Effects Zoo: A Guide to Interpretation Using marginaleffects for R",
-    "section": "",
-    "text": "GitHub repository"
-  },
-  {
-    "objectID": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html#important-links",
-    "href": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html#important-links",
-    "title": "The Marginal Effects Zoo: A Guide to Interpretation Using marginaleffects for R",
-    "section": "",
-    "text": "GitHub repository"
-  },
-  {
-    "objectID": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html#abstract",
-    "href": "papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html#abstract",
-    "title": "The Marginal Effects Zoo: A Guide to Interpretation Using marginaleffects for R",
-    "section": "Abstract",
-    "text": "Abstract\nAnalysts often transform their models’ parameter estimates to report more meaningful and interpretable quantities of interest. This article presents a simple conceptual framework to describe a vast array of estimands which are reported under imprecise and inconsistent terminology across disciplines: predictions, marginal predictions, marginal means, marginal effects, conditional effects, slopes, contrasts, risk ratios, etc. We introduce marginaleffects, an R package which offers a simple and powerful interface to compute all of those quantites, and to conduct hypothesis tests on them. marginaleffects is lightweight; extensible; it works well in combination with other R packages; and it supports over 70 classes of models, including Generalized Linear, Generalized Additive, Mixed Effects, and Bayesian models."
-  },
-  {
-    "objectID": "papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html",
-    "href": "papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html",
-    "title": "Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19",
-    "section": "",
-    "text": "Statistical analysis notebook\nGitHub repository"
-  },
-  {
-    "objectID": "papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html#important-links",
-    "href": "papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html#important-links",
-    "title": "Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19",
-    "section": "",
-    "text": "Statistical analysis notebook\nGitHub repository"
+    "text": "email\n  \n  \n    \n     CV\n  \n\n  \n  \nI’m an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the American Political Science Review, the American Journal of Political Science, Political Analysis, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.\n\nConnect\nIf want to stay up-to-date on my work, please join my email list. Each semester, I send around a brief summary of things I’m working on, finding useful, and thinking about.\n\n  \n      Join My Email List!\n  \n\n\nYou can also subscribe to blog posts via RSS. I’m on Twitter, Bluesky, and Mastodon. I publicly version-control many of research projects and courses on GitHub. I upload my talks to Speaker Deck. I’m on Google Scholar, ORCID and OSF."
   },
   {
     "objectID": "research/index.html",
