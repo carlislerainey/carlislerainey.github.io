@@ -10,13 +10,11 @@
   },
   {
     "listing": "/papers2/index.html",
-    "items": [
-      "/papers2/unpublished-papers/chaudhry-comstock-heiss-pandemic-pass/index.html",
-      "/papers2/unpublished-papers/arel-bundock-greifer-heiss-mfxplainer/index.html",
-      "/papers2/published-papers/2016-rainey-compression/index.html",
-      "/papers2/published-papers/2014-barabas-questions/index.html",
-      "/papers2/published-papers/2014-rainey-arguing/index.html"
-    ]
+    "items": []
+  },
+  {
+    "listing": "/research/index.html",
+    "items": []
   },
   {
     "listing": "/talks/index.html",
