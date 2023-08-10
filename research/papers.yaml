@@ -1,3 +1,13 @@
+
+- title: "Estimators for Topic-Sampling Designs"
+  type: "Working"
+  author:
+    - Scott Clifford
+    - Carlisle Rainey
+  date: 2023-08-10
+  status: "Working paper"
+  preprint: "https://osf.io/preprints/socarxiv/7ady6/"
+
 - title: "Generation Effects on Americans’ Symbolic Ideology and Attitudes Toward the Economic Role of Government"
   type: "Working"
   author:
@@ -36,7 +46,7 @@
     - Carlisle Rainey
   date: 2023-03-26
   status: "Forthcoming at <em>Political Behavior</em>"
-  pdf: "../../gte.pdf"
+  pdf: "../papers/gte.pdf"
   pubclosed: "https://doi.org/10.1007/s11109-023-09870-1"
   dataverse: "https://doi.org/10.7910/DVN/NNAVTE"
   categories: 
@@ -54,7 +64,7 @@
     - Carlisle Rainey
   date: 2023-03-26
   status: "Forthcoming at <em>Political Science Research and Methods</em>"
-  pdf: "../papers/unnecessary.pdf"
+  pdf: "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D26D25DE3D7316B92B09614C08FA6772/S2049847023000080a.pdf/a-careful-consideration-of-clarify-simulation-induced-bias-in-point-estimates-of-quantities-of-interest.pdf"
   pubopen: "https://doi.org/10.1017/psrm.2023.8"
   dataverse: "https://doi.org/10.7910/DVN/5YKD4S"  
   github: "https://github.com/carlislerainey/unnecessary/"
@@ -71,7 +81,7 @@
   date: 2021-07-01
   year: 2021
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/small.pdf"
+  pdf: "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/712F6039372475B650B123E9A1FE60E6/S2049847021000091a.pdf/estimating-logit-models-with-small-samples.pdf"
   pubopen: "https://doi.org/10.1017/psrm.2021.9"
   dataverse: "https://doi.org/10.7910/DVN/6XS8Z1"
   categories: 
