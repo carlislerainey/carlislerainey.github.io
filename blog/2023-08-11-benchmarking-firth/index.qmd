@@ -1,0 +1,124 @@
+---
+title: "Benchmarking Firth's Logit: {brglm2} versus {logistf}"
+subtitle: "The M2 Is Really Fast"
+author: "Carlisle Rainey"
+date: "2023-08-11"
+categories: [logistic regression, small samples, Firth, computing, R]
+description: "In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth's penalty"
+toc: false
+code-annotations: hover
+draft: false
+bibliography: references.bib
+---
+
+## Firth's Logit
+
+I like Firth's logistic regression model [@firth1993]. I talk about that in @rainey2021 and [this Twitter thread](https://twitter.com/carlislerainey/status/1686389777225113601). @kosmidis2021 offer an excellent, recent follow-up, as well.
+
+I'll refer you to the papers for a careful discussion of the benefits, but Firth's penalty reduces the bias *and variance* of the logit coefficients.
+
+## Goals for Benchmarking
+
+In this post, I want to do two things:
+
+1.  Compare the brglm2 and logistf packages. Which fits logistic regression models with Firth's penalty the fastest?
+2.  Comparean older Intel Mac with a newer M2. How much faster is the M2, if at all.
+
+Modern computers fit these models really fast, but large simulations require us to pay attention to marginal speed increases. Here, I benchmark the two packages for fitting logistic regression models with Firth's penalty in a *small sample*--the results might not generalize to a larger sample. The data set comes from @weisiger2014 (see `?crdata::weisiger2014`). It has only 35 observations.
+
+You can find the benchmarking code as a [GitHub Gist](https://gist.github.com/carlislerainey/8bf23a322252bead64d0a07391f7383d).
+
+```{r}
+#| eval: false
+#| 
+# install crdata package to egt weisiger2014 data set
+remotes::install_github("carlislerainey/crdata")
+
+# load packages
+library(tidyverse)
+library(brglm2)
+library(logistf)
+library(microbenchmark)
+
+# load data
+weis <- crdata::weisiger2014
+
+# rescale weisiger2014 explanatory variables using arm::rescale()
+rs_weis <- weis %>%
+  mutate(across(polity_conq:coord, arm::rescale)) 
+
+# create functions to fit models
+f <- resist ~ polity_conq + lndist + terrain + soldperterr + gdppc2 + coord
+f1 <- function() {
+  glm(f, data = rs_weis, family = "binomial")
+}
+f2 <- function() {
+  glm(f, data = rs_weis, family = "binomial", method = brglmFit)
+}
+f3 <- function() {
+  logistf(f, data = rs_weis)
+}
+
+# do benchmarking
+microbenchmark("regular glm()" = f1(), 
+                    "brglm2" = f2(), 
+                    "logistf" = f3(), 
+                    times = 100)
+```
+
+## 2018 Intel iMac
+
+```{r} 
+#| eval: false
+#| 
+system("sysctl -n machdep.cpu.brand_string", intern = TRUE)
+```
+
+```         
+[1] "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz"
+```
+
+For the older Intel Mac, the brglm2 package takes about 4.8 times as long as the vanilla `glm()` logit and the logistf package takes about 5.8 times as long.
+
+Most importantly, for our purposes, the logistf package takes about 20% longer. That means six hours rather than five for a large batch of simulations.
+
+```         
+Unit: milliseconds
+          expr      min       lq     mean   median       uq      max neval
+ regular glm() 1.117625 1.194022 1.827576 1.256566 1.331332 18.95785   100
+        brglm2 5.461556 5.833547 6.333050 6.012908 6.503606 22.78004   100
+       logistf 6.544562 6.901007 7.577122 7.208252 7.661631 22.74872   100
+```
+
+## M2 Max Macbook Pro
+
+```{r}     
+#| eval: false
+#| 
+system("sysctl -n machdep.cpu.brand_string", intern = TRUE)
+```
+
+```         
+[1] "Apple M2 Max"
+```
+
+Perhaps most surpisingly, the M2 is a lot faster.
+
+-   For the vanilla `glm()`, the simulations take only 43% as long.
+-   For brglm2, the simulations take only 42% as long.
+-   For logistf, the simulations take only 47% as long.
+
+These are big, big speedups.
+
+```    
+Unit: milliseconds
+          expr      min       lq      mean    median       uq       max neval
+ regular glm() 0.505489 0.537510 0.5577767 0.5518395 0.566948  0.688431   100
+        brglm2 2.405265 2.479803 2.7853514 2.5521680 2.643926 13.737542   100
+       logistf 3.249045 3.351955 3.5532765 3.4383625 3.533564 13.867061   100
+```
+
+# Summary
+
+-   logistf is about 20% slower than brglm2 on the Intel iMac and about 34% slower on the M2.
+-   The M2 is more than twice as fast as my old Intel iMac.

@@ -210,11 +210,46 @@
     "text": "Summary\nStatistical power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. I explain why the target \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 2.48\\) is equivalent to a target power of 80%. But you want to “almost always” reject the null, so you should shoot for \\(\\frac{\\text{true effect}}{\\text{standard error}} &gt; 3.64\\). Hopefully these guidelines help you build a bit of actionable intuition about statistical power."
   },
   {
+    "objectID": "blog/2023-08-11-benchmarking-firth/index.html",
+    "href": "blog/2023-08-11-benchmarking-firth/index.html",
+    "title": "Benchmarking Firth’s Logit: {brglm2} versus {logistf}",
+    "section": "",
+    "text": "I like Firth’s logistic regression model (Firth 1993). I talk about that in Rainey and McCaskey (2021) and this Twitter thread. Kosmidis and Firth (2021) offer an excellent, recent follow-up, as well.\nI’ll refer you to the papers for a careful discussion of the benefits, but Firth’s penalty reduces the bias and variance of the logit coefficients."
+  },
+  {
+    "objectID": "blog/2023-08-11-benchmarking-firth/index.html#firths-logit",
+    "href": "blog/2023-08-11-benchmarking-firth/index.html#firths-logit",
+    "title": "Benchmarking Firth’s Logit: {brglm2} versus {logistf}",
+    "section": "",
+    "text": "I like Firth’s logistic regression model (Firth 1993). I talk about that in Rainey and McCaskey (2021) and this Twitter thread. Kosmidis and Firth (2021) offer an excellent, recent follow-up, as well.\nI’ll refer you to the papers for a careful discussion of the benefits, but Firth’s penalty reduces the bias and variance of the logit coefficients."
+  },
+  {
+    "objectID": "blog/2023-08-11-benchmarking-firth/index.html#goals-for-benchmarking",
+    "href": "blog/2023-08-11-benchmarking-firth/index.html#goals-for-benchmarking",
+    "title": "Benchmarking Firth’s Logit: {brglm2} versus {logistf}",
+    "section": "Goals for Benchmarking",
+    "text": "Goals for Benchmarking\nIn this post, I want to do two things:\n\nCompare the brglm2 and logistf packages. Which fits logistic regression models with Firth’s penalty the fastest?\nComparean older Intel Mac with a newer M2. How much faster is the M2, if at all.\n\nModern computers fit these models really fast, but large simulations require us to pay attention to marginal speed increases. Here, I benchmark the two packages for fitting logistic regression models with Firth’s penalty in a small sample–the results might not generalize to a larger sample. The data set comes from Weisiger (2014) (see ?crdata::weisiger2014). It has only 35 observations.\nYou can find the benchmarking code as a GitHub Gist.\n\n# install crdata package to egt weisiger2014 data set\nremotes::install_github(\"carlislerainey/crdata\")\n\n# load packages\nlibrary(tidyverse)\nlibrary(brglm2)\nlibrary(logistf)\nlibrary(microbenchmark)\n\n# load data\nweis &lt;- crdata::weisiger2014\n\n# rescale weisiger2014 explanatory variables using arm::rescale()\nrs_weis &lt;- weis %&gt;%\n  mutate(across(polity_conq:coord, arm::rescale)) \n\n# create functions to fit models\nf &lt;- resist ~ polity_conq + lndist + terrain + soldperterr + gdppc2 + coord\nf1 &lt;- function() {\n  glm(f, data = rs_weis, family = \"binomial\")\n}\nf2 &lt;- function() {\n  glm(f, data = rs_weis, family = \"binomial\", method = brglmFit)\n}\nf3 &lt;- function() {\n  logistf(f, data = rs_weis)\n}\n\n# do benchmarking\nmicrobenchmark(\"regular glm()\" = f1(), \n                    \"brglm2\" = f2(), \n                    \"logistf\" = f3(), \n                    times = 100)"
+  },
+  {
+    "objectID": "blog/2023-08-11-benchmarking-firth/index.html#intel-imac",
+    "href": "blog/2023-08-11-benchmarking-firth/index.html#intel-imac",
+    "title": "Benchmarking Firth’s Logit: {brglm2} versus {logistf}",
+    "section": "2018 Intel iMac",
+    "text": "2018 Intel iMac\n\nsystem(\"sysctl -n machdep.cpu.brand_string\", intern = TRUE)\n\n[1] \"Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz\"\nFor the older Intel Mac, the brglm2 package takes about 4.8 times as long as the vanilla glm() logit and the logistf package takes about 5.8 times as long.\nMost importantly, for our purposes, the logistf package takes about 20% longer. That means six hours rather than five for a large batch of simulations.\nUnit: milliseconds\n          expr      min       lq     mean   median       uq      max neval\n regular glm() 1.117625 1.194022 1.827576 1.256566 1.331332 18.95785   100\n        brglm2 5.461556 5.833547 6.333050 6.012908 6.503606 22.78004   100\n       logistf 6.544562 6.901007 7.577122 7.208252 7.661631 22.74872   100"
+  },
+  {
+    "objectID": "blog/2023-08-11-benchmarking-firth/index.html#m2-max-macbook-pro",
+    "href": "blog/2023-08-11-benchmarking-firth/index.html#m2-max-macbook-pro",
+    "title": "Benchmarking Firth’s Logit: {brglm2} versus {logistf}",
+    "section": "M2 Max Macbook Pro",
+    "text": "M2 Max Macbook Pro\n\nsystem(\"sysctl -n machdep.cpu.brand_string\", intern = TRUE)\n\n[1] \"Apple M2 Max\"\nPerhaps most surpisingly, the M2 is a lot faster.\n\nFor the vanilla glm(), the simulations take only 43% as long.\nFor brglm2, the simulations take only 42% as long.\nFor logistf, the simulations take only 47% as long.\n\nThese are big, big speedups.\nUnit: milliseconds\n          expr      min       lq      mean    median       uq       max neval\n regular glm() 0.505489 0.537510 0.5577767 0.5518395 0.566948  0.688431   100\n        brglm2 2.405265 2.479803 2.7853514 2.5521680 2.643926 13.737542   100\n       logistf 3.249045 3.351955 3.5532765 3.4383625 3.533564 13.867061   100"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\nJun 12, 2023\n\n\nPower, Part III: The Rule of 3.64 for Statistical Power\n\n\n24 min\n\n\n\n\nJun 1, 2023\n\n\nTeaching Confidence Intervals and Hypothesis Testing with gganimate\n\n\n20 min\n\n\n\n\nMay 25, 2023\n\n\nPower, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?\n\n\n9 min\n\n\n\n\nMay 21, 2023\n\n\nPower, Part I: Power Is for You, Not for Reviewer Two\n\n\n8 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\nAug 11, 2023\n\n\nBenchmarking Firth’s Logit: {brglm2} versus {logistf}\n\n\n4 min\n\n\n\n\nJun 12, 2023\n\n\nPower, Part III: The Rule of 3.64 for Statistical Power\n\n\n24 min\n\n\n\n\nJun 1, 2023\n\n\nTeaching Confidence Intervals and Hypothesis Testing with gganimate\n\n\n20 min\n\n\n\n\nMay 25, 2023\n\n\nPower, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?\n\n\n9 min\n\n\n\n\nMay 21, 2023\n\n\nPower, Part I: Power Is for You, Not for Reviewer Two\n\n\n8 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
