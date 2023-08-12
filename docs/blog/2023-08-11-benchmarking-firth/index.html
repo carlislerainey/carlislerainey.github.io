@@ -135,11 +135,11 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Carlisle Rainey - Benchmarking Firth’s Logit: {brglm2} versus {logistf}">
 <meta name="twitter:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
-<meta name="twitter:image" content="https://www.carlislerainey.com/profile.png">
+<meta name="twitter:image" content="https://www.carlislerainey.com/profile-tw.png">
 <meta name="twitter:creator" content="@carlislerainey">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image-height" content="2304">
-<meta name="twitter:image-width" content="3456">
+<meta name="twitter:image-height" content="533">
+<meta name="twitter:image-width" content="800">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -313,16 +313,16 @@ overflows</code></pre>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                    expr      min        lq      mean    median        uq
-           regular glm()  502.660  542.1020  654.0119  564.7135  601.9005
-                  brglm2 2421.788 2523.7960 2694.9931 2602.0650 2760.3865
-       logistf (default) 3240.599 3393.3035 3818.3890 3518.1075 3641.0665
- logistf (w/ pl = FALSE)  520.618  556.8825  679.3175  576.2960  605.4880
+                    expr      min       lq      mean    median        uq
+           regular glm()  500.446  536.198  559.1264  548.6005  566.9685
+                  brglm2 2412.768 2489.520 2598.0650 2528.2445 2574.1440
+       logistf (default) 3291.152 3366.162 3863.3787 3414.3775 3497.4230
+ logistf (w/ pl = FALSE)  522.668  549.605  639.5291  563.2170  578.5920
        max neval
-  8208.364   100
-  8241.246   100
- 12907.210   100
-  8468.099   100</code></pre>
+  1056.980   100
+  7455.153   100
+ 12975.434   100
+  7377.663   100</code></pre>
 </div>
 </div>
 <p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
