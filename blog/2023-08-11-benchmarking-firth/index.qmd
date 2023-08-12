@@ -73,8 +73,7 @@ f3 <- function() {
   logistf(f, data = rs_weis)
 }
 f4 <- function() {
-  logistf(f, data = rs_weis, pl = FALSE,
-          control= logistf.control(lconv=1e-06))
+  logistf(f, data = rs_weis, pl = FALSE)
 }
 
 # do benchmarking

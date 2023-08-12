@@ -295,16 +295,15 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis)</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis, <span class="at">pl =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">control=</span> <span class="fu">logistf.control</span>(<span class="at">lconv=</span><span class="fl">1e-06</span>))</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>               <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (default)"</span> <span class="ot">=</span> <span class="fu">f3</span>(),</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (w/ pl = FALSE)"</span> <span class="ot">=</span> <span class="fu">f4</span>(),</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis, <span class="at">pl =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>               <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (default)"</span> <span class="ot">=</span> <span class="fu">f3</span>(),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (w/ pl = FALSE)"</span> <span class="ot">=</span> <span class="fu">f4</span>(),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in microbenchmark(`regular glm()` = f1(), brglm2 = f2(), `logistf
 (default)` = f3(), : less accurate nanosecond times to avoid potential integer
@@ -313,16 +312,16 @@ overflows</code></pre>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                    expr      min       lq      mean    median        uq
-           regular glm()  500.446  536.198  559.1264  548.6005  566.9685
-                  brglm2 2412.768 2489.520 2598.0650 2528.2445 2574.1440
-       logistf (default) 3291.152 3366.162 3863.3787 3414.3775 3497.4230
- logistf (w/ pl = FALSE)  522.668  549.605  639.5291  563.2170  578.5920
+                    expr      min        lq      mean    median        uq
+           regular glm()  500.651  547.0425  591.5304  560.0805  584.4550
+                  brglm2 2469.266 2546.9405 2735.6438 2591.5690 2672.3800
+       logistf (default) 3303.329 3432.6635 3942.9122 3481.6585 3558.1235
+ logistf (w/ pl = FALSE)  513.197  553.3155  594.6205  570.8225  608.9115
        max neval
-  1056.980   100
-  7455.153   100
- 12975.434   100
-  7377.663   100</code></pre>
+  2713.708   100
+  9735.983   100
+ 17672.148   100
+  1698.343   100</code></pre>
 </div>
 </div>
 <p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
