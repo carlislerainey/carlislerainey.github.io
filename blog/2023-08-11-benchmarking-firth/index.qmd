@@ -7,6 +7,10 @@ categories: [logistic regression, small samples, Firth, computing, R]
 description: "In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth's penalty. "
 toc: false
 code-annotations: hover
+website:
+  twitter-card:
+    image: "/profile.png"
+    card-style: "summary"
 draft: false
 bibliography: references.bib
 ---
@@ -26,14 +30,6 @@ These packages both fit the models almost instantly, so there is no practical di
 Here, I benchmark the two packages for fitting logistic regression models with Firth's penalty in a *small sample*--the results might not generalize to a larger sample. The data set comes from @weisiger2014 (see `?crdata::weisiger2014`). It has only 35 observations.
 
 You can find the benchmarking code as a [GitHub Gist](https://gist.github.com/carlislerainey/8bf23a322252bead64d0a07391f7383d).
-
-## Computer
-
-Here's the info on my machine. 
-
-```{r} 
-system("sysctl -n machdep.cpu.brand_string", intern = TRUE)
-```
 
 ## Benchmarking
 
@@ -109,7 +105,21 @@ bm %>%
 
 # Follow-Up Notes
 
+The models return *slightly* different estimates. Maybe they are using slightly different convergence tolerances. I didn't investigate this beyond noticing it.
+
+```{r}
+cbind(coef(f2()), coef(f4()))
+```
+
 Ioannis Kosmidis made me aware of two things. 
 
 1. logistf has a C++ backend (thus explaining the speed).
 1. brglm2 is written entirely in R. He noted that a new version is coming out soon that might be substantially faster. (brglm2 is also more general; it supports a variety of models and corrections).
+
+## Computer
+
+Here's the info on my machine. 
+
+```{r} 
+system("sysctl -n machdep.cpu.brand_string", intern = TRUE)
+```

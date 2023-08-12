@@ -129,7 +129,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Carlisle Rainey - Benchmarking Firth’s Logit: {brglm2} versus {logistf}">
 <meta property="og:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
-<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-3-1.png">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-2-1.png">
 <meta property="og:site-name" content="Carlisle Rainey">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
@@ -137,9 +137,9 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta name="twitter:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
 <meta name="twitter:image" content="https://www.carlislerainey.com/profile.png">
 <meta name="twitter:creator" content="@carlislerainey">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image-height" content="2304">
 <meta name="twitter:image-width" content="3456">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -256,16 +256,6 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <p>Here, I benchmark the two packages for fitting logistic regression models with Firth’s penalty in a <em>small sample</em>–the results might not generalize to a larger sample. The data set comes from <span class="citation" data-cites="weisiger2014">Weisiger (<a href="#ref-weisiger2014" role="doc-biblioref">2014</a>)</span> (see <code>?crdata::weisiger2014</code>). It has only 35 observations.</p>
 <p>You can find the benchmarking code as a <a href="https://gist.github.com/carlislerainey/8bf23a322252bead64d0a07391f7383d">GitHub Gist</a>.</p>
 </section>
-<section id="computer" class="level2">
-<h2 class="anchored" data-anchor-id="computer">Computer</h2>
-<p>Here’s the info on my machine.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"sysctl -n machdep.cpu.brand_string"</span>, <span class="at">intern =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Apple M2 Max"</code></pre>
-</div>
-</div>
-</section>
 <section id="benchmarking" class="level2">
 <h2 class="anchored" data-anchor-id="benchmarking">Benchmarking</h2>
 <p>I benchmark four methods here.</p>
@@ -276,92 +266,116 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <li>A Firth’s logit via logistf via <code>logistf()</code> with the argument <code>pl = FALSE</code>. This argument is important because it skips hypothesis testing using profile likelihoods, which are computationally costly.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to egt weisiger2014 data set</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brglm2)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(logistf)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>weis <span class="ot">&lt;-</span> crdata<span class="sc">::</span>weisiger2014</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rescale weisiger2014 explanatory variables using arm::rescale()</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>rs_weis <span class="ot">&lt;-</span> weis <span class="sc">%&gt;%</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(polity_conq<span class="sc">:</span>coord, arm<span class="sc">::</span>rescale)) </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create functions to fit models</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> resist <span class="sc">~</span> polity_conq <span class="sc">+</span> lndist <span class="sc">+</span> terrain <span class="sc">+</span> soldperterr <span class="sc">+</span> gdppc2 <span class="sc">+</span> coord</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">method =</span> brglmFit)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis, <span class="at">pl =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">control=</span> <span class="fu">logistf.control</span>(<span class="at">lconv=</span><span class="fl">1e-06</span>))</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>               <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (default)"</span> <span class="ot">=</span> <span class="fu">f3</span>(),</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (w/ pl = FALSE)"</span> <span class="ot">=</span> <span class="fu">f4</span>(),</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to egt weisiger2014 data set</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brglm2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(logistf)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>weis <span class="ot">&lt;-</span> crdata<span class="sc">::</span>weisiger2014</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rescale weisiger2014 explanatory variables using arm::rescale()</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>rs_weis <span class="ot">&lt;-</span> weis <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(polity_conq<span class="sc">:</span>coord, arm<span class="sc">::</span>rescale)) </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create functions to fit models</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> resist <span class="sc">~</span> polity_conq <span class="sc">+</span> lndist <span class="sc">+</span> terrain <span class="sc">+</span> soldperterr <span class="sc">+</span> gdppc2 <span class="sc">+</span> coord</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">method =</span> brglmFit)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis, <span class="at">pl =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">control=</span> <span class="fu">logistf.control</span>(<span class="at">lconv=</span><span class="fl">1e-06</span>))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>               <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (default)"</span> <span class="ot">=</span> <span class="fu">f3</span>(),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (w/ pl = FALSE)"</span> <span class="ot">=</span> <span class="fu">f4</span>(),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in microbenchmark(`regular glm()` = f1(), brglm2 = f2(), `logistf
 (default)` = f3(), : less accurate nanosecond times to avoid potential integer
 overflows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                    expr      min       lq      mean   median        uq
-           regular glm()  509.589  536.936  579.8331  549.523  564.2625
-                  brglm2 2422.731 2494.010 2676.4173 2525.662 2620.5765
-       logistf (default) 3226.495 3333.382 3775.0389 3396.215 3466.6730
- logistf (w/ pl = FALSE)  517.297  547.719  573.9143  562.438  583.4300
+                    expr      min        lq      mean    median        uq
+           regular glm()  502.660  542.1020  654.0119  564.7135  601.9005
+                  brglm2 2421.788 2523.7960 2694.9931 2602.0650 2760.3865
+       logistf (default) 3240.599 3393.3035 3818.3890 3518.1075 3641.0665
+ logistf (w/ pl = FALSE)  520.618  556.8825  679.3175  576.2960  605.4880
        max neval
-  2536.383   100
- 10647.003   100
- 13501.218   100
-  1144.925   100</code></pre>
+  8208.364   100
+  8241.246   100
+ 12907.210   100
+  8468.099   100</code></pre>
 </div>
 </div>
 <p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
 <p>Here’s a plot showing the computation times of the four fits. Remember that all of these are computed practically instantly, so it only makes a difference when the fits are done thousands of times, like in a Monte Carlo simulation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot times</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(expr) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_time =</span> <span class="fu">mean</span>(time)<span class="sc">*</span><span class="fl">10e-5</span>) <span class="sc">%&gt;%</span>  <span class="co"># convert to milliseconds</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(expr), <span class="at">y =</span> avg_time)) <span class="sc">+</span> </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Method"</span>, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg. Time (in milliseconds)"</span>) <span class="sc">+</span> </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot times</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(expr) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_time =</span> <span class="fu">mean</span>(time)<span class="sc">*</span><span class="fl">10e-5</span>) <span class="sc">%&gt;%</span>  <span class="co"># convert to milliseconds</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(expr), <span class="at">y =</span> avg_time)) <span class="sc">+</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Method"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg. Time (in milliseconds)"</span>) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="follow-up-notes" class="level1">
 <h1>Follow-Up Notes</h1>
+<p>The models return <em>slightly</em> different estimates. Maybe they are using slightly different convergence tolerances. I didn’t investigate this beyond noticing it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">coef</span>(<span class="fu">f2</span>()), <span class="fu">coef</span>(<span class="fu">f4</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  [,1]       [,2]
+(Intercept) -0.4771934 -0.4771935
+polity_conq -2.2771109 -2.2771117
+lndist       3.4020241  3.4020215
+terrain      1.1018696  1.1018713
+soldperterr -0.5952096 -0.5952110
+gdppc2      -1.1542010 -1.1541998
+coord        3.0514481  3.0514473</code></pre>
+</div>
+</div>
 <p>Ioannis Kosmidis made me aware of two things.</p>
 <ol type="1">
 <li>logistf has a C++ backend (thus explaining the speed).</li>
 <li>brglm2 is written entirely in R. He noted that a new version is coming out soon that might be substantially faster. (brglm2 is also more general; it supports a variety of models and corrections).</li>
 </ol>
+<section id="computer" class="level2">
+<h2 class="anchored" data-anchor-id="computer">Computer</h2>
+<p>Here’s the info on my machine.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"sysctl -n machdep.cpu.brand_string"</span>, <span class="at">intern =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Apple M2 Max"</code></pre>
+</div>
+</div>
 
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
