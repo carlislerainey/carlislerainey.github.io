@@ -8,7 +8,7 @@
 
 <meta name="author" content="Carlisle Rainey">
 <meta name="dcterms.date" content="2023-08-11">
-<meta name="description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty">
+<meta name="description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
 
 <title>Carlisle Rainey - Benchmarking Firth’s Logit: {brglm2} versus {logistf}</title>
 <style>
@@ -128,10 +128,13 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Carlisle Rainey - Benchmarking Firth’s Logit: {brglm2} versus {logistf}">
-<meta property="og:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty">
+<meta property="og:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site-name" content="Carlisle Rainey">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Carlisle Rainey - Benchmarking Firth’s Logit: {brglm2} versus {logistf}">
-<meta name="twitter:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty">
+<meta name="twitter:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
 <meta name="twitter:image" content="https://www.carlislerainey.com/profile.png">
 <meta name="twitter:creator" content="@carlislerainey">
 <meta name="twitter:image-height" content="2304">
@@ -202,7 +205,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Benchmarking Firth’s Logit: {brglm2} versus {logistf}</h1>
-<p class="subtitle lead">The M2 Is Really Fast</p>
+<p class="subtitle lead">logistf() is really fast</p>
   <div class="quarto-categories">
     <div class="quarto-category">logistic regression</div>
     <div class="quarto-category">small samples</div>
@@ -214,7 +217,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty
+    In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.
   </div>
 </div>
 
@@ -243,93 +246,119 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <section id="firths-logit" class="level2">
 <h2 class="anchored" data-anchor-id="firths-logit">Firth’s Logit</h2>
-<p>I like Firth’s logistic regression model <span class="citation" data-cites="firth1993">(<a href="#ref-firth1993" role="doc-biblioref">Firth 1993</a>)</span>. I talk about that in <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span> and <a href="https://twitter.com/carlislerainey/status/1686389777225113601">this Twitter thread</a>. <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> offer an excellent, recent follow-up, as well.</p>
+<p>I like Firth’s logistic regression model <span class="citation" data-cites="firth1993">(<a href="#ref-firth1993" role="doc-biblioref">Firth 1993</a>)</span>. I talk about that in <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span> and <a href="https://twitter.com/carlislerainey/status/1686389777225113601">this Twitter thread</a>. <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> offer an excellent, recent follow-up as well.</p>
 <p>I’ll refer you to the papers for a careful discussion of the benefits, but Firth’s penalty reduces the bias <em>and variance</em> of the logit coefficients.</p>
 </section>
 <section id="goals-for-benchmarking" class="level2">
 <h2 class="anchored" data-anchor-id="goals-for-benchmarking">Goals for Benchmarking</h2>
-<p>In this post, I want to do two things:</p>
-<ol type="1">
-<li>Compare the brglm2 and logistf packages. Which fits logistic regression models with Firth’s penalty the fastest?</li>
-<li>Comparean older Intel Mac with a newer M2. How much faster is the M2, if at all.</li>
-</ol>
-<p>Modern computers fit these models really fast, but large simulations require us to pay attention to marginal speed increases. Here, I benchmark the two packages for fitting logistic regression models with Firth’s penalty in a <em>small sample</em>–the results might not generalize to a larger sample. The data set comes from <span class="citation" data-cites="weisiger2014">Weisiger (<a href="#ref-weisiger2014" role="doc-biblioref">2014</a>)</span> (see <code>?crdata::weisiger2014</code>). It has only 35 observations.</p>
+<p>In this post, I want to compare the brglm2 and logistf packages. Which fits logistic regression models with Firth’s penalty the fastest?</p>
+<p>These packages both fit the models almost instantly, so there is no practical difference when fitting just one model. But large Monte Carlo simulations (or perhaps bootstraps), small differences might add up to a substantial time difference.</p>
+<p>Here, I benchmark the two packages for fitting logistic regression models with Firth’s penalty in a <em>small sample</em>–the results might not generalize to a larger sample. The data set comes from <span class="citation" data-cites="weisiger2014">Weisiger (<a href="#ref-weisiger2014" role="doc-biblioref">2014</a>)</span> (see <code>?crdata::weisiger2014</code>). It has only 35 observations.</p>
 <p>You can find the benchmarking code as a <a href="https://gist.github.com/carlislerainey/8bf23a322252bead64d0a07391f7383d">GitHub Gist</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to egt weisiger2014 data set</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brglm2)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(logistf)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>weis <span class="ot">&lt;-</span> crdata<span class="sc">::</span>weisiger2014</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># rescale weisiger2014 explanatory variables using arm::rescale()</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>rs_weis <span class="ot">&lt;-</span> weis <span class="sc">%&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(polity_conq<span class="sc">:</span>coord, arm<span class="sc">::</span>rescale)) </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># create functions to fit models</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> resist <span class="sc">~</span> polity_conq <span class="sc">+</span> lndist <span class="sc">+</span> terrain <span class="sc">+</span> soldperterr <span class="sc">+</span> gdppc2 <span class="sc">+</span> coord</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">method =</span> brglmFit)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"logistf"</span> <span class="ot">=</span> <span class="fu">f3</span>(), </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">times =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
-<section id="intel-imac" class="level2">
-<h2 class="anchored" data-anchor-id="intel-imac">2018 Intel iMac</h2>
+<section id="computer" class="level2">
+<h2 class="anchored" data-anchor-id="computer">Computer</h2>
+<p>Here’s the info on my machine.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"sysctl -n machdep.cpu.brand_string"</span>, <span class="at">intern =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<pre><code>[1] "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz"</code></pre>
-<p>For the older Intel Mac, the brglm2 package takes about 4.8 times as long as the vanilla <code>glm()</code> logit and the logistf package takes about 5.8 times as long.</p>
-<p>Most importantly, for our purposes, the logistf package takes about 20% longer. That means six hours rather than five for a large batch of simulations.</p>
-<pre><code>Unit: milliseconds
-          expr      min       lq     mean   median       uq      max neval
- regular glm() 1.117625 1.194022 1.827576 1.256566 1.331332 18.95785   100
-        brglm2 5.461556 5.833547 6.333050 6.012908 6.503606 22.78004   100
-       logistf 6.544562 6.901007 7.577122 7.208252 7.661631 22.74872   100</code></pre>
-</section>
-<section id="m2-max-macbook-pro" class="level2">
-<h2 class="anchored" data-anchor-id="m2-max-macbook-pro">M2 Max Macbook Pro</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"sysctl -n machdep.cpu.brand_string"</span>, <span class="at">intern =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">"sysctl -n machdep.cpu.brand_string"</span>, <span class="at">intern =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] "Apple M2 Max"</code></pre>
-<p>Perhaps most surpisingly, the M2 is a lot faster.</p>
-<ul>
-<li>For the vanilla <code>glm()</code>, the simulations take only 43% as long.</li>
-<li>For brglm2, the simulations take only 42% as long.</li>
-<li>For logistf, the simulations take only 47% as long.</li>
-</ul>
-<p>These are big, big speedups.</p>
-<pre><code>Unit: milliseconds
-          expr      min       lq      mean    median       uq       max neval
- regular glm() 0.505489 0.537510 0.5577767 0.5518395 0.566948  0.688431   100
-        brglm2 2.405265 2.479803 2.7853514 2.5521680 2.643926 13.737542   100
-       logistf 3.249045 3.351955 3.5532765 3.4383625 3.533564 13.867061   100</code></pre>
+</div>
+</div>
 </section>
-<section id="summary" class="level1">
-<h1>Summary</h1>
-<ul>
-<li>logistf is about 20% slower than brglm2 on the Intel iMac and about 34% slower on the M2.</li>
-<li>The M2 is more than twice as fast as my old Intel iMac.</li>
-</ul>
+<section id="benchmarking" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarking">Benchmarking</h2>
+<p>I benchmark four methods here.</p>
+<ol type="1">
+<li>A vanilla <code>glm()</code> logit model.</li>
+<li>A Firth’s logit via brglm2 by supplying <code>method = brglm2::brglmFit</code> to <code>glm()</code>.</li>
+<li>A Firth’s logit via logistf via <code>logistf()</code> using the default settings.</li>
+<li>A Firth’s logit via logistf via <code>logistf()</code> with the argument <code>pl = FALSE</code>. This argument is important because it skips hypothesis testing using profile likelihoods, which are computationally costly.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to egt weisiger2014 data set</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brglm2)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(logistf)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>weis <span class="ot">&lt;-</span> crdata<span class="sc">::</span>weisiger2014</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rescale weisiger2014 explanatory variables using arm::rescale()</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>rs_weis <span class="ot">&lt;-</span> weis <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(polity_conq<span class="sc">:</span>coord, arm<span class="sc">::</span>rescale)) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create functions to fit models</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> resist <span class="sc">~</span> polity_conq <span class="sc">+</span> lndist <span class="sc">+</span> terrain <span class="sc">+</span> soldperterr <span class="sc">+</span> gdppc2 <span class="sc">+</span> coord</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(f, <span class="at">data =</span> rs_weis, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">method =</span> brglmFit)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>f4 <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistf</span>(f, <span class="at">data =</span> rs_weis, <span class="at">pl =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">control=</span> <span class="fu">logistf.control</span>(<span class="at">lconv=</span><span class="fl">1e-06</span>))</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># do benchmarking</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">microbenchmark</span>(<span class="st">"regular glm()"</span> <span class="ot">=</span> <span class="fu">f1</span>(), </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>               <span class="st">"brglm2"</span> <span class="ot">=</span> <span class="fu">f2</span>(), </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (default)"</span> <span class="ot">=</span> <span class="fu">f3</span>(),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>               <span class="st">"logistf (w/ pl = FALSE)"</span> <span class="ot">=</span> <span class="fu">f4</span>(),</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in microbenchmark(`regular glm()` = f1(), brglm2 = f2(), `logistf
+(default)` = f3(), : less accurate nanosecond times to avoid potential integer
+overflows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unit: microseconds
+                    expr      min       lq      mean   median        uq
+           regular glm()  509.589  536.936  579.8331  549.523  564.2625
+                  brglm2 2422.731 2494.010 2676.4173 2525.662 2620.5765
+       logistf (default) 3226.495 3333.382 3775.0389 3396.215 3466.6730
+ logistf (w/ pl = FALSE)  517.297  547.719  573.9143  562.438  583.4300
+       max neval
+  2536.383   100
+ 10647.003   100
+ 13501.218   100
+  1144.925   100</code></pre>
+</div>
+</div>
+<p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
+<p>Here’s a plot showing the computation times of the four fits. Remember that all of these are computed practically instantly, so it only makes a difference when the fits are done thousands of times, like in a Monte Carlo simulation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot times</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(expr) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_time =</span> <span class="fu">mean</span>(time)<span class="sc">*</span><span class="fl">10e-5</span>) <span class="sc">%&gt;%</span>  <span class="co"># convert to milliseconds</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(expr), <span class="at">y =</span> avg_time)) <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Method"</span>, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Avg. Time (in milliseconds)"</span>) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="follow-up-notes" class="level1">
+<h1>Follow-Up Notes</h1>
+<p>Ioannis Kosmidis made me aware of two things.</p>
+<ol type="1">
+<li>logistf has a C++ backend (thus explaining the speed).</li>
+<li>brglm2 is written entirely in R. He noted that a new version is coming out soon that might be substantially faster. (brglm2 is also more general; it supports a variety of models and corrections).</li>
+</ol>
 
 
 
