@@ -9,6 +9,8 @@ toc: false
 code-annotations: hover
 reference-location: margin
 website:
+  open-graph:
+    image: "boice-daily-writing-tw2.png"
   twitter-card:
     image: "boice-daily-writing-tw2.png"
     card-style: "summary_large_image"
