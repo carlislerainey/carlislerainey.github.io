@@ -13,8 +13,6 @@
 <url>https://www.carlislerainey.com/profile.png</url>
 <title>Carlisle&#39;s Blog</title>
 <link>https://www.carlislerainey.com/blog/index.html</link>
-<height>96</height>
-<width>144</width>
 </image>
 <generator>quarto-1.3.353</generator>
 <lastBuildDate>Fri, 11 Aug 2023 04:00:00 GMT</lastBuildDate>
@@ -177,22 +175,13 @@ font-style: inherit;">data =</span> rs_weis, <span class="at" style="color: #657
 background-color: null;
 font-style: inherit;">pl =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">FALSE</span>,</span>
-<span id="cb1-31">          <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">control=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">logistf.control</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">lconv=</span><span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1e-06</span>))</span>
-<span id="cb1-32">}</span>
-<span id="cb1-33"></span>
-<span id="cb1-34"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">FALSE</span>)</span>
+<span id="cb1-31">}</span>
+<span id="cb1-32"></span>
+<span id="cb1-33"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># do benchmarking</span></span>
-<span id="cb1-35">bm <span class="ot" style="color: #003B4F;
+<span id="cb1-34">bm <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -203,28 +192,28 @@ background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">f1</span>(), </span>
-<span id="cb1-36">               <span class="st" style="color: #20794D;
+<span id="cb1-35">               <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"brglm2"</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">f2</span>(), </span>
-<span id="cb1-37">               <span class="st" style="color: #20794D;
+<span id="cb1-36">               <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"logistf (default)"</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">f3</span>(),</span>
-<span id="cb1-38">               <span class="st" style="color: #20794D;
+<span id="cb1-37">               <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"logistf (w/ pl = FALSE)"</span> <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">f4</span>(),</span>
-<span id="cb1-39">               <span class="at" style="color: #657422;
+<span id="cb1-38">               <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -239,16 +228,16 @@ background-color: null;
 font-style: inherit;">print</span>(bm)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-                    expr      min       lq      mean    median        uq
-           regular glm()  500.446  536.198  559.1264  548.6005  566.9685
-                  brglm2 2412.768 2489.520 2598.0650 2528.2445 2574.1440
-       logistf (default) 3291.152 3366.162 3863.3787 3414.3775 3497.4230
- logistf (w/ pl = FALSE)  522.668  549.605  639.5291  563.2170  578.5920
+                    expr      min        lq      mean    median        uq
+           regular glm()  500.651  547.0425  591.5304  560.0805  584.4550
+                  brglm2 2469.266 2546.9405 2735.6438 2591.5690 2672.3800
+       logistf (default) 3303.329 3432.6635 3942.9122 3481.6585 3558.1235
+ logistf (w/ pl = FALSE)  513.197  553.3155  594.6205  570.8225  608.9115
        max neval
-  1056.980   100
-  7455.153   100
- 12975.434   100
-  7377.663   100</code></pre>
+  2713.708   100
+  9735.983   100
+ 17672.148   100
+  1698.343   100</code></pre>
 </div>
 </div>
 <p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
@@ -4723,15 +4712,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="2">Use dataset with <code>group</code> variable.</span>
+<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="7">Set <code>group</code> explicitly.</span>
+<span data-code-lines="7" data-code-annotation="2" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="3" data-code-lines="30,31">Expand x- and y-axis.</span>
+<span data-code-lines="30,31" data-code-annotation="3" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -4847,35 +4836,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="2">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="2" data-code-lines="3">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="3" data-code-lines="5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="4" data-code-lines="6">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="5" data-code-lines="7">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="6" data-code-lines="8">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-lines="8" data-code-annotation="6" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="7" data-code-lines="10">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-lines="10" data-code-annotation="7" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="8" data-code-lines="11"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-lines="11" data-code-annotation="8" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>

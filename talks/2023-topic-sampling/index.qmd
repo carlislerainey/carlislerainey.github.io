@@ -4,6 +4,9 @@ description: "A talk at the 2023 meeting of the Election, Public Opinion, and Vo
 author: "Carlisle Rainey"
 date: "2023-03-4"
 image: party-cue-effects.png
+twitter-card:
+  image: "party-cue-effects-tw.png"
+  card-style: "summary_large_image"
 ---
 
 The two papers are below.
