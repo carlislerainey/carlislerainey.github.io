@@ -17,7 +17,80 @@
 <width>144</width>
 </image>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Fri, 11 Aug 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 15 Aug 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Daily Writing</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="page-columns page-full"><p>I try to write everyday.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;See lots of caveats below!</p></li></div></div>
+<p>By “writing,” I mean “pushing the paper closest to publication just a little bit closer.” I want to think about the next step on the journey to the published paper and do it. According to this loose definition of writing, it might involve data collection, data analysis, creating slides, or even writing and polishing text. It might involve organization, planning, or learning new skills. It excludes any tasks that aren’t necessary to complete the project.</p>
+<p>By “everyday,” I mean at least every weekday, probably at the same time every day and probably first thing in the morning. For better or worse, academics are evaluated by their research productivity.</p>
+<section id="urgency-and-importance" class="level2">
+<h2 class="anchored" data-anchor-id="urgency-and-importance">Urgency and Importance</h2>
+<p>President Eisenhower famously <a href="http://www.presidency.ucsb.edu/ws/?pid=9991">characterized</a> his duties: “I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent.”</p>
+<p>Following <a href="https://en.wikipedia.org/wiki/Time_management#The_Eisenhower_Method">Eisenhower’s Box</a>, we might assign degrees of urgency and importance to tasks in academic tasks. In graduate school, I had teaching responsibilities, RA duties, readings for seminars, homework for methods classes, preliminary exams, and administrative tasks. All of these tasks are important. They must be completed. They must be completed well. Yet I was evaluated largely on my papers. As a faculty member, little has changed.</p>
+<p>Writing is important, but <em>writing never quite becomes urgent.</em> It’s easy to put off writing to prepare a lecture (or write a blog post).</p>
+</section>
+<section id="the-evidence" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-evidence">The Evidence</h2>
+<p>Robert Boice <a href="https://www.amazon.com/Professors-Writers-Self-Help-Productive-Writing/dp/091350713X">studied</a> academic productivity carefully. A couple of his studies provide some evidence for my strategy to write every day.</p>
+<p>First, he <a href="https://www.sciencedirect.com/science/article/pii/0005796789901447">assessed</a> how early-career academics spend their time. The figure below shows the results. Notice that these faculty spend more time in committee meetings (2 hrs.) than writing (1.5 hours).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>Second, Boice <a href="https://www.sciencedirect.com/science/article/pii/0005796783900451">conducted</a> an experiment to assess the effect of writing strategies.</p>
+<div class="page-columns page-full"><p>Boice randomly divided 27 academics into three groups:<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;This is a small sample, but it supports my claim so it’s okay.</p></li></div></div>
+<ul>
+<li>The <strong>control</strong> group agreed to defer all but the most urgent writing for ten weeks.</li>
+<li>The <strong>spontaneous</strong> group agreed write when they felt like it.</li>
+<li>The <strong>contingency</strong> group agreed to donate to an anti-charity if they failed to write every day.</li>
+</ul>
+<p>The figure below shows that regular writing routine increase production of both pages <em>and</em> ideas. Notice that the spontaneous writers barely produced more ideas and pages than the group trying to <em>avoid</em> writing.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>I find these results compelling, but note that Helen Sword <a href="https://www.tandfonline.com/doi/pdf/10.1080/1360144X.2016.1210153">urges</a> some caution.</p>
+</section>
+<section id="how-i-do-it" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="how-i-do-it">How I Do It</h2>
+<p>Everyone is different, and my own approach has evolved over time. Here are the key ingredients (for me):</p>
+<ol type="1">
+<li>Write for <em>two hours</em> at a regular time. Consistency is key.<sup>3</sup></li>
+<li>Avoid writing outside this window. Set your window so that your window is “enough.”</li>
+<li>Take breaks. I take long breaks from writing. But these are intentional and planned.<sup>4</sup></li>
+<li>Family permitting, I think it’s helpful to spend a little while pushing the projects forward on the weekends, just to keep the momentum up.<sup>5</sup></li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Two hours works really well for me. My productivity degrades quickly after two hours, so it’s best to move on to less taxing tasks. But it takes me a while to get warmed up, so I need to keep moving while I’ve got momentum.</p></li><li id="fn4"><p><sup>4</sup>&nbsp;An unfortunate outcome is not writing and being stressed about not writing.</p></li><li id="fn5"><p><sup>5</sup>&nbsp;Just 15 minutes is great. This slot is perfect for proof-reading.</p></li></div><p>I admit that I deviate from the strategy above (and not always intentionally). But I’ve been at this long enough to know that a regular routine works really well for me.</p>
+</section>
+<section id="what-if-youre-not-ready-to-write-yet" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-youre-not-ready-to-write-yet">What if you’re not ready to write yet?</h2>
+<p>It’s my view that PhD students should write every day, from the first day of their first semester (remember that I have a broad definition of “write”). Most students need some time before they’re ready to jump into the technical details a solo project, but there are always things to do.</p>
+<p>If you can’t identify a specific task to work on, here are some resources to help you brainstorm.</p>
+<ul>
+<li>Plan and organize. Start by reading <a href="https://www.amazon.com/How-Write-Lot-Practical-Productive/dp/1591477433"><em>How to Write a Lot</em></a>. Perhaps read <a href="https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280"><em>Getting Things Done</em></a>. Perhaps read <a href="https://www.amazon.com/Air-Light-Time-Space-Successful/dp/0674737709"><em>Air &amp; Light &amp; Time &amp; Space</em></a> or <a href="https://www.amazon.com/Writing-Social-Scientists-Chicago-Publishing/dp/0226041328/"><em>Writing for Social Scientists</em></a>.</li>
+<li>Read <a href="https://gking.harvard.edu/files/gking/files/paperspub.pdf">“Publication, Publication”</a> and the <a href="https://gking.harvard.edu/papers">updates</a>.</li>
+<li>Before you can jump into a project, you need to know the literature. Spend some writing time exploring literatures that you might want to contribute to. What interests you most? The <em><a href="https://www.annualreviews.org/journal/polisci">Annual Review of Political Science</a></em> is a valuable resource.</li>
+<li>Once you have a specific topic of interest, you need to learn that literature. You can spend dozens of “writing” sessions reading and taking notes. I strongly encourage you to read and take notes <em>systematically</em>, as Raul Pacheco-Vega <a href="http://www.raulpacheco.org/2016/06/synthesizing-different-bodies-of-work-in-your-literature-review-the-conceptual-synthesis-excel-dump-technique/">suggests</a> using a spreadsheet, Elaine Campbell <a href="https://alawuntoherself.com/2016/05/20/how-i-use-excel-to-manage-my-literature-review/">suggests</a> a similar method, and Katherine Firth <a href="https://researchinsiders.blog/2017/04/27/turn-your-notes-into-writing-using-the-cornell-method-second-edition/">suggests</a> a using <a href="https://en.wikipedia.org/wiki/Cornell_Notes">Cornell notes</a>.</li>
+<li>Tanya Golash-Boza <a href="http://getalifephd.blogspot.com/2012/01/ten-ways-to-write-every-day.html">lists</a> ten ways to write everyday if you’ve got a paper in-progress.</li>
+</ul>
+
+
+</section>
+
+
+ ]]></description>
+  <category>writing</category>
+  <guid>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</guid>
+  <pubDate>Tue, 15 Aug 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Benchmarking Firth’s Logit: {brglm2} versus {logistf}</title>
   <dc:creator>Carlisle Rainey</dc:creator>
@@ -4714,15 +4787,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="2">Use dataset with <code>group</code> variable.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="7">Set <code>group</code> explicitly.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="7" data-code-annotation="2">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-4" data-code-lines="30,31">Expand x- and y-axis.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="30,31" data-code-annotation="3">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -4838,35 +4911,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-5" data-code-lines="2">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="1">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-5" data-code-lines="3">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="2">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-5" data-code-lines="5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="3">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-5" data-code-lines="6">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="6" data-code-annotation="4">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-cell="annotated-cell-5" data-code-lines="7">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="7" data-code-annotation="5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-cell="annotated-cell-5" data-code-lines="8">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="8" data-code-annotation="6">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-cell="annotated-cell-5" data-code-lines="10">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="10" data-code-annotation="7">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-annotation="8" data-code-cell="annotated-cell-5" data-code-lines="11"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="11" data-code-annotation="8"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>

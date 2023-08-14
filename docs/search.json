@@ -245,11 +245,46 @@
     "text": "Computer\nHere’s the info on my machine.\n\nsystem(\"sysctl -n machdep.cpu.brand_string\", intern = TRUE)\n\n[1] \"Apple M2 Max\""
   },
   {
+    "objectID": "blog/2023-08-15-daily-writing/index.html",
+    "href": "blog/2023-08-15-daily-writing/index.html",
+    "title": "Daily Writing",
+    "section": "",
+    "text": "I try to write everyday.11 See lots of caveats below!\nBy “writing,” I mean “pushing the paper closest to publication just a little bit closer.” I want to think about the next step on the journey to the published paper and do it. According to this loose definition of writing, it might involve data collection, data analysis, creating slides, or even writing and polishing text. It might involve organization, planning, or learning new skills. It excludes any tasks that aren’t necessary to complete the project.\nBy “everyday,” I mean at least every weekday, probably at the same time every day and probably first thing in the morning. For better or worse, academics are evaluated by their research productivity."
+  },
+  {
+    "objectID": "blog/2023-08-15-daily-writing/index.html#urgency-and-importance",
+    "href": "blog/2023-08-15-daily-writing/index.html#urgency-and-importance",
+    "title": "Daily Writing",
+    "section": "Urgency and Importance",
+    "text": "Urgency and Importance\nPresident Eisenhower famously characterized his duties: “I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent.”\nFollowing Eisenhower’s Box, we might assign degrees of urgency and importance to tasks in academic tasks. In graduate school, I had teaching responsibilities, RA duties, readings for seminars, homework for methods classes, preliminary exams, and administrative tasks. All of these tasks are important. They must be completed. They must be completed well. Yet I was evaluated largely on my papers. As a faculty member, little has changed.\nWriting is important, but writing never quite becomes urgent. It’s easy to put off writing to prepare a lecture (or write a blog post)."
+  },
+  {
+    "objectID": "blog/2023-08-15-daily-writing/index.html#the-evidence",
+    "href": "blog/2023-08-15-daily-writing/index.html#the-evidence",
+    "title": "Daily Writing",
+    "section": "The Evidence",
+    "text": "The Evidence\nRobert Boice studied academic productivity carefully. A couple of his studies provide some evidence for my strategy to write every day.\nFirst, he assessed how early-career academics spend their time. The figure below shows the results. Notice that these faculty spend more time in committee meetings (2 hrs.) than writing (1.5 hours).\n\n\n\n\n\nSecond, Boice conducted an experiment to assess the effect of writing strategies.\nBoice randomly divided 27 academics into three groups:22 This is a small sample, but it supports my claim so it’s okay.\n\nThe control group agreed to defer all but the most urgent writing for ten weeks.\nThe spontaneous group agreed write when they felt like it.\nThe contingency group agreed to donate to an anti-charity if they failed to write every day.\n\nThe figure below shows that regular writing routine increase production of both pages and ideas. Notice that the spontaneous writers barely produced more ideas and pages than the group trying to avoid writing.\n\n\n\n\n\nI find these results compelling, but note that Helen Sword urges some caution."
+  },
+  {
+    "objectID": "blog/2023-08-15-daily-writing/index.html#how-i-do-it",
+    "href": "blog/2023-08-15-daily-writing/index.html#how-i-do-it",
+    "title": "Daily Writing",
+    "section": "How I Do It",
+    "text": "How I Do It\nEveryone is different, and my own approach has evolved over time. Here are the key ingredients (for me):\n\nWrite for two hours at a regular time. Consistency is key.3\nAvoid writing outside this window. Set your window so that your window is “enough.”\nTake breaks. I take long breaks from writing. But these are intentional and planned.4\nFamily permitting, I think it’s helpful to spend a little while pushing the projects forward on the weekends, just to keep the momentum up.5\n\n3 Two hours works really well for me. My productivity degrades quickly after two hours, so it’s best to move on to less taxing tasks. But it takes me a while to get warmed up, so I need to keep moving while I’ve got momentum.4 An unfortunate outcome is not writing and being stressed about not writing.5 Just 15 minutes is great. This slot is perfect for proof-reading.I admit that I deviate from the strategy above (and not always intentionally). But I’ve been at this long enough to know that a regular routine works really well for me."
+  },
+  {
+    "objectID": "blog/2023-08-15-daily-writing/index.html#what-if-youre-not-ready-to-write-yet",
+    "href": "blog/2023-08-15-daily-writing/index.html#what-if-youre-not-ready-to-write-yet",
+    "title": "Daily Writing",
+    "section": "What if you’re not ready to write yet?",
+    "text": "What if you’re not ready to write yet?\nIt’s my view that PhD students should write every day, from the first day of their first semester (remember that I have a broad definition of “write”). Most students need some time before they’re ready to jump into the technical details a solo project, but there are always things to do.\nIf you can’t identify a specific task to work on, here are some resources to help you brainstorm.\n\nPlan and organize. Start by reading How to Write a Lot. Perhaps read Getting Things Done. Perhaps read Air & Light & Time & Space or Writing for Social Scientists.\nRead “Publication, Publication” and the updates.\nBefore you can jump into a project, you need to know the literature. Spend some writing time exploring literatures that you might want to contribute to. What interests you most? The Annual Review of Political Science is a valuable resource.\nOnce you have a specific topic of interest, you need to learn that literature. You can spend dozens of “writing” sessions reading and taking notes. I strongly encourage you to read and take notes systematically, as Raul Pacheco-Vega suggests using a spreadsheet, Elaine Campbell suggests a similar method, and Katherine Firth suggests a using Cornell notes.\nTanya Golash-Boza lists ten ways to write everyday if you’ve got a paper in-progress."
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\nAug 11, 2023\n\n\nBenchmarking Firth’s Logit: {brglm2} versus {logistf}\n\n\n4 min\n\n\n\n\nJun 12, 2023\n\n\nPower, Part III: The Rule of 3.64 for Statistical Power\n\n\n24 min\n\n\n\n\nJun 1, 2023\n\n\nTeaching Confidence Intervals and Hypothesis Testing with gganimate\n\n\n20 min\n\n\n\n\nMay 25, 2023\n\n\nPower, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?\n\n\n9 min\n\n\n\n\nMay 21, 2023\n\n\nPower, Part I: Power Is for You, Not for Reviewer Two\n\n\n8 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nReading Time\n\n\n\n\n\n\nAug 15, 2023\n\n\nDaily Writing\n\n\n7 min\n\n\n\n\nAug 11, 2023\n\n\nBenchmarking Firth’s Logit: {brglm2} versus {logistf}\n\n\n4 min\n\n\n\n\nJun 12, 2023\n\n\nPower, Part III: The Rule of 3.64 for Statistical Power\n\n\n24 min\n\n\n\n\nJun 1, 2023\n\n\nTeaching Confidence Intervals and Hypothesis Testing with gganimate\n\n\n20 min\n\n\n\n\nMay 25, 2023\n\n\nPower, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?\n\n\n9 min\n\n\n\n\nMay 21, 2023\n\n\nPower, Part I: Power Is for You, Not for Reviewer Two\n\n\n8 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

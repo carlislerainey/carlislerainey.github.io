@@ -14,7 +14,7 @@ website:
   twitter-card:
     image: "boice-daily-writing-tw2.png"
     card-style: "summary_large_image"
-draft: true
+draft: false
 ---
 
 I try to write everyday.^[See lots of caveats below!]
@@ -140,7 +140,7 @@ I admit that I deviate from the strategy above (and not always intentionally). B
 
 It's my view that PhD students should write every day, from the first day of their first semester (remember that I have a broad definition of "write"). Most students need some time before they're ready to jump into the technical details a solo project, but there are always things to do.
 
-If you can't identify a specific task to work on, come talk to me--there's lots to be done.
+If you can't identify a specific task to work on, here are some resources to help you brainstorm.
 
 * Plan and organize. Start by reading [*How to Write a Lot*](https://www.amazon.com/How-Write-Lot-Practical-Productive/dp/1591477433). Perhaps read [*Getting Things Done*](https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280). Perhaps read [*Air & Light & Time & Space*](https://www.amazon.com/Air-Light-Time-Space-Successful/dp/0674737709) or [*Writing for Social Scientists*](https://www.amazon.com/Writing-Social-Scientists-Chicago-Publishing/dp/0226041328/).
 * Read ["Publication, Publication"](https://gking.harvard.edu/files/gking/files/paperspub.pdf) and the [updates](https://gking.harvard.edu/papers).
