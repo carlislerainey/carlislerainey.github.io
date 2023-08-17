@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2023-08-18-equivalence-tests/index.html",
       "/blog/2023-08-15-daily-writing/index.html",
       "/blog/2023-08-11-benchmarking-firth/index.html",
       "/blog/2023-06-12-power-3-rule-of-364/index.html",
