@@ -156,3 +156,88 @@ hypotheses(mag_comp, equivalence = c(-m, m))
 ```
 
 Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST *p*-value (i.e., the `p(Equiv)` column) is less than 0.05, so our conclusions are (and must be) identical.
+
+## Complete code
+
+To make this easy to reproduce, here's the complete code:
+
+```{r}
+#| eval: false
+#| message: false
+
+# load packages
+library(tidyverse)
+library(modelsummary)
+library(marginaleffects)
+
+# install my data packages from github
+devtools::install_github("carlislerainey/crdata")  # only updates if newer version available
+
+# load clark and golder's data set
+cg <- crdata::cg2006
+
+# reproduce their estimates
+f <- enep ~ eneg*log(average_magnitude) + eneg*upper_tier + en_pres*proximity
+fit <- lm(f, data = cg)
+
+# cluster-robust standard errors
+Sigma_hat <- sandwich::vcovCL(fit, cluster = ~ country, type = "HC1")
+
+# regression table
+modelsummary(fit, vcov = Sigma_hat, fmt = 2, shape = term ~ model + statistic)
+
+# the smallest substantively interesting effect
+m <- 0.62
+
+# a data frame setting the values of the "other" variables
+X_c <- data.frame(
+  eneg = 1.06,  # low value
+  average_magnitude = 1,  # low value
+  upper_tier = 0,
+  en_pres = 0, 
+  proximity = 0
+)
+
+# compute the comparison for eneg
+eneg_comp <- comparisons(fit,
+                    vcov = Sigma_hat,
+                    newdata = X_c, 
+                    variables = list("eneg" = c(1.06, 2.48)), # low to high value
+                    conf_level = 0.90)
+
+# compute the comparison for average magnitude
+mag_comp<- comparisons(fit,
+                    vcov = Sigma_hat,
+                    newdata = X_c, 
+                    variables = list("average_magnitude" = c(1, 7)), # low to high value
+                    conf_level = 0.90)
+
+# bind the comparisons together and plot
+comp <- bind_rows(eneg_comp, mag_comp)
+ggplot(comp, aes(x = estimate,
+                 xmin = conf.low,
+                 xmax = conf.high, 
+                 y = term)) + 
+  geom_vline(xintercept = c(-m, m), linetype = "dashed") + 
+  geom_errorbarh() + 
+  geom_point() 
+
+# hypothesis tests (TOSTs)
+hypotheses(eneg_comp, equivalence = c(-m, m))
+hypotheses(mag_comp, equivalence = c(-m, m))
+
+```
+
+```{r}
+#| echo: false
+#| 
+
+gg <- ggplot(comp, aes(x = estimate,
+                 xmin = conf.low,
+                 xmax = conf.high, 
+                 y = term)) + 
+  geom_vline(xintercept = c(-m, m), linetype = "dashed") + 
+  geom_errorbarh(height = 0) + 
+  geom_point() + 
+  theme_linedraw()
+```
