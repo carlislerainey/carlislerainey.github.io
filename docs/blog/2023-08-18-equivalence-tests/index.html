@@ -197,6 +197,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
     <div class="quarto-category">hypothesis tests</div>
     <div class="quarto-category">confidence intervals</div>
     <div class="quarto-category">equivalence tests</div>
+    <div class="quarto-category">TOSTs</div>
     <div class="quarto-category">negligible effects</div>
     <div class="quarto-category">computing</div>
     <div class="quarto-category">R</div>
@@ -385,17 +386,17 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for eneg</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>eneg_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">newdata =</span> X_c, </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                         <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for average magnitude</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>mag_comp<span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>mag_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                        <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                        <span class="at">newdata =</span> X_c, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                        <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                        <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can just plot the 90% CIs with <code>ggplot()</code> and check whether the entire interval falls inside the bounds.</p>
 <div class="cell">

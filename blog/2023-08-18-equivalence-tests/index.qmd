@@ -3,7 +3,7 @@ title: "Equivalence Tests Using {marginaleffects}"
 subtitle: "Reproducing the Clark and Golder (2006) Example from Rainey (2014)"
 author: "Carlisle Rainey"
 date: "2023-08-18"
-categories: [hypothesis tests, confidence intervals, equivalence tests, negligible effects, computing, R, marginaleffects]
+categories: [hypothesis tests, confidence intervals, equivalence tests, TOSTs, negligible effects, computing, R, marginaleffects]
 description: "In this post, I try out the {marginaleffects} package to conduct two one-sided tests (TOSTs) to test a hypothesis of a negligible effect (i.e., equivalence testing)."
 image: "rainey-2014-cg-example.png"
 reference-location: margin
@@ -119,17 +119,17 @@ X_c <- data.frame(
 
 # compute the comparison for eneg
 eneg_comp <- comparisons(fit,
-                    vcov = Sigma_hat,
-                    newdata = X_c, 
-                    variables = list("eneg" = c(1.06, 2.48)), # low to high value
-                    conf_level = 0.90)
+                         vcov = Sigma_hat,
+                         newdata = X_c, 
+                         variables = list("eneg" = c(1.06, 2.48)), # low to high value
+                         conf_level = 0.90)
 
 # compute the comparison for average magnitude
-mag_comp<- comparisons(fit,
-                    vcov = Sigma_hat,
-                    newdata = X_c, 
-                    variables = list("average_magnitude" = c(1, 7)), # low to high value
-                    conf_level = 0.90)
+mag_comp <- comparisons(fit,
+                        vcov = Sigma_hat,
+                        newdata = X_c, 
+                        variables = list("average_magnitude" = c(1, 7)), # low to high value
+                        conf_level = 0.90)
 ```
 
 Now we can just plot the 90% CIs with `ggplot()` and check whether the entire interval falls inside the bounds.
