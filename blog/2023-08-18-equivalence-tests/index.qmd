@@ -10,17 +10,17 @@ reference-location: margin
 toc: false
 twitter-card:
   card-style: summary_large_image
-  image: "rainey-2014-cg-example.png"
+  image: "twitter-card.png"
   title: "Equivalence Tests with {marginaleffects}"  # less than 55 chars
   description: "Reproducing the Clark and Golder (2006) example from Rainey (2014)"  # less than 125 chars
 open-graph:   
-  image: "rainey-2014-cg-example.png"
+  image: "twitter-card.png"
   title: "Equivalence Tests with {marginaleffects}"  # less than 55 chars
   description: "Reproducing the Clark and Golder (2006) example from Rainey (2014)"  # less than 125 chars
 code-annotations: hover
 code-fold: false
 execute: 
-  cache: true
+  cache: false
 draft: false
 ---
 
@@ -157,6 +157,13 @@ hypotheses(mag_comp, equivalence = c(-m, m))
 
 Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST *p*-value (i.e., the `p(Equiv)` column) is less than 0.05, so our conclusions are (and must be) identical.
 
+## Final thoughts
+
+1. {marginaleffects} is a great package. I think it's the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I'm very impressed so far.
+1. The {marginaleffects} [book](https://marginaleffects.com) has a whole [chapter](https://marginaleffects.com/articles/equivalence.html) on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a *p*-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you're using {marginaleffects} to do equivalence tests, I recommend setting `conf_level = 0.90`.^[I would make a similar point about one-sided tests as well, but that's less correct, because it should be a *one-sided* 95% CI.]
+1. For a more recent example, Jake Jares and Neil Malhotra have a [new paper](https://jakejares.com/uploads/Jares%20and%20Malhotra%20%282023%29%20--%20Policy%20Impact%20and%20Voter%20Mobilization.pdf) that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It's an excellent model. See pp. 26-31. They "show that improved compensation outcomes had negligible impacts on Republican farmers' midterm turnout and campaign contributions, even though such variation in benefits significantly affected whether farmers viewed the intervention as helpful."
+
+
 ## Complete code
 
 To make this easy to reproduce, here's the complete code:
@@ -228,16 +235,3 @@ hypotheses(mag_comp, equivalence = c(-m, m))
 
 ```
 
-```{r}
-#| echo: false
-#| 
-
-gg <- ggplot(comp, aes(x = estimate,
-                 xmin = conf.low,
-                 xmax = conf.high, 
-                 y = term)) + 
-  geom_vline(xintercept = c(-m, m), linetype = "dashed") + 
-  geom_errorbarh(height = 0) + 
-  geom_point() + 
-  theme_linedraw()
-```

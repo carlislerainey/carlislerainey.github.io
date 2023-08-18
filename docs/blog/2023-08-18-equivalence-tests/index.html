@@ -115,20 +115,20 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Equivalence Tests with {marginaleffects}">
 <meta property="og:description" content="Reproducing the Clark and Golder (2006) example from Rainey (2014)">
-<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/twitter-card.png">
 <meta property="og:site-name" content="Carlisle Rainey">
-<meta property="og:image:height" content="1316">
-<meta property="og:image:width" content="1606">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="1000">
 <meta name="twitter:title" content="Equivalence Tests with {marginaleffects}">
 <meta name="twitter:description" content="Reproducing the Clark and Golder (2006) example from Rainey (2014)">
-<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/twitter-card.png">
 <meta name="twitter:creator" content="@carlislerainey">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image-height" content="1316">
-<meta name="twitter:image-width" content="1606">
+<meta name="twitter:image-height" content="500">
+<meta name="twitter:image-width" content="1000">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -184,9 +184,10 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -261,7 +262,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <p>Before computing their specific quantities of interest, let’s reproduce their regression model. Here’s their table that we’re trying to reproduce.</p>
 <p><img src="clark-golder-2006-table2.png" class="img-fluid"></p>
 <p>And here’s a reproduction of their estimates using the data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-1_62a373c600961bc01ae467ff60a35a02">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install my data packages from github</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)  <span class="co"># only updates if newer version available</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -362,47 +363,59 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a>, I made this plot. I want to reproduce it here.</p>
 <p><img src="rainey-2014-cg-example.png" class="img-fluid"></p>
 <p>These differences (and the 90% CIs) is really easy to compute using {marginaleffects}! (I’m only doing Clark and Golder’s original results, not any of the robustness checks)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_b44fa7c39d89ff47ee4486f908d619f0">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the smallest substantively interesting effect</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">0.62</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame setting the values of the "other" variables</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>X_c <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">eneg =</span> <span class="fl">1.06</span>,  <span class="co"># low value</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_magnitude =</span> <span class="dv">1</span>,  <span class="co"># low value</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_tier =</span> <span class="dv">0</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">en_pres =</span> <span class="dv">0</span>, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">proximity =</span> <span class="dv">0</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for eneg</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>eneg_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for average magnitude</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>mag_comp<span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the smallest substantively interesting effect</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">0.62</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame setting the values of the "other" variables</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>X_c <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">eneg =</span> <span class="fl">1.06</span>,  <span class="co"># low value</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_magnitude =</span> <span class="dv">1</span>,  <span class="co"># low value</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_tier =</span> <span class="dv">0</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">en_pres =</span> <span class="dv">0</span>, </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">proximity =</span> <span class="dv">0</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for eneg</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>eneg_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for average magnitude</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>mag_comp<span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can just plot them with <code>ggplot()</code> and check whether the entire interval falls inside the bounds.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_51d16ed40c1ed911b571de03fcf10eaa">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eneg_comp, mag_comp)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comp, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eneg_comp, mag_comp)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comp, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -412,9 +425,9 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <section id="computing-the-tost-p-values-using-hypotheses" class="level2">
 <h2 class="anchored" data-anchor-id="computing-the-tost-p-values-using-hypotheses">Computing the TOST <em>p</em>-values using <code>hypotheses()</code></h2>
 <p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_3bc1d198adcb95415cc10780fd10c29b">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(eneg_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(eneg_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Term    Contrast Estimate Std. Error    z Pr(&gt;|z|)   S   2.5 % 97.5 %
@@ -426,7 +439,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value, conf.low, conf.high, predicted_lo, predicted_hi, predicted, eneg, average_magnitude, upper_tier, en_pres, proximity, enep, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(mag_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(mag_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
               Term Contrast Estimate Std. Error    z Pr(&gt;|z|)    S 2.5 % 97.5 %
@@ -441,74 +454,83 @@ Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value
 </div>
 <p>Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST <em>p</em>-value (i.e., the <code>p(Equiv)</code> column) is less than 0.05, so our conclusions are (and must be) identical.</p>
 </section>
+<section id="final-thoughts" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<ol type="1">
+<li>{marginaleffects} is a great package. I think it’s the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I’m very impressed so far.</li>
+<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/articles/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/uploads/Jares%20and%20Malhotra%20%282023%29%20--%20Policy%20Impact%20and%20Voter%20Mobilization.pdf">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model. See pp.&nbsp;26-31. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected whether farmers viewed the intervention as helpful.”</li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
 <section id="complete-code" class="level2">
 <h2 class="anchored" data-anchor-id="complete-code">Complete code</h2>
 <p>To make this easy to reproduce, here’s the complete code:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_bea9729f8f2d4f2c0fff76cf48f1bf09">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install my data packages from github</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)  <span class="co"># only updates if newer version available</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># load clark and golder's data set</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>cg <span class="ot">&lt;-</span> crdata<span class="sc">::</span>cg2006</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduce their estimates</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> enep <span class="sc">~</span> eneg<span class="sc">*</span><span class="fu">log</span>(average_magnitude) <span class="sc">+</span> eneg<span class="sc">*</span>upper_tier <span class="sc">+</span> en_pres<span class="sc">*</span>proximity</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(f, <span class="at">data =</span> cg)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># cluster-robust standard errors</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>Sigma_hat <span class="ot">&lt;-</span> sandwich<span class="sc">::</span><span class="fu">vcovCL</span>(fit, <span class="at">cluster =</span> <span class="sc">~</span> country, <span class="at">type =</span> <span class="st">"HC1"</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># regression table</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(fit, <span class="at">vcov =</span> Sigma_hat, <span class="at">fmt =</span> <span class="dv">2</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># the smallest substantively interesting effect</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">0.62</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame setting the values of the "other" variables</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>X_c <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">eneg =</span> <span class="fl">1.06</span>,  <span class="co"># low value</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_magnitude =</span> <span class="dv">1</span>,  <span class="co"># low value</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_tier =</span> <span class="dv">0</span>,</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">en_pres =</span> <span class="dv">0</span>, </span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">proximity =</span> <span class="dv">0</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for eneg</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>eneg_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for average magnitude</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>mag_comp<span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eneg_comp, mag_comp)</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comp, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests (TOSTs)</span></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(eneg_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(mag_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(marginaleffects)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install my data packages from github</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)  <span class="co"># only updates if newer version available</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># load clark and golder's data set</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>cg <span class="ot">&lt;-</span> crdata<span class="sc">::</span>cg2006</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduce their estimates</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> enep <span class="sc">~</span> eneg<span class="sc">*</span><span class="fu">log</span>(average_magnitude) <span class="sc">+</span> eneg<span class="sc">*</span>upper_tier <span class="sc">+</span> en_pres<span class="sc">*</span>proximity</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(f, <span class="at">data =</span> cg)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># cluster-robust standard errors</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>Sigma_hat <span class="ot">&lt;-</span> sandwich<span class="sc">::</span><span class="fu">vcovCL</span>(fit, <span class="at">cluster =</span> <span class="sc">~</span> country, <span class="at">type =</span> <span class="st">"HC1"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># regression table</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(fit, <span class="at">vcov =</span> Sigma_hat, <span class="at">fmt =</span> <span class="dv">2</span>, <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co"># the smallest substantively interesting effect</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">0.62</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co"># a data frame setting the values of the "other" variables</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>X_c <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">eneg =</span> <span class="fl">1.06</span>,  <span class="co"># low value</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">average_magnitude =</span> <span class="dv">1</span>,  <span class="co"># low value</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper_tier =</span> <span class="dv">0</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">en_pres =</span> <span class="dv">0</span>, </span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">proximity =</span> <span class="dv">0</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for eneg</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>eneg_comp <span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"eneg"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.06</span>, <span class="fl">2.48</span>)), <span class="co"># low to high value</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the comparison for average magnitude</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>mag_comp<span class="ot">&lt;-</span> <span class="fu">comparisons</span>(fit,</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vcov =</span> Sigma_hat,</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>                    <span class="at">newdata =</span> X_c, </span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>                    <span class="at">variables =</span> <span class="fu">list</span>(<span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(eneg_comp, mag_comp)</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(comp, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests (TOSTs)</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(eneg_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(mag_comp, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
