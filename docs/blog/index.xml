@@ -35,7 +35,7 @@
 <blockquote class="blockquote">
 <p>Hypothesis testing is a powerful empirical argument not because it shows that the data are consistent with the research hypothesis, but because it shows that the data are inconsistent with other hypotheses (i.e., the null hypothesis). However, researchers sometimes reverse this logic when arguing for a negligible effect, showing only that the data are consistent with “no effect” and failing to show that the data are inconsistent with meaningful effects. When researchers argue that a variable has “no effect” because its confidence interval contains zero, they take no steps to rule out large, meaningful effects, making the empirical claim considerably less persuasive (<a href="https://doi.org/10.1136/bmj.311.7003.485">Altman and Bland 1995</a>; <a href="https://doi.org/10.1177/106591299905200309">Gill 1999</a>; <a href="https://psycnet.apa.org/doi/10.1037/1082-989X.5.2.241">Nickerson 2000</a>).</p>
 </blockquote>
-<p>But here’s a critical point, it’s impossible to reject every hypothesis except <em>exactly</em> no effect. Instead, the researcher must define a range of substantively “negligible” effects. This requires a substantive judgement about those effects that are negligible and those that are not.</p>
+<p>But here’s a critical point, it’s impossible to reject every hypothesis except <em>exactly</em> no effect. Instead, the researcher must define a range of substantively “negligible” effects. The researcher <em>can</em> reject the null hypothesis that the effect falls outside this range of negligible effects. However, this requires a substantive judgement about those effects that are negligible and those that are not.</p>
 <p>Here’s what I wrote:</p>
 <blockquote class="blockquote">
 <p>Researchers who wish to argue for a negligible effect must precisely define the set of effects that are deemed “negligible” as well as the set of effects that are “meaningful.” This requires defining the smallest substantively meaningful effect, which I denote as <img src="https://latex.codecogs.com/png.latex?m">. The definition must be debated by substantive scholars for any given context because the appropriate <img src="https://latex.codecogs.com/png.latex?m"> varies widely across applications.</p>
@@ -43,18 +43,18 @@
 </section>
 <section id="clark-and-golder-2006" class="level2">
 <h2 class="anchored" data-anchor-id="clark-and-golder-2006">Clark and Golder (2006)</h2>
-<p><a href="https://doi.org/10.1177/0010414005278420">Clark and Golder (2006)</a> offer a nice example of this sort of hypothesis. I’ll refer you there and to <a href="https://doi.org/10.1111/ajps.12102">Rainey 2014</a> for a complete discussion of their idea, but I’ll motivate it briefly here.</p>
+<p><a href="https://doi.org/10.1177/0010414005278420">Clark and Golder (2006)</a> offer a nice example of this sort of hypothesis. I’ll refer you there and to <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a> for a complete discussion of their idea, but I’ll motivate it briefly here.</p>
 <p>Explaining why a country might have only a few (i.e., two) parties, Clark and Golder write:</p>
 <blockquote class="blockquote">
 <p>First, it could be the case that the demand for parties is low because there are few social cleavages. In this situation, there would be few parties whether the electoral institutions were permissive or not. Second, it could be the case that the electoral system is not permissive. In this situation, there would be a small number of parties even if the demand for political parties were high. Only a polity characterized by both a high degree of social heterogeneity and a highly permissive electoral system is expected to produce a large number of parties. (p.&nbsp;683)</p>
 </blockquote>
 <p>Thus, they expect that electoral institutions won’t matter in socially homogenous systems. And they expect that social heterogeneity won’t matter in electoral systems that are not permissive.</p>
 </section>
-<section id="reproducing-clark-and-golder-2006" class="level2">
+<section id="reproducing-clark-and-golder-2006" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="reproducing-clark-and-golder-2006">Reproducing Clark and Golder (2006)</h2>
 <p>Before computing their specific quantities of interest, let’s reproduce their regression model. Here’s their table that we’re trying to reproduce.</p>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/clark-golder-2006-table2.png" class="img-fluid"></p>
-<p>And here’s a reproduction of their estimates using the data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.</p>
+<div class="page-columns page-full"><p>And here’s a reproduction of their estimates using the <code>cg2006</code> data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Run <code>?crdata::cg2006</code> for detailed documentation of this data set.</p></li></div></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -220,16 +220,16 @@ font-style: inherit;">+</span> statistic)</span></code></pre></div>
 <p>Success!</p>
 <p>They use <code>averge_magnitude</code> to measure the permissiveness of the electoral system and <code>eneg</code> to measure social heterogeneity.</p>
 </section>
-<section id="using-comparisons-to-compute-the-effects" class="level2">
+<section id="using-comparisons-to-compute-the-effects" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="using-comparisons-to-compute-the-effects">Using <code>comparisons()</code> to compute the effects</h2>
 <p>Now let’s compute the two quantities of interest. Clark and Golder argue for two negligible effects, which I make really concrete below.</p>
 <ul>
 <li><strong>Hypothesis 1</strong> Increasing the effective number of ethnic groups from the 10th percentile (1.06) to the 90th percentile (2.48) will not lead to a substantively meaningful change in the effective number of political parties when the district magnitude is one.</li>
 <li><strong>Hypothesis 2</strong> Increasing the district magnitude from one to seven will not lead to a substantively meaningful change in the effective number of political parties when the effective number of ethnic groups is one.</li>
 </ul>
-<p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a>, I made this plot. I want to reproduce it here.</p>
+<p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a>, I made the plot below. I want to reproduce it with {marginaleffects}.</p>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" class="img-fluid"></p>
-<p>These differences (and the 90% CIs) is really easy to compute using {marginaleffects}! (I’m only doing Clark and Golder’s original results, not any of the robustness checks)</p>
+<div class="page-columns page-full"><p>These differences (and the 90% CIs) are really easy to compute using {marginaleffects}!<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’m only doing Clark and Golder’s original results, not any of the robustness checks.</p></li></div></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -372,7 +372,7 @@ font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000
 background-color: null;
 font-style: inherit;">0.90</span>)</span></code></pre></div>
 </div>
-<p>Now we can just plot them with <code>ggplot()</code> and check whether the entire interval falls inside the bounds.</p>
+<p>Now we can just plot the 90% CIs with <code>ggplot()</code> and check whether the entire interval falls inside the bounds.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -427,11 +427,11 @@ font-style: inherit;">geom_point</span>() </span></code></pre></div>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In this case, we conclude that social heterogeneity (<code>eneg</code>) has a negligible effect because the 90% CI only contains substantively negligible values. However, the 90% CI for district magnitude (<code>average_magnitude</code>) contains substantively neglible and meaningful values, so we cannot reject the null hypothesis of a meaningful effect.</p>
+<p>In this case, we conclude that social heterogeneity (<code>eneg</code>) has a negligible effect because the 90% CI only contains substantively negligible values. However, the 90% CI for district magnitude (<code>average_magnitude</code>) contains substantively negligible and meaningful values, so we cannot reject the null hypothesis of a meaningful effect.</p>
 </section>
-<section id="computing-the-tost-p-values-using-hypotheses" class="level2">
+<section id="computing-the-tost-p-values-using-hypotheses" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="computing-the-tost-p-values-using-hypotheses">Computing the TOST <em>p</em>-values using <code>hypotheses()</code></h2>
-<p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.</p>
+<div class="page-columns page-full"><p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></li></div></div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -483,10 +483,10 @@ Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value
 <h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
 <ol type="1">
 <li>{marginaleffects} is a great package. I think it’s the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I’m very impressed so far.</li>
-<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/articles/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<sup>1</sup></li>
-<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/uploads/Jares%20and%20Malhotra%20%282023%29%20--%20Policy%20Impact%20and%20Voter%20Mobilization.pdf">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model. See pp.&nbsp;26-31. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected whether farmers viewed the intervention as helpful.”</li>
+<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/articles/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<sup>4</sup></li>
+<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/uploads/Jares%20and%20Malhotra%20%282023%29%20--%20Policy%20Impact%20and%20Voter%20Mobilization.pdf">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model to follow. See pp.&nbsp;26-31. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected whether farmers viewed the intervention as helpful.”</li>
 </ol>
-<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
+<div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
 <section id="complete-code" class="level2">
 <h2 class="anchored" data-anchor-id="complete-code">Complete code</h2>
 <p>To make this easy to reproduce, here’s the complete code:</p>
@@ -5572,15 +5572,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="2">Use dataset with <code>group</code> variable.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-4" data-code-annotation="1">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="7">Set <code>group</code> explicitly.</span>
+<span data-code-lines="7" data-code-cell="annotated-cell-4" data-code-annotation="2">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-4" data-code-lines="30,31">Expand x- and y-axis.</span>
+<span data-code-lines="30,31" data-code-cell="annotated-cell-4" data-code-annotation="3">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -5696,35 +5696,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-5" data-code-lines="2">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-5" data-code-annotation="1">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-5" data-code-lines="3">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-5" data-code-annotation="2">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-5" data-code-lines="5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-lines="5" data-code-cell="annotated-cell-5" data-code-annotation="3">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-5" data-code-lines="6">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-lines="6" data-code-cell="annotated-cell-5" data-code-annotation="4">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-cell="annotated-cell-5" data-code-lines="7">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-lines="7" data-code-cell="annotated-cell-5" data-code-annotation="5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-cell="annotated-cell-5" data-code-lines="8">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-lines="8" data-code-cell="annotated-cell-5" data-code-annotation="6">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-cell="annotated-cell-5" data-code-lines="10">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-lines="10" data-code-cell="annotated-cell-5" data-code-annotation="7">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-annotation="8" data-code-cell="annotated-cell-5" data-code-lines="11"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-lines="11" data-code-cell="annotated-cell-5" data-code-annotation="8"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
