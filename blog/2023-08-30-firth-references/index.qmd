@@ -27,7 +27,10 @@ I'm sure there are embarrassing omissions. If you see an omission, please let me
 
 ### The Two Main Papers
 
-@firth1993 originally introduced the idea. Kelly and I draw mostly on this paper---it's a wonderful paper. While our paper was working it's way through the review process, @kosmidis2021 follow-up with additional theoretical results that are relevant for the estimator as used in practice since 1993. Most importantly, they discuss the shrinkage property of the estimator, which is what Kelly and I highlight as under-appreciated. From my perpective, these are the two main papers to refer to if you're concerned about small sample bias in logistic regression models.
+1. @firth1993 originally introduced the idea. Kelly and I draw mostly on this paper---it's a wonderful paper. 
+1. @kosmidis2021 follow-up with additional theoretical results that are relevant for the estimator as used in practice since 1993. This happened to come out while our paper was working its way through the publication process. Most importantly, they discuss the shrinkage property of the estimator, which is what Kelly and I highlight as under-appreciated (and really important!).
+
+From my perpective, these are the two main papers to refer to if you're concerned about small sample bias in logistic regression models.
 
 ### Extensions
 
