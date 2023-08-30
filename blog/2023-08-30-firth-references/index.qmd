@@ -2,7 +2,7 @@
 title: "Firth's Logit: Some References"
 author: "Carlisle Rainey"
 date: "2023-08-30"
-categories: [logistic regression, small samples, Firth]
+categories: [methodology, logistic regression, small samples, Firth]
 description: "In this note, I collect some older and more recent work on Firth's penalized maximum likelihood estimator."
 toc: false
 code-annotations: hover
