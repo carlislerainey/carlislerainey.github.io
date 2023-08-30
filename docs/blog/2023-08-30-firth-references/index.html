@@ -207,7 +207,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <p>In <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span>, Kelly McCaskey and I offer a accessible and practical (re)introduction to Firth’s penalized maximum likelihood estimator that (1) corrects the small sample bias and (2) reduces the excessive variance of the usual maximum likelihood estimator.</p>
 <p>Below, I bookmark other references that might be helpful.</p>
-<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -217,15 +217,39 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<p><a href="https://stats.stackexchange.com/a/88743">This Stack Exchange answer</a> gives a brief, but careful explanation of Firth’s logit.</p>
-<p><span class="citation" data-cites="firth1993">Firth (<a href="#ref-firth1993" role="doc-biblioref">1993</a>)</span> originally introduced the idea. It’s a really wonderful paper. Then <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> follow-up with a another wonderful paper that formalizes some of the practical importance that Kelly and I highlight.</p>
-<p><span class="citation" data-cites="zietkiewicz2023">Zietkiewicz and Kosmidis (<a href="#ref-zietkiewicz2023" role="doc-biblioref">2023</a>)</span> talk about Firth’s logit in <em>very</em> large data sets. <span class="citation" data-cites="cook2018">Cook, Hays, and Franzese (<a href="#ref-cook2018" role="doc-biblioref">2018</a>)</span> make a good argument for using Firth’s estimator in panel data sets with binary outcomes and fixed effects. <span class="citation" data-cites="sterzinger2023">Sterzinger and Kosmidis (<a href="#ref-sterzinger2023" role="doc-biblioref">2023</a>)</span> apply these ideas to mixed models (or random effects models). <span class="citation" data-cites="sinkovec2021">Šinkovec et al. (<a href="#ref-sinkovec2021" role="doc-biblioref">2021</a>)</span> compare Firth’s approach to ridge regression, and suggest that Firth’s is superior in small or sparse data sets. <span class="citation" data-cites="puhr2017">Puhr et al. (<a href="#ref-puhr2017" role="doc-biblioref">2017</a>)</span> study Firth’s logit in the context of rare events and propose FLIC and FLAC as alternatives.</p>
-<p><span class="citation" data-cites="röver2022">Röver et al. (<a href="#ref-röver2022" role="doc-biblioref">2022</a>)</span> offer an application of Firth’s logit to clinical trials. <span class="citation" data-cites="turner2012">Turner and Firth (<a href="#ref-turner2012" role="doc-biblioref">2012</a>)</span> offer an application to Bradley-Terry models with the {BradleyTerry2} R package.</p>
-<p>I learned about Firth’s estimator from <span class="citation" data-cites="zorn2005">Zorn (<a href="#ref-zorn2005" role="doc-biblioref">2005</a>)</span>, who follows <span class="citation" data-cites="heinze2002">Heinze and Schemper (<a href="#ref-heinze2002" role="doc-biblioref">2002</a>)</span> in suggesting it as a solution to separation. According to David Firth in <a href="https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/">this blog post</a>, this is the application that stimulated interest in the approach after it went unnoticed for a few years. <em>(Great post, I highly recommend reading it!)</em> This application is how I first became interested in Firth’s estimator. Briefly, I think Firth’s default penalty might not be substantively reasonable in a given application <span class="citation" data-cites="rainey2016">(<a href="#ref-rainey2016" role="doc-biblioref">Rainey 2016</a>)</span> (see also <span class="citation" data-cites="beiser-mcgrath2020">Beiser-McGrath (<a href="#ref-beiser-mcgrath2020" role="doc-biblioref">2020</a>)</span>) and the usual likelihood ratio and score tests work well without the penalty <span class="citation" data-cites="rainey2023">(<a href="#ref-rainey2023" role="doc-biblioref">Rainey 2023</a>)</span>.</p>
+<p><a href="https://stats.stackexchange.com/a/88743">This Stack Exchange answer</a> gives a brief, but careful explanation of Firth’s logit. If you’re looking for a quick explanation, start here.</p>
+<section id="the-two-main-papers" class="level3">
+<h3 class="anchored" data-anchor-id="the-two-main-papers">The Two Main Papers</h3>
+<p><span class="citation" data-cites="firth1993">Firth (<a href="#ref-firth1993" role="doc-biblioref">1993</a>)</span> originally introduced the idea. Kelly and I draw mostly on this paper—it’s a wonderful paper. While our paper was working it’s way through the review process, <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> follow-up with additional theoretical results that are relevant for the estimator as used in practice since 1993. Most importantly, they discuss the shrinkage property of the estimator, which is what Kelly and I highlight as under-appreciated. From my perpective, these are the two main papers to refer to if you’re concerned about small sample bias in logistic regression models.</p>
+</section>
+<section id="extensions" class="level3">
+<h3 class="anchored" data-anchor-id="extensions">Extensions</h3>
+<p>Beyond these two main papers, there have been a few extensions. <span class="citation" data-cites="zietkiewicz2023">Zietkiewicz and Kosmidis (<a href="#ref-zietkiewicz2023" role="doc-biblioref">2023</a>)</span> talk about Firth’s logit in <em>very</em> large data sets. <span class="citation" data-cites="cook2018">Cook, Hays, and Franzese (<a href="#ref-cook2018" role="doc-biblioref">2018</a>)</span> make a good argument for using Firth’s estimator in panel data sets with binary outcomes and fixed effects. <span class="citation" data-cites="sterzinger2023">Sterzinger and Kosmidis (<a href="#ref-sterzinger2023" role="doc-biblioref">2023</a>)</span> apply these ideas to mixed models (or random effects models). <span class="citation" data-cites="sinkovec2021">Šinkovec et al. (<a href="#ref-sinkovec2021" role="doc-biblioref">2021</a>)</span> compare Firth’s approach to ridge regression, and suggest that Firth’s is superior in small or sparse data sets. <span class="citation" data-cites="puhr2017">Puhr et al. (<a href="#ref-puhr2017" role="doc-biblioref">2017</a>)</span> study Firth’s logit in the context of rare events and propose FLIC and FLAC as alternatives.</p>
+</section>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+<ul>
+<li><span class="citation" data-cites="röver2022">Röver et al. (<a href="#ref-röver2022" role="doc-biblioref">2022</a>)</span> offer an application of Firth’s logit to clinical trials.</li>
+<li><span class="citation" data-cites="turner2012">Turner and Firth (<a href="#ref-turner2012" role="doc-biblioref">2012</a>)</span> offer an application to Bradley-Terry models with the {BradleyTerry2} R package.</li>
+</ul>
+</section>
+<section id="separation-and-finiteness" class="level3">
+<h3 class="anchored" data-anchor-id="separation-and-finiteness">Separation and Finiteness</h3>
+<p>I learned about Firth’s estimator from <span class="citation" data-cites="zorn2005">Zorn (<a href="#ref-zorn2005" role="doc-biblioref">2005</a>)</span>, who follows <span class="citation" data-cites="heinze2002">Heinze and Schemper (<a href="#ref-heinze2002" role="doc-biblioref">2002</a>)</span> in suggesting it as a solution to separation. According to David Firth in <a href="https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/">this blog post</a>, this is the application that stimulated interest in the approach after it went relatively unnoticed for a few years. <em>(Great post, I highly recommend reading it!)</em> This application piqued my interest in Firth’s estimator. Briefly, I think Firth’s default penalty might not be substantively reasonable in a given application <span class="citation" data-cites="rainey2016">(<a href="#ref-rainey2016" role="doc-biblioref">Rainey 2016</a>)</span> (see also <span class="citation" data-cites="beiser-mcgrath2020">Beiser-McGrath (<a href="#ref-beiser-mcgrath2020" role="doc-biblioref">2020</a>)</span>) and the usual likelihood ratio and score tests work well without the penalty <span class="citation" data-cites="rainey2023">(<a href="#ref-rainey2023" role="doc-biblioref">Rainey 2023</a>)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>For more on Firth’s logit, see <a href="https://www.ikosmidis.com/research/">Ioannis Kosmidis</a>’ research page and Georg Heinz <a href="https://scholar.google.com/citations?user=HhfU2UQAAAAJ">Google Scholar page</a>.</p>
+</div>
+</div>
+</div>
 
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-beiser-mcgrath2020" class="csl-entry" role="listitem">

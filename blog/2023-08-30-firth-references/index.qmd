@@ -19,19 +19,29 @@ In @rainey2021, Kelly McCaskey and I offer a accessible and practical (re)introd
 
 Below, I bookmark other references that might be helpful.
 
-::: callout
+::: {.callout-note appearance="minimal"}
 I'm sure there are embarrassing omissions. If you see an omission, please let me know (self-promotion is encouraged, especially not-yet-published papers).
 :::
 
-[This Stack Exchange answer](https://stats.stackexchange.com/a/88743) gives a brief, but careful explanation of Firth's logit.
+[This Stack Exchange answer](https://stats.stackexchange.com/a/88743) gives a brief, but careful explanation of Firth's logit. If you're looking for a quick explanation, start here.
 
-@firth1993 originally introduced the idea. It's a really wonderful paper. Then @kosmidis2021 follow-up with a another wonderful paper that formalizes some of the practical importance that Kelly and I highlight.
+### The Two Main Papers
 
-@zietkiewicz2023 talk about Firth's logit in *very* large data sets. @cook2018 make a good argument for using Firth's estimator in panel data sets with binary outcomes and fixed effects. @sterzinger2023 apply these ideas to mixed models (or random effects models). @sinkovec2021 compare Firth's approach to ridge regression, and suggest that Firth's is superior in small or sparse data sets. @puhr2017 study Firth's logit in the context of rare events and propose FLIC and FLAC as alternatives.
+@firth1993 originally introduced the idea. Kelly and I draw mostly on this paper---it's a wonderful paper. While our paper was working it's way through the review process, @kosmidis2021 follow-up with additional theoretical results that are relevant for the estimator as used in practice since 1993. Most importantly, they discuss the shrinkage property of the estimator, which is what Kelly and I highlight as under-appreciated. From my perpective, these are the two main papers to refer to if you're concerned about small sample bias in logistic regression models.
 
-@röver2022 offer an application of Firth's logit to clinical trials. @turner2012 offer an application to Bradley-Terry models with the {BradleyTerry2} R package.
+### Extensions
 
-I learned about Firth's estimator from @zorn2005, who follows @heinze2002 in suggesting it as a solution to separation. According to David Firth in [this blog post](https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/), this is the application that stimulated interest in the approach after it went unnoticed for a few years. *(Great post, I highly recommend reading it!)* This application is how I first became interested in Firth's estimator. Briefly, I think Firth's default penalty might not be substantively reasonable in a given application [@rainey2016] (see also @beiser-mcgrath2020) and the usual likelihood ratio and score tests work well without the penalty [@rainey2023].
+Beyond these two main papers, there have been a few extensions. @zietkiewicz2023 talk about Firth's logit in *very* large data sets. @cook2018 make a good argument for using Firth's estimator in panel data sets with binary outcomes and fixed effects. @sterzinger2023 apply these ideas to mixed models (or random effects models). @sinkovec2021 compare Firth's approach to ridge regression, and suggest that Firth's is superior in small or sparse data sets. @puhr2017 study Firth's logit in the context of rare events and propose FLIC and FLAC as alternatives.
 
+### Applications
+
+- @röver2022 offer an application of Firth's logit to clinical trials.
+- @turner2012 offer an application to Bradley-Terry models with the {BradleyTerry2} R package.
+
+### Separation and Finiteness
+
+I learned about Firth's estimator from @zorn2005, who follows @heinze2002 in suggesting it as a solution to separation. According to David Firth in [this blog post](https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/), this is the application that stimulated interest in the approach after it went relatively unnoticed for a few years. *(Great post, I highly recommend reading it!)* This application piqued my interest in Firth's estimator. Briefly, I think Firth's default penalty might not be substantively reasonable in a given application [@rainey2016] (see also @beiser-mcgrath2020) and the usual likelihood ratio and score tests work well without the penalty [@rainey2023].
+
+::: {.callout-note appearance="minimal"}
 For more on Firth's logit, see [Ioannis Kosmidis](https://www.ikosmidis.com/research/)' research page and Georg Heinz [Google Scholar page](https://scholar.google.com/citations?user=HhfU2UQAAAAJ).
-
+:::
