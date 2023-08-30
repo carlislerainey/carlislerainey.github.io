@@ -1,0 +1,37 @@
+---
+title: "Firth's Logit: Some References"
+author: "Carlisle Rainey"
+date: "2023-08-30"
+categories: [logistic regression, small samples, Firth]
+description: "In this note, I collect some older and more recent work on Firth's penalized maximum likelihood estimator."
+toc: false
+code-annotations: hover
+reference-location: margin
+website:
+  twitter-card:
+    image: "/profile-tw.png"
+    card-style: "summary"
+draft: false
+bibliography: references.bib
+---
+
+In @rainey2021, Kelly McCaskey and I offer a accessible and practical (re)introduction to Firth's penalized maximum likelihood estimator that (1) corrects the small sample bias and (2) reduces the excessive variance of the usual maximum likelihood estimator.
+
+Below, I bookmark other references that might be helpful.
+
+::: callout
+I'm sure there are embarrassing omissions. If you see an omission, please let me know (self-promotion is encouraged, especially not-yet-published papers).
+:::
+
+[This Stack Exchange answer](https://stats.stackexchange.com/a/88743) gives a brief, but careful explanation of Firth's logit.
+
+@firth1993 originally introduced the idea. It's a really wonderful paper. Then @kosmidis2021 follow-up with a another wonderful paper that formalizes some of the practical importance that Kelly and I highlight.
+
+@zietkiewicz2023 talk about Firth's logit in *very* large data sets. @cook2018 make a good argument for using Firth's estimator in panel data sets with binary outcomes and fixed effects. @sterzinger2023 apply these ideas to mixed models (or random effects models). @sinkovec2021 compare Firth's approach to ridge regression, and suggest that Firth's is superior in small or sparse data sets. @puhr2017 study Firth's logit in the context of rare events and propose FLIC and FLAC as alternatives.
+
+@röver2022 offer an application of Firth's logit to clinical trials. @turner2012 offer an application to Bradley-Terry models with the {BradleyTerry2} R package.
+
+I learned about Firth's estimator from @zorn2005, who follows @heinze2002 in suggesting it as a solution to separation. According to David Firth in [this blog post](https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/), this is the application that stimulated interest in the approach after it went unnoticed for a few years. *(Great post, I highly recommend reading it!)* This application is how I first became interested in Firth's estimator. Briefly, I think Firth's default penalty might not be substantively reasonable in a given application [@rainey2016] (see also @beiser-mcgrath2020) and the usual likelihood ratio and score tests work well without the penalty [@rainey2023].
+
+For more on Firth's logit, see [Ioannis Kosmidis](https://www.ikosmidis.com/research/)' research page and Georg Heinz [Google Scholar page](https://scholar.google.com/citations?user=HhfU2UQAAAAJ).
+

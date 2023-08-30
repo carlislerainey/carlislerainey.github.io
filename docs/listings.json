@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/2023-08-30-firth-references/index.html",
       "/blog/2023-08-18-equivalence-tests/index.html",
       "/blog/2023-08-15-daily-writing/index.html",
       "/blog/2023-08-11-benchmarking-firth/index.html",

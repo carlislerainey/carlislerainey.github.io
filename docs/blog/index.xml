@@ -17,7 +17,90 @@
 <width>144</width>
 </image>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Fri, 18 Aug 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 30 Aug 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Firth’s Logit: Some References</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>In <span class="citation" data-cites="rainey2021">Rainey and McCaskey (2021)</span>, Kelly McCaskey and I offer a accessible and practical (re)introduction to Firth’s penalized maximum likelihood estimator that (1) corrects the small sample bias and (2) reduces the excessive variance of the usual maximum likelihood estimator.</p>
+<p>Below, I bookmark other references that might be helpful.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I’m sure there are embarrassing omissions. If you see an omission, please let me know (self-promotion is encouraged, especially not-yet-published papers).</p>
+</div>
+</div>
+</div>
+<p><a href="https://stats.stackexchange.com/a/88743">This Stack Exchange answer</a> gives a brief, but careful explanation of Firth’s logit.</p>
+<p><span class="citation" data-cites="firth1993">Firth (1993)</span> originally introduced the idea. It’s a really wonderful paper. Then <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (2021)</span> follow-up with a another wonderful paper that formalizes some of the practical importance that Kelly and I highlight.</p>
+<p><span class="citation" data-cites="zietkiewicz2023">Zietkiewicz and Kosmidis (2023)</span> talk about Firth’s logit in <em>very</em> large data sets. <span class="citation" data-cites="cook2018">Cook, Hays, and Franzese (2018)</span> make a good argument for using Firth’s estimator in panel data sets with binary outcomes and fixed effects. <span class="citation" data-cites="sterzinger2023">Sterzinger and Kosmidis (2023)</span> apply these ideas to mixed models (or random effects models). <span class="citation" data-cites="sinkovec2021">Šinkovec et al. (2021)</span> compare Firth’s approach to ridge regression, and suggest that Firth’s is superior in small or sparse data sets. <span class="citation" data-cites="puhr2017">Puhr et al. (2017)</span> study Firth’s logit in the context of rare events and propose FLIC and FLAC as alternatives.</p>
+<p><span class="citation" data-cites="röver2022">Röver et al. (2022)</span> offer an application of Firth’s logit to clinical trials. <span class="citation" data-cites="turner2012">Turner and Firth (2012)</span> offer an application to Bradley-Terry models with the {BradleyTerry2} R package.</p>
+<p>I learned about Firth’s estimator from <span class="citation" data-cites="zorn2005">Zorn (2005)</span>, who follows <span class="citation" data-cites="heinze2002">Heinze and Schemper (2002)</span> in suggesting it as a solution to separation. According to David Firth in <a href="https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/">this blog post</a>, this is the application that stimulated interest in the approach after it went unnoticed for a few years. <em>(Great post, I highly recommend reading it!)</em> This application is how I first became interested in Firth’s estimator. Briefly, I think Firth’s default penalty might not be substantively reasonable in a given application <span class="citation" data-cites="rainey2016">(Rainey 2016)</span> (see also <span class="citation" data-cites="beiser-mcgrath2020">Beiser-McGrath (2020)</span>) and the usual likelihood ratio and score tests work well without the penalty <span class="citation" data-cites="rainey2023">(Rainey 2023)</span>.</p>
+<p>For more on Firth’s logit, see <a href="https://www.ikosmidis.com/research/">Ioannis Kosmidis</a>’ research page and Georg Heinz <a href="https://scholar.google.com/citations?user=HhfU2UQAAAAJ">Google Scholar page</a>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-beiser-mcgrath2020" class="csl-entry">
+Beiser-McGrath, Liam F. 2020. <span>“Separation and Rare Events.”</span> <em>Political Science Research and Methods</em> 10 (2): 428–37. <a href="https://doi.org/10.1017/psrm.2020.46">https://doi.org/10.1017/psrm.2020.46</a>.
+</div>
+<div id="ref-cook2018" class="csl-entry">
+Cook, Scott J., Jude C. Hays, and Robert J. Franzese. 2018. <span>“Fixed Effects in Rare Events Data: A Penalized Maximum Likelihood Solution.”</span> <em>Political Science Research and Methods</em> 8 (1): 92–105. <a href="https://doi.org/10.1017/psrm.2018.40">https://doi.org/10.1017/psrm.2018.40</a>.
+</div>
+<div id="ref-firth1993" class="csl-entry">
+Firth, David. 1993. <span>“Bias Reduction of Maximum Likelihood Estimates.”</span> <em>Biometrika</em> 80 (1): 27–38. <a href="https://doi.org/10.1093/biomet/80.1.27">https://doi.org/10.1093/biomet/80.1.27</a>.
+</div>
+<div id="ref-heinze2002" class="csl-entry">
+Heinze, Georg, and Michael Schemper. 2002. <span>“A Solution to the Problem of Separation in Logistic Regression.”</span> <em>Statistics in Medicine</em> 21 (16): 2409–19. <a href="https://doi.org/10.1002/sim.1047">https://doi.org/10.1002/sim.1047</a>.
+</div>
+<div id="ref-kosmidis2021" class="csl-entry">
+Kosmidis, Ioannis, and David Firth. 2021. <span>“Jeffreys-Prior Penalty, Finiteness and Shrinkage in Binomial-Response Generalized Linear Models.”</span> <em>Biometrika</em> 108 (1): 71–82. <a href="https://doi.org/10.1093/biomet/asaa052">https://doi.org/10.1093/biomet/asaa052</a>.
+</div>
+<div id="ref-puhr2017" class="csl-entry">
+Puhr, Rainer, Georg Heinze, Mariana Nold, Lara Lusa, and Angelika Geroldinger. 2017. <span>“Firth’s Logistic Regression with Rare Events: Accurate Effect Estimates and Predictions?”</span> <em>Statistics in Medicine</em>. <a href="https://doi.org/10.1002/sim.7273">https://doi.org/10.1002/sim.7273</a>.
+</div>
+<div id="ref-rainey2016" class="csl-entry">
+Rainey, Carlisle. 2016. <span>“Dealing with Separation in Logistic Regression Models.”</span> <em>Political Analysis</em> 24 (3): 339–55. <a href="https://doi.org/10.1093/pan/mpw014">https://doi.org/10.1093/pan/mpw014</a>.
+</div>
+<div id="ref-rainey2023" class="csl-entry">
+———. 2023. <span>“Hypothesis Tests Under Separation.”</span> <a href="http://dx.doi.org/10.31235/osf.io/bmvnu">http://dx.doi.org/10.31235/osf.io/bmvnu</a>.
+</div>
+<div id="ref-rainey2021" class="csl-entry">
+Rainey, Carlisle, and Kelly McCaskey. 2021. <span>“Estimating Logit Models with Small Samples.”</span> <em>Political Science Research and Methods</em> 9 (3): 549–64. <a href="https://doi.org/10.1017/psrm.2021.9">https://doi.org/10.1017/psrm.2021.9</a>.
+</div>
+<div id="ref-röver2022" class="csl-entry">
+Röver, Christian, Moreno Ursino, Tim Friede, and Sarah Zohar. 2022. <span>“A Straightforward Meta<span>-</span>Analysis Approach for Oncology Phase I Dose<span>-</span>Finding Studies.”</span> <em>Statistics in Medicine</em> 41 (20): 3915–40. <a href="https://doi.org/10.1002/sim.9484">https://doi.org/10.1002/sim.9484</a>.
+</div>
+<div id="ref-sinkovec2021" class="csl-entry">
+Šinkovec, Hana, Georg Heinze, Rok Blagus, and Angelika Geroldinger. 2021. <span>“To Tune or Not to Tune, a Case Study of Ridge Logistic Regression in Small or Sparse Datasets.”</span> <em>BMC Medical Research Methodology</em> 21 (1). <a href="https://doi.org/10.1186/s12874-021-01374-y">https://doi.org/10.1186/s12874-021-01374-y</a>.
+</div>
+<div id="ref-sterzinger2023" class="csl-entry">
+Sterzinger, Philipp, and Ioannis Kosmidis. 2023. <span>“Maximum Softly-Penalized Likelihood for Mixed Effects Logistic Regression.”</span> <em>Statistics and Computing</em> 33 (2). <a href="https://doi.org/10.1007/s11222-023-10217-3">https://doi.org/10.1007/s11222-023-10217-3</a>.
+</div>
+<div id="ref-turner2012" class="csl-entry">
+Turner, Heather, and David Firth. 2012. <span>“Bradley-Terry Models in<span><em>R</em></span>: The<span><strong>BradleyTerry2</strong></span>Package.”</span> <em>Journal of Statistical Software</em> 48 (9). <a href="https://doi.org/10.18637/jss.v048.i09">https://doi.org/10.18637/jss.v048.i09</a>.
+</div>
+<div id="ref-zietkiewicz2023" class="csl-entry">
+Zietkiewicz, Patrick, and Ioannis Kosmidis. 2023. <span>“Bounded-Memory Adjusted Scores Estimation in Generalized Linear Models with Large Data Sets.”</span> <a href="https://doi.org/10.48550/ARXIV.2307.07342">https://doi.org/10.48550/ARXIV.2307.07342</a>.
+</div>
+<div id="ref-zorn2005" class="csl-entry">
+Zorn, Christopher. 2005. <span>“A Solution to Separation in Binary Response Models.”</span> <em>Political Analysis</em> 13 (2): 157–70. <a href="https://doi.org/10.1093/pan/mpi009">https://doi.org/10.1093/pan/mpi009</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>logistic regression</category>
+  <category>small samples</category>
+  <category>Firth</category>
+  <guid>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</guid>
+  <pubDate>Wed, 30 Aug 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Equivalence Tests Using {marginaleffects}</title>
   <dc:creator>Carlisle Rainey</dc:creator>
