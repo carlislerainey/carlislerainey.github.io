@@ -23,13 +23,15 @@
     - Political Behavior
 
 - title: "Hypothesis Tests Under Separation"
-  type: "Working"
+  type: "Forthcoming"
   author: Carlisle Rainey
-  date: 2023-07-30
-  status: "Conditionally accepted at <em>Political Analysis</em>"
+  date: 2023-09-07
+  status: "Forthcoming at <em>Political Analysis</em>"
+  journal: "<em>Political Analysis</em>"
+  pubopen: "https://doi.org/10.1017/pan.2023.28"
   preprint: "https://osf.io/preprints/socarxiv/bmvnu"
   osf: "https://osf.io/wn2s4/"
-  github: "https://github.com/carlislerainey/wilks"
+  dataverse: "https://doi.org/10.7910/DVN/6EYRJG"
   note: 'See also <a href="https://www.cambridge.org/core/journals/political-analysis">Rainey (2016)</a>'
   categories: 
     - Hypothesis Testing
