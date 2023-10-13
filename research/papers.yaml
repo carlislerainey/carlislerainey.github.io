@@ -1,4 +1,23 @@
 
+- title: "Generational Differences in Abortion Attitudes in the United States: Will Dobbs v. Jackson Become Starkly Counter-Majoritarian?"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+    - Robert Jackson
+  date: 2023-10-13
+  status: "Working paper"
+  preprint: "https://osf.io/preprints/socarxiv/jmz96/"
+  dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
+  
+- title: "The Limits of Single-Topic Designs"
+  type: "Working"
+  author:
+    - Scott Clifford
+    - Carlisle Rainey
+  date: 2023-10-10
+  status: "Working paper"
+  preprint: "https://doi.org/10.31235/osf.io/zaykd"
+
 - title: "Estimators for Topic-Sampling Designs"
   type: "Working"
   author:
@@ -8,7 +27,7 @@
   status: "Working paper"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
 
-- title: "Generation Effects on Americans’ Symbolic Ideology and Attitudes Toward the Economic Role of Government"
+- title: "Generation Effects on Americans' Symbolic Ideology and Attitudes Toward the Economic Role of Government"
   type: "Working"
   author:
     - Robert Jackson

@@ -1,5 +1,15 @@
 [
   {
+    "listing": "/talks/index.html",
+    "items": [
+      "/talks/2023-topic-sampling/index.html"
+    ]
+  },
+  {
+    "listing": "/research/index.html",
+    "items": []
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/2023-08-30-firth-references/index.html",
@@ -10,16 +20,6 @@
       "/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html",
       "/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html",
       "/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html"
-    ]
-  },
-  {
-    "listing": "/research/index.html",
-    "items": []
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/2023-topic-sampling/index.html"
     ]
   }
 ]
