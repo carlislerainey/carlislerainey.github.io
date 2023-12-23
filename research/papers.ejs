@@ -40,6 +40,12 @@
         </a> 
       <% } %>
       
+      <% if (item.website) { %>
+        <a role="button" href="<%= item.website %>" type="button" class="btn btn-outline-secondary btn-xs"> 
+          <i class="bi bi-filetype-html ai-lg"></i> Project Website
+        </a>
+      <% } %>
+      
       <% if (item.pdf) { %>
         <a role="button" href="<%= item.pdf %>" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 

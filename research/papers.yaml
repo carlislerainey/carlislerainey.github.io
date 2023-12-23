@@ -1,4 +1,18 @@
 
+- title: "The Dissent Score: Using Events Data to Measure Dissent"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+    - Harley Roe
+    - Qing Wang
+    - Nick Dietrich
+  date: 2023-12-23
+  status: "Working paper"
+  preprint: "https://osf.io/preprints/socarxiv/dw7np"
+  website: "https://www.carlislerainey.com/dissent-scores/"
+  note: 'The dissent score data set is available on <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CL4CA8">Dataverse</a>.'
+
+
 - title: "Generational Differences in Abortion Attitudes in the United States: Will Dobbs v. Jackson Become Starkly Counter-Majoritarian?"
   type: "Working"
   author:
@@ -23,7 +37,7 @@
   author:
     - Scott Clifford
     - Carlisle Rainey
-  date: 2023-08-10
+  date: 2023-12-18
   status: "Working paper"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
 
