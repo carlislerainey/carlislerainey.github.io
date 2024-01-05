@@ -26,16 +26,6 @@ I'm an Associate Professor in the Department of Political Science at Florida Sta
 
 ### Connect 
 
-If want to stay up-to-date on my work, please join my [email list](email-list/). Each semester, I send around a brief summary of things I'm working on, finding useful, and thinking about.
-
-```{=html}
-<div style="display: flex; justify-content: center;">
-  <a href="/email-list/">
-    <button type="button" class="btn btn-success"> <i class="bi bi-rocket-takeoff-fill"></i></i> Join My Email List!</button>
-  </a>
-</div>
-<br>
-```
-You can also subscribe to blog posts via <a href="/blog/index.xml">RSS</a>. I'm on [Twitter](https://twitter.com/carlislerainey), [Bluesky](https://bsky.app/profile/carlislerainey.bsky.social), and [Mastodon](https://sciences.social/@CarlisleRainey). I publicly version-control many of research projects and courses on [GitHub](https://github.com/carlislerainey). I upload my talks to [Speaker Deck](https://speakerdeck.com/carlislerainey). I'm on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en), [ORCID](https://orcid.org/0000-0002-8728-4696) and [OSF](https://osf.io/ewbyc/).
+If want to stay up-to-date on my work, please join my [email list](email-list/). You can also subscribe to blog posts via <a href="/blog/index.xml">RSS</a>. I'm on [Twitter](https://twitter.com/carlislerainey), [Bluesky](https://bsky.app/profile/carlislerainey.bsky.social), and [Mastodon](https://sciences.social/@CarlisleRainey). I publicly version-control many of research projects and courses on [GitHub](https://github.com/carlislerainey). I upload my talks to [Speaker Deck](https://speakerdeck.com/carlislerainey). I'm on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en), [ORCID](https://orcid.org/0000-0002-8728-4696) and [OSF](https://osf.io/ewbyc/).
 
 :::
