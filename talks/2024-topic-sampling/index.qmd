@@ -1,0 +1,20 @@
+---
+title: "Topic Sampling @ SPSA 2024"
+description: "A talk at the 2024 meeting of the Southern Political Science Association."
+author: "Carlisle Rainey"
+date: "2024-01-12"
+image: party-cue-effects.png
+twitter-card:
+  image: "party-cue-effects-tw.png"
+  card-style: "summary_large_image"
+---
+
+The three relevant papers are below.
+
+- Clifford, Scott, Thomas Leeper, and Carlisle Rainey. "Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues." Forthcoming in *Political Behavior*. [[Journal](https://doi.org/10.1007/s11109-023-09870-1)] [[Ungated](../../papers/gte.pdf)]
+- Clifford, Scott and Carlisle Rainey. "Estimators for Topic-Sampling Designs." [[Preprint](https://osf.io/preprints/socarxiv/7ady6/)]
+- Clifford, Scott and Carlisle Rainey. "The Limits of Single-Topic Experiments." [[Preprint](https://osf.io/zaykd)]
+
+Slides, with transitions [[Dropbox](https://www.dropbox.com/s/ubi7u2c7i3jtqz9/spsa-2024-transitions.pdf?raw=1)] and without [[Dropbox](https://www.dropbox.com/scl/fi/bbdc9t6kgwe2xyvthunek/spsa-2024.pdf?rlkey=i5ezpotjzhxq0a05dva6qpfqn&raw=1)]
+
+<script defer class="speakerdeck-embed" data-id="064df7ab1c374929bd6bd3b5b56d2fbb" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>

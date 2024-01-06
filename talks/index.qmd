@@ -3,7 +3,7 @@ title: "Talks"
 listing:
   id: grids
   type: grid
-  sort: "date"
+  sort: "date desc"
   grid-columns: 2
   image-height: 285px
 ---
