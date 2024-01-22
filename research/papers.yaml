@@ -1,4 +1,17 @@
 
+- title: "Data and Code Availability in Political Science Publications from 1995 to 2022"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+    - Harley Roe
+    - Qing Wang
+    - Hao Zhou
+  date: 2024-01-21
+  status: "Working paper"
+  preprint: "https://osf.io/preprints/socarxiv/a5yxe"
+  dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
+
+
 - title: "Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight"
   type: "Working"
   author:
@@ -21,8 +34,6 @@
   preprint: "https://doi.org/10.31235/osf.io/9p5h8"
   prereg: "https://osf.io/gjsft/"
   osf: "https://osf.io/2tf5j/"
-
-
 
 - title: "The Dissent Score: Using Events Data to Measure Dissent"
   type: "Working"
@@ -63,7 +74,7 @@
     - Scott Clifford
     - Carlisle Rainey
   date: 2023-12-18
-  status: "Working paper"
+  status: "Conditionally accepted at <em>Political Analysis</em>"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
 
 - title: "Generation Effects on Americans' Symbolic Ideology and Attitudes Toward the Economic Role of Government"
