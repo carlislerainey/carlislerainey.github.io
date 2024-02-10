@@ -43,8 +43,8 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
-      - href: email-list/index.qmd
-        text: "Email List"
+      #- href: email-list/index.qmd
+      #  text: "Email List"
         
   #margin-header: subscribe.html
       

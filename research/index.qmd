@@ -33,7 +33,7 @@ toc: false
 #page-layout: full
 ---
 
-You can find my papers on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en) as well.
+If want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en). 
 
 ## Working Papers
 
