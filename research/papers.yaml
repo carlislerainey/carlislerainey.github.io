@@ -4,6 +4,16 @@
   author:
     - Carlisle Rainey
     - Harley Roe
+  date: 2024-02-15
+  status: "Working paper"
+  preprint: "https://osf.io/preprints/socarxiv/df2ya"
+  dataverse: "https://doi.org/10.7910/DVN/0YSJCX"
+
+- title: "Data and Code Availability in Political Science Publications from 1995 to 2022"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+    - Harley Roe
     - Qing Wang
     - Hao Zhou
   date: 2024-01-21
