@@ -1,6 +1,6 @@
 ---
 title: "Topic Sampling @ EPOVB 2024"
-description: "A talk at the 2023 meeting of the Election, Public Opinion, and Voting Behavior section of APSA.."
+description: "A talk at the 2024 meeting of the Election, Public Opinion, and Voting Behavior section of APSA."
 author: "Carlisle Rainey"
 date: "2024-03-02"
 image: party-cue-effects.png
