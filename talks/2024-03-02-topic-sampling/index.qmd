@@ -9,6 +9,8 @@ twitter-card:
   card-style: "summary_large_image"
 ---
 
+Slides are available via Dropbox [here](https://www.dropbox.com/scl/fi/g2ui6jjnz6f82odifo7b0/topic-sampling.pdf?rlkey=ighkex3iywwvwacazgk1h8ym5&dl=0).
+
 The talk will be an amalgamation of several recent papers, but focus on two in particular:
 
 1. Clifford, Scott and Carlisle Rainey. "The Limits (and Strengths) of Single-Topic Experiments." [[Preprint](https://osf.io/zaykd)]
