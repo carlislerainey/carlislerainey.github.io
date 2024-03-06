@@ -1,0 +1,40 @@
+---
+title: "Dissent Scores @ Connected_Politics"
+description: "A talk at the March 6, 2024, meeting of the Connected_Politics Lab."
+author: "Carlisle Rainey"
+date: "2024-03-06"
+image: dissent-scores.png
+---
+
+
+## Most relevant links
+
+- [slides](https://www.dropbox.com/s/apf0qg3369weghb/dissent-scores.pdf?raw=1)
+- [preprint](https://osf.io/preprints/socarxiv/dw7np)
+- [project website](https://www.carlislerainey.com/dissent-scores/)
+- [data set](https://doi.org/10.7910/DVN/CL4CA8)
+
+## Code to download data
+
+```{r}
+#| eval: false
+
+# load packages
+library(tidyverse)
+library(dataverse)
+
+# get the dissent score data set from dataverse
+dissent <- get_dataframe_by_name(
+  filename = "dissent-scores.tab",
+  dataset  = "doi:10.7910/DVN/CL4CA8",
+  server   = "dataverse.harvard.edu", 
+  original = TRUE, 
+  .f = readr::read_csv) |> 
+  glimpse()
+```
+
+## Other links
+
+- `gamson.csv` is available [here](https://pos3713.github.io/data/gamson.csv), via the [data sets](https://pos3713.github.io/data.html) for my undergraduate research methods class. 
+- "Data and Code Availability in Political Science Publications from 1995 to 2022" [[DOI](https://osf.io/preprints/socarxiv/a5yxe)]
+- "The Data Availability Policies of Political Science Journals" [[DOI](https://osf.io/preprints/socarxiv/df2ya)]
