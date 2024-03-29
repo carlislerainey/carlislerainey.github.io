@@ -69,7 +69,7 @@
   preprint: "https://osf.io/preprints/socarxiv/jmz96/"
   dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
   
-- title: "The Limits of Single-Topic Designs"
+- title: "The Limits (and Strengths) of Single-Topic Experiments"
   type: "Working"
   author:
     - Scott Clifford
@@ -79,12 +79,12 @@
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
 - title: "Estimators for Topic-Sampling Designs"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Scott Clifford
     - Carlisle Rainey
   date: 2023-12-18
-  status: "Conditionally accepted at <em>Political Analysis</em>"
+  status: "Forthcoming at <em>Political Analysis</em>"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
 
 - title: "Generation Effects on Americans' Symbolic Ideology and Attitudes Toward the Economic Role of Government"
@@ -102,9 +102,10 @@
     - Political Behavior
 
 - title: "Hypothesis Tests Under Separation"
-  type: "Forthcoming"
+  type: "Published"
   author: Carlisle Rainey
   date: 2023-09-07
+  year: 2024
   status: "Forthcoming at <em>Political Analysis</em>"
   journal: "<em>Political Analysis</em>"
   pubopen: "https://doi.org/10.1017/pan.2023.28"
