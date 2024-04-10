@@ -70,12 +70,12 @@
   dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
   
 - title: "The Limits (and Strengths) of Single-Topic Experiments"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Scott Clifford
     - Carlisle Rainey
-  date: 2023-10-10
-  status: "Working paper"
+  date: 2024-03-20
+  status: "Conditionally accepted at at <em>Political Analysis</em>"
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
 - title: "Estimators for Topic-Sampling Designs"
