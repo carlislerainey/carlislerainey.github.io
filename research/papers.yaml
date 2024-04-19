@@ -1,4 +1,14 @@
 
+
+- title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+  date: 2024-04-19
+  status: "Working paper"
+  preprint: "https://doi.org/10.31222/osf.io/8z45v"
+  note: 'A commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em>'
+
 - title: "The Data Availability Policies of Political Science Journals"
   type: "Working"
   author:
@@ -75,7 +85,7 @@
     - Scott Clifford
     - Carlisle Rainey
   date: 2024-03-20
-  status: "Conditionally accepted at at <em>Political Analysis</em>"
+  status: "Conditionally accepted at <em>Political Analysis</em>"
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
 - title: "Estimators for Topic-Sampling Designs"
