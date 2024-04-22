@@ -28,12 +28,12 @@
 
 <section id="background-on-arguing-for-a-negligible-effect" class="level2">
 <h2 class="anchored" data-anchor-id="background-on-arguing-for-a-negligible-effect">Background on arguing for a negligible effect</h2>
-<p>First, a bit of background on the paper and the idea of hypothesizing that a variable “has no effect.”</p>
-<p>I remember sitting in a talk as a first-year graduate student, and the speaker said something like: “I expect no effect here, and, just as I expected, the difference is not statistically significant.” I was a little bit taken aback—of course, that’s not a compelling argument for a null effect. But I saw this approach taken again and again in published work.</p>
-<p>My first publication was an <em>AJPS</em> article (<a href="https://doi.org/10.1111/ajps.12102">Rainey 2014</a>) explaining why this doesn’t work well and how to do it better.</p>
+<p>I remember sitting in a talk as a first-year graduate student, and the speaker said something like: “I expect no effect here, and, just as I expected, the difference is not statistically significant.” I was a little bit taken aback—of course, that’s not a compelling argument for a null effect. A lack of statistical significance is an absence of evidence for an effect; it is not evidence of an absence of an effect.</p>
+<p>But I saw this approach taken again and again in published work. (And still do!)</p>
+<p>My first publication was an <em>AJPS</em> article <span class="citation" data-cites="rainey2014">(Rainey 2014)</span> (<a href="https://www.carlislerainey.com/papers/nme.pdf">Ungated PDF</a>) explaining why this doesn’t work well and how to do it better.</p>
 <p>Here’s what I wrote in that paper:</p>
 <blockquote class="blockquote">
-<p>Hypothesis testing is a powerful empirical argument not because it shows that the data are consistent with the research hypothesis, but because it shows that the data are inconsistent with other hypotheses (i.e., the null hypothesis). However, researchers sometimes reverse this logic when arguing for a negligible effect, showing only that the data are consistent with “no effect” and failing to show that the data are inconsistent with meaningful effects. When researchers argue that a variable has “no effect” because its confidence interval contains zero, they take no steps to rule out large, meaningful effects, making the empirical claim considerably less persuasive (<a href="https://doi.org/10.1136/bmj.311.7003.485">Altman and Bland 1995</a>; <a href="https://doi.org/10.1177/106591299905200309">Gill 1999</a>; <a href="https://psycnet.apa.org/doi/10.1037/1082-989X.5.2.241">Nickerson 2000</a>).</p>
+<p>Hypothesis testing is a powerful empirical argument not because it shows that the data are consistent with the research hypothesis, but because it shows that the data are inconsistent with other hypotheses (i.e., the null hypothesis). However, researchers sometimes reverse this logic when arguing for a negligible effect, showing only that the data are consistent with “no effect” and failing to show that the data are inconsistent with meaningful effects. When researchers argue that a variable has “no effect” because its confidence interval contains zero, they take no steps to rule out large, meaningful effects, making the empirical claim considerably less persuasive . <span class="citation" data-cites="altman1995 gill1999 nickerson2000">(Altman and Bland 1995; Gill 1999; Nickerson 2000)</span></p>
 </blockquote>
 <p>But here’s a critical point, it’s impossible to reject every hypothesis except <em>exactly</em> no effect. Instead, the researcher must define a range of substantively “negligible” effects. The researcher <em>can</em> reject the null hypothesis that the effect falls outside this range of negligible effects. However, this requires a substantive judgement about those effects that are negligible and those that are not.</p>
 <p>Here’s what I wrote:</p>
@@ -43,12 +43,12 @@
 </section>
 <section id="clark-and-golder-2006" class="level2">
 <h2 class="anchored" data-anchor-id="clark-and-golder-2006">Clark and Golder (2006)</h2>
-<p><a href="https://doi.org/10.1177/0010414005278420">Clark and Golder (2006)</a> offer a nice example of this sort of hypothesis. I’ll refer you there and to <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a> for a complete discussion of their idea, but I’ll motivate it briefly here.</p>
+<p><span class="citation" data-cites="clark2006">Clark and Golder (2006)</span> offer a nice example of this sort of hypothesis. I’ll refer you there and to <span class="citation" data-cites="rainey2014">Rainey (2014)</span> for a complete discussion of their idea, but I’ll motivate it briefly here.</p>
 <p>Explaining why a country might have only a few (i.e., two) parties, Clark and Golder write:</p>
 <blockquote class="blockquote">
 <p>First, it could be the case that the demand for parties is low because there are few social cleavages. In this situation, there would be few parties whether the electoral institutions were permissive or not. Second, it could be the case that the electoral system is not permissive. In this situation, there would be a small number of parties even if the demand for political parties were high. Only a polity characterized by both a high degree of social heterogeneity and a highly permissive electoral system is expected to produce a large number of parties. (p.&nbsp;683)</p>
 </blockquote>
-<p>Thus, they expect that electoral institutions won’t matter in socially homogenous systems. And they expect that social heterogeneity won’t matter in electoral systems that are not permissive.</p>
+<p>Thus, they expect that electoral institutions won’t matter in socially homogeneous systems. And they expect that social heterogeneity won’t matter in electoral systems that are not permissive.</p>
 </section>
 <section id="reproducing-clark-and-golder-2006" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="reproducing-clark-and-golder-2006">Reproducing Clark and Golder (2006)</h2>
@@ -118,33 +118,23 @@ font-style: inherit;">data =</span> cg)</span>
 <span id="cb1-14"></span>
 <span id="cb1-15"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># cluster-robust standard errors</span></span>
-<span id="cb1-16">Sigma_hat <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">vcovCL</span>(fit, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cluster =</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> country, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"HC1"</span>)</span>
-<span id="cb1-17"></span>
-<span id="cb1-18"><span class="co" style="color: #5E5E5E;
-background-color: null;
 font-style: inherit;"># regression table</span></span>
-<span id="cb1-19"><span class="fu" style="color: #4758AB;
+<span id="cb1-16"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">modelsummary</span>(fit, <span class="at" style="color: #657422;
+font-style: inherit;">modelsummary</span>(fit, </span>
+<span id="cb1-17">             <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat, <span class="at" style="color: #657422;
+font-style: inherit;">vcov =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> country, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># cluster-robust SE; multiple observations per country</span></span>
+<span id="cb1-18">             <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fmt =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+font-style: inherit;">2</span>, </span>
+<span id="cb1-19">             <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">shape =</span> term <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -233,7 +223,7 @@ font-style: inherit;">+</span> statistic)</span></code></pre></div>
 <li><strong>Hypothesis 1</strong> Increasing the effective number of ethnic groups from the 10th percentile (1.06) to the 90th percentile (2.48) will not lead to a substantively meaningful change in the effective number of political parties when the district magnitude is one.</li>
 <li><strong>Hypothesis 2</strong> Increasing the district magnitude from one to seven will not lead to a substantively meaningful change in the effective number of political parties when the effective number of ethnic groups is one.</li>
 </ul>
-<p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <a href="https://doi.org/10.1111/ajps.12102">Rainey (2014)</a>, I made the plot below. I want to reproduce it with {marginaleffects}.</p>
+<p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <span class="citation" data-cites="rainey2014">Rainey (2014)</span>, I made the plot below. I want to reproduce it with {marginaleffects}.</p>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" class="img-fluid"></p>
 <div class="page-columns page-full"><p>These differences (and the 90% CIs) are really easy to compute using {marginaleffects}!<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’m only doing Clark and Golder’s original results, not any of the robustness checks.</p></li></div></div>
 <div class="cell">
@@ -294,19 +284,21 @@ font-style: inherit;">0</span></span>
 <span id="cb2-15"></span>
 <span id="cb2-16"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"># compute the comparison for eneg</span></span>
-<span id="cb2-17">eneg_comp <span class="ot" style="color: #003B4F;
+font-style: inherit;"># compute the comparison for eneg and average magnitude</span></span>
+<span id="cb2-17">c <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">comparisons</span>(fit,</span>
-<span id="cb2-18">                         <span class="at" style="color: #657422;
+<span id="cb2-18">            <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat,</span>
-<span id="cb2-19">                         <span class="at" style="color: #657422;
+font-style: inherit;">vcov =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> country,</span>
+<span id="cb2-19">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">newdata =</span> X_c, </span>
-<span id="cb2-20">                         <span class="at" style="color: #657422;
+<span id="cb2-20">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -320,34 +312,10 @@ font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1.06</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">2.48</span>)), <span class="co" style="color: #5E5E5E;
+font-style: inherit;">2.48</span>),         <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># low to high value</span></span>
-<span id="cb2-21">                         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.90</span>)</span>
-<span id="cb2-22"></span>
-<span id="cb2-23"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># compute the comparison for average magnitude</span></span>
-<span id="cb2-24">mag_comp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">comparisons</span>(fit,</span>
-<span id="cb2-25">                        <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat,</span>
-<span id="cb2-26">                        <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">newdata =</span> X_c, </span>
-<span id="cb2-27">                        <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="st" style="color: #20794D;
+<span id="cb2-21">                             <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"average_magnitude"</span> <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -360,7 +328,7 @@ background-color: null;
 font-style: inherit;">7</span>)), <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># low to high value</span></span>
-<span id="cb2-28">                        <span class="at" style="color: #657422;
+<span id="cb2-22">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -378,30 +346,25 @@ font-style: inherit;">library</span>(tidyverse)</span>
 <span id="cb3-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># bind the comparisons together and plot</span></span>
-<span id="cb3-5">comp <span class="ot" style="color: #003B4F;
+<span id="cb3-5"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bind_rows</span>(eneg_comp, mag_comp)</span>
-<span id="cb3-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(comp, <span class="fu" style="color: #4758AB;
+font-style: inherit;">ggplot</span>(c, <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> estimate,</span>
-<span id="cb3-7">                 <span class="at" style="color: #657422;
+<span id="cb3-6">                 <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xmin =</span> conf.low,</span>
-<span id="cb3-8">                 <span class="at" style="color: #657422;
+<span id="cb3-7">                 <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xmax =</span> conf.high, </span>
-<span id="cb3-9">                 <span class="at" style="color: #657422;
+<span id="cb3-8">                 <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> term)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb3-10">  <span class="fu" style="color: #4758AB;
+<span id="cb3-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -416,12 +379,12 @@ background-color: null;
 font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb3-11">  <span class="fu" style="color: #4758AB;
+<span id="cb3-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_errorbarh</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb3-12">  <span class="fu" style="color: #4758AB;
+<span id="cb3-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() </span></code></pre></div>
 <div class="cell-output-display">
@@ -432,368 +395,149 @@ font-style: inherit;">geom_point</span>() </span></code></pre></div>
 </section>
 <section id="computing-the-tost-p-values-using-hypotheses" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="computing-the-tost-p-values-using-hypotheses">Computing the TOST <em>p</em>-values using <code>hypotheses()</code></h2>
-<div class="page-columns page-full"><p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></li></div></div>
+<div class="page-columns page-full"><p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<sup>3</sup> Note, though, that <strong>you must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</strong> I might have expected them to carry forward from the <code>comparisons()</code> above.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></li></div></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># hypothesis tests</span></span>
-<span id="cb4-2"><span class="fu" style="color: #4758AB;
+<span id="cb4-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">hypotheses</span>(eneg_comp, <span class="at" style="color: #657422;
+font-style: inherit;"># note: you must re-supply the vcov and conf_level arguments</span></span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">equivalence =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m, m))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- Term    Contrast Estimate Std. Error    z Pr(&gt;|z|)   S   2.5 % 97.5 %
- eneg 2.48 - 1.06    0.158      0.101 1.56    0.118 3.1 -0.0402  0.357
- p (NonSup) p (NonInf) p (Equiv) eneg average_magnitude upper_tier en_pres
-     &lt;0.001     &lt;0.001    &lt;0.001 1.06                 1          0       0
- proximity
-         0
-
-Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value, conf.low, conf.high, predicted_lo, predicted_hi, predicted, eneg, average_magnitude, upper_tier, en_pres, proximity, enep, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypotheses</span>(mag_comp, <span class="at" style="color: #657422;
+font-style: inherit;">hypotheses</span>(c, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">equivalence =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m, m))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-              Term Contrast Estimate Std. Error    z Pr(&gt;|z|)    S 2.5 % 97.5 %
- average_magnitude    7 - 1    0.696      0.113 6.16   &lt;0.001 30.3 0.474  0.917
- p (NonSup) p (NonInf) p (Equiv) eneg average_magnitude upper_tier en_pres
-      0.748     &lt;0.001     0.748 1.06                 1          0       0
- proximity
-         0
-
-Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value, conf.low, conf.high, predicted_lo, predicted_hi, predicted, eneg, average_magnitude, upper_tier, en_pres, proximity, enep, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv </code></pre>
-</div>
-</div>
-<p>Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST <em>p</em>-value (i.e., the <code>p(Equiv)</code> column) is less than 0.05, so our conclusions are (and must be) identical.</p>
-</section>
-<section id="final-thoughts" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
-<ol type="1">
-<li>{marginaleffects} is a great package. I think it’s the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I’m very impressed so far.</li>
-<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/articles/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<sup>4</sup></li>
-<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/uploads/Jares%20and%20Malhotra%20%282023%29%20--%20Policy%20Impact%20and%20Voter%20Mobilization.pdf">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model to follow. See pp.&nbsp;26-31. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected whether farmers viewed the intervention as helpful.”</li>
-</ol>
-<div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
-<section id="complete-code" class="level2">
-<h2 class="anchored" data-anchor-id="complete-code">Complete code</h2>
-<p>To make this easy to reproduce, here’s the complete code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># load packages</span></span>
-<span id="cb8-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb8-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(sandwich)</span>
-<span id="cb8-4"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(modelsummary)</span>
-<span id="cb8-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(marginaleffects)</span>
-<span id="cb8-6"></span>
-<span id="cb8-7"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># install my data packages from github</span></span>
-<span id="cb8-8">devtools<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"carlislerainey/crdata"</span>)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># only updates if newer version available</span></span>
-<span id="cb8-9"></span>
-<span id="cb8-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># load clark and golder's data set</span></span>
-<span id="cb8-11">cg <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> crdata<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span>cg2006</span>
-<span id="cb8-12"></span>
-<span id="cb8-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># reproduce their estimates</span></span>
-<span id="cb8-14">f <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> enep <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> eneg<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">log</span>(average_magnitude) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> eneg<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>upper_tier <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> en_pres<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span>proximity</span>
-<span id="cb8-15">fit <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(f, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> cg)</span>
-<span id="cb8-16"></span>
-<span id="cb8-17"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># cluster-robust standard errors</span></span>
-<span id="cb8-18">Sigma_hat <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">vcovCL</span>(fit, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">cluster =</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> country, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"HC1"</span>)</span>
-<span id="cb8-19"></span>
-<span id="cb8-20"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># regression table</span></span>
-<span id="cb8-21"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">modelsummary</span>(fit, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">fmt =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">shape =</span> term <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> model <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> statistic)</span>
-<span id="cb8-22"></span>
-<span id="cb8-23"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># the smallest substantively interesting effect</span></span>
-<span id="cb8-24">m <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.62</span></span>
-<span id="cb8-25"></span>
-<span id="cb8-26"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># a data frame setting the values of the "other" variables</span></span>
-<span id="cb8-27">X_c <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(</span>
-<span id="cb8-28">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">eneg =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.06</span>,  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># low value</span></span>
-<span id="cb8-29">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">average_magnitude =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># low value</span></span>
-<span id="cb8-30">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">upper_tier =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>,</span>
-<span id="cb8-31">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">en_pres =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, </span>
-<span id="cb8-32">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">proximity =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span></span>
-<span id="cb8-33">)</span>
-<span id="cb8-34"></span>
-<span id="cb8-35"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># compute the comparison for eneg</span></span>
-<span id="cb8-36">eneg_comp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">comparisons</span>(fit,</span>
-<span id="cb8-37">                         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat,</span>
-<span id="cb8-38">                         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">newdata =</span> X_c, </span>
-<span id="cb8-39">                         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"eneg"</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1.06</span>, <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2.48</span>)), <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># low to high value</span></span>
-<span id="cb8-40">                         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.90</span>)</span>
-<span id="cb8-41"></span>
-<span id="cb8-42"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># compute the comparison for average magnitude</span></span>
-<span id="cb8-43">mag_comp<span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">comparisons</span>(fit,</span>
-<span id="cb8-44">                       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">vcov =</span> Sigma_hat,</span>
-<span id="cb8-45">                       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">newdata =</span> X_c, </span>
-<span id="cb8-46">                       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"average_magnitude"</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>)), <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># low to high value</span></span>
-<span id="cb8-47">                       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.90</span>)</span>
-<span id="cb8-48"></span>
-<span id="cb8-49"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># bind the comparisons together and plot</span></span>
-<span id="cb8-50">comp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">bind_rows</span>(eneg_comp, mag_comp)</span>
-<span id="cb8-51"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(comp, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> estimate,</span>
-<span id="cb8-52">                 <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmin =</span> conf.low,</span>
-<span id="cb8-53">                 <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmax =</span> conf.high, </span>
-<span id="cb8-54">                 <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> term)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> </span>
-<span id="cb8-55">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xintercept =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>m, m), <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">linetype =</span> <span class="st" style="color: #20794D;
+font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">0.90</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">+</span> </span>
-<span id="cb8-56">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">vcov =</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">geom_errorbarh</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> </span>
-<span id="cb8-57">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() </span>
-<span id="cb8-58"></span>
-<span id="cb8-59"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># hypothesis tests (TOSTs)</span></span>
-<span id="cb8-60"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypotheses</span>(eneg_comp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">equivalence =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m, m))</span>
-<span id="cb8-61"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hypotheses</span>(mag_comp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">equivalence =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m, m))</span></code></pre></div>
+font-style: inherit;">~</span> country)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+              Term    Contrast Estimate Std. Error     z Pr(&gt;|z|)    S  5.0 %
+ average_magnitude 7 - 1          0.696      0.175 3.973   &lt;0.001 13.8  0.408
+ eneg              2.48 - 1.06    0.158      0.204 0.779    0.436  1.2 -0.176
+ 95.0 % p (NonSup) p (NonInf) p (Equiv) eneg average_magnitude upper_tier
+  0.984     0.6671     &lt;0.001    0.6671 1.06                 1          0
+  0.493     0.0117     &lt;0.001    0.0117 1.06                 1          0
+ en_pres proximity
+       0         0
+       0         0
+
+Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value, conf.low, conf.high, predicted_lo, predicted_hi, predicted, eneg, average_magnitude, upper_tier, en_pres, proximity, enep, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv 
+Type:  response </code></pre>
 </div>
+</div>
+<p>This doesn’t print super-nicely into this document, so let’s extract the important parts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># hypothesis tests, extracting the important pieces</span></span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hypotheses</span>(c, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">equivalence =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m, m), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">conf_level =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.90</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">vcov =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> country) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(term, contrast, estimate, conf.low, conf.high, p.value.equiv)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+              Term    Contrast Estimate CI low CI high p (Equiv)
+ average_magnitude 7 - 1          0.696  0.408   0.984    0.6671
+ eneg              2.48 - 1.06    0.158 -0.176   0.493    0.0117
 
-
+Columns: term, contrast, estimate, conf.low, conf.high, p.value.equiv </code></pre>
+</div>
+</div>
+<p>Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST <em>p</em>-value (i.e., the <code>p(Equiv)</code> column) is less than 0.05, so our conclusions are (and must be) identical.</p>
 </section>
+<section id="other-references" class="level2">
+<h2 class="anchored" data-anchor-id="other-references">Other references</h2>
+<p>For more on effective arguments for no effect, see the following:</p>
+<ul>
+<li><span class="citation" data-cites="lakens2018">Lakens, Scheel, and Isager (2018)</span> offer an accessible introduction to equivalences tests for psychologists.</li>
+<li><span class="citation" data-cites="kane2024">Kane (2024)</span> offers an excellent summary of design considerations when arguing for no effect.</li>
+<li><span class="citation" data-cites="mccaskey2015">McCaskey and Rainey (2015)</span> (<a href="https://www.carlislerainey.com/papers/meaningful.pdf">Ungated PDF</a>) argue that researchers should make “claims if and only if those claims hold for the entire confidence interval.” This extends the logic of equivalence testing to a broader collection of possible hypotheses.</li>
+</ul>
+</section>
+<section id="final-thoughts" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<ol type="1">
+<li>{marginaleffects} is a great package <span class="citation" data-cites="marginaleffects">(Arel-Bundock 2024)</span>. I think it’s the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I’m very impressed so far.</li>
+<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/vignettes/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<sup>4</sup></li>
+<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/publication/jares_malhotra_working_paper_2023/">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model to follow. See pp.&nbsp;27-32. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers’ propensity to view the intervention as helpful.”</li>
+</ol>
 
 
- ]]></description>
+
+<div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-altman1995" class="csl-entry">
+Altman, D. G, and J M. Bland. 1995. <span>“Statistics Notes: Absence of Evidence Is Not Evidence of Absence.”</span> <em>BMJ</em> 311 (7003): 485–85. <a href="https://doi.org/10.1136/bmj.311.7003.485">https://doi.org/10.1136/bmj.311.7003.485</a>.
+</div>
+<div id="ref-marginaleffects" class="csl-entry">
+Arel-Bundock, Vincent. 2024. <em>Marginaleffects: Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests</em>. <a href="https://marginaleffects.com/">https://marginaleffects.com/</a>.
+</div>
+<div id="ref-clark2006" class="csl-entry">
+Clark, William Roberts, and Matt Golder. 2006. <span>“Rehabilitating Duverger<span>’</span>s Theory.”</span> <em>Comparative Political Studies</em> 39 (6): 679–708. <a href="https://doi.org/10.1177/0010414005278420">https://doi.org/10.1177/0010414005278420</a>.
+</div>
+<div id="ref-gill1999" class="csl-entry">
+Gill, Jeff. 1999. <span>“The Insignificance of Null Hypothesis Significance Testing.”</span> <em>Political Research Quarterly</em> 52 (3): 647–74. <a href="https://doi.org/10.1177/106591299905200309">https://doi.org/10.1177/106591299905200309</a>.
+</div>
+<div id="ref-kane2024" class="csl-entry">
+Kane, John V. 2024. <span>“More Than Meets the ITT: A Guide for Anticipating and Investigating Nonsignificant Results in Survey Experiments.”</span> <em>Journal of Experimental Political Science</em>, February, 1–16. <a href="https://doi.org/10.1017/xps.2024.1">https://doi.org/10.1017/xps.2024.1</a>.
+</div>
+<div id="ref-lakens2018" class="csl-entry">
+Lakens, Daniël, Anne M. Scheel, and Peder M. Isager. 2018. <span>“Equivalence Testing for Psychological Research: A Tutorial.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (2): 259–69. <a href="https://doi.org/10.1177/2515245918770963">https://doi.org/10.1177/2515245918770963</a>.
+</div>
+<div id="ref-mccaskey2015" class="csl-entry">
+McCaskey, Kelly, and Carlisle Rainey. 2015. <span>“Substantive Importance and the Veil of Statistical Significance.”</span> <em>Statistics, Politics and Policy</em> 6 (1-2). <a href="https://doi.org/10.1515/spp-2015-0001">https://doi.org/10.1515/spp-2015-0001</a>.
+</div>
+<div id="ref-nickerson2000" class="csl-entry">
+Nickerson, Raymond S. 2000. <span>“Null Hypothesis Significance Testing: A Review of an Old and Continuing Controversy.”</span> <em>Psychological Methods</em> 5 (2): 241–301. <a href="https://doi.org/10.1037/1082-989x.5.2.241">https://doi.org/10.1037/1082-989x.5.2.241</a>.
+</div>
+<div id="ref-rainey2014" class="csl-entry">
+Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>American Journal of Political Science</em> 58 (4): 1083–91. <a href="https://doi.org/10.1111/ajps.12102">https://doi.org/10.1111/ajps.12102</a>.
+</div>
+</div></section></div> ]]></description>
   <category>hypothesis tests</category>
   <category>confidence intervals</category>
   <category>equivalence tests</category>
@@ -5502,15 +5246,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="2">Use dataset with <code>group</code> variable.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-4" data-code-annotation="1">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="7">Set <code>group</code> explicitly.</span>
+<span data-code-lines="7" data-code-cell="annotated-cell-4" data-code-annotation="2">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-4" data-code-lines="30,31">Expand x- and y-axis.</span>
+<span data-code-lines="30,31" data-code-cell="annotated-cell-4" data-code-annotation="3">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -5626,35 +5370,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-5" data-code-lines="2">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-5" data-code-annotation="1">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-5" data-code-lines="3">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-5" data-code-annotation="2">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-5" data-code-lines="5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-lines="5" data-code-cell="annotated-cell-5" data-code-annotation="3">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-5" data-code-lines="6">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-lines="6" data-code-cell="annotated-cell-5" data-code-annotation="4">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-cell="annotated-cell-5" data-code-lines="7">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-lines="7" data-code-cell="annotated-cell-5" data-code-annotation="5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-cell="annotated-cell-5" data-code-lines="8">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-lines="8" data-code-cell="annotated-cell-5" data-code-annotation="6">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-cell="annotated-cell-5" data-code-lines="10">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-lines="10" data-code-cell="annotated-cell-5" data-code-annotation="7">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-annotation="8" data-code-cell="annotated-cell-5" data-code-lines="11"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-lines="11" data-code-cell="annotated-cell-5" data-code-annotation="8"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
