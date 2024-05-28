@@ -1,5 +1,15 @@
 
 
+- title: "Power Rules: Practical Statistical Power Calculations"
+  type: "Working"
+  author:
+    - Carlisle Rainey
+  date: 2024-05-27
+  status: "In-progress"
+  github: "https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf"
+  note: 'An early draft of a paper on understanding and computing statistical power for applied researchers.'
+
+
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
   type: "Working"
   author:

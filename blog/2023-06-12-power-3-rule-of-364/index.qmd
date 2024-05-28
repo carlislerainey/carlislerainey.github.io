@@ -24,12 +24,18 @@ execute:
 draft: false
 ---
 
+::: callout-important
+## A New Paper
+
+This post turned out to be somewhat popular, so I've written up a more formal, careful description of the idea in a full length paper. The initial, early version is [on GitHub](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf).
+:::
+
 ## Background
 
 I've wrapped up the argument that you should pursue statistical power in your experiments. In sum, you should do it for *you* (not a future Reviewer 2) and you shouldn't see confidence intervals nestle consistently against zero.
 
-1. ["Power Is For You, Not For Reviewer 2"](/blog/2023-05-22-power-1-for-you-not-reviewer-2)
-1. ["What Do Confidence Intervals From Well-Powered Studies Look Like?"](/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like)
+1.  ["Power Is For You, Not For Reviewer 2"](/blog/2023-05-22-power-1-for-you-not-reviewer-2)
+2.  ["What Do Confidence Intervals From Well-Powered Studies Look Like?"](/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like)
 
 In this post, I'd like to develop the intuition for power calculations, two helpful guidelines, and one implication.
 
@@ -37,11 +43,13 @@ Main takeaway: You need the ratio of the true effect and the standard error to b
 
 ## Starting Point: The Sampling Distribution
 
-When you run one experiment, you realize *one* of many possible patterns of randomization. This particular realization produces a single **estimate** of the treatment effect from a *distribution* of possible estimates. The distribution of possibilities is called a "**sampling distribution**." 
+When you run one experiment, you realize *one* of many possible patterns of randomization. This particular realization produces a single **estimate** of the treatment effect from a *distribution* of possible estimates. The distribution of possibilities is called a "**sampling distribution**."
 
-Thus, we can think of the estimate as a random variable and its distribution as the sampling distribution. The sampling distribution is key to everything I do in this post, so let's spend some time with it. 
+Thus, we can think of the estimate as a random variable and its distribution as the sampling distribution. The sampling distribution is key to everything I do in this post, so let's spend some time with it.
 
-Let's imagine that we did the exact same study 50 times. Let's say that we computed a difference-in-means in dollars (\$) donated.^[I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.] I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in \$). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.
+Let's imagine that we did the exact same study 50 times. Let's say that we computed a difference-in-means in dollars (\$) donated.[^1] I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in \$). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.
+
+[^1]: I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.
 
 We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.
 
@@ -186,21 +194,24 @@ new_gif
 
 Before the study, we can predict two features of this sampling distribution.
 
-1. First, it will usually have a bell-shaped, normal distribution. 
-2. Second, we can predict the standard deviation of this distribution with good accuracy before conducting a single study and excellent accuracy after just one study. We call the standard deviation of the sampling distribution the **standard error** or **SE**.
+1.  First, it will usually have a bell-shaped, normal distribution.
+2.  Second, we can predict the standard deviation of this distribution with good accuracy before conducting a single study and excellent accuracy after just one study. We call the standard deviation of the sampling distribution the **standard error** or **SE**.
 
 For our purposes, then, we can describe the sampling distribution as normally distributed with an assumed mean and SD. The mean is the assumed true effect and the SD is the well-predicted SE.
 
 This is the key claim: **In order to build power into your experiment, you must build certain properties into the sampling distribution.**
 
-The design of your experiment will not affect the normality of the sampling distribution, but it will change the true effect and the SE. Changing the true effect and the SE will change the power. 
+The design of your experiment will not affect the normality of the sampling distribution, but it will change the true effect and the SE. Changing the true effect and the SE will change the power.
 
 ## Thinking about True Effect and Standard Error as *Targets*
 
 I'm leaving aside how to predict the standard error of the experiment or choose the true effect. This post is about the *target* standard error and true effect.
 
-Predicting the standard error is a mechanical process mixed with a little guesswork.^[I'll suggest two methods I like. First, use $\text{predicted SE} = \frac{\text{SD of same outcome in different data set}}{0.5 \sqrt{\text{sample size}}}$. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.] Choose a true effect is a mostly substantive decision.^[[Cyrus Samii](https://twitter.com/cdsamii/status/1661091885580992517?s=20) likes to use the MME, I like a conservatively choosen guess of what the effect actually is.]
+Predicting the standard error is a mechanical process mixed with a little guesswork.[^2] Choose a true effect is a mostly substantive decision.[^3]
 
+[^2]: I'll suggest two methods I like. First, use $\text{predicted SE} = \frac{\text{SD of same outcome in different data set}}{0.5 \sqrt{\text{sample size}}}$. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.
+
+[^3]: [Cyrus Samii](https://twitter.com/cdsamii/status/1661091885580992517?s=20) likes to use the MME, I like a conservatively choosen guess of what the effect actually is.
 
 But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)---power is just not a very intuitive quantity.
 
@@ -208,13 +219,15 @@ To understand how the true effect and the SE relate to power, we need to introdu
 
 ## Testing with Confidence Intervals
 
-I like to use 90% confidence intervals to test hypotheses (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf)). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.] The formula for a 90% CI is $\text{estimate} \pm 1.64\text{SE}$. That is, we put "arms" around our estimate---one to the left and another to the right. Each arm is 1.64 standard errors long. 
+I like to use 90% confidence intervals to test hypotheses (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf)). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.\] The formula for a 90% CI is $\text{estimate} \pm 1.64\text{SE}$. That is, we put "arms" around our estimate---one to the left and another to the right. Each arm is 1.64 standard errors long.
 
-I'll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound ($\text{estimate} - 1.64\text{SE}$) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.^[This is equivalent to a *z*-test in a standard hypothesis testing framework using a *p*-value of less than 0.05 as the threshold for rejecting the null hypothesis.] 
+I'll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound ($\text{estimate} - 1.64\text{SE}$) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.[^4]
+
+[^4]: This is equivalent to a *z*-test in a standard hypothesis testing framework using a *p*-value of less than 0.05 as the threshold for rejecting the null hypothesis.
 
 This focus on *testing* rather than *estimation* changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.
 
-But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that *if the estimate falls less than 1.64 SEs above zero, we cannot reject the null. 
+But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that \*if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.
 
 We can reconstruct the figure above using this logic. Rather than plot the points continuously along the x-axis, we can color the points (and now error bars) according to whether the lower bound falls above zero or not. And we can use a bar plot showing the number of rejections and non-rejections.
 
@@ -412,8 +425,7 @@ ggplot() +
   
 ```
 
-
-You'll remember that "almost all" of the normal distribution falls within two standard errors of its mean. So as a starting point, let's use this rule: get the sampling distribution two standard errors above 1.64 standard errors above zero. We can just add 1.64 and 2 together to get a sampling distribution 3.64 standard errors above zero. That is, we need $\frac{\text{true effect}}{\text{standard error}} > 3.64$. If the true effect is larger than 3.64 standard errors, then the confidence interval will "rarely" overlap zero (about 2% of the time). 
+You'll remember that "almost all" of the normal distribution falls within two standard errors of its mean. So as a starting point, let's use this rule: get the sampling distribution two standard errors above 1.64 standard errors above zero. We can just add 1.64 and 2 together to get a sampling distribution 3.64 standard errors above zero. That is, we need $\frac{\text{true effect}}{\text{standard error}} > 3.64$. If the true effect is larger than 3.64 standard errors, then the confidence interval will "rarely" overlap zero (about 2% of the time).
 
 ```{r}
 #| column: screen-inset-right
@@ -480,34 +492,40 @@ ggplot() +
 
 There are a few ways to write the ratio:
 
-1. $\frac{\text{true effect}}{\text{standard error}} > 3.64$
-1. $\text{true effect} > 3.64 \times \text{standard error}$
-1. $\text{standard error} < \frac{1}{3.64} \times \text{true effect} \approx 0.27 \times \text{true effect}$
+1.  $\frac{\text{true effect}}{\text{standard error}} > 3.64$
+2.  $\text{true effect} > 3.64 \times \text{standard error}$
+3.  $\text{standard error} < \frac{1}{3.64} \times \text{true effect} \approx 0.27 \times \text{true effect}$
 
-These are all the same goals. I prefer the first, but they are all equivalent targets for power. 
+These are all the same goals. I prefer the first, but they are all equivalent targets for power.
 
 I like this ratio because it points to *strategies* to increase power. You can do two things:
 
-1. Increase the true effect.
-2. Decrease the standard error.
+1.  Increase the true effect.
+2.  Decrease the standard error.
 
-This ratio gets you thinking not *what* your power is, but *how to increase it*. Again, power isn't *a* task for the experimenter, it's *the* task.^[I'm leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.] [Kane (2023)](https://doi.org/10.33774/apsa-2023-h4p0q-v2)^[Kane, John V. 2023. "More Than Meets the ITT:  A Guide for Investigating Null Results." APSA Preprints. [doi: 10.33774/apsa-2023-h4p0q-v2](https://doi.org/10.33774/apsa-2023-h4p0q-v2).] suggests several ways researchers can increase the true effect or decrease the standard error.
+This ratio gets you thinking not *what* your power is, but *how to increase it*. Again, power isn't *a* task for the experimenter, it's *the* task.[^5] [Kane (2023)](https://doi.org/10.33774/apsa-2023-h4p0q-v2)[^6] suggests several ways researchers can increase the true effect or decrease the standard error.
+
+[^5]: I'm leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.
+
+[^6]: Kane, John V. 2023. "More Than Meets the ITT: A Guide for Investigating Null Results." APSA Preprints. [doi: 10.33774/apsa-2023-h4p0q-v2](https://doi.org/10.33774/apsa-2023-h4p0q-v2).
 
 I'll highlight a few examples here. To increase the treatment effect, you can:
 
-1. Increase attentiveness.
-1. Ensure that respondents are not pre-treated.
-1. Write strong treatments or "hit them between the eyes" [(Kuklinski *et al.* 2000)](https://www.jstor.org/stable/2647960).
+1.  Increase attentiveness.
+2.  Ensure that respondents are not pre-treated.
+3.  Write strong treatments or "hit them between the eyes" [(Kuklinski *et al.* 2000)](https://www.jstor.org/stable/2647960).
 
 To decrease the standard error, you can:
 
-1. Increase the sample size.
-2. Use multiple measurements for the outcome.
-3. Use a pre-post design [(Clifford, Sheagley, and Piston 2022)](https://doi.org/10.1017/S0003055421000241).
+1.  Increase the sample size.
+2.  Use multiple measurements for the outcome.
+3.  Use a pre-post design [(Clifford, Sheagley, and Piston 2022)](https://doi.org/10.1017/S0003055421000241).
 
 ## Implication
 
-If you get the ratio to 3.64, then you'll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.^[Find this by adding 1.64 to `-qnorm(0.2)`.] But notice that 3.64 and 2.48 are not very different. This has an important implication.
+If you get the ratio to 3.64, then you'll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.[^7] But notice that 3.64 and 2.48 are not very different. This has an important implication.
+
+[^7]: Find this by adding 1.64 to `-qnorm(0.2)`.
 
 A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.
 
@@ -515,7 +533,7 @@ The implication is this: when you are on the cusp of a well-powered study (about
 
 ## Computing Power from the Ratio
 
-Following the logic of the picture above, we need to compute the fraction of the sampling distributin that lies above 1.64 SEs. The `pnorm()` function returns normal probabilities, but *below* specfic thresholds. By supplying the argument `lower.tail = FALSE`, we can get the probabilities of falling *above* a specific threshold. 
+Following the logic of the picture above, we need to compute the fraction of the sampling distributin that lies above 1.64 SEs. The `pnorm()` function returns normal probabilities, but *below* specfic thresholds. By supplying the argument `lower.tail = FALSE`, we can get the probabilities of falling *above* a specific threshold.
 
 ```{r}
 #| code-fold: false
@@ -533,6 +551,3 @@ pnorm(1.64*se,   # want fraction above 1.64 SE
 ## Summary
 
 Statistical power is an abstract quantity. It's easy to understand what it means, but harder to think about how to manipulate it. I explain why the target $\frac{\text{true effect}}{\text{standard error}} > 2.48$ is equivalent to a target power of 80%. But you want to "almost always" reject the null, so you should shoot for $\frac{\text{true effect}}{\text{standard error}} > 3.64$. Hopefully these guidelines help you build a bit of actionable intuition about statistical power.
-
-
-
