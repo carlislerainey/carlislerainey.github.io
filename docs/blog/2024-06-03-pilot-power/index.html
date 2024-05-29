@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Carlisle Rainey">
+<meta name="dcterms.date" content="2024-06-03">
+<meta name="description" content="In this post, I discuss how pilot data can be used to predict the standard error (but should not be used to estimate the treatment effect).">
+
+<title>Carlisle Rainey - Statistical Power from Pilot Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F57WQLHH67"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Carlisle Rainey - Statistical Power from Pilot Data">
+<meta property="og:description" content="In this post, I discuss how pilot data can be used to predict the standard error (but should not be used to estimate the treatment effect).">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/twitter-card.png">
+<meta property="og:site-name" content="Carlisle Rainey">
+<meta property="og:image:height" content="418">
+<meta property="og:image:width" content="800">
+<meta name="twitter:title" content="Carlisle Rainey - Statistical Power from Pilot Data">
+<meta name="twitter:description" content="In this post, I discuss how pilot data can be used to predict the standard error (but should not be used to estimate the treatment effect).">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/twitter-card.png">
+<meta name="twitter:creator" content="@carlislerainey">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="418">
+<meta name="twitter:image-width" content="800">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Carlisle Rainey</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research/index.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="../../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/(CarlisleRainey?)" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistical Power from Pilot Data</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistical power</div>
+    <div class="quarto-category">hypothesis tests</div>
+    <div class="quarto-category">power analysis</div>
+    <div class="quarto-category">methodology</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    In this post, I discuss how pilot data can be used to predict the standard error (but should not be used to estimate the treatment effect).
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlisle Rainey </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 3, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<div class="page-columns page-full"><p>We can think of statistical power as determined by the ratio <span class="math inline">\(\frac{\tau}{SE}\)</span>, where <span class="math inline">\(\tau\)</span> is the treatment effect and SE is the standard error of the estimate.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (<a href="#ref-bloom1995" role="doc-biblioref">1995</a>)</span> has a really beautiful paper on this idea. It’s one of my favorites.</p></li></div></div>
+<p>In this post, I discuss ways that pilot data should and should <em>not</em> be used as part of a power analysis. I make two points:</p>
+<ol type="1">
+<li>Pilot data are not usually useful to estimate the treatment effect.</li>
+<li>Pilot data can be useful to predict the standard error.</li>
+</ol>
+<p>With a predicted standard error in hand, we can obtain a prediction for the minimum detectable effect, the statistical power, or the required sample size.</p>
+<section id="pilot-data-should-not-usually-be-used-to-estimate-the-treatment-effect" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="pilot-data-should-not-usually-be-used-to-estimate-the-treatment-effect">Pilot data should not usually be used to estimate the treatment effect</h2>
+<div class="page-columns page-full"><p>To compute statistical power, researchers need to make an assumption about the size of the treatment effect. It’s easy to feel lost without any guidance on what effects are reasonable to look for, so we might feel tempted to use a small pilot study to estimate the treatment effect and then use that estimate in our power analysis. This is a bad idea because the estimate of the treatment effect from a pilot study is too uncertain for a power analysis.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (<a href="#ref-leon2011" role="doc-biblioref">2011</a>)</span> and <span class="citation" data-cites="albers2018">Albers and Lakens (<a href="#ref-albers2018" role="doc-biblioref">2018</a>)</span> discuss this problem in more detail.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The estimate of the treatment effect from a well-powered study is too noisy as well.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;<span class="citation" data-cites="perugini2014">Perugini, Gallucci, and Costantini (<a href="#ref-perugini2014" role="doc-biblioref">2014</a>)</span> offer a potential solution if it’s important to estimate the treatment effect from pilot data, though their approach is data-hungry and very conservative.</p></li></div></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not use a small pilot study to estimate the treatment effect and then use that estimate in a power analysis.</p>
+</div>
+</div>
+</section>
+<section id="pilot-data-can-be-used-to-predict-the-standard-error" class="level2">
+<h2 class="anchored" data-anchor-id="pilot-data-can-be-used-to-predict-the-standard-error">Pilot data <em>can</em> be used to predict the standard error</h2>
+<p>While pilot data might not be useful for estimating the treatment effect, <strong>pilot data are useful for estimating the standard error of the planned study.</strong> Given that power is a function of the ratio of the treatment effect and the standard error, it’s important to have a good prediction of the standard error. Further, the noisiness of this estimated standard error is predictable, so it’s easy to nudge the estimate slightly to obtain a <em>conservative</em> prediction.</p>
+<p>In political science, it’s common to run pilot studies with, say, 100-200 respondents before a full-sized study of, say, 1,000 respondents. It can be very helpful to use these pilot data to confirm any preliminary power calculations.</p>
+<p>Here are two helpful rules:</p>
+<ol start="2" type="1">
+<li>We can use pilot data to predict the standard error of the estimated treatment effect in a planned study. Conservatively, the standard error will be about <span class="math inline">\(\sqrt{\frac{n^{pilot}}{n^{planned}}}\ \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack\)</span>, where <span class="math inline">\(n^{pilot}\)</span> is the number of respondents per condition in the pilot data, <span class="math inline">\(SE_{\widehat{\tau}}^{pilot}\)</span> is the estimated standard error using the pilot data, and <span class="math inline">\(n^{planned}\)</span> is the number of respondents per condition in the planned study.</li>
+<li>We can use pilot data to conservatively predict the sample size we will need in a planned study. For 80% power to detect the treatment effect <span class="math inline">\(\widetilde{\tau}\)</span>, we will (conservatively) need about <span class="math inline">\(n^{pilot} \cdot \left\lbrack \frac{2.5}{\widetilde{\tau}} \cdot \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack^{2}\)</span> respondents per condition, where <span class="math inline">\(n^{pilot}\)</span> is the number of respondents per condition in the pilot data and <span class="math inline">\(SE_{\widehat{\tau}}^{pilot}\)</span> is the estimated standard error using the pilot data.</li>
+</ol>
+<p>Note that the factor <span class="math inline">\(\sqrt{\frac{1}{n^{pilot}}}\)</span> nudges the predicted standard error in a conservative direction. See <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this working paper</a> for more details.</p>
+<p>We can use the predicted standard error to find the minimum detectable effect (for 80% power) or the power (for a given treatment effect). Or we can use the pilot data to estimate the required sample size (for 80% power to detect a given treatment effect.)</p>
+</section>
+<section id="an-illustrative-simulation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="an-illustrative-simulation">An illustrative simulation</h2>
+<p>Here’s a simulation to illustrate the idea.</p>
+<section id="the-setting" class="level3">
+<h3 class="anchored" data-anchor-id="the-setting">The setting</h3>
+<p>Let’s imagine a setting where a study with 1,000 respondents has 80% power to detect an average treatment effect of 1 unit. I’m imagining that we’re using linear regression with robust standard errors to test the hypothesis that the average treatment effect is positive (aka Welch’s <em>t</em>-test). There’s just one treatment group and one control group with 500 respondents each, for 1,000 respondents total.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the treatment effect, SE, and sample size</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># treatment effect</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>se  <span class="ot">&lt;-</span> tau<span class="sc">/</span>(<span class="fu">qnorm</span>(<span class="fl">0.95</span>) <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fl">0.80</span>))  <span class="co"># standard error for 80% power</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n_planned <span class="ot">&lt;-</span> <span class="dv">500</span>  <span class="co"># sample size per condition in planned full study</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate required standard deviation to yield 80% power</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> se<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>n_planned)<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s confirm that this setting does indeed give us 80% power.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res_list <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># a container to collect results</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># simulate study</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  y0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">2</span><span class="sc">*</span>n_planned, <span class="at">sd =</span> sigma)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  y1 <span class="ot">&lt;-</span> y0 <span class="sc">+</span> tau</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">2</span><span class="sc">*</span>n_planned))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d <span class="sc">==</span> <span class="dv">1</span>, y1, y0)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y, d)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fit model and get standard error and p-value</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> d, <span class="at">data =</span> data)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  tau_hat <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">coef</span>(fit)[<span class="st">"d"</span>])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  se_hat <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(sandwich<span class="sc">::</span><span class="fu">vcovHC</span>(fit, <span class="at">type =</span> <span class="st">"HC2"</span>)))[<span class="st">"d"</span>])</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  p_value <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(tau_hat<span class="sc">/</span>se_hat, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># collect results</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  res_list[[i]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tau_hat, se_hat, p_value)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># compute power (and monte carlo error)</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>res_list <span class="sc">|&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">power =</span> <span class="fu">mean</span>(p_value <span class="sc">&lt;</span> <span class="fl">0.05</span>), </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">mc_error =</span> <span class="fu">sqrt</span>(power<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> power))<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()), </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            <span class="at">lwr =</span> power <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>mc_error, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">upr =</span> power <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>mc_error)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  power   mc_error       lwr       upr
+1   0.8 0.01264911 0.7747018 0.8252982</code></pre>
+</div>
+</div>
+<p>Nailed it!</p>
+</section>
+<section id="the-pilot-studies" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="the-pilot-studies">The Pilot Studies</h3>
+<p>Now let’s simulate a 1,000 pilot studies with 10, 30, 60, 90, and 150 respondents per condition. I’m going to grab the standard error from each but throw the estimates of the treatment effects right into the trash.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size per condition in pilot study</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_pilot_values   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="dv">90</span>, <span class="dv">150</span>) </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>res_list <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># a container to collect results</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>iter <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># counter to index the collection</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(n_pilot_values)) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set respondents per condition in the pilot study</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    n_pilot <span class="ot">&lt;-</span> n_pilot_values[j]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># simulate pilot study</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    y0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">2</span><span class="sc">*</span>n_pilot, <span class="at">sd =</span> sigma)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    y1 <span class="ot">&lt;-</span> y0 <span class="sc">+</span> tau</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">2</span><span class="sc">*</span>n_pilot))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(d <span class="sc">==</span> <span class="dv">1</span>, y1, y0)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    pilot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y, d)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fit model and get standard error</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    fit_pilot <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> d, <span class="at">data =</span> pilot_data)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    tau_hat <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">coef</span>(fit_pilot)[<span class="st">"d"</span>])</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    pilot_se_hat <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">sqrt</span>(<span class="fu">diag</span>(sandwich<span class="sc">::</span><span class="fu">vcovHC</span>(fit_pilot, <span class="at">type =</span> <span class="st">"HC2"</span>)))[<span class="st">"d"</span>])</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># collect standard errors </span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    res_list[[iter]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pilot_se_hat, n_pilot)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    iter <span class="ot">&lt;-</span> iter <span class="sc">+</span> <span class="dv">1</span> <span class="co"># update counter</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># combine collected results in a data frame</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(res_list) <span class="sc">|&gt;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,000
+Columns: 2
+$ pilot_se_hat &lt;dbl&gt; 2.4498312, 1.5249611, 1.2713570, 0.9729555, 0.6930375, 2.…
+$ n_pilot      &lt;dbl&gt; 10, 30, 60, 90, 150, 10, 30, 60, 90, 150, 10, 30, 60, 90,…</code></pre>
+</div>
+</div>
+<p>Now let’s take a look a these standard errors from the simulated pilot studies. Notice that the standard errors are all larger than the standard error in the full study. And the smaller the pilot, the larger the standard error. This makes sense.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> pilot_se_hat)) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> se)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="page-columns page-full"><p>However, we can translate the standard error from the pilot studies into predictions for the standard errors in the full studies by multiplying the pilot standard error times <span class="math inline">\(\sqrt{\frac{n^{pilot}}{n^{planned}}}\)</span>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;In this setting, we’re planning on 500 respondents per conditions.</p></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">sqrt</span>(n_pilot<span class="sc">/</span>n_planned)<span class="sc">*</span>pilot_se_hat)) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> se)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>That’s spot on! However, notice that we sometimes <em>substantially</em> underestimate the standard error. When we underestimate the standard error, we will <em>under</em>estimate the power.</p>
+<p>As a solution, we can gently nudge the pilot standard error up by a factor of <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span>, which will make “almost all” of the standard errors <em>over</em>-estimates or “conservative” (details <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">here</a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(res, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">sqrt</span>(n_pilot<span class="sc">/</span>n_planned)<span class="sc">*</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_pilot) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">*</span>pilot_se_hat)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> se)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This works super well.</p>
+<p>But how should we use this predicted standard error to evaluate or choose a sample size?</p>
+</section>
+</section>
+<section id="how-to-use-the-predicted-standard-error" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-the-predicted-standard-error">How to use the predicted standard error</h2>
+<p>We can use these conservative standard errors to compute any of the following (conservatively, as well):</p>
+<ol type="1">
+<li>the minimum detectable effect with 80% power</li>
+<li>the statistical power for a given treatment effect</li>
+<li>the sample size required to obtain 80% power for a given treatment effect</li>
+</ol>
+<section id="the-minimum-detectable-effect" class="level3">
+<h3 class="anchored" data-anchor-id="the-minimum-detectable-effect">The Minimum Detectable Effect</h3>
+<p>First, we can compute the minimum detectable effect with 80% power. This is about 2.5 times the standard error.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute minimum detectable effect</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mde <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_se_cons =</span> <span class="fu">sqrt</span>(n_pilot<span class="sc">/</span>n_planned)<span class="sc">*</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_pilot) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">*</span>pilot_se_hat, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mde_cons =</span> <span class="fl">2.5</span><span class="sc">*</span>pred_se_cons) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,000
+Columns: 4
+$ pilot_se_hat &lt;dbl&gt; 2.4498312, 1.5249611, 1.2713570, 0.9729555, 0.6930375, 2.…
+$ n_pilot      &lt;dbl&gt; 10, 30, 60, 90, 150, 10, 30, 60, 90, 150, 10, 30, 60, 90,…
+$ pred_se_cons &lt;dbl&gt; 0.4560182, 0.4417360, 0.4972678, 0.4563020, 0.4105858, 0.…
+$ mde_cons     &lt;dbl&gt; 1.140046, 1.104340, 1.243169, 1.140755, 1.026465, 1.34938…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot minimum detectable effect</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mde, <span class="fu">aes</span>(<span class="at">x =</span> mde_cons)) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tau)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="statistical-power" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-power">Statistical Power</h3>
+<p>Second, we can compute the statistical power for given treatment effect. Power equals <span class="math inline">\(1 - \Phi_{std}\left(1.64 - \frac{\tau}{SE} \right)\)</span>, where <span class="math inline">\(\Phi_{std}(z)\)</span> is <code>pnorm()</code>, <span class="math inline">\(SE\)</span> is the standard error of the estimated treatment effect, and <span class="math inline">\(\tau\)</span> is the treatment effect.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the power</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pwr <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_se_cons =</span> <span class="fu">sqrt</span>(n_pilot<span class="sc">/</span>n_planned)<span class="sc">*</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_pilot) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">*</span>pilot_se_hat, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">power_cons =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">1.64</span> <span class="sc">-</span> tau<span class="sc">/</span>pred_se_cons)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,000
+Columns: 4
+$ pilot_se_hat &lt;dbl&gt; 2.4498312, 1.5249611, 1.2713570, 0.9729555, 0.6930375, 2.…
+$ n_pilot      &lt;dbl&gt; 10, 30, 60, 90, 150, 10, 30, 60, 90, 150, 10, 30, 60, 90,…
+$ pred_se_cons &lt;dbl&gt; 0.4560182, 0.4417360, 0.4972678, 0.4563020, 0.4105858, 0.…
+$ power_cons   &lt;dbl&gt; 0.7098323, 0.7336191, 0.6446771, 0.7093652, 0.7868515, 0.…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the power</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pwr, <span class="fu">aes</span>(<span class="at">x =</span> power_cons)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> .<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="required-sample-size" class="level3">
+<h3 class="anchored" data-anchor-id="required-sample-size">Required Sample Size</h3>
+<p>Finally, we can compute the required sample size to obtain 80% power to detect a certain treatment effect.</p>
+<p>As I described above, for 80% power to detect the treatment effect <span class="math inline">\(\widetilde{\tau}\)</span>, we will (conservatively) need about <span class="math inline">\(n^{pilot} \cdot \left\lbrack \frac{2.5}{\widetilde{\tau}} \cdot \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack^{2}\)</span> respondents per condition, where <span class="math inline">\(n^{pilot}\)</span> is the number of respondents per condition in the pilot data and <span class="math inline">\(SE_{\widehat{\tau}}^{pilot}\)</span> is the estimated standard error using the pilot data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the required sample size</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ss <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ss_cons =</span> n_pilot<span class="sc">*</span>((<span class="fl">2.5</span><span class="sc">/</span>tau)<span class="sc">*</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>n_pilot) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">*</span>pilot_se_hat)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,000
+Columns: 3
+$ pilot_se_hat &lt;dbl&gt; 2.4498312, 1.5249611, 1.2713570, 0.9729555, 0.6930375, 2.…
+$ n_pilot      &lt;dbl&gt; 10, 30, 60, 90, 150, 10, 30, 60, 90, 150, 10, 30, 60, 90,…
+$ ss_cons      &lt;dbl&gt; 649.8520, 609.7834, 772.7352, 650.6609, 526.8148, 910.418…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the required sample size</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ss, <span class="fu">aes</span>(<span class="at">x =</span> ss_cons)) <span class="sc">+</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(n_pilot)) <span class="sc">+</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> n_planned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Sample size is an especially helpful metric, because it is the constraint and cost that researchers face most directly. Because these required sample sizes are <em>conservative</em>, they tend to be too large—but by how much? For pilots with 60 respondents per condition, the sample sizes tend to be about 30% too large. This means that researchers could have obtained 80% power with 1,000 respondents but instead used 1,300 respondents.</p>
+<p>In my view, this 30% waste is not particularly concerning. It’s relatively small and the statistical power will still be less than 90% even if the sample size is increased by 30%.</p>
+<p>But most importantly, almost all of the sample sizes <em>exceed</em> what we need for 80% power.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute features of the sample sizes</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ss <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(n_pilot) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">waste =</span> ss_cons<span class="sc">/</span>n_planned <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_waste =</span> scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">mean</span>(waste), <span class="at">accuracy =</span> <span class="dv">1</span>), </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">pct_too_small =</span> scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">mean</span>(ss_cons <span class="sc">&lt;</span> <span class="dv">500</span>), <span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Respondents per condition in pilot study</span><span class="st">`</span> <span class="ot">=</span> n_pilot,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Average waste (needed 1,000 and used 1,300 means waste is 30%)</span><span class="st">`</span> <span class="ot">=</span> avg_waste, </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Percent of sample sizes that produce less than 80% power</span><span class="st">`</span> <span class="ot">=</span> pct_too_small) <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  tinytable<span class="sc">::</span><span class="fu">tt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+ 
+
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinytable_ww6mb2fv1qgf79mem3gu</title>
+    <style>
+.table td.tinytable_css_m9x3hbv5xd1ka9v9a2c7, .table th.tinytable_css_m9x3hbv5xd1ka9v9a2c7 {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+  
+
+  
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_ww6mb2fv1qgf79mem3gu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">Respondents per condition in pilot study</th>
+                <th scope="col">Average waste (needed 1,000 and used 1,300 means waste is 30%)</th>
+                <th scope="col">Percent of sample sizes that produce less than 80% power</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td> 10</td>
+                  <td>76%</td>
+                  <td>8%</td>
+                </tr>
+                <tr>
+                  <td> 30</td>
+                  <td>42%</td>
+                  <td>4%</td>
+                </tr>
+                <tr>
+                  <td> 60</td>
+                  <td>29%</td>
+                  <td>3%</td>
+                </tr>
+                <tr>
+                  <td> 90</td>
+                  <td>23%</td>
+                  <td>3%</td>
+                </tr>
+                <tr>
+                  <td>150</td>
+                  <td>19%</td>
+                  <td>1%</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function styleCell_tinytable_zurp7tde1n3od9t8f0er(i, j, css_id) {
+        var table = document.getElementById("tinytable_ww6mb2fv1qgf79mem3gu");
+        table.rows[i].cells[j].classList.add(css_id);
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_ww6mb2fv1qgf79mem3gu');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_zurp7tde1n3od9t8f0er(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ww6mb2fv1qgf79mem3gu");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+window.addEventListener('load', function () { styleCell_tinytable_zurp7tde1n3od9t8f0er(0, 0, 'tinytable_css_m9x3hbv5xd1ka9v9a2c7') })
+window.addEventListener('load', function () { styleCell_tinytable_zurp7tde1n3od9t8f0er(0, 1, 'tinytable_css_m9x3hbv5xd1ka9v9a2c7') })
+window.addEventListener('load', function () { styleCell_tinytable_zurp7tde1n3od9t8f0er(0, 2, 'tinytable_css_m9x3hbv5xd1ka9v9a2c7') })
+    </script>
+
+  
+
+
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>We think of statistical power as determined by the ratio <span class="math inline">\(\frac{\tau}{SE}\)</span>, where <span class="math inline">\(\tau\)</span> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
+<p>I make two points in this post:</p>
+<ol type="1">
+<li>Pilot data are not usually useful to estimate the treatment effect.</li>
+<li>Pilot data can be useful to predict the standard error.</li>
+</ol>
+<p>With a predicted standard error in hand, we can obtain a prediction for the minimum detectable effect, the statistical power, or the required sample size.</p>
+<p>You can find more details in <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this paper</a>.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-albers2018" class="csl-entry" role="listitem">
+Albers, Casper, and Daniël Lakens. 2018. <span>“When Power Analyses Based on Pilot Data Are Biased: Inaccurate Effect Size Estimators and Follow-up Bias.”</span> <em>Journal of Experimental Social Psychology</em> 74 (January): 187–95. <a href="https://doi.org/10.1016/j.jesp.2017.09.004">https://doi.org/10.1016/j.jesp.2017.09.004</a>.
+</div>
+<div id="ref-bloom1995" class="csl-entry" role="listitem">
+Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evaluation Review</em> 19 (5): 547–56. <a href="https://doi.org/10.1177/0193841x9501900504">https://doi.org/10.1177/0193841x9501900504</a>.
+</div>
+<div id="ref-leon2011" class="csl-entry" role="listitem">
+Leon, Andrew C., Lori L. Davis, and Helena C. Kraemer. 2011. <span>“The Role and Interpretation of Pilot Studies in Clinical Research.”</span> <em>Journal of Psychiatric Research</em> 45 (5): 626–29. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">https://doi.org/10.1016/j.jpsychires.2010.10.008</a>.
+</div>
+<div id="ref-perugini2014" class="csl-entry" role="listitem">
+Perugini, Marco, Marcello Gallucci, and Giulio Costantini. 2014. <span>“Safeguard Power as a Protection Against Imprecise Power Estimates.”</span> <em>Perspectives on Psychological Science</em> 9 (3): 319–32. <a href="https://doi.org/10.1177/1745691614528519">https://doi.org/10.1177/1745691614528519</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
