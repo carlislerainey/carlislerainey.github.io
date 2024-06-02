@@ -12,7 +12,7 @@ twitter-card:
 open-graph:   
   image: "twitter-card.png"
 bibliography: references.bib
-draft: true
+draft: false
 ---
 
 ```{r include=FALSE}
@@ -171,7 +171,7 @@ ggplot(res, aes(x = pilot_se_hat)) +
 
 However, we can translate the standard error from the pilot studies into predictions for the standard errors in the full studies by multiplying the pilot standard error times $\sqrt{\frac{n^{pilot}}{n^{planned}}}$.[^4]
 
-[^4]: In this setting, we're planning on 500 respondents per conditions.
+[^4]: In this setting, we're planning on 500 respondents per condition.
 
 ```{r}
 #| message: false
