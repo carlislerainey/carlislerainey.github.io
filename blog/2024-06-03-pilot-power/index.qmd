@@ -118,6 +118,13 @@ res_list |>
 
 Nailed it!
 
+::: callout-tip
+## DeclareDesign Alternative
+
+Alex Coppock kindly [shared](https://bsky.app/profile/aecoppock.bsky.social/post/3ktzkavgkel2o) how one might run the same simulation using [{DeclareDesign}](https://declaredesign.org). Code [here](https://gist.github.com/carlislerainey/9c5f03c6fab4131a793b3b324838fc74).
+
+:::
+
 ### The Pilot Studies
 
 Now let's simulate 1,000 pilot studies with 10, 30, 60, 90, and 150 respondents per condition. I'm going to grab the standard error from each but throw the estimates of the treatment effects right into the trash.
@@ -294,3 +301,8 @@ I make two points in this post:
 With a predicted standard error in hand, we can obtain a prediction for the minimum detectable effect, the statistical power, or the required sample size.
 
 You can find more details in [this paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf).
+
+## See also
+
+- [Section 21.4](https://book.declaredesign.org/lifecycle/planning.html#sec-ch21s4) of the DeclareDesign book on piloting.
+- ["Should a pilot study change your study design decisions?"](https://declaredesign.org/blog/posts/pilot-studies.html) on the DeclareDesign blog.
