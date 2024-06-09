@@ -2,82 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.carlislerainey.com/teaching/pols-209/index.html</loc>
-    <lastmod>2024-06-03T13:37:06.593Z</lastmod>
+    <lastmod>2024-06-09T22:55:13.164Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/talks/index.html</loc>
-    <lastmod>2024-06-03T13:37:05.990Z</lastmod>
+    <lastmod>2024-06-09T22:55:12.544Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/talks/2024-03-06-dissent-scores/index.html</loc>
-    <lastmod>2024-06-03T13:37:05.352Z</lastmod>
+    <lastmod>2024-06-09T22:55:11.888Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/talks/2023-topic-sampling/index.html</loc>
-    <lastmod>2024-06-03T13:37:04.255Z</lastmod>
+    <lastmod>2024-06-09T22:55:10.873Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/index.html</loc>
-    <lastmod>2024-06-03T13:37:03.732Z</lastmod>
+    <lastmod>2024-06-09T22:55:10.334Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/blog/index.html</loc>
-    <lastmod>2024-06-03T13:37:03.254Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</loc>
-    <lastmod>2024-06-03T13:37:02.197Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</loc>
-    <lastmod>2024-06-03T13:37:01.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index.html</loc>
-    <lastmod>2024-06-03T13:37:00.193Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html</loc>
-    <lastmod>2024-06-03T13:36:58.694Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</loc>
-    <lastmod>2024-06-03T13:36:57.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html</loc>
-    <lastmod>2024-06-03T13:36:59.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index.html</loc>
-    <lastmod>2024-06-03T13:37:00.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index.html</loc>
-    <lastmod>2024-06-03T13:37:01.829Z</lastmod>
+    <lastmod>2024-06-09T22:55:09.877Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index.html</loc>
-    <lastmod>2024-06-03T13:37:02.906Z</lastmod>
+    <lastmod>2024-06-09T22:55:08.801Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index.html</loc>
+    <lastmod>2024-06-09T22:55:07.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index.html</loc>
+    <lastmod>2024-06-09T22:55:06.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html</loc>
+    <lastmod>2024-06-09T22:55:05.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</loc>
+    <lastmod>2024-06-09T22:55:04.040Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html</loc>
+    <lastmod>2024-06-09T22:55:04.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index.html</loc>
+    <lastmod>2024-06-09T22:55:06.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</loc>
+    <lastmod>2024-06-09T22:55:07.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</loc>
+    <lastmod>2024-06-09T22:55:08.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/index.html</loc>
+    <lastmod>2024-06-09T22:55:09.524Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/email-list/index.html</loc>
-    <lastmod>2024-06-03T13:37:03.478Z</lastmod>
+    <lastmod>2024-06-09T22:55:10.094Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/research/index.html</loc>
-    <lastmod>2024-06-03T13:37:04.010Z</lastmod>
+    <lastmod>2024-06-09T22:55:10.596Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/talks/2024-03-02-topic-sampling/index.html</loc>
-    <lastmod>2024-06-03T13:37:04.508Z</lastmod>
+    <lastmod>2024-06-09T22:55:11.128Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/talks/2024-topic-sampling/index.html</loc>
-    <lastmod>2024-06-03T13:37:05.598Z</lastmod>
+    <lastmod>2024-06-09T22:55:12.141Z</lastmod>
   </url>
   <url>
     <loc>https://www.carlislerainey.com/teaching/index.html</loc>
-    <lastmod>2024-06-03T13:37:06.205Z</lastmod>
+    <lastmod>2024-06-09T22:55:12.773Z</lastmod>
   </url>
 </urlset>

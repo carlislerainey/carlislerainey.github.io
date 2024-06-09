@@ -1,0 +1,319 @@
+---
+title: "Statistical Power from Pilot Data: An Example"
+author: "Carlisle Rainey"
+date: "2024-06-10"
+categories: [statistical power, hypothesis tests, power analysis, methodology]
+description: "In this post, I provide an example of how pilot data can be used to predict the standard error in a planned study."
+reference-location: margin
+toc: false
+twitter-card:
+  card-style: summary_large_image
+  image: "twitter-card.png"
+open-graph:   
+  image: "twitter-card.png"
+bibliography: references.bib
+draft: false
+---
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+------------------------------------------------------------------------
+
+We can think of statistical power as determined by the ratio $\frac{\tau}{SE}$, where $\tau$ is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.
+
+And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use *pilot* data.[^1]
+
+[^1]: Here's how @leon2011 describe the purpose of a pilot study. "The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated."
+
+Usually:
+
+1.  Pilot data are *not* useful to predict the treatment effect.
+2.  Pilot data are useful to predict the standard error.
+
+With a predicted standard error in hand, we can predict the minimum detectable effect, the statistical power, or the required sample size in the planned study.
+
+In this post, I give an example of how this can work.
+
+## Predicting the SE from pilot data
+
+Here's how I suggest we use pilot data to predict the standard error in the planned study:
+
+::: callout-tip
+## Predicting the SE in the planned study using pilot data
+
+Conservatively, the standard error will be about $\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack$, where $n^{pilot}$ is the number of respondents per condition in the pilot data, $SE_{\widehat{\tau}}^{pilot}$ is the estimated standard error using the pilot data, and $n^{planned}$ is the number of respondents per condition in the planned study.
+:::
+
+The factor $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$ nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.[^2] For the details, see [this early paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf), but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the *standard error* using the pilot data.
+
+[^2]: More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.
+
+## Example
+
+### The Robbins et al. study
+
+As an example, let's use half of the experiment conducted by @robbins2024.
+
+Robbins et al. use a 2x2 factorial vignette design, randomly assigning each respondent to read one of four vignettes. The vignette describes a hypothetical covert operation ordered by the president that ends in either success or failure. Then, the vignette describes a whistleblower coming forward and describes the president's opposition in Congress as either amplifying or ignoring the whistleblower.
+
+```{=html}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>President's Opposition in Congress</th>
+            <th colspan="2">Outcome of Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Success</th>
+            <th>Failure</th>
+        </tr>
+        <tr>
+            <td>Amplifies Whistleblower</td>
+            <td>Vignette 1: Success & Amplify</td>
+            <td>Vignette 2: Failure & Amplify</td>
+        </tr>
+        <tr>
+            <td>Ignores Whistleblower</td>
+            <td>Vignette 3: Success & Ignore</td>
+            <td>Vignette 4: Failure & Ignore</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+```
+After the vignette, the respondent is asked whether they approve of the opposition in Congress' actions on a seven-point Likert scale from strongly approve to strongly disapprove.
+
+For a simple example, let's **focus on the effect of amplifying the whistleblower when the operation succeeds**. That is, let's compare responses after Vignette 1 and Vignette 3. How much does amplifying a whistleblower increase approval *when the opperation succeeds*? We expect a small effect here, so we should pay careful attention to power.
+
+## The task
+
+**We hoped to detect an effect as small as 0.35 points on the seven-point scale and had tentatively planned on 250 respondents per condition.** To test the survey instrument and data provider, we conducted a small pilot with about 75 respondents per condition. Let's use those pilot data to check whether 250 respondents seem sufficient.
+
+## The data
+
+In the [{crdata} package](https://www.carlislerainey.com/crdata/) on GitHub, you can find the the pilot data we collected leading up to the main study.
+
+```{r}
+#| eval: false
+# download the {crdata} package from github
+remotes::install_github("carlislerainey/crdata")
+```
+
+Now let's load the pilot data. To focus on observations where the operation succeeds, we're going to keep only the observations where the vignette describes a successful observation.
+
+```{r}
+# load pilot data and keep only success condition
+robbins2_pilot <- crdata::robbins_pilot |>
+  subset(failure == "Success") |>
+  glimpse()
+```
+
+`cong_overall` is the respondent's approval of Congress' actions on a seven-point scale and `amplify` indicates whether Congress amplified the whistleblower (i.e., criticized the president).
+
+### Analyzing the pilot data
+
+Now let's analyze the pilot data as we plan to analyze the main data set that we plan to collect later. We're interested in the average response in the `Amplify` and `Ignore` conditions, so let's use a t-test.
+
+```{r}
+# t test
+fit_pilot <- t.test(cong_overall ~ amplify, data = robbins2_pilot)
+```
+
+::: callout-caution
+## Ignore the Estimated Treatment Effect
+
+It can be really tempting to look at the estimated treatment effect. In this pilot study, it's *actually statistically significant.* I intentionally don't show the estimated treatment effect (or quantities requiring it, like *p*-values). If we looked at these, we might make one of the following mistakes:
+
+1.   "The pilot got significant results, therefore even the pilot is sufficiently powered."
+2.  "The estimate from the pilot is significant, therefore we can use the estimated treatment effect in the power analysis."
+
+Both of these claims are misleading. The estimated treatment effect is very noisy, so ignore the estimated treatment effect.
+
+:::
+
+### Predicting the SE in the main study
+
+To predict the standard error in the main study, we need two pieces of information from this pilot:
+
+1.  the sample size per condition and
+2.  the estimated standard error.
+
+We can get the number of observations per condition using `table()`.
+
+```{r}
+# create a table showing the observations per condition
+table(robbins2_pilot$amplify)
+
+# sample size per condition
+n_pilot <- mean(table(robbins2_pilot$amplify))
+n_pilot
+```
+
+And then we need the estimated standard error, which is computed by `t.test()`.
+
+```{r}
+# get estimated standard error from pilot
+se_hat_pilot <- fit_pilot$stderr
+se_hat_pilot
+```
+
+Now we can predict the standard error in the planned study.
+
+For the main study, we planned on about 250 respondents per condition.
+
+```{r}
+n_planned <- 250
+```
+
+The we can conservatively predict the standard error in the full study as $\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack$.
+
+```{r}
+pred_se_cons <- sqrt(n_pilot/n_planned)*((sqrt(1/n_pilot) + 1)*se_hat_pilot)
+pred_se_cons
+```
+
+But is this standard error small enough?
+
+### Evaluating the predicted SE in the main study
+
+We can convert the standard error to the minimum detectable effect with 80% power using $2.5 \times SE$.[^3]
+
+[^3]: See @bloom1995 for an excellent discussion of this rule. I also write about it [here](https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/).
+
+```{r}
+# compute conservative minimum detectable effect
+2.5*pred_se_cons
+```
+
+We hoped to detect an effect as small as 0.35 points on the seven-point scale, so we're going to need more than 250 respondents per condition!
+
+We can also compute the power to detect an effect of 0.35 points on the seven-point scale.
+
+```{r}
+# compute power as a percent
+1 - pnorm(1.64 - 0.35/pred_se_cons)
+```
+
+Note that these are *conservative* estimates of the minimum detectable effect and statistical power.
+
+Here's what things look like if we remove the conservative nudge $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$ and predict the standard error as $\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot}$.
+
+```{r}
+# without the conservative nudge
+pred_se <- sqrt(n_pilot/n_planned)*se_hat_pilot
+2.5*pred_se  # best guess of minimum detectable effect
+1 - pnorm(1.64 - 0.35/pred_se)  # best guess of power
+```
+
+As you can see, the minimum detectable effect and power are a little too low. We need more respondents!
+
+### Adjusting the Sample Size
+
+Our plan of 250 respondents per condition seems too low. If we want, we can predict the sample size we need to get to 80% power using the following rule:
+
+::: callout-tip
+## Predicting the required sample size in the planned study using pilot data
+
+For 80% power to detect the treatment effect $\widetilde{\tau}$, we will (conservatively) need about $n^{pilot} \cdot \left\lbrack \frac{2.5}{\widetilde{\tau}} \cdot \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack^{2}$ respondents per condition, where $n^{pilot}$ is the number of respondents per condition in the pilot data and $SE_{\widehat{\tau}}^{pilot}$ is the estimated standard error using the pilot data.
+:::
+
+```{r}
+n_pilot*((2.5/0.35)*((sqrt(1/n_pilot) + 1)*se_hat_pilot))^2
+```
+
+Thus to get 80% power, the pilot data suggest that we (conservatively) need about 360 respondents per condition. We used 367 in the full study. Here are the conservative predictions for 367 respondents per condition.
+
+```{r}
+n_planned <- 367
+pred_se_cons <- sqrt(n_pilot/n_planned)*((sqrt(1/n_pilot) + 1)*se_hat_pilot)
+pred_se_cons
+
+2.5*pred_se_cons  # conservative minimum detectable effect
+1 - pnorm(1.64 - 0.35/pred_se_cons)  # conservative power
+```
+
+## How did we do?
+
+We ran the full study.[^4]
+
+[^4]: See @robbins2024 for the full results.
+
+```{r}
+robbins2_main <- crdata::robbins_main |>
+  subset(failure == "Success") |>
+  glimpse()
+```
+
+```{r}
+fit_main <- t.test(cong_overall ~ amplify, data = robbins2_main)
+fit_main$stderr
+
+1 - pnorm(1.64 - 0.35/fit_main$stderr)
+```
+
+As you can see, the pilot data gave us a good, slightly conservative prediction. We conservatively predicted a standard error of 0.138 in the planned study and we estimated a standard error of 0.132 after running the study. We conservatively predicted our power would be about 82% to detected an effect of 0.35 on the seven-point scale, but after running the study, it seems like we had about 84% power.
+
+## A bootstrap alternative
+
+We can also use the bootstrap as an alternative. There are a few ways one might approach it.
+
+Here's one:
+
+1.  Treat the pilot data as a population. Create a data set with the planned sample size by sampling with replacement from the pilot data.
+2.  Perform the planned analysis on each resampled data set.
+3.  Store the estimated standard error from each analysis.
+
+Repeat the process above many times. For each standard error estimate, compute the implied statistical power. This gives a distribution of power estimates. Find a value near the bottom of this distribution. The factor we used above---The factor $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$---nudges the standard error to about the 2.5th percentile, so we can use that here, too.
+
+```{r}
+#| cache: true
+# number of bootstrap iterations
+n_bs <- 10000
+
+bs_se <- numeric(n_bs)  # a container
+for (i in 1:n_bs){
+  # resample 367 observations from each condition
+  bs_data <- robbins2_main %>%
+    group_by(amplify) %>%
+    sample_n(size = 367, replace = TRUE)
+  # run planned analysis
+  bs_fit <- t.test(cong_overall ~ amplify, data = bs_data)
+  # grab se
+  bs_se[i] <- bs_fit$stderr
+}
+
+# compute 2.5th percentile of power to obtain conservative estimate
+pwr <- 1 - pnorm(1.64 - 0.35/bs_se)
+quantile(pwr, probs = 0.025)
+```
+
+Using the analytical approximation, we got 0.815 as a conservative estimate of power. The bootstrap gave us 0.820 as a conservative estimate. The actual power in the full study turned out to be about 0.843. (Remember, all of these power calculations are *power to detected an effect of 0.35 points on the seven-point scale.*)

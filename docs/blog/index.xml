@@ -17,7 +17,702 @@
 <width>144</width>
 </image>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Mon, 03 Jun 2024 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 10 Jun 2024 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Statistical Power from Pilot Data: An Example</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<hr>
+<p>We can think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
+<div class="page-columns page-full"><p>And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use <em>pilot</em> data.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Here’s how <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> describe the purpose of a pilot study. “The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated.”</p></li></div></div>
+<p>Usually:</p>
+<ol type="1">
+<li>Pilot data are <em>not</em> useful to predict the treatment effect.</li>
+<li>Pilot data are useful to predict the standard error.</li>
+</ol>
+<p>With a predicted standard error in hand, we can predict the minimum detectable effect, the statistical power, or the required sample size in the planned study.</p>
+<p>In this post, I give an example of how this can work.</p>
+<section id="predicting-the-se-from-pilot-data" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="predicting-the-se-from-pilot-data">Predicting the SE from pilot data</h2>
+<p>Here’s how I suggest we use pilot data to predict the standard error in the planned study:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Predicting the SE in the planned study using pilot data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conservatively, the standard error will be about <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D%20%5Ccdot%20%5Cleft%5Clbrack%20%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D%20%5Cright%5Crbrack">, where <img src="https://latex.codecogs.com/png.latex?n%5E%7Bpilot%7D"> is the number of respondents per condition in the pilot data, <img src="https://latex.codecogs.com/png.latex?SE_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D"> is the estimated standard error using the pilot data, and <img src="https://latex.codecogs.com/png.latex?n%5E%7Bplanned%7D"> is the number of respondents per condition in the planned study.</p>
+</div>
+</div>
+<div class="page-columns page-full"><p>The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<sup>2</sup> For the details, see <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this early paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></li></div></div>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<section id="the-robbins-et-al.-study" class="level3">
+<h3 class="anchored" data-anchor-id="the-robbins-et-al.-study">The Robbins et al.&nbsp;study</h3>
+<p>As an example, let’s use half of the experiment conducted by <span class="citation" data-cites="robbins2024">Robbins et al. (2024)</span>.</p>
+<p>Robbins et al.&nbsp;use a 2x2 factorial vignette design, randomly assigning each respondent to read one of four vignettes. The vignette describes a hypothetical covert operation ordered by the president that ends in either success or failure. Then, the vignette describes a whistleblower coming forward and describes the president’s opposition in Congress as either amplifying or ignoring the whistleblower.</p>
+
+
+
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+
+
+
+<table data-quarto-postprocess="true" class="table">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">President's Opposition in Congress</th>
+<th colspan="2" data-quarto-table-cell-role="th">Outcome of Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th"></td>
+<td data-quarto-table-cell-role="th">Success</td>
+<td data-quarto-table-cell-role="th">Failure</td>
+</tr>
+<tr class="even">
+<td>Amplifies Whistleblower</td>
+<td>Vignette 1: Success &amp; Amplify</td>
+<td>Vignette 2: Failure &amp; Amplify</td>
+</tr>
+<tr class="odd">
+<td>Ignores Whistleblower</td>
+<td>Vignette 3: Success &amp; Ignore</td>
+<td>Vignette 4: Failure &amp; Ignore</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<p>After the vignette, the respondent is asked whether they approve of the opposition in Congress’ actions on a seven-point Likert scale from strongly approve to strongly disapprove.</p>
+<p>For a simple example, let’s <strong>focus on the effect of amplifying the whistleblower when the operation succeeds</strong>. That is, let’s compare responses after Vignette 1 and Vignette 3. How much does amplifying a whistleblower increase approval <em>when the opperation succeeds</em>? We expect a small effect here, so we should pay careful attention to power.</p>
+</section>
+</section>
+<section id="the-task" class="level2">
+<h2 class="anchored" data-anchor-id="the-task">The task</h2>
+<p><strong>We hoped to detect an effect as small as 0.35 points on the seven-point scale and had tentatively planned on 250 respondents per condition.</strong> To test the survey instrument and data provider, we conducted a small pilot with about 75 respondents per condition. Let’s use those pilot data to check whether 250 respondents seem sufficient.</p>
+</section>
+<section id="the-data" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>In the <a href="https://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub, you can find the the pilot data we collected leading up to the main study.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># download the {crdata} package from github</span></span>
+<span id="cb1-2">remotes<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install_github</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"carlislerainey/crdata"</span>)</span></code></pre></div>
+</div>
+<p>Now let’s load the pilot data. To focus on observations where the operation succeeds, we’re going to keep only the observations where the vignette describes a successful observation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load pilot data and keep only success condition</span></span>
+<span id="cb2-2">robbins2_pilot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> crdata<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span>robbins_pilot <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subset</span>(failure <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Success"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glimpse</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 147
+Columns: 5
+$ cong_overall &lt;dbl&gt; 3, 1, -2, 0, -2, -1, 0, -1, 0, 0, 0, 2, -1, 3, -3, 0, 0, …
+$ failure      &lt;fct&gt; Success, Success, Success, Success, Success, Success, Suc…
+$ amplify      &lt;fct&gt; Ignore, Ignore, Ignore, Amplify, Ignore, Ignore, Ignore, …
+$ pid7         &lt;fct&gt; Strong Democrat, Not very strong Republican, Strong Democ…
+$ pid_strength &lt;dbl&gt; 3, 2, 3, 2, 2, 3, 2, 2, 2, 2, 2, 1, 0, 3, 3, 3, 3, 1, 1, …</code></pre>
+</div>
+</div>
+<p><code>cong_overall</code> is the respondent’s approval of Congress’ actions on a seven-point scale and <code>amplify</code> indicates whether Congress amplified the whistleblower (i.e., criticized the president).</p>
+<section id="analyzing-the-pilot-data" class="level3">
+<h3 class="anchored" data-anchor-id="analyzing-the-pilot-data">Analyzing the pilot data</h3>
+<p>Now let’s analyze the pilot data as we plan to analyze the main data set that we plan to collect later. We’re interested in the average response in the <code>Amplify</code> and <code>Ignore</code> conditions, so let’s use a t-test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># t test</span></span>
+<span id="cb4-2">fit_pilot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(cong_overall <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> amplify, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> robbins2_pilot)</span></code></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ignore the Estimated Treatment Effect
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It can be really tempting to look at the estimated treatment effect. In this pilot study, it’s <em>actually statistically significant.</em> I intentionally don’t show the estimated treatment effect (or quantities requiring it, like <em>p</em>-values). If we looked at these, we might make one of the following mistakes:</p>
+<ol type="1">
+<li>“The pilot got significant results, therefore even the pilot is sufficiently powered.”</li>
+<li>“The estimate from the pilot is significant, therefore we can use the estimated treatment effect in the power analysis.”</li>
+</ol>
+<p>Both of these claims are misleading. The estimated treatment effect is very noisy, so ignore the estimated treatment effect.</p>
+</div>
+</div>
+</section>
+<section id="predicting-the-se-in-the-main-study" class="level3">
+<h3 class="anchored" data-anchor-id="predicting-the-se-in-the-main-study">Predicting the SE in the main study</h3>
+<p>To predict the standard error in the main study, we need two pieces of information from this pilot:</p>
+<ol type="1">
+<li>the sample size per condition and</li>
+<li>the estimated standard error.</li>
+</ol>
+<p>We can get the number of observations per condition using <code>table()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># create a table showing the observations per condition</span></span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(robbins2_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>amplify)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Ignore Amplify 
+     70      77 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sample size per condition</span></span>
+<span id="cb7-2">n_pilot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(robbins2_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>amplify))</span>
+<span id="cb7-3">n_pilot</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 73.5</code></pre>
+</div>
+</div>
+<p>And then we need the estimated standard error, which is computed by <code>t.test()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get estimated standard error from pilot</span></span>
+<span id="cb9-2">se_hat_pilot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> fit_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>stderr</span>
+<span id="cb9-3">se_hat_pilot</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2761011</code></pre>
+</div>
+</div>
+<p>Now we can predict the standard error in the planned study.</p>
+<p>For the main study, we planned on about 250 respondents per condition.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">n_planned <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">250</span></span></code></pre></div>
+</div>
+<p>The we can conservatively predict the standard error in the full study as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D%20%5Ccdot%20%5Cleft%5Clbrack%20%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D%20%5Cright%5Crbrack">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">pred_se_cons <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(n_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_planned)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>((<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_pilot) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>se_hat_pilot)</span>
+<span id="cb12-2">pred_se_cons</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1671691</code></pre>
+</div>
+</div>
+<p>But is this standard error small enough?</p>
+</section>
+<section id="evaluating-the-predicted-se-in-the-main-study" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="evaluating-the-predicted-se-in-the-main-study">Evaluating the predicted SE in the main study</h3>
+<div class="page-columns page-full"><p>We can convert the standard error to the minimum detectable effect with 80% power using <img src="https://latex.codecogs.com/png.latex?2.5%20%5Ctimes%20SE">.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;See <span class="citation" data-cites="bloom1995">Bloom (1995)</span> for an excellent discussion of this rule. I also write about it <a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">here</a>.</p></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># compute conservative minimum detectable effect</span></span>
+<span id="cb14-2"><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pred_se_cons</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4179227</code></pre>
+</div>
+</div>
+<p>We hoped to detect an effect as small as 0.35 points on the seven-point scale, so we’re going to need more than 250 respondents per condition!</p>
+<p>We can also compute the power to detect an effect of 0.35 points on the seven-point scale.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># compute power as a percent</span></span>
+<span id="cb16-2"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.64</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pred_se_cons)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6749736</code></pre>
+</div>
+</div>
+<p>Note that these are <em>conservative</em> estimates of the minimum detectable effect and statistical power.</p>
+<p>Here’s what things look like if we remove the conservative nudge <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> and predict the standard error as <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D">.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># without the conservative nudge</span></span>
+<span id="cb18-2">pred_se <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(n_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_planned)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>se_hat_pilot</span>
+<span id="cb18-3"><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pred_se  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># best guess of minimum detectable effect</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3742673</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.64</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pred_se)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># best guess of power</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7573806</code></pre>
+</div>
+</div>
+<p>As you can see, the minimum detectable effect and power are a little too low. We need more respondents!</p>
+</section>
+<section id="adjusting-the-sample-size" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-the-sample-size">Adjusting the Sample Size</h3>
+<p>Our plan of 250 respondents per condition seems too low. If we want, we can predict the sample size we need to get to 80% power using the following rule:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Predicting the required sample size in the planned study using pilot data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For 80% power to detect the treatment effect <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Ctau%7D">, we will (conservatively) need about <img src="https://latex.codecogs.com/png.latex?n%5E%7Bpilot%7D%20%5Ccdot%20%5Cleft%5Clbrack%20%5Cfrac%7B2.5%7D%7B%5Cwidetilde%7B%5Ctau%7D%7D%20%5Ccdot%20%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D%20%5Cright%5Crbrack%5E%7B2%7D"> respondents per condition, where <img src="https://latex.codecogs.com/png.latex?n%5E%7Bpilot%7D"> is the number of respondents per condition in the pilot data and <img src="https://latex.codecogs.com/png.latex?SE_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D"> is the estimated standard error using the pilot data.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">n_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>((<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>((<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_pilot) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>se_hat_pilot))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 356.4477</code></pre>
+</div>
+</div>
+<p>Thus to get 80% power, the pilot data suggest that we (conservatively) need about 360 respondents per condition. We used 367 in the full study. Here are the conservative predictions for 367 respondents per condition.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">n_planned <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">367</span></span>
+<span id="cb24-2">pred_se_cons <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(n_pilot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_planned)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>((<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>n_pilot) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>se_hat_pilot)</span>
+<span id="cb24-3">pred_se_cons</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1379726</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>pred_se_cons  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># conservative minimum detectable effect</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3449315</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.64</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pred_se_cons)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># conservative power</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8150699</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="how-did-we-do" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="how-did-we-do">How did we do?</h2>
+<div class="page-columns page-full"><p>We ran the full study.<sup>4</sup></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;See <span class="citation" data-cites="robbins2024">Robbins et al. (2024)</span> for the full results.</p></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">robbins2_main <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> crdata<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span>robbins_main <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb30-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subset</span>(failure <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Success"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb30-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glimpse</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 735
+Columns: 5
+$ cong_overall &lt;dbl&gt; 2, -2, -1, -3, 0, -1, -2, -1, 1, 1, 0, -3, -2, 2, 2, -3, …
+$ failure      &lt;fct&gt; Success, Success, Success, Success, Success, Success, Suc…
+$ amplify      &lt;fct&gt; Ignore, Amplify, Amplify, Amplify, Ignore, Ignore, Amplif…
+$ pid7         &lt;fct&gt; Not very strong Republican, Not very strong Republican, S…
+$ pid_strength &lt;dbl&gt; 2, 2, 3, 3, 3, 2, 0, 2, 2, 1, 2, 0, 3, 1, 2, 3, 2, 3, 2, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">fit_main <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(cong_overall <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> amplify, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> robbins2_main)</span>
+<span id="cb32-2">fit_main<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>stderr</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1322618</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.64</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>fit_main<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>stderr)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8428563</code></pre>
+</div>
+</div>
+<p>As you can see, the pilot data gave us a good, slightly conservative prediction. We conservatively predicted a standard error of 0.138 in the planned study and we estimated a standard error of 0.132 after running the study. We conservatively predicted our power would be about 82% to detected an effect of 0.35 on the seven-point scale, but after running the study, it seems like we had about 84% power.</p>
+</section>
+<section id="a-bootstrap-alternative" class="level2">
+<h2 class="anchored" data-anchor-id="a-bootstrap-alternative">A bootstrap alternative</h2>
+<p>We can also use the bootstrap as an alternative. There are a few ways one might approach it.</p>
+<p>Here’s one:</p>
+<ol type="1">
+<li>Treat the pilot data as a population. Create a data set with the planned sample size by sampling with replacement from the pilot data.</li>
+<li>Perform the planned analysis on each resampled data set.</li>
+<li>Store the estimated standard error from each analysis.</li>
+</ol>
+<p>Repeat the process above many times. For each standard error estimate, compute the implied statistical power. This gives a distribution of power estimates. Find a value near the bottom of this distribution. The factor we used above—The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)">—nudges the standard error to about the 2.5th percentile, so we can use that here, too.</p>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_20fedaa4129096dd9b515c1a1bc80fa3">
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># number of bootstrap iterations</span></span>
+<span id="cb36-2">n_bs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span></span>
+<span id="cb36-3"></span>
+<span id="cb36-4">bs_se <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">numeric</span>(n_bs)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># a container</span></span>
+<span id="cb36-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n_bs){</span>
+<span id="cb36-6">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># resample 367 observations from each condition</span></span>
+<span id="cb36-7">  bs_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> robbins2_main <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb36-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(amplify) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb36-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample_n</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">367</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">replace =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb36-10">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># run planned analysis</span></span>
+<span id="cb36-11">  bs_fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(cong_overall <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> amplify, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> bs_data)</span>
+<span id="cb36-12">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># grab se</span></span>
+<span id="cb36-13">  bs_se[i] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> bs_fit<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>stderr</span>
+<span id="cb36-14">}</span>
+<span id="cb36-15"></span>
+<span id="cb36-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># compute 2.5th percentile of power to obtain conservative estimate</span></span>
+<span id="cb36-17">pwr <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.64</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>bs_se)</span>
+<span id="cb36-18"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">quantile</span>(pwr, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.025</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     2.5% 
+0.8206062 </code></pre>
+</div>
+</div>
+<p>Using the analytical approximation, we got 0.815 as a conservative estimate of power. The bootstrap gave us 0.820 as a conservative estimate. The actual power in the full study turned out to be about 0.843. (Remember, all of these power calculations are <em>power to detected an effect of 0.35 points on the seven-point scale.</em>)</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bloom1995" class="csl-entry">
+Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evaluation Review</em> 19 (5): 547–56. <a href="https://doi.org/10.1177/0193841x9501900504">https://doi.org/10.1177/0193841x9501900504</a>.
+</div>
+<div id="ref-leon2011" class="csl-entry">
+Leon, Andrew C., Lori L. Davis, and Helena C. Kraemer. 2011. <span>“The Role and Interpretation of Pilot Studies in Clinical Research.”</span> <em>Journal of Psychiatric Research</em> 45 (5): 626–29. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">https://doi.org/10.1016/j.jpsychires.2010.10.008</a>.
+</div>
+<div id="ref-robbins2024" class="csl-entry">
+Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, Bryanna Major, Maria A Martinez, et al. 2024. <span>“Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight.”</span> SocArXiv. <a href="https://doi.org/10.31235/osf.io/9p5h8">https://doi.org/10.31235/osf.io/9p5h8</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>statistical power</category>
+  <category>hypothesis tests</category>
+  <category>power analysis</category>
+  <category>methodology</category>
+  <guid>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/index.html</guid>
+  <pubDate>Mon, 10 Jun 2024 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Statistical Power from Pilot Data: Simulations to Illustrate</title>
   <dc:creator>Carlisle Rainey</dc:creator>
