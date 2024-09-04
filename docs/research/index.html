@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-type','listing-author','listing-date','listing-status','listing-github','listing-note','listing-preprint','listing-dataverse','listing-prereg','listing-osf','listing-website','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-type','listing-author','listing-date','listing-status','listing-pdf','listing-note','listing-preprint','listing-dataverse','listing-prereg','listing-osf','listing-website','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-title","listing-type","listing-author","listing-date","listing-status","listing-github","listing-note","listing-preprint","listing-dataverse","listing-prereg","listing-osf","listing-website","listing-categories"],
+      searchColumns: ["listing-title","listing-type","listing-author","listing-date","listing-status","listing-pdf","listing-note","listing-preprint","listing-dataverse","listing-prereg","listing-osf","listing-website","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -271,9 +271,9 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
         </small>
       <!-- paper info for published papers -->
       <br>
-        <a role="button" href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-github ai-lg"></i> GitHub 
-        </a>
+        <a role="button" href="http://www.carlislerainey.com/power-rules/power-rules.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
+          <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
+        </a> 
       <br>
         <small class="text-secondary">
           <span class="note">An early draft of a paper on understanding and computing statistical power for applied researchers.</span>    
