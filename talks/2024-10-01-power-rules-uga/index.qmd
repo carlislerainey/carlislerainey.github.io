@@ -1,0 +1,31 @@
+---
+title: "Power Rules @ UGA"
+description: "A talk at the University of Georgia."
+author: "Carlisle Rainey"
+date: "2024-10-01"
+image: power-rules.png
+twitter-card:
+  image: "power-rules-tw.png"
+  card-style: "summary_large_image"
+---
+
+- You can find the paper [here](https://www.carlislerainey.com/power-rules/power-rules.pdf).
+- The GitHub repo for the paper is [here](https://github.com/carlislerainey/power-rules).
+- You can find a pdf version of the slides [here](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
+- You can find relevant blog posts on the topic [here](https://www.carlislerainey.com/blog/).  
+
+And the code to compute power is here:
+
+```
+# mean and sd
+true_effect <- 1.00
+se <- 0.4
+
+# compute power
+pnorm(1.64*se,             # want fraction above* 1.64 SE
+      mean = true_effect,  # mean of sampling distribution
+      sd = se,             # sd of sampling distribution
+      lower.tail = FALSE)  # fraction above, not below
+```
+
+

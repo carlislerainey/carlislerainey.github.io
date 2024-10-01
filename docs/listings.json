@@ -2,11 +2,16 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/2024-10-01-power-rules-uga/index.html",
       "/talks/2024-03-06-dissent-scores/index.html",
       "/talks/2024-03-02-topic-sampling/index.html",
       "/talks/2024-topic-sampling/index.html",
       "/talks/2023-topic-sampling/index.html"
     ]
+  },
+  {
+    "listing": "/research/index.html",
+    "items": []
   },
   {
     "listing": "/blog/index.html",
@@ -22,9 +27,5 @@
       "/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html",
       "/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html"
     ]
-  },
-  {
-    "listing": "/research/index.html",
-    "items": []
   }
 ]
