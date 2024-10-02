@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -131,7 +150,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
             <div class="quarto-navbar-tools ms-auto tools-wide">
     <a href="../../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
     <a href="https://twitter.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://sciences.social/@CarlisleRainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://sciences.social/(CarlisleRainey?)" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
     <a href="https://github.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
           </div> <!-- /navcollapse -->
@@ -143,7 +162,15 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#paper-and-slides" id="toc-paper-and-slides" class="nav-link active" data-scroll-target="#paper-and-slides">Paper and slides</a></li>
+  <li><a href="#other-things-from-me" id="toc-other-things-from-me" class="nav-link" data-scroll-target="#other-things-from-me">Other things from me</a></li>
+  <li><a href="#other-relevant-papers" id="toc-other-relevant-papers" class="nav-link" data-scroll-target="#other-relevant-papers">Other relevant papers</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -182,11 +209,21 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 </header>
 
+<section id="paper-and-slides" class="level2">
+<h2 class="anchored" data-anchor-id="paper-and-slides">Paper and slides</h2>
 <ul>
-<li>You can find the paper <a href="https://www.carlislerainey.com/power-rules/power-rules.pdf">here</a>.</li>
+<li><strong>You can find the paper <a href="https://www.carlislerainey.com/power-rules/power-rules.pdf">here</a>.</strong></li>
 <li>The GitHub repo for the paper is <a href="https://github.com/carlislerainey/power-rules">here</a>.</li>
-<li>You can find a pdf version of the slides <a href="https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&amp;dl=0">here</a>.</li>
-<li>You can find relevant blog posts on the topic <a href="https://www.carlislerainey.com/blog/">here</a>.</li>
+<li>You can find the iCloud version of the slides <a href="https://www.icloud.com/keynote/0d6aPDe-yVieB2J1BTzRonphA#power-rules">here</a> and a pdf version of the slides <a href="https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&amp;dl=0">here</a>.</li>
+</ul>
+</section>
+<section id="other-things-from-me" class="level2">
+<h2 class="anchored" data-anchor-id="other-things-from-me">Other things from me</h2>
+<ul>
+<li>You can find several relevant blog posts on the topic <a href="https://www.carlislerainey.com/blog/">here</a>.<br>
+</li>
+<li>“Arguing for a Negligible Effect” [<a href="https://www.carlislerainey.com/papers/nme.pdf">PDF</a>] describes how you can use an equivalence test to argue <em>in favor</em> of “no effect.”</li>
+<li>“Substantive Importance and the Veil of Statistical Significance” [<a href="https://www.carlislerainey.com/papers/meaningful.pdf">PDF</a>] makes a more general argument about how we should test claims.</li>
 </ul>
 <p>And the code to compute power is here:</p>
 <pre><code># mean and sd
@@ -198,10 +235,35 @@ pnorm(1.64*se,             # want fraction above* 1.64 SE
       mean = true_effect,  # mean of sampling distribution
       sd = se,             # sd of sampling distribution
       lower.tail = FALSE)  # fraction above, not below</code></pre>
+</section>
+<section id="other-relevant-papers" class="level2">
+<h2 class="anchored" data-anchor-id="other-relevant-papers">Other relevant papers</h2>
+<p>Here are the articles worth reading if you want to learn more:</p>
+<ul>
+<li><p><span class="citation" data-cites="arel-bundock2022">Arel-Bundock et al. (<a href="#ref-arel-bundock2022" role="doc-biblioref">2022</a>)</span> for an argument that political scientists need to think harder about statistical power.</p></li>
+<li><p><span class="citation" data-cites="bloom1995">Bloom (<a href="#ref-bloom1995" role="doc-biblioref">1995</a>)</span> on the simple and effective concept of “minimum detectable effects.”</p></li>
+<li><p><span class="citation" data-cites="lakens2022">Lakens (<a href="#ref-lakens2022" role="doc-biblioref">2022</a>)</span> for a clear and complete description of how researchers can justify their sample size using power analysis and other arguments.</p></li>
+<li><p><span class="citation" data-cites="blair2019">BLAIR et al. (<a href="#ref-blair2019" role="doc-biblioref">2019</a>)</span> for a comprehensive way of thinking about power along with research designs and their implications much more generally.</p></li>
+</ul>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arel-bundock2022" class="csl-entry" role="listitem">
+Arel-Bundock, Vincent, Ryan C Briggs, Hristos Doucouliagos, Marco Mendoza Aviña, and T. D. Stanley. 2022. <span>“Quantitative Political Science Research Is Greatly Underpowered.”</span> <a href="http://dx.doi.org/10.31219/osf.io/7vy2f">http://dx.doi.org/10.31219/osf.io/7vy2f</a>.
+</div>
+<div id="ref-blair2019" class="csl-entry" role="listitem">
+BLAIR, GRAEME, JASPER COOPER, ALEXANDER COPPOCK, and MACARTAN HUMPHREYS. 2019. <span>“Declaring and Diagnosing Research Designs.”</span> <em>American Political Science Review</em> 113 (3): 838–59. <a href="https://doi.org/10.1017/s0003055419000194">https://doi.org/10.1017/s0003055419000194</a>.
+</div>
+<div id="ref-bloom1995" class="csl-entry" role="listitem">
+Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evaluation Review</em> 19 (5): 547–56. <a href="https://doi.org/10.1177/0193841x9501900504">https://doi.org/10.1177/0193841x9501900504</a>.
+</div>
+<div id="ref-lakens2022" class="csl-entry" role="listitem">
+Lakens, Daniël. 2022. <span>“Sample Size Justification.”</span> <em>Collabra: Psychology</em> 8 (1). <a href="https://doi.org/10.1525/collabra.33267">https://doi.org/10.1525/collabra.33267</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

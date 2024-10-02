@@ -7,12 +7,20 @@ image: power-rules.png
 twitter-card:
   image: "power-rules-tw.png"
   card-style: "summary_large_image"
+bibliography: references.bib
 ---
 
-- You can find the paper [here](https://www.carlislerainey.com/power-rules/power-rules.pdf).
+## Paper and slides 
+
+- **You can find the paper [here](https://www.carlislerainey.com/power-rules/power-rules.pdf).**
 - The GitHub repo for the paper is [here](https://github.com/carlislerainey/power-rules).
-- You can find a pdf version of the slides [here](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
-- You can find relevant blog posts on the topic [here](https://www.carlislerainey.com/blog/).  
+- You can find the iCloud version of the slides [here](https://www.icloud.com/keynote/0d6aPDe-yVieB2J1BTzRonphA#power-rules) and a pdf version of the slides [here](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
+
+## Other things from me
+
+- You can find several relevant blog posts on the topic [here](https://www.carlislerainey.com/blog/).  
+- "Arguing for a Negligible Effect" [[PDF](https://www.carlislerainey.com/papers/nme.pdf)] describes how you can use an equivalence test to argue *in favor* of "no effect."
+- "Substantive Importance and the Veil of Statistical Significance" [[PDF](https://www.carlislerainey.com/papers/meaningful.pdf)] makes a more general argument about how we should test claims.
 
 And the code to compute power is here:
 
@@ -27,5 +35,17 @@ pnorm(1.64*se,             # want fraction above* 1.64 SE
       sd = se,             # sd of sampling distribution
       lower.tail = FALSE)  # fraction above, not below
 ```
+
+## Other relevant papers
+
+Here are the articles worth reading if you want to learn more:
+
+-   @arel-bundock2022 for an argument that political scientists need to think harder about statistical power.
+
+-   @bloom1995 on the simple and effective concept of "minimum detectable effects."
+
+-   @lakens2022 for a clear and complete description of how researchers can justify their sample size using power analysis and other arguments.
+
+-   @blair2019 for a comprehensive way of thinking about power along with research designs and their implications much more generally.
 
 

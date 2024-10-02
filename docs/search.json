@@ -32,7 +32,28 @@
     "href": "talks/2024-10-01-power-rules-uga/index.html",
     "title": "Power Rules @ UGA",
     "section": "",
-    "text": "You can find the paper here.\nThe GitHub repo for the paper is here.\nYou can find a pdf version of the slides here.\nYou can find relevant blog posts on the topic here.\n\nAnd the code to compute power is here:\n# mean and sd\ntrue_effect &lt;- 1.00\nse &lt;- 0.4\n\n# compute power\npnorm(1.64*se,             # want fraction above* 1.64 SE\n      mean = true_effect,  # mean of sampling distribution\n      sd = se,             # sd of sampling distribution\n      lower.tail = FALSE)  # fraction above, not below"
+    "text": "You can find the paper here.\nThe GitHub repo for the paper is here.\nYou can find the iCloud version of the slides here and a pdf version of the slides here."
+  },
+  {
+    "objectID": "talks/2024-10-01-power-rules-uga/index.html#paper-and-slides",
+    "href": "talks/2024-10-01-power-rules-uga/index.html#paper-and-slides",
+    "title": "Power Rules @ UGA",
+    "section": "",
+    "text": "You can find the paper here.\nThe GitHub repo for the paper is here.\nYou can find the iCloud version of the slides here and a pdf version of the slides here."
+  },
+  {
+    "objectID": "talks/2024-10-01-power-rules-uga/index.html#other-things-from-me",
+    "href": "talks/2024-10-01-power-rules-uga/index.html#other-things-from-me",
+    "title": "Power Rules @ UGA",
+    "section": "Other things from me",
+    "text": "Other things from me\n\nYou can find several relevant blog posts on the topic here.\n\n“Arguing for a Negligible Effect” [PDF] describes how you can use an equivalence test to argue in favor of “no effect.”\n“Substantive Importance and the Veil of Statistical Significance” [PDF] makes a more general argument about how we should test claims.\n\nAnd the code to compute power is here:\n# mean and sd\ntrue_effect &lt;- 1.00\nse &lt;- 0.4\n\n# compute power\npnorm(1.64*se,             # want fraction above* 1.64 SE\n      mean = true_effect,  # mean of sampling distribution\n      sd = se,             # sd of sampling distribution\n      lower.tail = FALSE)  # fraction above, not below"
+  },
+  {
+    "objectID": "talks/2024-10-01-power-rules-uga/index.html#other-relevant-papers",
+    "href": "talks/2024-10-01-power-rules-uga/index.html#other-relevant-papers",
+    "title": "Power Rules @ UGA",
+    "section": "Other relevant papers",
+    "text": "Other relevant papers\nHere are the articles worth reading if you want to learn more:\n\nArel-Bundock et al. (2022) for an argument that political scientists need to think harder about statistical power.\nBloom (1995) on the simple and effective concept of “minimum detectable effects.”\nLakens (2022) for a clear and complete description of how researchers can justify their sample size using power analysis and other arguments.\nBLAIR et al. (2019) for a comprehensive way of thinking about power along with research designs and their implications much more generally."
   },
   {
     "objectID": "talks/2024-03-02-topic-sampling/index.html",
