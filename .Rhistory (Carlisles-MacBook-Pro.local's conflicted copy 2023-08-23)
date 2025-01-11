@@ -1,0 +1,512 @@
+gg1_anim <- gg1 +
+transition_states(states = group) +
+# how points enter
+enter_drift(y_mod = 10) +
+enter_grow() +
+enter_fade() +
+# how points exit/remain
+exit_fade(alpha = 0.5) +
+exit_shrink(size = 1) +
+shadow_mark(alpha = 0.5)
+gg1_gif<- animate(gg1_anim, nframes = nframes, duration = duration, width = width, height = height, units = "in", res = res)
+anim_save("gg1.gif")
+gg1_gif
+gg1_mgif <- image_read("gg1.gif")
+## plot 2: histogram
+# start with a ggplot
+gg2 <- ggplot(split_animate_data, aes(x = reject_null, fill = reject_null),  na.rm = TRUE) +
+geom_bar(na.rm = TRUE) +
+theme_bw() +
+labs(x = "Reject Null",
+y = "Count") +
+theme(legend.position = "none") +
+scale_x_discrete(na.translate = FALSE) +
+scale_fill_manual(values = c("Yes" = "#1b9e77", "No" = "#d95f02"))
+gg2
+# add dyamics to the plot
+gg2_anim <- gg2 +
+transition_states(states = frame)
+gg2_gif<- animate(gg2_anim, nframes = nframes, duration = duration, width = width, height = height, units = "in", res = res)
+gg2_gif
+anim_save("gg2.gif")
+gg2_mgif <- image_read("gg2.gif")
+new_gif <- image_append(c(gg1_mgif[1], gg2_mgif[1]), stack = FALSE)
+for(i in 2:nframes){
+combined_gif <- image_append(c(gg1_mgif[i], gg2_mgif[i]), stack = FALSE)
+new_gif <- c(new_gif, combined_gif)
+}
+new_gif
+# gif pars
+duration <- 24 # must be even
+fps <- 20
+nframes <- duration*fps
+scale <- 2.5
+width <- 8
+height <- 6
+res <- 125
+# study parameters
+true_effect <- 1
+se <- 0.4
+# number of times to repeat the study
+n_studies <- 50 # nframes
+# create a data frame of confidence intervals
+ests <- tibble(study_id = 1:n_studies,
+est = c(rnorm(n_studies, true_effect, se))) %>%
+mutate(reject_null = ifelse(est - 1.64*se > 0, "Yes", "No")) %>%
+glimpse()
+# add two things to the data frame of confidence intervals
+# 1. an initial row with study_id = 1 and est = NA so that
+#    the plot starts empty (gganimate would start with the
+#    first observation in place otherwise).
+# 2. a group variable that defines the row. This is the same
+#    as the study_id, except the dummy row from (1) and the
+#    actual first row have different groups.
+animate_data <- bind_rows(
+tibble(study_id = 1, est = NA),  # study_id = 1, est = NA
+ests                             # actual cis
+) %>%
+mutate(group = 1:n())
+split_animate_data <- animate_data %>%        # group (row index)
+split(.$group) %>%
+accumulate(~ bind_rows(.x, .y)) %>%
+bind_rows(.id = "frame") %>%
+mutate(frame = as.integer(frame)) %>%
+glimpse()
+se_lines <- tribble(
+~se_, ~label, ~chance, ~ch_loc_,  # trailing _ means not rescaeld to study se
+0, "True Effect", NA, NA,
+1, "+1 SE", scales::percent(pnorm(1) - pnorm(0), accuracy = 1), 0.5,
+2, "+2 SE", scales::percent(pnorm(2) - pnorm(1), accuracy = 1), 1.5,
+3, "+3 SE", scales::percent(pnorm(3) - pnorm(2), accuracy = 1), 2.5,
+-1, "-1 SE", scales::percent(pnorm(0) - pnorm(-1), accuracy = 1), -0.5,
+-2, "-2 SE", scales::percent(pnorm(-1) - pnorm(-2), accuracy = 1), -1.5,
+-3, "-3 SE", scales::percent(pnorm(-2) - pnorm(-3), accuracy = 1), -2.5,
+) %>%
+mutate(ch_loc = ch_loc_*se + true_effect,
+se = se_*se + true_effect) %>%
+glimpse()
+# start with a ggplot
+gg1 <- ggplot(animate_data, aes(x = est,
+y = study_id,
+group = group)) +
+geom_vline(data = se_lines, aes(xintercept = se,
+color = -dnorm(se_)), linetype = "dashed") +
+geom_label(data = se_lines, aes(x = se, y = n_studies + 2, label = label, group = NULL, color = -dnorm(se_))) +
+geom_text(data = se_lines, aes(x = ch_loc, y = 4, label = chance, group = NULL)) +
+geom_point(aes(color = -dnorm((est- true_effect)/se)),
+size = 3) +
+geom_rug(sides = "b",
+aes(x = est,
+color = -dnorm((est- true_effect)/se)),
+alpha = 0.5,
+length = unit(0.025, "npc")) +
+theme_bw() +
+theme(panel.grid.minor.y = element_blank()) +
+labs(x = "Estimate of Effect",
+y = "Study Number") +
+theme(legend.position = "none")
+gg1
+# add dyamics to the plot
+gg1_anim <- gg1 +
+transition_states(states = group) +
+# how points enter
+enter_drift(y_mod = 10) +
+enter_grow() +
+enter_fade() +
+# how points exit/remain
+exit_fade(alpha = 0.5) +
+exit_shrink(size = 1) +
+shadow_mark(alpha = 0.5)
+gg1_gif<- animate(gg1_anim, nframes = nframes, duration = duration, width = width, height = height, units = "in", res = res)
+## plot 2: histogram
+# start with a ggplot
+gg2 <- ggplot(split_animate_data, aes(x = est, group = frame)) +
+geom_histogram(binwidth = se, boundary = true_effect, fill = "grey") +
+geom_vline(data = se_lines, aes(xintercept = se,
+color = -dnorm(se_)), linetype = "dashed") +
+geom_label(data = se_lines, aes(x = se, y = Inf, label = label, group = NULL, color = -dnorm(se_)), vjust = 1.5) +
+geom_label(data = se_lines, aes(x = ch_loc, y = 0, label = chance, group = NULL), vjust = -1) +
+#geom_density(linewidth = 2) +
+geom_rug(sides = "b",
+aes(x = est,
+color = -dnorm((est- true_effect)/se)),
+alpha = 0.5,
+length = unit(0.025, "npc")) +
+theme_bw() +
+labs(x = "Estimate of Effect",
+y = "Count") +
+theme(legend.position = "none")
+gg2
+# add dyamics to the plot
+gg2_anim <- gg2 +
+transition_states(states = frame)
+gg2_gif<- animate(gg2_anim, nframes = nframes, duration = duration, width = width, height = height, units = "in", res = res)
+# study parameters
+true_effect <- 1
+se <- 0.4
+se_lines <- tribble(
+~se_, ~label, ~chance, ~ch_loc_,  # trailing _ means not rescaeld to study se
+0, "True Effect", NA, NA,
+1, "+1 SE", scales::percent(pnorm(1) - pnorm(0), accuracy = 1), 0.5,
+2, "+2 SE", scales::percent(pnorm(2) - pnorm(1), accuracy = 1), 1.5,
+3, "+3 SE", scales::percent(pnorm(3) - pnorm(2), accuracy = 1), 2.5,
+-1, "-1 SE", scales::percent(pnorm(0) - pnorm(-1), accuracy = 1), -0.5,
+-2, "-2 SE", scales::percent(pnorm(-1) - pnorm(-2), accuracy = 1), -1.5,
+-3, "-3 SE", scales::percent(pnorm(-2) - pnorm(-3), accuracy = 1), -2.5,
+) %>%
+mutate(ch_loc = ch_loc_*se + true_effect,
+se = se_*se + true_effect) %>%
+glimpse()
+x <- rnorm(5000, mean = true_effect, sd = se)
+df <- data.frame(x)
+bg_alpha <- 0.3
+ggplot() +
+geom_histogram(data = df,
+aes(x = x, y = after_stat(density)), binwidth = se, boundary = true_effect, fill = "grey", alpha = bg_alpha) +
+geom_vline(data = se_lines, aes(xintercept = se,
+color = -dnorm(se_)), linetype = "dashed", alpha = bg_alpha) +
+geom_label(data = se_lines, aes(x = se, y = Inf, label = label, group = NULL), vjust = 1.5, color = alpha('black', bg_alpha)) +
+geom_label(data = se_lines, aes(x = ch_loc, y = 0, label = chance, group = NULL), vjust = -1, color = alpha('black', bg_alpha)) +
+geom_vline(xintercept = 0) +
+geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), size = 1) +
+theme_bw() +
+labs(x = "Estimate of Effect",
+y = "Density") +
+geom_area(data = tibble(x = seq(1.64*se, 3*se + true_effect, by = 0.1)), aes(x = x),
+stat = "function", fun = dnorm, args = list(mean = true_effect, sd = se),
+fill = "#d95f02", alpha = 0.1, xlim = c(1.64*se, 3**se + true_effect)) +
+annotate("label", x = 1.3, y = .1, label = "fraction rejected", color = "#d95f02", size = 6) +
+annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = dnorm(1.64*se, mean = true_effect, sd = se), color = "#1b9e77", size = 1) +
+annotate("label", x = 1.64*se, y = dnorm(1.64*se, mean = true_effect, sd = se)/2, label = "1.64 SEs above zero", color = "#1b9e77") +
+annotate("segment", x = 0, xend = 1.64*se,
+y = dnorm(1.64*se, mean = true_effect, sd = se),
+yend = dnorm(1.64*se, mean = true_effect, sd = se),
+color = "#7570b3", size = 1) +
+annotate("label", x = 0.5*1.64*se, y = dnorm(1.64*se, mean = true_effect, sd = se), label = "width of 90% CI", color = "#7570b3") +
+theme(legend.position = "none")
+ggplot() +
+geom_histogram(data = df,
+aes(x = x, y = after_stat(density)), binwidth = se, boundary = true_effect, fill = "grey", alpha = bg_alpha) +
+geom_vline(data = se_lines, aes(xintercept = se,
+color = -dnorm(se_)), linetype = "dashed", alpha = bg_alpha) +
+geom_label(data = se_lines, aes(x = se, y = Inf, label = label, group = NULL), vjust = 1.5, color = alpha('black', bg_alpha)) +
+geom_label(data = se_lines, aes(x = ch_loc, y = 0, label = chance, group = NULL), vjust = -1, color = alpha('black', bg_alpha)) +
+geom_vline(xintercept = 0) +
+geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), size = 1) +
+theme_bw() +
+labs(x = "Estimate of Effect",
+y = "Density") +
+geom_area(data = tibble(x = seq(1.64*se, 3*se + true_effect, by = 0.1)), aes(x = x),
+stat = "function", fun = dnorm, args = list(mean = true_effect, sd = se),
+fill = "#d95f02", alpha = 0.1, xlim = c(1.64*se, 3**se + true_effect)) +
+#annotate("label", x = 1.3, y = .1, label = "fraction rejected", color = "#d95f02", size = 6) +
+annotate("segment", x = true_effect, xend = true_effect, y = 0, yend = dnorm(true_effect, mean = true_effect, sd = se), color = "#d95f02", size = 1) +
+annotate("label", x = true_effect, y = dnorm(true_effect, mean = true_effect, sd = se)/2, label = "true effect", color = "#d95f02") +
+annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = dnorm(1.64*se, mean = true_effect, sd = se), color = "#1b9e77", size = 1) +
+annotate("label", x = 1.64*se, y = dnorm(1.64*se, mean = true_effect, sd = se)/2, label = "1.64 SEs above zero", color = "#1b9e77") +
+annotate("segment", x = 0, xend = 1.64*se,
+y = .125,
+yend = .125,
+color = "#7570b3", size = 1,
+lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.15, "inches"), ends = "both")) +
+annotate("label", x = 0.5*1.64*se, y = .125, label = "this is 1.64 SEs", color = "#7570b3") +
+annotate("segment", x = true_effect, xend = 1.64*se,
+y = .125,
+yend = .125,
+color = "black", size = 1,
+lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.15, "inches"), ends = "both")) +
+annotate("label", x = 1.64*se + (true_effect - 1.64*se)/2, y = .125 + .03, label = "ideally 2 SEs", color = "black") +
+annotate("segment", x = true_effect, xend = 0,
+y = 0, yend = 0,
+color = "black", size = 1,
+lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.15, "inches"), ends = "both")) +
+annotate("label", x = true_effect/2, y = 0, label = "ideally 3.64 SEs", color = "black") +
+theme(legend.position = "none")
+1/3.64
+qnorm(.2)
+-qnorm(.2)
+1.64-qnorm(.2)
+3.64/2.48
+.27/.4
+2.48/3.64
+.4/.27
+s <- res %>%
+group_by(qi, model) %>%
+summarize(bias = mean(est - true),
+var = var(est),
+rmse = sqrt(var + bias^2)) %>%
+mutate(across(bias:rmse, scales::number)) %>%
+glimpse()
+?across
+# load data from web
+library(readr)  # for read_csv()
+weisiger <- read_csv("https://raw.githubusercontent.com/kellymccaskey/small/master/weisiger-replication/data/weisiger.csv")
+# quick look at data
+library(dplyr)  # for glimpse()
+glimpse(weisiger)
+# model formula
+f <- resist ~ polity_conq + lndist + terrain +
+soldperterr + gdppc2 + coord
+# estimate logistic regression with pmle
+library(logistf)  # for logistf()
+m1 <- logistf(f, data = weisiger)
+f1 <- logistf(f, data = weisiger)
+# see coefficient estimates, confidence intervals, p-values, etc.
+summary(m1)
+marginaleffects::plot_slopes(m1, variables = polity_conq)
+marginaleffects::plot_slopes(m1, variables = polity_conq, by = polity+conq)
+marginaleffects::plot_slopes(m1, variables = polity_conq, by = polity_conq)
+marginaleffects::plot_slopes(m1, variables = "polity_conq", by = polity_conq)
+marginaleffects::plot_slopes(m1, variables = "polity_conq", by = "polity_conq")
+# estimate logistic regression with pmle
+library(brglm2)
+??brglm2
+f1 <- glm(f, data = weisiger, method = "brglmFit")
+# see coefficient estimates, confidence intervals, p-values, etc.
+summary(m1)
+# logistf does **NOT** work with texreg package
+library(texreg)
+screenreg(m1)
+# see help file for more
+help(logistf)
+marginaleffects::plot_slopes(m1, variables = "polity_conq", by = "polity_conq")
+pml_fit <- glm(f, data = weisiger, method = "brglmFit")
+#
+marginaleffects::plot_slopes(m1, variables = "polity_conq", by = "polity_conq")
+#
+marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", by = "polity_conq")
+#
+marginaleffects::plot_slopes(pml_fit, by = "polity_conq")
+#
+marginaleffects::plot_prediction(pml_fit, by = "polity_conq")
+# estimate logistic regression with mle
+ml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+# estimate logistic regression with pmle
+library(brglm2)
+pml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+modelsummary
+marginaleffects::plot_prediction(pml_fit)
+marginaleffects::plot_slopes(pml_fit)
+modelsummary::modelsummary(list(ml_fit, pml_fit))
+# estimate logistic regression with mle
+ml_fit <- glm(f, data = weisiger, family = binomial)
+# estimate logistic regression with pmle
+library(brglm2)
+pml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+modelsummary::modelsummary(list(ml_fit, pml_fit))
+marginaleffects::plot_slopes(pml_fit, by = "")
+marginaleffects::plot_slopes(pml_fit, by = "polity_conq")
+marginaleffects::plot_slopes(pml_fit, variables = "polity_conq")
+marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", by = "variables")
+marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", by = "polity_conq")
+?plot_slopes
+marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", condition = "polity_conq")
+gg1 <- marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", condition = "polity_conq")
+gg1 + gg2
+# load data from web
+library(readr)  # for read_csv()
+weisiger <- read_csv("https://raw.githubusercontent.com/kellymccaskey/small/master/weisiger-replication/data/weisiger.csv")
+# quick look at data
+library(dplyr)  # for glimpse()
+glimpse(weisiger)
+# model formula
+f <- resist ~ polity_conq + lndist + terrain +
+soldperterr + gdppc2 + coord
+# estimate logistic regression with mle
+ml_fit <- glm(f, data = weisiger, family = binomial)
+# estimate logistic regression with pmle
+library(brglm2)
+pml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+modelsummary::modelsummary(list(ml_fit, pml_fit))
+gg1 <- marginaleffects::plot_slopes(ml_fit, variables = "polity_conq", condition = "polity_conq")
+gg2 <- marginaleffects::plot_slopes(pml_fit, variables = "polity_conq", condition = "polity_conq")
+library(patchwork)
+gg1 + gg2
+modelsummary::modelplot(ml_fit, pml_fit)
+modelsummary::modelplot(list(ml_fit, pml_fit))
+modelsummary::modelplot(list("ML" = ml_fit, "PML" = pml_fit))
+# load data from web
+library(readr)  # for read_csv()
+weisiger <- read_csv("https://raw.githubusercontent.com/kellymccaskey/small/master/weisiger-replication/data/weisiger.csv")
+# quick look at data
+library(dplyr)  # for glimpse()
+glimpse(weisiger)
+# model formula
+f <- resist ~ polity_conq + lndist + terrain +
+soldperterr + gdppc2 + coord
+# estimate logistic regression with mle
+ml_fit <- glm(f, data = weisiger, family = binomial)
+# estimate logistic regression with pmle
+library(brglm2)
+pml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+# create a coefficient plot
+modelsummary::modelplot(list("ML" = ml_fit, "PML" = pml_fit))
+# load data from web
+library(readr)  # for read_csv()
+weisiger <- read_csv("https://raw.githubusercontent.com/kellymccaskey/small/master/weisiger-replication/data/weisiger.csv")
+# quick look at data
+library(dplyr)  # for glimpse()
+glimpse(weisiger)
+# model formula
+f <- resist ~ polity_conq + lndist + terrain +
+soldperterr + gdppc2 + coord
+# estimate logistic regression with mle
+ml_fit <- glm(f, data = weisiger, family = binomial)
+# estimate logistic regression with pmle
+library(brglm2)
+pml_fit <- glm(f, data = weisiger, family = binomial, method = "brglmFit")
+# create a coefficient plot
+modelsummary::modelplot(list("ML" = ml_fit, "PML" = pml_fit))
+#load packages
+library(tidyverse)
+library(ivreg) #2sls
+install.packages("ivreg")
+#load packages
+library(tidyverse)
+library(ivreg) #2sls
+library(boot)
+theme_set(theme_bw()) #set theme for plotting
+sample_size <- 2500 #set sample size
+sd_pres_app <- 1.621051 #CC22_320a: approval of Pres. Biden's job performance from Common Content CES 2022; 5-point scale)
+sd_mood <- 0.1816426 # CES18 FSU Module (Previous football experiment); rescaled (0-1), additive mood measure. Note: slight changes in the measurement of mood. CES2018 measure has 5 pos emotions and 3 neg emotions; new (2023) measure will have 4 pos & 4 neg emotions
+#Set Effect Sizes for treatment and encouragement
+effect_pres_app <- .21
+effect_mood <- 0.024
+effect_enc_pres_app <- effect_pres_app/ 2
+effect_enc_mood <-  effect_mood / 2
+#Check Cohen's d
+#total effect of treatment on outcome between Pos Treatment and Control + Neg Treatment (Avg effect)
+(effect_pres_app - (0-effect_pres_app/2))/sd_pres_app
+(effect_mood - (0-effect_mood/2)) / sd_mood
+set_case <- rep(1:9, length.out = sample_size) #create 9 conditions
+treatment <- (rep(c("Pos", "Neg", "Control"), length.out = sample_size))#assign treatment
+encourage <- (rep(c("Down", "Down","Down", "Up", "Up", "Up", "Control", "Control", "Control"), length.out = sample_size)) #assign encouragement status
+#Create dataframe
+play_df <- data.frame(set_case, treatment, encourage)%>%
+#Set treatment and encourage as factor variables
+mutate(treatment = as.factor(treatment),
+encourage = as.factor(encourage),
+#Create comparison for Pos vs Control + Neg Treatment
+treatment_pos = ifelse(treatment != "Pos", "Control", "Pos"),
+#Create comparison for Neg vs Control + Pos Treatment
+treatment_neg = ifelse(treatment != "Neg", "Control", "Neg"))%>%
+glimpse()
+#Source: https://osf.io/efmny
+# Define the two-stage least squares mediation function
+tsls2med <- function(formula1, formula2, data, indices){
+df <- data[indices,]
+tsls1 <- lm(formula1, data = df) #generates beta2
+tsls2 <- ivreg(formula2, data = df) #generates gamma, beta3
+beta2 <- coefficients(tsls1)[2] #beta2, coef for treatment_posPos
+gamma <- coefficients(tsls2)[2] #beta3 coef for mood
+acme <- beta2*gamma
+return(acme)
+}
+set.seed(100) #make results reproducible
+#Create empty vectors
+acme <- c()
+ci_acme_low <- c()
+ci_acme_high <- c()
+ivreg_mood <- c()
+ivreg_mood_se <- c()
+ivreg_treatment_pos <- c()
+total_treatment_pos <- c()
+ivreg_treatment_pos_se <- c()
+total_treatment_pos_se <- c()
+for (i in 1:100) {
+sim <- play_df %>%
+mutate(outcome = ifelse(treatment == "Pos",     rnorm(sample_size, mean = effect_pres_app, sd = sd_pres_app),
+ifelse(treatment == "Neg",     rnorm(sample_size, mean = -1*effect_pres_app, sd = sd_pres_app),
+ifelse(treatment == "Control", rnorm(sample_size, mean = 0, sd = sd_pres_app), NA))))%>%
+mutate(outcome = ifelse(encourage == "Down", outcome + (-1*effect_enc_pres_app),
+ifelse(encourage == "Up",   outcome + effect_enc_pres_app, outcome)))%>%
+mutate(mood    = ifelse(treatment == "Pos",     rnorm(sample_size, mean = effect_mood, sd = sd_mood),
+ifelse(treatment == "Neg",     rnorm(sample_size, mean = -1*effect_mood, sd = sd_mood),
+ifelse(treatment == "Control", rnorm(sample_size, mean = 0, sd = sd_mood), NA))))%>%
+mutate(mood    = ifelse(encourage == "Down", mood + (-1*effect_enc_mood),
+ifelse(encourage == "Up",   mood + effect_enc_mood, mood)))
+#calculate acme (indirect effect)
+f1.1 <- boot(formula1 = mood ~ treatment_pos + encourage,
+formula2 = outcome ~ treatment_pos | mood | encourage,
+data = sim, statistic = tsls2med,
+R = 5000)
+#calculate bootstrap 95% CI of acme; note: bca method used
+f1.2 <- boot.ci(f1.1, type="bca")
+# Get the direct effect
+f1.3 <- ivreg(outcome ~ treatment_pos | mood | encourage, data=sim)
+out <- summary(f1.3)
+# Get the total effect
+f1.4 <- lm(outcome ~ treatment_pos, data=sim)
+out2 <- summary(f1.4)
+#place each value for each simulation iteration into vector
+acme[i] <- f1.1$t0
+ci_acme_low[i] <- f1.2$bca[4]
+ci_acme_high[i] <- f1.2$bca[5]
+ivreg_mood[i] <- f1.3$coefficients[2]
+ivreg_mood_se[i] <- out$coefficients[2,2]
+ivreg_treatment_pos[i] <- f1.3$coefficients[3]
+ivreg_treatment_pos_se[i] <- out$coefficients[3,2]
+total_treatment_pos[i] <- f1.4$coefficients[2]
+total_treatment_pos_se[i] <- out2$coefficients[2,2]
+}
+for (i in 1:10) {
+sim <- play_df %>%
+mutate(outcome = ifelse(treatment == "Pos",     rnorm(sample_size, mean = effect_pres_app, sd = sd_pres_app),
+ifelse(treatment == "Neg",     rnorm(sample_size, mean = -1*effect_pres_app, sd = sd_pres_app),
+ifelse(treatment == "Control", rnorm(sample_size, mean = 0, sd = sd_pres_app), NA))))%>%
+mutate(outcome = ifelse(encourage == "Down", outcome + (-1*effect_enc_pres_app),
+ifelse(encourage == "Up",   outcome + effect_enc_pres_app, outcome)))%>%
+mutate(mood    = ifelse(treatment == "Pos",     rnorm(sample_size, mean = effect_mood, sd = sd_mood),
+ifelse(treatment == "Neg",     rnorm(sample_size, mean = -1*effect_mood, sd = sd_mood),
+ifelse(treatment == "Control", rnorm(sample_size, mean = 0, sd = sd_mood), NA))))%>%
+mutate(mood    = ifelse(encourage == "Down", mood + (-1*effect_enc_mood),
+ifelse(encourage == "Up",   mood + effect_enc_mood, mood)))
+#calculate acme (indirect effect)
+f1.1 <- boot(formula1 = mood ~ treatment_pos + encourage,
+formula2 = outcome ~ treatment_pos | mood | encourage,
+data = sim, statistic = tsls2med,
+R = 5000)
+#calculate bootstrap 95% CI of acme; note: bca method used
+f1.2 <- boot.ci(f1.1, type="bca")
+# Get the direct effect
+f1.3 <- ivreg(outcome ~ treatment_pos | mood | encourage, data=sim)
+out <- summary(f1.3)
+# Get the total effect
+f1.4 <- lm(outcome ~ treatment_pos, data=sim)
+out2 <- summary(f1.4)
+#place each value for each simulation iteration into vector
+acme[i] <- f1.1$t0
+ci_acme_low[i] <- f1.2$bca[4]
+ci_acme_high[i] <- f1.2$bca[5]
+ivreg_mood[i] <- f1.3$coefficients[2]
+ivreg_mood_se[i] <- out$coefficients[2,2]
+ivreg_treatment_pos[i] <- f1.3$coefficients[3]
+ivreg_treatment_pos_se[i] <- out$coefficients[3,2]
+total_treatment_pos[i] <- f1.4$coefficients[2]
+total_treatment_pos_se[i] <- out2$coefficients[2,2]
+}
+#Create data frame from vectors
+simulation <- data.frame(acme, ci_acme_low, ci_acme_high, ivreg_mood, ivreg_mood_se, ivreg_treatment_pos, ivreg_treatment_pos_se, total_treatment_pos, total_treatment_pos_se) %>%
+mutate(acme_sig = ifelse(ci_acme_low > 0, "Significant", " Not Significant"))%>%
+mutate(ivreg_treatment_pos_sig = ifelse(ivreg_treatment_pos-(ivreg_treatment_pos_se*1.96) > 0, "Significant", " Not Significant"))%>%
+mutate(total_treatment_pos_sig = ifelse(total_treatment_pos-(total_treatment_pos_se*1.96) > 0, "Significant", " Not Significant"))%>%
+arrange(desc(acme))%>%
+mutate(row_number= rep(1:length(acme)))%>%
+arrange(desc(ivreg_treatment_pos))%>%
+mutate(row_number2= rep(1:length(acme)))%>%
+arrange(desc(total_treatment_pos))%>%
+mutate(row_number3= rep(1:length(acme)))
+?data
+data(weisiger2014, package = "crdata")
+?palmerpenguins::penguins
+?pkgdown::build_site
+?pkgdown::build_site(run_dont_run = TRUE)
+pkgdown::build_site(run_dont_run = TRUE)
+pkgdown::build_site(run_dont_run = TRUE)
+pkgdown::build_site()
+library(crdata)
+?weisiger2014
+examples(weisiger2014)
+example(weisiger2014)
+?example()
+example(weisiger2014, run.dontrun = TRUE)

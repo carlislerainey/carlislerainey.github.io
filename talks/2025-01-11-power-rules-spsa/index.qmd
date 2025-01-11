@@ -14,7 +14,7 @@ bibliography: references.bib
 
 - **You can find the paper [here](https://www.carlislerainey.com/power-rules/power-rules.pdf).**
 - The GitHub repo for the paper is [here](https://github.com/carlislerainey/power-rules).
-- You can find a pdf version of the slides [here](https://www.dropbox.com/scl/fi/kt9sagmmgg7zp8mbowdcl/power-rules-10min.pdf?rlkey=w969q7ltzykjsarp2skw0ig6r&dl=0).
+- You can find a pdf version of the slides [here](https://www.dropbox.com/scl/fi/kt9sagmmgg7zp8mbowdcl/power-rules-10min.pdf?rlkey=w969q7ltzykjsarp2skw0ig6r&dl=0) and slides with transitions [here](https://www.dropbox.com/scl/fi/706s3in72gsy9ylcptpd2/power-rules-10min-transitions.pdf?rlkey=gq1g4ntqsi1jkft36pjoi7oq6&dl=0).
 
 ## Other things from me
 
