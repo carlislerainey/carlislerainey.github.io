@@ -4,11 +4,10 @@
   type: "Working"
   author:
     - Carlisle Rainey
-  date: 2024-05-27
-  status: "In-progress"
-  pdf: "http://www.carlislerainey.com/power-rules/power-rules.pdf"
-  note: 'An early draft of a paper on understanding and computing statistical power for applied researchers.'
-
+  date: 2025-01-23
+  status: "Working Paper"
+  preprint: "http://www.carlislerainey.com/power-rules/power-rules.pdf"
+  note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
   type: "Working"
@@ -30,14 +29,14 @@
   dataverse: "https://doi.org/10.7910/DVN/0YSJCX"
 
 - title: "Data and Code Availability in Political Science Publications from 1995 to 2022"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
     - Harley Roe
     - Qing Wang
     - Hao Zhou
-  date: 2024-01-21
-  status: "Working paper"
+  date: 2024-12-06
+  status: "Forthcoming at <em>PS: Political Science and Politics</em>"
   preprint: "https://osf.io/preprints/socarxiv/a5yxe"
   dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
 
@@ -94,17 +93,19 @@
   author:
     - Scott Clifford
     - Carlisle Rainey
-  date: 2024-03-20
-  status: "Conditionally accepted at <em>Political Analysis</em>"
+  date: 2025-01-24
+  status: "Forthcoming at <em>Political Analysis</em>"
+  pubopen: "https://doi.org/10.1017/pan.2024.20"
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
 - title: "Estimators for Topic-Sampling Designs"
-  type: "Forthcoming"
+  type: "Published"
   author:
     - Scott Clifford
     - Carlisle Rainey
-  date: 2024-05-13
-  status: "Forthcoming at <em>Political Analysis</em>"
+  date: 2024-10-01
+  year: 2024
+  journal: "<em>Political Analysis</em>"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
   pubopen: "https://doi.org/10.1017/pan.2024.1"
 
@@ -142,13 +143,14 @@
     - Political Methodology
   
 - title: "Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues"
-  type: "Forthcoming"
+  type: "Published"
   author: 
     - Scott Clifford
     - Thomas Leeper
     - Carlisle Rainey
-  date: 2023-03-26
-  status: "Forthcoming at <em>Political Behavior</em>"
+  date: 2024-06-01
+  year: 2024
+  journal: "<em>Political Behavior</em>"
   pdf: "../papers/gte.pdf"
   pubclosed: "https://doi.org/10.1007/s11109-023-09870-1"
   dataverse: "https://doi.org/10.7910/DVN/NNAVTE"
@@ -162,11 +164,12 @@
     - Political Methodology
 
 - title: "A Careful Consideration of CLARIFY: Simulation-Induced Bias in Point Estimates of Quantities of Interest"
-  type: "Forthcoming"
+  type: "Published"
   author: 
     - Carlisle Rainey
-  date: 2023-03-26
-  status: "Forthcoming at <em>Political Science Research and Methods</em>"
+  date: 2024-07-01
+  year: 2024
+  journal: "<em>Political Science Research and Methods</em>"
   pdf: "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D26D25DE3D7316B92B09614C08FA6772/S2049847023000080a.pdf/a-careful-consideration-of-clarify-simulation-induced-bias-in-point-estimates-of-quantities-of-interest.pdf"
   pubopen: "https://doi.org/10.1017/psrm.2023.8"
   dataverse: "https://doi.org/10.7910/DVN/5YKD4S"  
