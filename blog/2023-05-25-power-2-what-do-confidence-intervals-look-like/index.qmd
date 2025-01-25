@@ -20,6 +20,12 @@ open-graph:
 draft: false
 ---
 
+::: callout-important
+## A Paper
+
+This post turned out to be somewhat popular, so I've written up a more formal, careful description of the idea in a full-length paper. You can find the preprint "Power Rules" [here](https://doi.org/10.31219/osf.io/5am9q).
+:::
+
 ## Background
 
 In this post, I address confidence intervals that are nestled right up against zero.^[This is the second post in a series. In my [previous post](blog/2023-05-22-power-1-for-you-not-reviewer-2), I mentioned two new papers that have me thinking about power: [Arel-Bundock *et al.*'s "Quantitative Political Science Research Is Greatly Underpowered"](https://doi.org/10.31219/osf.io/7vy2f) and [Kane's "More Than Meets the ITT: A Guide for Investigating Null Results"](https://doi.org/10.33774/apsa-2023-h4p0q-v2). Go check out that post and those papers if you haven't.] These intervals indicate that an estimate is "barely" significant. I want to be clear: "barely significant" is still significant, so you should still reject the null hypothesis.[^1]

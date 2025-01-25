@@ -25,9 +25,9 @@ draft: false
 ---
 
 ::: callout-important
-## A New Paper
+## A Paper
 
-This post turned out to be somewhat popular, so I've written up a more formal, careful description of the idea in a full length paper. The initial, early version is [on GitHub](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf).
+This post turned out to be somewhat popular, so I've written up a more formal, careful description of the idea in a full-length paper. You can find the preprint "Power Rules" [here](https://doi.org/10.31219/osf.io/5am9q).
 :::
 
 ## Background

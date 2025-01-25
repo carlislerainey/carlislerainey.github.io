@@ -19,6 +19,12 @@ open-graph:
 draft: false
 ---
 
+::: callout-important
+## A Paper
+
+This post turned out to be somewhat popular, so I've written up a more formal, careful description of the idea in a full-length paper. You can find the preprint "Power Rules" [here](https://doi.org/10.31219/osf.io/5am9q).
+:::
+
 ## Background
 
 There's been some really good work lately on statistical power. I'll point you to two really great papers.

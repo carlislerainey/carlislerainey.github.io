@@ -9009,6 +9009,19 @@ Key Takeaway
 
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://doi.org/10.31219/osf.io/5am9q">here</a>.</p>
+</div>
+</div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>There’s been some really good work lately on statistical power. I’ll point you to two really great papers.</p>
