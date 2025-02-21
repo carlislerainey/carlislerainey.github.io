@@ -10,20 +10,20 @@
   note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
-  date: 2024-04-19
-  status: "Working paper"
+  date: 2025-02-20
+  status: "Forthcoming at <em>Meta-Psychology</em>"
   preprint: "https://doi.org/10.31222/osf.io/8z45v"
-  note: 'A commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em>'
+  note: 'A peer-reviewed commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em>'
 
 - title: "The Data Availability Policies of Political Science Journals"
   type: "Working"
   author:
     - Carlisle Rainey
     - Harley Roe
-  date: 2024-02-15
+  date: 2025-01-12
   status: "Working paper"
   preprint: "https://osf.io/preprints/socarxiv/df2ya"
   dataverse: "https://doi.org/10.7910/DVN/0YSJCX"
@@ -36,6 +36,7 @@
     - Qing Wang
     - Hao Zhou
   date: 2024-12-06
+  pubopen: "https://doi.org/10.1017/S1049096524001276"
   status: "Forthcoming at <em>PS: Political Science and Politics</em>"
   preprint: "https://osf.io/preprints/socarxiv/a5yxe"
   dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
@@ -58,7 +59,7 @@
     - Luzmi Valenzuela
     - Valeria Veras
     - Carlisle Rainey
-  date: 2024-01-08
+  date: 2024-04-19
   status: "Working paper"
   preprint: "https://doi.org/10.31235/osf.io/9p5h8"
   prereg: "https://osf.io/gjsft/"
