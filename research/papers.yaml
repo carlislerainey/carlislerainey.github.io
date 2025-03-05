@@ -1,10 +1,10 @@
 
 
-- title: "Power Rules: Practical Statistical Power Calculations"
+- title: "Power Rules: Practical Advice for Computing Power (and Automating with Pilot Data)"
   type: "Working"
   author:
     - Carlisle Rainey
-  date: 2025-01-23
+  date: 2025-03-05
   status: "Working Paper"
   preprint: "https://doi.org/10.31219/osf.io/5am9q"
   note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
