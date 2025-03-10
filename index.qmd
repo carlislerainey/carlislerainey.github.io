@@ -20,16 +20,20 @@ about:
     #   href: https://github.com/carlislerainey
 ---
 
-::: {#hero-heading}
-
+:::: {#hero-heading}
 I'm an Associate Professor in the Department of Political Science at Florida State University. My research has appeared in the *American Political Science Review*, the *American Journal of Political Science*, *Political Analysis*, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.
 
 #### Follow My Research
 
-If want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en). 
+If want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en).
+
+::: callout-tip
+## The Power Paper
+
+My latest working paper is "Power Rules." It provides a practical guide to power analysis aimed at political scientists, including advice about using pilot data. You can find the preprint [here](https://osf.io/preprints/osf/5am9q), a talk [here](/talks/2024-10-01-power-rules-uga/), and a blog post [here](/blog/2024-06-10-pilot-power-example/).
+:::
 
 #### Connect in Other Places
 
 I'm on [Twitter](https://twitter.com/carlislerainey), [Bluesky](https://bsky.app/profile/carlislerainey.bsky.social), and [Mastodon](https://sciences.social/@CarlisleRainey). I publicly version-control some of research projects and courses on [GitHub](https://github.com/carlislerainey). I upload my talks to [Speaker Deck](https://speakerdeck.com/carlislerainey). I'm on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en), [ORCID](https://orcid.org/0000-0002-8728-4696) and [OSF](https://osf.io/ewbyc/).
-
-:::
+::::
