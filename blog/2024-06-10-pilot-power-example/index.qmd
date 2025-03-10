@@ -46,7 +46,7 @@ Here's how I suggest we use pilot data to predict the standard error in the plan
 Conservatively, the standard error will be about $\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack$, where $n^{pilot}$ is the number of respondents per condition in the pilot data, $SE_{\widehat{\tau}}^{pilot}$ is the estimated standard error using the pilot data, and $n^{planned}$ is the number of respondents per condition in the planned study.
 :::
 
-The factor $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$ nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.[^2] For the details, see [this early paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf), but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the *standard error* using the pilot data.
+The factor $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$ nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.[^2] For the details, see [this paper](https://osf.io/preprints/osf/5am9q_v2), but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the *standard error* using the pilot data.
 
 [^2]: More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.
 
@@ -320,4 +320,4 @@ Using the analytical approximation, we got 0.815 as a conservative estimate of p
 
 ## The paper
 
-I have an [early draft of a paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf) on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I'm interested in making the paper as clear and useful as I can.
+I have a [draft of a paper](https://osf.io/preprints/osf/5am9q_v2) on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I'm interested in making the paper as clear and useful as I can.

@@ -64,7 +64,7 @@ We can use pilot data to predict the standard error of the estimated treatment e
 We can use pilot data to conservatively predict the sample size we will need in a planned study. For 80% power to detect the treatment effect $\widetilde{\tau}$, we will (conservatively) need about $n^{pilot} \cdot \left\lbrack \frac{2.5}{\widetilde{\tau}} \cdot \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack^{2}$ respondents per condition, where $n^{pilot}$ is the number of respondents per condition in the pilot data and $SE_{\widehat{\tau}}^{pilot}$ is the estimated standard error using the pilot data.
 :::
 
-Note that the factor $\sqrt{\frac{1}{n^{pilot}}} + 1$ nudges the predicted standard error in a conservative direction. See [this working paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf) for more details.
+Note that the factor $\sqrt{\frac{1}{n^{pilot}}} + 1$ nudges the predicted standard error in a conservative direction. See [this working paper](https://osf.io/preprints/osf/5am9q_v2) for more details.
 
 We can use the predicted standard error to find the minimum detectable effect (for 80% power) or the power (for a given treatment effect). Or we can use the pilot data to estimate the required sample size (for 80% power to detect a given treatment effect.)
 
@@ -190,7 +190,7 @@ ggplot(res, aes(x = sqrt(n_pilot/n_planned)*pilot_se_hat)) +
 
 That's spot on! However, notice that we sometimes *substantially* underestimate the standard error. When we underestimate the standard error, we will *over*estimate the power (which is bad for us).
 
-As a solution, we can gently nudge the standard error from the pilot up by a factor of $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$, which will make "almost all" of the standard errors *over*-estimates or "conservative" (details [here](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf)).
+As a solution, we can gently nudge the standard error from the pilot up by a factor of $\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)$, which will make "almost all" of the standard errors *over*-estimates or "conservative" (details [here](https://osf.io/preprints/osf/5am9q_v2)).
 
 ```{r}
 #| message: false
@@ -300,7 +300,7 @@ I make two points in this post:
 
 With a predicted standard error in hand, we can obtain a prediction for the minimum detectable effect, the statistical power, or the required sample size.
 
-You can find more details in [this paper](https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf).
+You can find more details in [this paper](https://osf.io/preprints/osf/5am9q_v2).
 
 ## See also
 

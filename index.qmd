@@ -30,7 +30,7 @@ If want to stay up-to-date on my work, follow me on [Google Scholar](https://sch
 ::: callout-tip
 ## *Latest:* A Paper on Statistical Power
 
-My latest working paper is "Power Rules." It provides a practical guide to power analysis aimed at political scientists, including advice about using pilot data. You can find the preprint [here](https://osf.io/preprints/osf/5am9q), a talk [here](/talks/2024-10-01-power-rules-uga/), and a blog post [here](/blog/2024-06-10-pilot-power-example/).
+My latest working paper is "Power Rules." It provides a practical guide to power analysis aimed at political scientists, including advice about using pilot data. You can find the preprint [here](https://osf.io/preprints/osf/5am9q_v2), a talk [here](/talks/2024-10-01-power-rules-uga/), and a blog post [here](/blog/2024-06-10-pilot-power-example/).
 :::
 
 #### Connect in Other Places
