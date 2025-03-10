@@ -1,1 +1,13 @@
 /* css styles */
+
+/* Change color of the "The Statistical Power Paper" navbar link */
+.navbar-nav .nav-link[href="https://osf.io/preprints/osf/5am9q"] {
+    color: #18bc9c !important; /* Bootstrap Flatly 'Danger Red' */
+    font-weight: bold; /* Optional: Make it stand out */
+}
+
+/* Change color on hover */
+.navbar-nav .nav-link[href="https://osf.io/preprints/osf/5am9q"]:hover {
+    color: #e74c3c !important; /* Bootstrap Flatly 'Warning Orange' */
+}
+

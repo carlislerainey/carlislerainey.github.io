@@ -28,7 +28,7 @@ I'm an Associate Professor in the Department of Political Science at Florida Sta
 If want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en).
 
 ::: callout-tip
-## The Power Paper
+## *Latest:* A Paper on Statistical Power
 
 My latest working paper is "Power Rules." It provides a practical guide to power analysis aimed at political scientists, including advice about using pilot data. You can find the preprint [here](https://osf.io/preprints/osf/5am9q), a talk [here](/talks/2024-10-01-power-rules-uga/), and a blog post [here](/blog/2024-06-10-pilot-power-example/).
 :::
