@@ -161,10 +161,6 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
     <a class="nav-link" href="../../blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://osf.io/preprints/osf/5am9q_v2" rel="" target="">
- <span class="menu-text">The Statistical Power Paper</span></a>
-  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto tools-wide">
     <a href="../../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
@@ -229,6 +225,19 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 </header>
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
+</div>
+</div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <div class="page-columns page-full"><p>In this post, I address confidence intervals that are nestled right up against zero.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></li></div></div>
@@ -308,7 +317,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">95%</td>
+<td style="text-align: left;">96%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
@@ -318,12 +327,12 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">51%</td>
+<td style="text-align: left;">52%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">25%</td>
+<td style="text-align: left;">26%</td>
 </tr>
 </tbody>
 </table>
@@ -420,59 +429,66 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 21%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">SE</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Power</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled, given significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled, given significant</th>
+<th style="text-align: right;">SE</th>
+<th style="text-align: left;">Power</th>
+<th style="text-align: left;">Not significant</th>
+<th style="text-align: left;">Nestled against zero</th>
+<th style="text-align: left;">Not nestled against zero</th>
+<th style="text-align: left;">Nestled, given significant</th>
+<th style="text-align: left;">Not nestled, given significant</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">5%</td>
+<td style="text-align: left;">4%</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">75%</td>
-<td style="text-align: left;">21%</td>
-<td style="text-align: left;">79%</td>
+<td style="text-align: left;">76%</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">80%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">37%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">44%</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;">54%</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">55%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">49%</td>
-<td style="text-align: left;">34%</td>
+<td style="text-align: left;">48%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">17%</td>
-<td style="text-align: left;">67%</td>
-<td style="text-align: left;">33%</td>
+<td style="text-align: left;">68%</td>
+<td style="text-align: left;">32%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">75%</td>
+<td style="text-align: left;">74%</td>
 <td style="text-align: left;">21%</td>
 <td style="text-align: left;">5%</td>
-<td style="text-align: left;">81%</td>
-<td style="text-align: left;">19%</td>
+<td style="text-align: left;">80%</td>
+<td style="text-align: left;">20%</td>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>
