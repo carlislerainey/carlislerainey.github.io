@@ -17,7 +17,247 @@
 <width>144</width>
 </image>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Mon, 10 Jun 2024 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 19 Mar 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Kane (2025) as a Power Paper</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="page-columns page-full"><p>It’s helpful to think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites. I also have a <a href="https://osf.io/preprints/osf/5am9q_v2">preprint</a> on the topic.</p></li></div></div>
+<p><a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">I like this ratio</a> because it makes two distinct tasks clear:</p>
+<ol type="1">
+<li>create a treatment with some oomph and</li>
+<li>estimate it precisely.</li>
+</ol>
+<p>While pitched as a paper on null result, <span class="citation" data-cites="kane2025">Kane (2025)</span> offers a very helpful (and thorough!) list of ideas to increase statistical power.</p>
+<section id="power-as-a-ratio" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="power-as-a-ratio">Power as a Ratio</h2>
+<div class="page-columns page-full"><p>For a “well-powered experiment,” the task is to get the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D"> above at least 2.5 (for 80% power) and ideally to 3.3 (for 95% power).<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Remember that “well-powered” isn’t a given. Most political science research is “greatly underpowered” <span class="citation" data-cites="arel-bundock2022">(Arel-Bundock et al. 2022)</span>.</p></li></div></div>
+<p>Here’s <a href="https://osf.io/preprints/osf/5am9q_v2">the idea</a>:</p>
+<blockquote class="blockquote">
+<p>Power equals <img src="https://latex.codecogs.com/png.latex?1%20-%20%5CPhi_%7Bstd%7D%5Cleft(%201.64%20-%20%5Cfrac%7B%5Ctau%7D%7BSE%7D%20%5Cright)">, where <img src="https://latex.codecogs.com/png.latex?%5CPhi_%7Bstd%7D(z)"> is the standard normal CDF (as found in a standard <img src="https://latex.codecogs.com/png.latex?z"> table), <img src="https://latex.codecogs.com/png.latex?SE"> is the standard error of the estimated treatment effect, and <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>This rule allows us to connect statistical power to the familiar <img src="https://latex.codecogs.com/png.latex?z"> table in the appendices of many statistics textbooks or the <code>pnorm()</code> function in R. But, more importantly, it drives home an important intuition—<strong>power is determined by the key ratio</strong> <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">. To estimate power, we must make an informed assumption about the effect of interest and a good prediction of standard error of the estimate. Further, when we consider changes to the experimental design and the consequences for statistical power, it can be helpful to think about the numerator or the denominator of the key ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">: <strong>How do you make the effect as large as possible? And how do you make the estimate as precise as possible?</strong></p>
+</blockquote>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Two Key Tasks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Make the effect as large as possible.</li>
+<li>Make the estimate as precise as possible.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="kanes-list-and-relevance-to-the-ratio" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="kanes-list-and-relevance-to-the-ratio">Kane’s List, and Relevance to the Ratio</h2>
+<p><span class="citation" data-cites="kane2025">Kane (2025)</span> offers an excellent list of options to either increase the treatment effect or shrink the standard error.</p>
+<p>He pitches the list as a way to make a compelling case for null results. However, the list is also helpful for making sure that we’ve thought through the ways to maximize power. It’s a wonderful paper well worth a careful read for folks who run experiments or read experimental work.</p>
+<p>I’m going to borrow his list and connect the action items to statistical power.</p>
+<div class="page-columns page-full"><p>Kane arranges his list into seven “alternative explanations” for null results, which we might think of as “potential power leakages.” I recreated a version of Kane’s table (Table 1 in his paper) that contains each action item to consider. I’ve kept Kane’s labeling for the various categories, but taken some liberties in collapsing some of the action items.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;He breaks his suggestions into to columns for the current study and future studies. For my purposes, these can be collapsed.</p></li></div></div>
+<p>The table below lists all of Kane’s categories and action items and notes the pathway through which this stop might increase statistical power. While Kane doesn’t explicitly pitch the list as “ways to increase” power, we can certainly borrow it for that purpose.</p>
+<div class="column-page">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Kane’s Categories</th>
+<th>Action Item</th>
+<th>Pathway to Increase Power</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>#1: Inattentiveness</strong></td>
+<td>Include a measure of attention to the experimental manipulation (after the outcome measure)</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Feature experiment relatively earlier in survey</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>More salient treatment content</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Consider techniques to improve respondent attentiveness</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Use alternative survey company</td>
+<td>Increase treatment effect; see <span class="citation" data-cites="stagnaro2024">Stagnaro et al. (2024)</span> for more.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Increased (pre-treatment) screening-out of inattentive respondents</td>
+<td>Increase treatment effect, though a smaller sample size will increase the standard error.</td>
+</tr>
+<tr class="odd">
+<td><strong>#2: Failure to vary the independent variable</strong></td>
+<td>Include a manipulation check after the outcome measure</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Make treatment content more salient (e.g., appear sooner and/or more frequently)</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Make treatment stronger (e.g., more direct, forceful language)</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td><strong>#3: Pre-treatment effect</strong></td>
+<td>Include a measure to gauge how pre-treated a respondent might be (implemented prior to random assignment)</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Make treatment stronger (assuming no ceiling/floor effect)</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Postpone the study until treatment has lower salience in the real world</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Investigate using a non-experimental design</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td><strong>#4: Statistical power</strong></td>
+<td>Conduct power analyses to determine necessary n size (assuming smallest meaningful effect size)</td>
+<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> for more.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Choose sample size cognizant of number of conditions, subgroup analyses, and likely inattentiveness</td>
+<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> for more.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Use pre-registered covariates in model, blocking, or a within-subjects design</td>
+<td>Decrease standard error; see <span class="citation" data-cites="blair2019">Blair et al. (2019)</span> and <span class="citation" data-cites="blair2023">Blair, Coppock, and Humphreys (2023)</span> for a framework to assess the impact of these design choices; ; see <span class="citation" data-cites="clifford2021">Clifford, Sheagley, and Piston (2021)</span> for a good approach using a pre-post design.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Aim to collect a larger sample</td>
+<td>Decrease standard error.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Choose sample size cognizant of quantities learned from first study: effect size, SD of Y, level of inattentiveness, and number/size of subgroup analyses</td>
+<td>Decrease standard error; this <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> presents some ideas about how to connect power analysis to existing studies.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Consider an alternative design structure (e.g., within-subjects)</td>
+<td>Decrease standard error.</td>
+</tr>
+<tr class="even">
+<td><strong>#5: Poor measurement of the dependent variable</strong></td>
+<td>Check Y’s criterion validity</td>
+<td>Decrease standard error; perhaps also increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>If possible, use existing (validated) measures of Y</td>
+<td>Decrease standard error; perhaps also increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Use an alternative and/or multiple measures of Y to reduce measurement error</td>
+<td>Decrease standard error; perhaps also increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td><strong>#6: Ceiling/Floor effect</strong></td>
+<td>Use measure of Y that is unlikely to have an extremely high/low mean (e.g., scales with more extreme end-points or multi-item scales)</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Assuming population of interest remains the same, use a measure of Y with a more (conceptually) extreme range</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Consider postponing study if ceiling/floor is due to current context</td>
+<td>Increase treatment effect.</td>
+</tr>
+<tr class="even">
+<td><strong>#7: Countervailing treatment effects</strong></td>
+<td>Include a pre-treatment measure of the moderating variable, across which countervailing effects might occur</td>
+<td>Increase treatment effect (by changing definition slightly); this will increase the standard error.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Pre-register a hypothesized interaction between treatment and moderator</td>
+<td>Increase treatment effect (by changing definition slightly); this will increase the standard error.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Include best possible (pre-treatment) measure(s) of moderating variable to improve precision</td>
+<td>Decrease standard error.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>And for completeness, here is Kane’s original table:</p>
+<p><img src="https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/images/clipboard-1273155981.png" class="img-fluid"></p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-arel-bundock2022" class="csl-entry">
+Arel-Bundock, Vincent, Ryan C Briggs, Hristos Doucouliagos, Marco Mendoza Aviña, and T. D. Stanley. 2022. <span>“Quantitative Political Science Research Is Greatly Underpowered.”</span> <a href="http://dx.doi.org/10.31219/osf.io/7vy2f">http://dx.doi.org/10.31219/osf.io/7vy2f</a>.
+</div>
+<div id="ref-blair2019" class="csl-entry">
+Blair, Graeme, Jasper Cooper, Alexander Coppock, and Macartan Humphreys. 2019. <span>“Declaring and Diagnosing Research Designs.”</span> <em>American Political Science Review</em> 113 (3): 838–59. <a href="https://doi.org/10.1017/s0003055419000194">https://doi.org/10.1017/s0003055419000194</a>.
+</div>
+<div id="ref-blair2023" class="csl-entry">
+Blair, Graeme, Alexander Coppock, and Macartan Humphreys. 2023. <em>Research Design in the Social Sciences</em>. Princeton, NJ: Princeton University Press.
+</div>
+<div id="ref-bloom1995" class="csl-entry">
+Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evaluation Review</em> 19 (5): 547–56. <a href="https://doi.org/10.1177/0193841x9501900504">https://doi.org/10.1177/0193841x9501900504</a>.
+</div>
+<div id="ref-clifford2021" class="csl-entry">
+Clifford, Scott, Sheagley Geoffrey, and Spencer Piston. 2021. <span>“Increasing Precision Without Altering Treatment Effects: Repeated Measures Designs in Survey Experiments.”</span> <em>American Political Science Review</em> 115 (3): 1048–65. <a href="https://doi.org/10.1017/s0003055421000241">https://doi.org/10.1017/s0003055421000241</a>.
+</div>
+<div id="ref-kane2025" class="csl-entry">
+Kane, John V. 2025. <span>“More Than Meets the ITT: A Guide for Anticipating and Investigating Nonsignificant Results in Survey Experiments.”</span> <em>Journal of Experimental Political Science</em> 12 (1): 110–25. <a href="https://doi.org/10.1017/xps.2024.1">https://doi.org/10.1017/xps.2024.1</a>.
+</div>
+<div id="ref-stagnaro2024" class="csl-entry">
+Stagnaro, Michael N, James Druckman, Adam J Berinsky, Antonio A Arechar, Robb Willer, and David G Rand. 2024. <span>“Representativeness Versus Response Quality: Assessing Nine Opt-in Online Survey Samples.”</span> PsyArXiv. <a href="https://doi.org/10.31234/osf.io/h9j2d">https://doi.org/10.31234/osf.io/h9j2d</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>statistical power</category>
+  <category>hypothesis tests</category>
+  <category>power analysis</category>
+  <category>methodology</category>
+  <guid>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/index.html</guid>
+  <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Statistical Power from Pilot Data: An Example</title>
   <dc:creator>Carlisle Rainey</dc:creator>
@@ -3026,11 +3266,11 @@ Weisiger, Alex. 2014. <span>“Victory Without Peace: Conquest, Insurgency, and 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-A New Paper
+A Paper
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full length paper. The initial, early version is <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">on GitHub</a>.</p>
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
 </div>
 </div>
 <section id="background" class="level2">
@@ -7352,15 +7592,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="7" data-code-annotation="2" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
+<span data-code-annotation="2" data-code-lines="7" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="30,31" data-code-annotation="3" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
+<span data-code-annotation="3" data-code-lines="30,31" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -7476,35 +7716,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-lines="8" data-code-annotation="6" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-lines="10" data-code-annotation="7" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-annotation="7" data-code-lines="10" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-lines="11" data-code-annotation="8" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-annotation="8" data-code-lines="11" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
@@ -8161,6 +8401,19 @@ font-style: inherit;">150</span>)</span></code></pre></div>
 
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
+</div>
+</div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <div class="page-columns page-full"><p>In this post, I address confidence intervals that are nestled right up against zero.<sup>1</sup> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></li></div></div>
@@ -8424,7 +8677,7 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">95%</td>
+<td style="text-align: left;">96%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
@@ -8434,12 +8687,12 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">51%</td>
+<td style="text-align: left;">52%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">25%</td>
+<td style="text-align: left;">26%</td>
 </tr>
 </tbody>
 </table>
@@ -8912,59 +9165,66 @@ background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 21%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">SE</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Power</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled, given significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled, given significant</th>
+<th style="text-align: right;">SE</th>
+<th style="text-align: left;">Power</th>
+<th style="text-align: left;">Not significant</th>
+<th style="text-align: left;">Nestled against zero</th>
+<th style="text-align: left;">Not nestled against zero</th>
+<th style="text-align: left;">Nestled, given significant</th>
+<th style="text-align: left;">Not nestled, given significant</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">5%</td>
+<td style="text-align: left;">4%</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">75%</td>
-<td style="text-align: left;">21%</td>
-<td style="text-align: left;">79%</td>
+<td style="text-align: left;">76%</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">80%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">37%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">44%</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;">54%</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">55%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">49%</td>
-<td style="text-align: left;">34%</td>
+<td style="text-align: left;">48%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">17%</td>
-<td style="text-align: left;">67%</td>
-<td style="text-align: left;">33%</td>
+<td style="text-align: left;">68%</td>
+<td style="text-align: left;">32%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">75%</td>
+<td style="text-align: left;">74%</td>
 <td style="text-align: left;">21%</td>
 <td style="text-align: left;">5%</td>
-<td style="text-align: left;">81%</td>
-<td style="text-align: left;">19%</td>
+<td style="text-align: left;">80%</td>
+<td style="text-align: left;">20%</td>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>

@@ -933,11 +933,11 @@ Weisiger, Alex. 2014. <span>“Victory Without Peace: Conquest, Insurgency, and 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-A New Paper
+A Paper
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full length paper. The initial, early version is <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">on GitHub</a>.</p>
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
 </div>
 </div>
 <section id="background" class="level2">
@@ -5259,15 +5259,15 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="7" data-code-annotation="2" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
+<span data-code-annotation="2" data-code-lines="7" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="30,31" data-code-annotation="3" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
+<span data-code-annotation="3" data-code-lines="30,31" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
@@ -5383,35 +5383,35 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-annotation="1" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-lines="8" data-code-annotation="6" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-lines="10" data-code-annotation="7" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-annotation="7" data-code-lines="10" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-lines="11" data-code-annotation="8" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-annotation="8" data-code-lines="11" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
@@ -6068,6 +6068,19 @@ font-style: inherit;">150</span>)</span></code></pre></div>
 
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
+</div>
+</div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <div class="page-columns page-full"><p>In this post, I address confidence intervals that are nestled right up against zero.<sup>1</sup> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></li></div></div>
@@ -6331,7 +6344,7 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">95%</td>
+<td style="text-align: left;">96%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
@@ -6341,12 +6354,12 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">51%</td>
+<td style="text-align: left;">52%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">25%</td>
+<td style="text-align: left;">26%</td>
 </tr>
 </tbody>
 </table>
@@ -6819,59 +6832,66 @@ background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 21%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">SE</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Power</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled against zero</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nestled, given significant</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Not nestled, given significant</th>
+<th style="text-align: right;">SE</th>
+<th style="text-align: left;">Power</th>
+<th style="text-align: left;">Not significant</th>
+<th style="text-align: left;">Nestled against zero</th>
+<th style="text-align: left;">Not nestled against zero</th>
+<th style="text-align: left;">Nestled, given significant</th>
+<th style="text-align: left;">Not nestled, given significant</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0.15</td>
 <td style="text-align: left;">about 95% power</td>
-<td style="text-align: left;">5%</td>
+<td style="text-align: left;">4%</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">75%</td>
-<td style="text-align: left;">21%</td>
-<td style="text-align: left;">79%</td>
+<td style="text-align: left;">76%</td>
+<td style="text-align: left;">20%</td>
+<td style="text-align: left;">80%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
 <td style="text-align: left;">20%</td>
-<td style="text-align: left;">37%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">44%</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;">54%</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">55%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">49%</td>
-<td style="text-align: left;">34%</td>
+<td style="text-align: left;">48%</td>
+<td style="text-align: left;">36%</td>
 <td style="text-align: left;">17%</td>
-<td style="text-align: left;">67%</td>
-<td style="text-align: left;">33%</td>
+<td style="text-align: left;">68%</td>
+<td style="text-align: left;">32%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: left;">about 25% power</td>
-<td style="text-align: left;">75%</td>
+<td style="text-align: left;">74%</td>
 <td style="text-align: left;">21%</td>
 <td style="text-align: left;">5%</td>
-<td style="text-align: left;">81%</td>
-<td style="text-align: left;">19%</td>
+<td style="text-align: left;">80%</td>
+<td style="text-align: left;">20%</td>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>
