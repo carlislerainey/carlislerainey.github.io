@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-05-25">
 <meta name="description" content="Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies.">
 
-<title>Carlisle Rainey - Power, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?</title>
+<title>Power, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like? – Carlisle Rainey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -73,17 +73,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -112,7 +119,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta property="og:title" content="What Do CIs from Well-Powered Studies Look Like?">
 <meta property="og:description" content="A literature with confidence intervals that nestle right up against zero is likely a collection of under-powered studies.">
 <meta property="og:image" content="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/twitter-card.png">
-<meta property="og:site-name" content="Carlisle Rainey">
+<meta property="og:site_name" content="Carlisle Rainey">
 <meta property="og:image:height" content="500">
 <meta property="og:image:width" content="1000">
 <meta name="twitter:title" content="What Do CIs from Well-Powered Studies Look Like?">
@@ -128,47 +135,47 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Carlisle Rainey</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks/index.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../../talks/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="../../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
-    <a href="https://twitter.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://sciences.social/@CarlisleRainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
-    <a href="https://github.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="../../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -176,7 +183,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -223,7 +230,9 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -240,17 +249,17 @@ A Paper
 </div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<div class="page-columns page-full"><p>In this post, I address confidence intervals that are nestled right up against zero.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></li></div></div>
-<p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
+<p>In this post, I address confidence intervals that are nestled right up against zero.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></div></div><p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
 <p>But instead, it should feel like a near-miss. Like an accident narrowly avoided. A confidence interval nestled right up against zero indicates that one of two things has happened: either you were (1) unlucky or (2) under-powered.</p>
 <p>Because “unlucky” is always a possibility, we can’t learn much from a <em>particular</em> confidence interval, but we can learn a lot from a <em>literature</em>. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, <em>do</em> tend to produce confidence intervals that nestle right up against zero.</p>
 </section>
 <section id="a-simulation" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="a-simulation">A Simulation</h2>
-<div class="page-columns page-full"><p>I’m going to explore the behavior of confidence intervals with a little simulation. In this simulation, I’m going to assert a standard error rather than create the standard error endogenously through sample size, etc. I use a true effect size of 0.5 and standard errors of 0.5, 0.3, 0.2, and 0.15 to create studies with 25%, 50%, 80%, and 95% power, respectively.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> I think of 80% as “minimally-powered” and 95% as “well-powered.”</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;I’m ignoring how to choose the true effect, estimate the standard error, and compute power. For now, I’m placing all this behind the curtain. See Daniël Lakens’ book [<em>Improving Your Statistical Inferences</em>] for discussion (h/t <a href="https://bersco.github.io">Bermond Scoggins</a>).</p></li></div></div>
-<p>I’m using a one-sided test (hypothesizing a positive effect), so I’ll use 90% confidence intervals with arms that are 1.64 standard errors wide. Let’s simulate some estimates from each of our four studies and compute their confidence intervals. I simulate 5,000 confidence intervals to explore below.</p>
+<p>I’m going to explore the behavior of confidence intervals with a little simulation. In this simulation, I’m going to assert a standard error rather than create the standard error endogenously through sample size, etc. I use a true effect size of 0.5 and standard errors of 0.5, 0.3, 0.2, and 0.15 to create studies with 25%, 50%, 80%, and 95% power, respectively.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> I think of 80% as “minimally-powered” and 95% as “well-powered.”</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;I’m ignoring how to choose the true effect, estimate the standard error, and compute power. For now, I’m placing all this behind the curtain. See Daniël Lakens’ book [<em>Improving Your Statistical Inferences</em>] for discussion (h/t <a href="https://bersco.github.io">Bermond Scoggins</a>).</p></div></div><p>I’m using a one-sided test (hypothesizing a positive effect), so I’ll use 90% confidence intervals with arms that are 1.64 standard errors wide. Let’s simulate some estimates from each of our four studies and compute their confidence intervals. I simulate 5,000 confidence intervals to explore below.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -292,7 +301,7 @@ A Paper
 </div>
 <p>Now let’s quickly confirm my power calculations by computing the proportion of confidence intervals to the right of zero. These are about right. In a later post, I’ll describe how I think about computing these quantities.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm power calculations</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ci_df <span class="sc">%&gt;%</span></span>
@@ -305,7 +314,7 @@ A Paper
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">SE</th>
@@ -342,8 +351,8 @@ A Paper
 <section id="what-do-confidence-intervals-from-well-powered-studies-look-like" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-do-confidence-intervals-from-well-powered-studies-look-like">What Do Confidence Intervals from Well-Powered Studies Look Like?</h2>
 <p>Now let’s see what these confidence intervals look like. 5,000 is too many to plot, so I sample 25. But I applied the statistical significance filter first. This mimics the publication process and makes the plots a little easier to compare. My argument doesn’t depend on this filter, though.</p>
-<div class="page-columns page-full"><p>I plotted these 100 intervals below<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;4 studies x 25 simulated intervals per study = 100 intervals.</p></li></div></div>
-<p>There are three important vertical lines in these plots.</p>
+<p>I plotted these 100 intervals below<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;4 studies x 25 simulated intervals per study = 100 intervals.</p></div></div><p>There are three important vertical lines in these plots.</p>
 <ol type="1">
 <li>The <strong>solid</strong> line indicates zero. All confidence intervals are above zero because I applied the significance filter.</li>
 <li>The <strong>dotted</strong> line indicates one standard error above zero. This varies across panels because the standard error varies across panels.</li>
@@ -353,7 +362,7 @@ A Paper
 <p>Notice how low-powered studies tend to nestle their confidence intervals right up against zero. Almost all of the confidence intervals from the study with 25% power are nestled right up against zero. Very few of the confidence intervals from the study with 95% power are nestled up against zero.</p>
 <p>Again, you should apply this standard to a <em>literature</em>. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors <a href="https://journals.sagepub.com/doi/10.1177/1745691614551642">(Gelman and Stern 2014)</a>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gg_df <span class="ot">&lt;-</span> ci_df <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="co"># apply significance filter </span></span>
@@ -380,7 +389,11 @@ A Paper
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Result"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -388,7 +401,7 @@ A Paper
 <h2 class="anchored" data-anchor-id="showing-this-another-way-density-of-the-lower-bounds">Showing This Another Way: Density of the Lower Bounds</h2>
 <p>We can also plot the density of the lower bounds of these 5,000 intervals. This approach shows the “nestling” most clearly. The plots below show that the lower bounds of confidence intervals tend to nestle close to zero when the power is low, and lie further from zero when the power is high.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gg_df <span class="ot">&lt;-</span> ci_df <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="co"># apply significance filter </span></span>
@@ -402,7 +415,11 @@ A Paper
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Power"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -410,7 +427,7 @@ A Paper
 <h2 class="anchored" data-anchor-id="showing-this-another-way-frequency-of-nestling">Showing This Another Way: Frequency of Nestling</h2>
 <p>Lastly, I compute the percent of confidence intervals that are nestled right up against zero. For a well-powered study with 95% power, only about 1 in 5 confidence intervals nestle up against zero. For a poorly-powered study with 25% power, about 4 in 5 of confidence intervals nestle up against zero (among those that are above zero). The table below shows the remaining frequencies.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ci_df <span class="sc">%&gt;%</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(se, pwr, result) <span class="sc">%&gt;%</span></span>
@@ -429,7 +446,7 @@ A Paper
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 11%">
@@ -550,18 +567,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -593,11 +599,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.carlislerainey\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -607,8 +650,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -620,7 +672,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -664,6 +838,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -689,6 +864,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -749,6 +950,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

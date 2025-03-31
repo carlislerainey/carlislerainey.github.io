@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-06-12">
 <meta name="description" content="Statistical power is an abstract quantity. It’s easy to understand what it means, but harder to think about how to manipulate it. To make power more intuitive, I encourage students to think about the ratio of the true effect to the standard error (i.e., signal-to-noise). I explain why a target ratio of 2.48 is equivalent to a target power of 80% (and why you should really shoot for 3.64!). These guidelines help you build actionable intuition about statistical power.">
 
-<title>Carlisle Rainey - Power, Part III: The Rule of 3.64 for Statistical Power</title>
+<title>Power, Part III: The Rule of 3.64 for Statistical Power – Carlisle Rainey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -73,17 +73,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,6 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -107,14 +114,41 @@ gtag('js', new Date());
 gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="The Rule of 3.64 for Statistical Power">
 <meta property="og:description" content="I develop the intuition of simple, actionable guidelines for statistical power.">
 <meta property="og:image" content="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png">
-<meta property="og:site-name" content="Carlisle Rainey">
+<meta property="og:site_name" content="Carlisle Rainey">
 <meta property="og:image:height" content="500">
 <meta property="og:image:width" content="1000">
 <meta name="twitter:title" content="The Rule of 3.64 for Statistical Power">
@@ -130,47 +164,47 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Carlisle Rainey</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../research/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks/index.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../../talks/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="../../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
-    <a href="https://twitter.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://sciences.social/@CarlisleRainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
-    <a href="https://github.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="../../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -178,7 +212,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -225,7 +259,9 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -254,10 +290,10 @@ A Paper
 <h2 class="anchored" data-anchor-id="starting-point-the-sampling-distribution">Starting Point: The Sampling Distribution</h2>
 <p>When you run one experiment, you realize <em>one</em> of many possible patterns of randomization. This particular realization produces a single <strong>estimate</strong> of the treatment effect from a <em>distribution</em> of possible estimates. The distribution of possibilities is called a “<strong>sampling distribution</strong>.”</p>
 <p>Thus, we can think of the estimate as a random variable and its distribution as the sampling distribution. The sampling distribution is key to everything I do in this post, so let’s spend some time with it.</p>
-<div class="page-columns page-full"><p>Let’s imagine that we did the exact same study 50 times. Let’s say that we computed a difference-in-means in dollars ($) donated.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in $). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.</p></li></div></div>
-<p>We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.</p>
+<p>Let’s imagine that we did the exact same study 50 times. Let’s say that we computed a difference-in-means in dollars ($) donated.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in $). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.</p></div></div><p>We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-1_fd68411c54b5c41ff98040f53117b994">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
@@ -391,8 +427,12 @@ A Paper
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>new_gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="index_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid figure-img column-screen-inset-right"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Before the study, we can predict two features of this sampling distribution.</p>
@@ -407,19 +447,19 @@ A Paper
 <section id="thinking-about-true-effect-and-standard-error-as-targets" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="thinking-about-true-effect-and-standard-error-as-targets">Thinking about True Effect and Standard Error as <em>Targets</em></h2>
 <p>I’m leaving aside how to predict the standard error of the experiment or choose the true effect. This post is about the <em>target</em> standard error and true effect.</p>
-<div class="page-columns page-full"><p>Predicting the standard error is a mechanical process mixed with a little guesswork.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Choose a true effect is a mostly substantive decision.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’ll suggest two methods I like. First, use <span class="math inline">\(\text{predicted SE} = \frac{\text{SD of same outcome in different data set}}{0.5 \sqrt{\text{sample size}}}\)</span>. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;<a href="https://twitter.com/cdsamii/status/1661091885580992517?s=20">Cyrus Samii</a> likes to use the MME, I like a conservatively choosen guess of what the effect actually is.</p></li></div></div>
-<p>But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)—power is just not a very intuitive quantity.</p>
+<p>Predicting the standard error is a mechanical process mixed with a little guesswork.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Choose a true effect is a mostly substantive decision.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;I’ll suggest two methods I like. First, use <span class="math inline">\(\text{predicted SE} = \frac{\text{SD of same outcome in different data set}}{0.5 \sqrt{\text{sample size}}}\)</span>. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;<a href="https://twitter.com/cdsamii/status/1661091885580992517?s=20">Cyrus Samii</a> likes to use the MME, I like a conservatively choosen guess of what the effect actually is.</p></div></div><p>But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)—power is just not a very intuitive quantity.</p>
 <p>To understand how the true effect and the SE relate to power, we need to introduce the confidence interval.</p>
 </section>
 <section id="testing-with-confidence-intervals" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="testing-with-confidence-intervals">Testing with Confidence Intervals</h2>
 <p>I like to use 90% confidence intervals to test hypotheses (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.] The formula for a 90% CI is <span class="math inline">\(\text{estimate} \pm 1.64\text{SE}\)</span>. That is, we put “arms” around our estimate—one to the left and another to the right. Each arm is 1.64 standard errors long.</p>
-<div class="page-columns page-full"><p>I’ll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound (<span class="math inline">\(\text{estimate} - 1.64\text{SE}\)</span>) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;This is equivalent to a <em>z</em>-test in a standard hypothesis testing framework using a <em>p</em>-value of less than 0.05 as the threshold for rejecting the null hypothesis.</p></li></div></div>
-<p>This focus on <em>testing</em> rather than <em>estimation</em> changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.</p>
+<p>I’ll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound (<span class="math inline">\(\text{estimate} - 1.64\text{SE}\)</span>) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;This is equivalent to a <em>z</em>-test in a standard hypothesis testing framework using a <em>p</em>-value of less than 0.05 as the threshold for rejecting the null hypothesis.</p></div></div><p>This focus on <em>testing</em> rather than <em>estimation</em> changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.</p>
 <p>But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that *if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.</p>
 <p>We can reconstruct the figure above using this logic. Rather than plot the points continuously along the x-axis, we can color the points (and now error bars) according to whether the lower bound falls above zero or not. And we can use a bar plot showing the number of rejections and non-rejections.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-2_e00ea8cbe8311700e42c2d417ba3af69">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
@@ -547,8 +587,12 @@ A Paper
 <span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>new_gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="index_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid figure-img column-screen-inset-right"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -556,7 +600,7 @@ A Paper
 <h2 class="anchored" data-anchor-id="the-key-ratio">The Key Ratio</h2>
 <p>The key to building statistical power into your experiment is to get “almost all” of the sampling distribution above 1.64 standard errors above zero. The portion of the sampling distribution that falls below 1.64 standard errors above zero does not allow the researcher to reject the null.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-3_ae148b7ae499c1f0d3d536545760eb36">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -608,13 +652,17 @@ A Paper
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
 <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img column-screen-inset-right" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>You’ll remember that “almost all” of the normal distribution falls within two standard errors of its mean. So as a starting point, let’s use this rule: get the sampling distribution two standard errors above 1.64 standard errors above zero. We can just add 1.64 and 2 together to get a sampling distribution 3.64 standard errors above zero. That is, we need <span class="math inline">\(\frac{\text{true effect}}{\text{standard error}} &gt; 3.64\)</span>. If the true effect is larger than 3.64 standard errors, then the confidence interval will “rarely” overlap zero (about 2% of the time).</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-4_a91efc73b8d2befdc4dcd25504202cf9">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -667,8 +715,12 @@ A Paper
 <span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
 <span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">2.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img column-screen-inset-right" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -686,8 +738,8 @@ A Paper
 <li>Increase the true effect.</li>
 <li>Decrease the standard error.</li>
 </ol>
-<div class="page-columns page-full"><p>This ratio gets you thinking not <em>what</em> your power is, but <em>how to increase it</em>. Again, power isn’t <em>a</em> task for the experimenter, it’s <em>the</em> task.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane (2023)</a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> suggests several ways researchers can increase the true effect or decrease the standard error.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;I’m leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.</p></li><li id="fn6"><p><sup>6</sup>&nbsp;Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results.” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</p></li></div></div>
-<p>I’ll highlight a few examples here. To increase the treatment effect, you can:</p>
+<p>This ratio gets you thinking not <em>what</em> your power is, but <em>how to increase it</em>. Again, power isn’t <em>a</em> task for the experimenter, it’s <em>the</em> task.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane (2023)</a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> suggests several ways researchers can increase the true effect or decrease the standard error.</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;I’m leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.</p></div><div id="fn6"><p><sup>6</sup>&nbsp;Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results.” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</p></div></div><p>I’ll highlight a few examples here. To increase the treatment effect, you can:</p>
 <ol type="1">
 <li>Increase attentiveness.</li>
 <li>Ensure that respondents are not pre-treated.</li>
@@ -702,8 +754,8 @@ A Paper
 </section>
 <section id="implication" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="implication">Implication</h2>
-<div class="page-columns page-full"><p>If you get the ratio to 3.64, then you’ll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> But notice that 3.64 and 2.48 are not very different. This has an important implication.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Find this by adding 1.64 to <code>-qnorm(0.2)</code>.</p></li></div></div>
-<p>A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.</p>
+<p>If you get the ratio to 3.64, then you’ll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> But notice that 3.64 and 2.48 are not very different. This has an important implication.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Find this by adding 1.64 to <code>-qnorm(0.2)</code>.</p></div></div><p>A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.</p>
 <p>The implication is this: when you are on the cusp of a well-powered study (about 80% power), then small increases in the ratio have a disproportionate impact on your risk of a failed study.</p>
 </section>
 <section id="computing-power-from-the-ratio" class="level2">
@@ -767,18 +819,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -810,11 +851,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.carlislerainey\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -824,8 +902,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -837,7 +924,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -881,6 +1090,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -906,8 +1116,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -915,23 +1125,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -976,7 +1186,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -1031,6 +1241,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

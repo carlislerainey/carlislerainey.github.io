@@ -6,28 +6,71 @@
       version="2.0">
 <channel>
 <title>Carlisle&#39;s Blog</title>
-<link>https://www.carlislerainey.com/blog/index.html</link>
+<link>https://www.carlislerainey.com/blog/</link>
 <atom:link href="https://www.carlislerainey.com/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <image>
 <url>https://www.carlislerainey.com/profile.png</url>
 <title>Carlisle&#39;s Blog</title>
-<link>https://www.carlislerainey.com/blog/index.html</link>
+<link>https://www.carlislerainey.com/blog/</link>
 <height>96</height>
 <width>144</width>
 </image>
-<generator>quarto-1.3.450</generator>
-<lastBuildDate>Wed, 19 Mar 2025 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Mon, 31 Mar 2025 04:00:00 GMT</lastBuildDate>
 <item>
-  <title>Kane (2025) as a Power Paper</title>
+  <title>Customize Your Terminal Prompt on macOS</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/</link>
   <description><![CDATA[ 
 
 
 
-<div class="page-columns page-full"><p>It’s helpful to think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites. I also have a <a href="https://osf.io/preprints/osf/5am9q_v2">preprint</a> on the topic.</p></li></div></div>
-<p><a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">I like this ratio</a> because it makes two distinct tasks clear:</p>
+
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>This is for <strong>macOS</strong> using the default <strong>zsh</strong> shell (used in macOS Catalina and later).</p>
+<p>The command prompt on macOS doesn’t look nice by default. Here’s my preferred adjustment, where the prompt shows just the current folder followed by <code>&gt;</code>.</p>
+<p>Like this:</p>
+<pre><code>my-folder &gt;</code></pre>
+<p>Here’s what I want the Terminal to look like on macOS (when I’m working on <code>website/</code>.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/images/macOS-terminal.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:6in"></p>
+</figure>
+</div>
+<p>And Here’s what I want it to look like in RStudio.</p>
+<p><img src="https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/images/rstudio-terminal-01.png" class="img-fluid" style="width:2in"></p>
+</section>
+<section id="how-to-do-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-do-it">How to Do It</h2>
+<p>Here’s how to make the change:</p>
+<ol type="1">
+<li>Open Terminal and run <code>open -a TextEdit ~/.zshrc</code>. This opens <code>~/.zshrc</code> in TextEdit.</li>
+<li>Add <code>export PS1="%1~ &gt; "</code> to the bottom of the file.</li>
+<li>Save and close TextEdit.</li>
+<li>Restart Terminal or run <code>source ~/.zshrc</code> to see the new prompt.</li>
+</ol>
+<p>If you ever want to reset or further customize your prompt, you can edit <code>~/.zshrc</code> again and change the <code>PS1</code> line.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/</guid>
+  <pubDate>Mon, 31 Mar 2025 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Kane (2025) as a Power Paper</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>It’s helpful to think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites. I also have a <a href="https://osf.io/preprints/osf/5am9q_v2">preprint</a> on the topic.</p></div></div><p><a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">I like this ratio</a> because it makes two distinct tasks clear:</p>
 <ol type="1">
 <li>create a treatment with some oomph and</li>
 <li>estimate it precisely.</li>
@@ -35,8 +78,8 @@
 <p>While pitched as a paper on null result, <span class="citation" data-cites="kane2025">Kane (2025)</span> offers a very helpful (and thorough!) list of ideas to increase statistical power.</p>
 <section id="power-as-a-ratio" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="power-as-a-ratio">Power as a Ratio</h2>
-<div class="page-columns page-full"><p>For a “well-powered experiment,” the task is to get the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D"> above at least 2.5 (for 80% power) and ideally to 3.3 (for 95% power).<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Remember that “well-powered” isn’t a given. Most political science research is “greatly underpowered” <span class="citation" data-cites="arel-bundock2022">(Arel-Bundock et al. 2022)</span>.</p></li></div></div>
-<p>Here’s <a href="https://osf.io/preprints/osf/5am9q_v2">the idea</a>:</p>
+<p>For a “well-powered experiment,” the task is to get the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D"> above at least 2.5 (for 80% power) and ideally to 3.3 (for 95% power).<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember that “well-powered” isn’t a given. Most political science research is “greatly underpowered” <span class="citation" data-cites="arel-bundock2022">(Arel-Bundock et al. 2022)</span>.</p></div></div><p>Here’s <a href="https://osf.io/preprints/osf/5am9q_v2">the idea</a>:</p>
 <blockquote class="blockquote">
 <p>Power equals <img src="https://latex.codecogs.com/png.latex?1%20-%20%5CPhi_%7Bstd%7D%5Cleft(%201.64%20-%20%5Cfrac%7B%5Ctau%7D%7BSE%7D%20%5Cright)">, where <img src="https://latex.codecogs.com/png.latex?%5CPhi_%7Bstd%7D(z)"> is the standard normal CDF (as found in a standard <img src="https://latex.codecogs.com/png.latex?z"> table), <img src="https://latex.codecogs.com/png.latex?SE"> is the standard error of the estimated treatment effect, and <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect.</p>
 </blockquote>
@@ -65,10 +108,10 @@ Two Key Tasks
 <p><span class="citation" data-cites="kane2025">Kane (2025)</span> offers an excellent list of options to either increase the treatment effect or shrink the standard error.</p>
 <p>He pitches the list as a way to make a compelling case for null results. However, the list is also helpful for making sure that we’ve thought through the ways to maximize power. It’s a wonderful paper well worth a careful read for folks who run experiments or read experimental work.</p>
 <p>I’m going to borrow his list and connect the action items to statistical power.</p>
-<div class="page-columns page-full"><p>Kane arranges his list into seven “alternative explanations” for null results, which we might think of as “potential power leakages.” I recreated a version of Kane’s table (Table 1 in his paper) that contains each action item to consider. I’ve kept Kane’s labeling for the various categories, but taken some liberties in collapsing some of the action items.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;He breaks his suggestions into to columns for the current study and future studies. For my purposes, these can be collapsed.</p></li></div></div>
-<p>The table below lists all of Kane’s categories and action items and notes the pathway through which this stop might increase statistical power. While Kane doesn’t explicitly pitch the list as “ways to increase” power, we can certainly borrow it for that purpose.</p>
+<p>Kane arranges his list into seven “alternative explanations” for null results, which we might think of as “potential power leakages.” I recreated a version of Kane’s table (Table 1 in his paper) that contains each action item to consider. I’ve kept Kane’s labeling for the various categories, but taken some liberties in collapsing some of the action items.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;He breaks his suggestions into to columns for the current study and future studies. For my purposes, these can be collapsed.</p></div></div><p>The table below lists all of Kane’s categories and action items and notes the pathway through which this stop might increase statistical power. While Kane doesn’t explicitly pitch the list as “ways to increase” power, we can certainly borrow it for that purpose.</p>
 <div class="column-page">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Kane’s Categories</th>
@@ -228,7 +271,7 @@ Two Key Tasks
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-arel-bundock2022" class="csl-entry">
 Arel-Bundock, Vincent, Ryan C Briggs, Hristos Doucouliagos, Marco Mendoza Aviña, and T. D. Stanley. 2022. <span>“Quantitative Political Science Research Is Greatly Underpowered.”</span> <a href="http://dx.doi.org/10.31219/osf.io/7vy2f">http://dx.doi.org/10.31219/osf.io/7vy2f</a>.
 </div>
@@ -255,21 +298,22 @@ Stagnaro, Michael N, James Druckman, Adam J Berinsky, Antonio A Arechar, Robb Wi
   <category>hypothesis tests</category>
   <category>power analysis</category>
   <category>methodology</category>
-  <guid>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/</guid>
   <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: An Example</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/</link>
   <description><![CDATA[ 
+
 
 
 
 <hr>
 <p>We can think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
-<div class="page-columns page-full"><p>And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use <em>pilot</em> data.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Here’s how <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> describe the purpose of a pilot study. “The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated.”</p></li></div></div>
-<p>Usually:</p>
+<p>And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use <em>pilot</em> data.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Here’s how <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> describe the purpose of a pilot study. “The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated.”</p></div></div><p>Usually:</p>
 <ol type="1">
 <li>Pilot data are <em>not</em> useful to predict the treatment effect.</li>
 <li>Pilot data are useful to predict the standard error.</li>
@@ -292,15 +336,14 @@ Predicting the SE in the planned study using pilot data
 <p>Conservatively, the standard error will be about <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D%20%5Ccdot%20%5Cleft%5Clbrack%20%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D%20%5Cright%5Crbrack">, where <img src="https://latex.codecogs.com/png.latex?n%5E%7Bpilot%7D"> is the number of respondents per condition in the pilot data, <img src="https://latex.codecogs.com/png.latex?SE_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D"> is the estimated standard error using the pilot data, and <img src="https://latex.codecogs.com/png.latex?n%5E%7Bplanned%7D"> is the number of respondents per condition in the planned study.</p>
 </div>
 </div>
-<div class="page-columns page-full"><p>The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<sup>2</sup> For the details, see <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this early paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></li></div></div>
-</section>
+<p>The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<sup>2</sup> For the details, see <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this early paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></div></div></section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <section id="the-robbins-et-al.-study" class="level3">
 <h3 class="anchored" data-anchor-id="the-robbins-et-al.-study">The Robbins et al.&nbsp;study</h3>
 <p>As an example, let’s use half of the experiment conducted by <span class="citation" data-cites="robbins2024">Robbins et al. (2024)</span>.</p>
 <p>Robbins et al.&nbsp;use a 2x2 factorial vignette design, randomly assigning each respondent to read one of four vignettes. The vignette describes a hypothetical covert operation ordered by the president that ends in either success or failure. Then, the vignette describes a whistleblower coming forward and describes the president’s opposition in Congress as either amplifying or ignoring the whistleblower.</p>
-
 
 
 
@@ -324,7 +367,7 @@ Predicting the SE in the planned study using pilot data
 
 
 
-<table data-quarto-postprocess="true" class="table">
+<table class="caption-top table" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th">President's Opposition in Congress</th>
@@ -542,8 +585,8 @@ font-style: inherit;">*</span>se_hat_pilot)</span>
 </section>
 <section id="evaluating-the-predicted-se-in-the-main-study" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="evaluating-the-predicted-se-in-the-main-study">Evaluating the predicted SE in the main study</h3>
-<div class="page-columns page-full"><p>We can convert the standard error to the minimum detectable effect with 80% power using <img src="https://latex.codecogs.com/png.latex?2.5%20%5Ctimes%20SE">.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;See <span class="citation" data-cites="bloom1995">Bloom (1995)</span> for an excellent discussion of this rule. I also write about it <a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">here</a>.</p></li></div></div>
-<div class="cell">
+<p>We can convert the standard error to the minimum detectable effect with 80% power using <img src="https://latex.codecogs.com/png.latex?2.5%20%5Ctimes%20SE">.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;See <span class="citation" data-cites="bloom1995">Bloom (1995)</span> for an excellent discussion of this rule. I also write about it <a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">here</a>.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># compute conservative minimum detectable effect</span></span>
@@ -744,8 +787,8 @@ font-style: inherit;"># conservative power</span></span></code></pre></div>
 </section>
 <section id="how-did-we-do" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="how-did-we-do">How did we do?</h2>
-<div class="page-columns page-full"><p>We ran the full study.<sup>4</sup></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;See <span class="citation" data-cites="robbins2024">Robbins et al. (2024)</span> for the full results.</p></li></div></div>
-<div class="cell">
+<p>We ran the full study.<sup>4</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;See <span class="citation" data-cites="robbins2024">Robbins et al. (2024)</span> for the full results.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">robbins2_main <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> crdata<span class="sc" style="color: #5E5E5E;
@@ -843,8 +886,10 @@ background-color: null;
 font-style: inherit;"># a container</span></span>
 <span id="cb36-5"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -939,7 +984,7 @@ font-style: inherit;">0.025</span>)</span></code></pre></div>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-bloom1995" class="csl-entry">
 Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evaluation Review</em> 19 (5): 547–56. <a href="https://doi.org/10.1177/0193841x9501900504">https://doi.org/10.1177/0193841x9501900504</a>.
 </div>
@@ -954,20 +999,21 @@ Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, 
   <category>hypothesis tests</category>
   <category>power analysis</category>
   <category>methodology</category>
-  <guid>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/</guid>
   <pubDate>Mon, 10 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: Simulations to Illustrate</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/</link>
   <description><![CDATA[ 
 
 
 
+
 <hr>
-<div class="page-columns page-full"><p>We can think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup> To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites.</p></li></div></div>
-<p>In this post, I discuss ways that pilot data should and should <em>not</em> be used as part of a power analysis. I make two points:</p>
+<p>We can think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup> To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites.</p></div></div><p>In this post, I discuss ways that pilot data should and should <em>not</em> be used as part of a power analysis. I make two points:</p>
 <ol type="1">
 <li>Pilot data are usually <em>not</em> useful to predict the treatment effect.</li>
 <li>Pilot data can be useful to predict the standard error.</li>
@@ -975,8 +1021,8 @@ Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, 
 <p>With a predicted standard error in hand, we can predict for the minimum detectable effect, the statistical power, or the required sample size in the planned study.</p>
 <section id="pilot-data-should-not-usually-be-used-to-estimate-the-treatment-effect" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="pilot-data-should-not-usually-be-used-to-estimate-the-treatment-effect">Pilot data should not usually be used to estimate the treatment effect</h2>
-<div class="page-columns page-full"><p>To compute statistical power, researchers need to make an assumption about the size of the treatment effect. It’s easy to feel lost without any guidance on what effects are reasonable to look for, so we might feel tempted to use a small pilot study to estimate the treatment effect and then use that estimate in our power analysis. This is a bad idea because the estimate of the treatment effect from a pilot study is too uncertain for a power analysis.<sup>2</sup> <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> and <span class="citation" data-cites="albers2018">Albers and Lakens (2018)</span> discuss this problem in more detail.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;The estimate of the treatment effect from a well-powered study might be too noisy as well.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;<span class="citation" data-cites="perugini2014">Perugini, Gallucci, and Costantini (2014)</span> offer a potential solution if it’s important to estimate the treatment effect from pilot data, though their approach is data-hungry and very conservative. Pilot data <em>can</em> estimate/predict the <em>standard deviation</em> in the full study quite precisely even with small pilots, such as 10 respondents per condition.</p></li></div></div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p>To compute statistical power, researchers need to make an assumption about the size of the treatment effect. It’s easy to feel lost without any guidance on what effects are reasonable to look for, so we might feel tempted to use a small pilot study to estimate the treatment effect and then use that estimate in our power analysis. This is a bad idea because the estimate of the treatment effect from a pilot study is too uncertain for a power analysis.<sup>2</sup> <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> and <span class="citation" data-cites="albers2018">Albers and Lakens (2018)</span> discuss this problem in more detail.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;The estimate of the treatment effect from a well-powered study might be too noisy as well.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;<span class="citation" data-cites="perugini2014">Perugini, Gallucci, and Costantini (2014)</span> offer a potential solution if it’s important to estimate the treatment effect from pilot data, though their approach is data-hungry and very conservative. Pilot data <em>can</em> estimate/predict the <em>standard deviation</em> in the full study quite precisely even with small pilots, such as 10 respondents per condition.</p></div></div><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1092,8 +1138,10 @@ background-color: null;
 font-style: inherit;"># a container to collect results</span></span>
 <span id="cb2-2"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1333,8 +1381,10 @@ background-color: null;
 font-style: inherit;"># counter to index the collection</span></span>
 <span id="cb4-6"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1344,8 +1394,10 @@ background-color: null;
 font-style: inherit;">10000</span>) {</span>
 <span id="cb4-7">  <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (j <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
@@ -1524,11 +1576,15 @@ font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xintercept =</span> se)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="page-columns page-full"><p>However, we can translate the standard error from the pilot studies into predictions for the standard errors in the full studies by multiplying the pilot standard error times <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D">.<sup>4</sup></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;In this setting, we’re planning on 500 respondents per condition.</p></li></div></div>
-<div class="cell">
+</div>
+<p>However, we can translate the standard error from the pilot studies into predictions for the standard errors in the full studies by multiplying the pilot standard error times <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D">.<sup>4</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;In this setting, we’re planning on 500 respondents per condition.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(res, <span class="fu" style="color: #4758AB;
@@ -1562,7 +1618,11 @@ font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xintercept =</span> se)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>That’s spot on! However, notice that we sometimes <em>substantially</em> underestimate the standard error. When we underestimate the standard error, we will <em>over</em>estimate the power (which is bad for us).</p>
@@ -1613,7 +1673,11 @@ font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xintercept =</span> se)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>This works super well.</p>
@@ -1713,7 +1777,11 @@ font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xintercept =</span> tau)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1812,7 +1880,11 @@ font-style: inherit;">xintercept =</span> .<span class="dv" style="color: #AD000
 background-color: null;
 font-style: inherit;">8</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1900,7 +1972,11 @@ font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">xintercept =</span> n_planned)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Sample size is an especially helpful metric, because it is the constraint and cost that researchers face most directly. Because these required sample sizes are <em>conservative</em>, they tend to be too large—but by how much? For pilots with 60 respondents per condition, the sample sizes tend to be about 30% too large. This means that researchers could have obtained 80% power with 1,000 respondents but instead used 1,300 respondents.</p>
@@ -2002,7 +2078,6 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">tt</span>()</span></code></pre></div>
 <div class="cell-output-display">
-
  
 
   
@@ -2145,7 +2220,7 @@ window.addEventListener('load', function () { styleCell_tinytable_izejox3p7b00jb
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-albers2018" class="csl-entry">
 Albers, Casper, and Daniël Lakens. 2018. <span>“When Power Analyses Based on Pilot Data Are Biased: Inaccurate Effect Size Estimators and Follow-up Bias.”</span> <em>Journal of Experimental Social Psychology</em> 74 (January): 187–95. <a href="https://doi.org/10.1016/j.jesp.2017.09.004">https://doi.org/10.1016/j.jesp.2017.09.004</a>.
 </div>
@@ -2163,14 +2238,15 @@ Perugini, Marco, Marcello Gallucci, and Giulio Costantini. 2014. <span>“Safegu
   <category>hypothesis tests</category>
   <category>power analysis</category>
   <category>methodology</category>
-  <guid>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/</guid>
   <pubDate>Mon, 03 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Firth’s Logit: Some References</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-08-30-firth-references/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2224,7 +2300,7 @@ Perugini, Marco, Marcello Gallucci, and Giulio Costantini. 2014. <span>“Safegu
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-beiser-mcgrath2020" class="csl-entry">
 Beiser-McGrath, Liam F. 2020. <span>“Separation and Rare Events.”</span> <em>Political Science Research and Methods</em> 10 (2): 428–37. <a href="https://doi.org/10.1017/psrm.2020.46">https://doi.org/10.1017/psrm.2020.46</a>.
 </div>
@@ -2275,14 +2351,15 @@ Zorn, Christopher. 2005. <span>“A Solution to Separation in Binary Response Mo
   <category>logistic regression</category>
   <category>small samples</category>
   <category>Firth</category>
-  <guid>https://www.carlislerainey.com/blog/2023-08-30-firth-references/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-08-30-firth-references/</guid>
   <pubDate>Wed, 30 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Equivalence Tests Using {marginaleffects}</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2314,8 +2391,8 @@ Zorn, Christopher. 2005. <span>“A Solution to Separation in Binary Response Mo
 <h2 class="anchored" data-anchor-id="reproducing-clark-and-golder-2006">Reproducing Clark and Golder (2006)</h2>
 <p>Before computing their specific quantities of interest, let’s reproduce their regression model. Here’s their table that we’re trying to reproduce.</p>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/clark-golder-2006-table2.png" class="img-fluid"></p>
-<div class="page-columns page-full"><p>And here’s a reproduction of their estimates using the <code>cg2006</code> data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Run <code>?crdata::cg2006</code> for detailed documentation of this data set.</p></li></div></div>
-<div class="cell">
+<p>And here’s a reproduction of their estimates using the <code>cg2006</code> data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Run <code>?crdata::cg2006</code> for detailed documentation of this data set.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># load packages</span></span>
@@ -2402,7 +2479,7 @@ font-style: inherit;">~</span> model <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> statistic)</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -2415,7 +2492,7 @@ font-style: inherit;">+</span> statistic)</span></code></pre></div>
 (1)
 </div></th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">Est.</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">S.E.</th>
@@ -2485,8 +2562,8 @@ font-style: inherit;">+</span> statistic)</span></code></pre></div>
 </ul>
 <p>And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In <span class="citation" data-cites="rainey2014">Rainey (2014)</span>, I made the plot below. I want to reproduce it with {marginaleffects}.</p>
 <p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" class="img-fluid"></p>
-<div class="page-columns page-full"><p>These differences (and the 90% CIs) are really easy to compute using {marginaleffects}!<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’m only doing Clark and Golder’s original results, not any of the robustness checks.</p></li></div></div>
-<div class="cell">
+<p>These differences (and the 90% CIs) are really easy to compute using {marginaleffects}!<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;I’m only doing Clark and Golder’s original results, not any of the robustness checks.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># load packages</span></span>
@@ -2648,15 +2725,19 @@ font-style: inherit;">+</span> </span>
 background-color: null;
 font-style: inherit;">geom_point</span>() </span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>In this case, we conclude that social heterogeneity (<code>eneg</code>) has a negligible effect because the 90% CI only contains substantively negligible values. However, the 90% CI for district magnitude (<code>average_magnitude</code>) contains substantively negligible and meaningful values, so we cannot reject the null hypothesis of a meaningful effect.</p>
 </section>
 <section id="computing-the-tost-p-values-using-hypotheses" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="computing-the-tost-p-values-using-hypotheses">Computing the TOST <em>p</em>-values using <code>hypotheses()</code></h2>
-<div class="page-columns page-full"><p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<sup>3</sup> Note, though, that <strong>you must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</strong> I might have expected them to carry forward from the <code>comparisons()</code> above.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></li></div></div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<sup>3</sup> Note, though, that <strong>you must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</strong> I might have expected them to carry forward from the <code>comparisons()</code> above.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></div></div><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -2766,10 +2847,10 @@ Columns: term, contrast, estimate, conf.low, conf.high, p.value.equiv </code></p
 
 
 
-<div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></li></div></section>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></div></div></section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-altman1995" class="csl-entry">
 Altman, D. G, and J M. Bland. 1995. <span>“Statistics Notes: Absence of Evidence Is Not Evidence of Absence.”</span> <em>BMJ</em> 311 (7003): 485–85. <a href="https://doi.org/10.1136/bmj.311.7003.485">https://doi.org/10.1136/bmj.311.7003.485</a>.
 </div>
@@ -2806,20 +2887,21 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
   <category>computing</category>
   <category>R</category>
   <category>marginaleffects</category>
-  <guid>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/</guid>
   <pubDate>Fri, 18 Aug 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" medium="image" type="image/png" height="118" width="144"/>
 </item>
 <item>
   <title>Daily Writing</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/</link>
   <description><![CDATA[ 
 
 
 
-<div class="page-columns page-full"><p>I try to write everyday.<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;See lots of caveats below!</p></li></div></div>
-<p>By “writing,” I mean “pushing the paper closest to publication just a little bit closer.” I want to think about the next step on the journey to the published paper and do it. According to this loose definition of writing, it might involve data collection, data analysis, creating slides, or even writing and polishing text. It might involve organization, planning, or learning new skills. It excludes any tasks that aren’t necessary to complete the project.</p>
+
+<p>I try to write everyday.<sup>1</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;See lots of caveats below!</p></div></div><p>By “writing,” I mean “pushing the paper closest to publication just a little bit closer.” I want to think about the next step on the journey to the published paper and do it. According to this loose definition of writing, it might involve data collection, data analysis, creating slides, or even writing and polishing text. It might involve organization, planning, or learning new skills. It excludes any tasks that aren’t necessary to complete the project.</p>
 <p>By “everyday,” I mean at least every weekday, probably at the same time every day and probably first thing in the morning. For better or worse, academics are evaluated by their research productivity.</p>
 <section id="urgency-and-importance" class="level2">
 <h2 class="anchored" data-anchor-id="urgency-and-importance">Urgency and Importance</h2>
@@ -2833,12 +2915,16 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
 <p>First, he <a href="https://www.sciencedirect.com/science/article/pii/0005796789901447">assessed</a> how early-career academics spend their time. The figure below shows the results. Notice that these faculty spend more time in committee meetings (2 hrs.) than writing (1.5 hours).</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Second, Boice <a href="https://www.sciencedirect.com/science/article/pii/0005796783900451">conducted</a> an experiment to assess the effect of writing strategies.</p>
-<div class="page-columns page-full"><p>Boice randomly divided 27 academics into three groups:<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;This is a small sample, but it supports my claim so it’s okay.</p></li></div></div>
-<ul>
+<p>Boice randomly divided 27 academics into three groups:<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;This is a small sample, but it supports my claim so it’s okay.</p></div></div><ul>
 <li>The <strong>control</strong> group agreed to defer all but the most urgent writing for ten weeks.</li>
 <li>The <strong>spontaneous</strong> group agreed write when they felt like it.</li>
 <li>The <strong>contingency</strong> group agreed to donate to an anti-charity if they failed to write every day.</li>
@@ -2846,7 +2932,11 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
 <p>The figure below shows that regular writing routine increase production of both pages <em>and</em> ideas. Notice that the spontaneous writers barely produced more ideas and pages than the group trying to <em>avoid</em> writing.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>I find these results compelling, but note that Helen Sword <a href="https://www.tandfonline.com/doi/pdf/10.1080/1360144X.2016.1210153">urges</a> some caution.</p>
@@ -2860,7 +2950,7 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
 <li>Take breaks. I take long breaks from writing. But these are intentional and planned.<sup>4</sup></li>
 <li>Family permitting, I think it’s helpful to spend a little while pushing the projects forward on the weekends, just to keep the momentum up.<sup>5</sup></li>
 </ol>
-<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Two hours works really well for me. My productivity degrades quickly after two hours, so it’s best to move on to less taxing tasks. But it takes me a while to get warmed up, so I need to keep moving while I’ve got momentum.</p></li><li id="fn4"><p><sup>4</sup>&nbsp;An unfortunate outcome is not writing and being stressed about not writing.</p></li><li id="fn5"><p><sup>5</sup>&nbsp;Just 15 minutes is great. This slot is perfect for proof-reading.</p></li></div><p>I admit that I deviate from the strategy above (and not always intentionally). But I’ve been at this long enough to know that a regular routine works really well for me.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Two hours works really well for me. My productivity degrades quickly after two hours, so it’s best to move on to less taxing tasks. But it takes me a while to get warmed up, so I need to keep moving while I’ve got momentum.</p></div><div id="fn4"><p><sup>4</sup>&nbsp;An unfortunate outcome is not writing and being stressed about not writing.</p></div><div id="fn5"><p><sup>5</sup>&nbsp;Just 15 minutes is great. This slot is perfect for proof-reading.</p></div></div><p>I admit that I deviate from the strategy above (and not always intentionally). But I’ve been at this long enough to know that a regular routine works really well for me.</p>
 </section>
 <section id="what-if-youre-not-ready-to-write-yet" class="level2">
 <h2 class="anchored" data-anchor-id="what-if-youre-not-ready-to-write-yet">What if you’re not ready to write yet?</h2>
@@ -2880,14 +2970,15 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
 
  ]]></description>
   <category>writing</category>
-  <guid>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/</guid>
   <pubDate>Tue, 15 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Benchmarking Firth’s Logit: {brglm2} versus {logistf}</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2990,6 +3081,7 @@ font-style: inherit;">+</span> coord</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>() {</span>
 <span id="cb1-21">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3005,6 +3097,7 @@ font-style: inherit;">"binomial"</span>)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>() {</span>
 <span id="cb1-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3022,6 +3115,7 @@ font-style: inherit;">method =</span> brglmFit)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>() {</span>
 <span id="cb1-27">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3033,6 +3127,7 @@ font-style: inherit;">data =</span> rs_weis)</span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>() {</span>
 <span id="cb1-30">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3172,7 +3267,11 @@ font-style: inherit;">+</span> </span>
 background-color: null;
 font-style: inherit;">coord_flip</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -3230,7 +3329,7 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-firth1993" class="csl-entry">
 Firth, David. 1993. <span>“Bias Reduction of Maximum Likelihood Estimates.”</span> <em>Biometrika</em> 80 (1): 27–38. <a href="https://doi.org/10.1093/biomet/80.1.27">https://doi.org/10.1093/biomet/80.1.27</a>.
 </div>
@@ -3249,14 +3348,15 @@ Weisiger, Alex. 2014. <span>“Victory Without Peace: Conquest, Insurgency, and 
   <category>Firth</category>
   <category>computing</category>
   <category>R</category>
-  <guid>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/</guid>
   <pubDate>Fri, 11 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part III: The Rule of 3.64 for Statistical Power</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3287,10 +3387,10 @@ A Paper
 <h2 class="anchored" data-anchor-id="starting-point-the-sampling-distribution">Starting Point: The Sampling Distribution</h2>
 <p>When you run one experiment, you realize <em>one</em> of many possible patterns of randomization. This particular realization produces a single <strong>estimate</strong> of the treatment effect from a <em>distribution</em> of possible estimates. The distribution of possibilities is called a “<strong>sampling distribution</strong>.”</p>
 <p>Thus, we can think of the estimate as a random variable and its distribution as the sampling distribution. The sampling distribution is key to everything I do in this post, so let’s spend some time with it.</p>
-<div class="page-columns page-full"><p>Let’s imagine that we did the exact same study 50 times. Let’s say that we computed a difference-in-means in dollars ($) donated.<sup>1</sup> I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in $). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.</p></li></div></div>
-<p>We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.</p>
+<p>Let’s imagine that we did the exact same study 50 times. Let’s say that we computed a difference-in-means in dollars ($) donated.<sup>1</sup> I refer to this difference-in-means as the estimated treatment effect. It is the estimate of the average treatment effect (in $). This estimate will vary across the many possible patterns of randomization because each pattern puts different respondents in the treatment and control group.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.</p></div></div><p>We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-1_fd68411c54b5c41ff98040f53117b994">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4262,8 +4362,10 @@ background-color: null;
 font-style: inherit;">FALSE</span>)</span>
 <span id="cb1-127"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
@@ -4288,8 +4390,12 @@ font-style: inherit;">c</span>(new_gif, combined_gif)</span>
 <span id="cb1-130">}</span>
 <span id="cb1-131">new_gif</span></code></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid figure-img column-screen-inset-right"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Before the study, we can predict two features of this sampling distribution.</p>
@@ -4304,19 +4410,19 @@ font-style: inherit;">c</span>(new_gif, combined_gif)</span>
 <section id="thinking-about-true-effect-and-standard-error-as-targets" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="thinking-about-true-effect-and-standard-error-as-targets">Thinking about True Effect and Standard Error as <em>Targets</em></h2>
 <p>I’m leaving aside how to predict the standard error of the experiment or choose the true effect. This post is about the <em>target</em> standard error and true effect.</p>
-<div class="page-columns page-full"><p>Predicting the standard error is a mechanical process mixed with a little guesswork.<sup>2</sup> Choose a true effect is a mostly substantive decision.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;I’ll suggest two methods I like. First, use <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bpredicted%20SE%7D%20=%20%5Cfrac%7B%5Ctext%7BSD%20of%20same%20outcome%20in%20different%20data%20set%7D%7D%7B0.5%20%5Csqrt%7B%5Ctext%7Bsample%20size%7D%7D%7D">. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.</p></li><li id="fn3"><p><sup>3</sup>&nbsp;<a href="https://twitter.com/cdsamii/status/1661091885580992517?s=20">Cyrus Samii</a> likes to use the MME, I like a conservatively choosen guess of what the effect actually is.</p></li></div></div>
-<p>But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)—power is just not a very intuitive quantity.</p>
+<p>Predicting the standard error is a mechanical process mixed with a little guesswork.<sup>2</sup> Choose a true effect is a mostly substantive decision.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;I’ll suggest two methods I like. First, use <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bpredicted%20SE%7D%20=%20%5Cfrac%7B%5Ctext%7BSD%20of%20same%20outcome%20in%20different%20data%20set%7D%7D%7B0.5%20%5Csqrt%7B%5Ctext%7Bsample%20size%7D%7D%7D">. I like to confirm this estimate with a small pilot. I sample observations from this pilot data set, run the full analysis, and confirm that my prediction is close, and make any needed adjustments.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;<a href="https://twitter.com/cdsamii/status/1661091885580992517?s=20">Cyrus Samii</a> likes to use the MME, I like a conservatively choosen guess of what the effect actually is.</p></div></div><p>But instead of talking about a target power, I like to talk about a target standard error (given a true effect) or a target true effect (given a standard error)—power is just not a very intuitive quantity.</p>
 <p>To understand how the true effect and the SE relate to power, we need to introduce the confidence interval.</p>
 </section>
 <section id="testing-with-confidence-intervals" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="testing-with-confidence-intervals">Testing with Confidence Intervals</h2>
 <p>I like to use 90% confidence intervals to test hypotheses (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.] The formula for a 90% CI is <img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bestimate%7D%20%5Cpm%201.64%5Ctext%7BSE%7D">. That is, we put “arms” around our estimate—one to the left and another to the right. Each arm is 1.64 standard errors long.</p>
-<div class="page-columns page-full"><p>I’ll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound (<img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bestimate%7D%20-%201.64%5Ctext%7BSE%7D">) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.<sup>4</sup></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;This is equivalent to a <em>z</em>-test in a standard hypothesis testing framework using a <em>p</em>-value of less than 0.05 as the threshold for rejecting the null hypothesis.</p></li></div></div>
-<p>This focus on <em>testing</em> rather than <em>estimation</em> changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.</p>
+<p>I’ll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound (<img src="https://latex.codecogs.com/png.latex?%5Ctext%7Bestimate%7D%20-%201.64%5Ctext%7BSE%7D">) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.<sup>4</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;This is equivalent to a <em>z</em>-test in a standard hypothesis testing framework using a <em>p</em>-value of less than 0.05 as the threshold for rejecting the null hypothesis.</p></div></div><p>This focus on <em>testing</em> rather than <em>estimation</em> changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.</p>
 <p>But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that *if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.</p>
 <p>We can reconstruct the figure above using this logic. Rather than plot the points continuously along the x-axis, we can color the points (and now error bars) according to whether the lower bound falls above zero or not. And we can use a bar plot showing the number of rejections and non-rejections.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-2_e00ea8cbe8311700e42c2d417ba3af69">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5196,8 +5302,10 @@ background-color: null;
 font-style: inherit;">FALSE</span>)</span>
 <span id="cb2-121"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
@@ -5222,8 +5330,12 @@ font-style: inherit;">c</span>(new_gif, combined_gif)</span>
 <span id="cb2-124">}</span>
 <span id="cb2-125">new_gif</span></code></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid figure-img column-screen-inset-right"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -5231,7 +5343,7 @@ font-style: inherit;">c</span>(new_gif, combined_gif)</span>
 <h2 class="anchored" data-anchor-id="the-key-ratio">The Key Ratio</h2>
 <p>The key to building statistical power into your experiment is to get “almost all” of the sampling distribution above 1.64 standard errors above zero. The portion of the sampling distribution that falls below 1.64 standard errors above zero does not allow the researcher to reject the null.</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-3_ae148b7ae499c1f0d3d536545760eb36">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -5941,13 +6053,17 @@ font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>)</span></code></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="960"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img column-screen-inset-right" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>You’ll remember that “almost all” of the normal distribution falls within two standard errors of its mean. So as a starting point, let’s use this rule: get the sampling distribution two standard errors above 1.64 standard errors above zero. We can just add 1.64 and 2 together to get a sampling distribution 3.64 standard errors above zero. That is, we need <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctext%7Btrue%20effect%7D%7D%7B%5Ctext%7Bstandard%20error%7D%7D%20%3E%203.64">. If the true effect is larger than 3.64 standard errors, then the confidence interval will “rarely” overlap zero (about 2% of the time).</p>
 <div class="cell page-columns page-full" data-hash="index_cache/html/unnamed-chunk-4_a91efc73b8d2befdc4dcd25504202cf9">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -6646,8 +6762,12 @@ font-style: inherit;">0.1</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2.0</span>)</span></code></pre></div>
 </details>
-<div class="cell-output-display column-screen-inset-right">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="960"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img column-screen-inset-right" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -6665,8 +6785,8 @@ font-style: inherit;">2.0</span>)</span></code></pre></div>
 <li>Increase the true effect.</li>
 <li>Decrease the standard error.</li>
 </ol>
-<div class="page-columns page-full"><p>This ratio gets you thinking not <em>what</em> your power is, but <em>how to increase it</em>. Again, power isn’t <em>a</em> task for the experimenter, it’s <em>the</em> task.<sup>5</sup> <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane (2023)</a><sup>6</sup> suggests several ways researchers can increase the true effect or decrease the standard error.</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;I’m leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.</p></li><li id="fn6"><p><sup>6</sup>&nbsp;Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results.” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</p></li></div></div>
-<p>I’ll highlight a few examples here. To increase the treatment effect, you can:</p>
+<p>This ratio gets you thinking not <em>what</em> your power is, but <em>how to increase it</em>. Again, power isn’t <em>a</em> task for the experimenter, it’s <em>the</em> task.<sup>5</sup> <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane (2023)</a><sup>6</sup> suggests several ways researchers can increase the true effect or decrease the standard error.</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;I’m leaving aside the question of how to predict the standard error or choose a true effect for a paricular design.</p></div><div id="fn6"><p><sup>6</sup>&nbsp;Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results.” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</p></div></div><p>I’ll highlight a few examples here. To increase the treatment effect, you can:</p>
 <ol type="1">
 <li>Increase attentiveness.</li>
 <li>Ensure that respondents are not pre-treated.</li>
@@ -6681,8 +6801,8 @@ font-style: inherit;">2.0</span>)</span></code></pre></div>
 </section>
 <section id="implication" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="implication">Implication</h2>
-<div class="page-columns page-full"><p>If you get the ratio to 3.64, then you’ll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.<sup>7</sup> But notice that 3.64 and 2.48 are not very different. This has an important implication.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Find this by adding 1.64 to <code>-qnorm(0.2)</code>.</p></li></div></div>
-<p>A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.</p>
+<p>If you get the ratio to 3.64, then you’ll have 98%. This is much higher than the cutoff of 80% I hear suggested most often. If you want 80% power, rather than 98% power, you can change the 3.64 to 2.48.<sup>7</sup> But notice that 3.64 and 2.48 are not very different. This has an important implication.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Find this by adding 1.64 to <code>-qnorm(0.2)</code>.</p></div></div><p>A researcher can lower the risk of a failed study from about 1 in 5 (80% power) to about 1 in 50 (98% power) by increasing the ratio from 2.48 to 3.64. This requires increasing the treatment effect by about 50% or shrinking the standard error by about 33%. Stated differently, if you are careless and let your treatment effect fall by 33% or let your standard error increase by 50%, then your risk of a failed study increases 10-fold! Small differences can matter a lot.</p>
 <p>The implication is this: when you are on the cusp of a well-powered study (about 80% power), then small increases in the ratio have a disproportionate impact on your risk of a failed study.</p>
 </section>
 <section id="computing-power-from-the-ratio" class="level2">
@@ -6750,15 +6870,16 @@ font-style: inherit;"># fraction above, not below</span></span></code></pre></di
   <category>confidence intervals</category>
   <category>computing</category>
   <category>R</category>
-  <guid>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/</guid>
   <pubDate>Mon, 12 Jun 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>Teaching Confidence Intervals and Hypothesis Testing with gganimate</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -6783,7 +6904,7 @@ font-style: inherit;"># fraction above, not below</span></span></code></pre></di
 <h2 class="anchored" data-anchor-id="an-experiment-that-we-can-repeat">An Experiment that We Can Repeat</h2>
 <p>First, let’s choose to conduct an experiment with 80% power. To get this, we’ll suppose that the true effect is 1 and the standard error is 0.4. To obtain 80% power, you can use the guideline that the standard error should be about 40% of the true effect (or the true effect divided by 2.48). I’ll show where these guidelines come from in a future post. With the true effect and standard error in hand, we can compute the long-run properties of the experiment.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-1_1a67a411c4cbb8a37b283565094b0331">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -6974,7 +7095,7 @@ background-color: null;
 font-style: inherit;">NULL</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Effect</td>
@@ -7006,7 +7127,7 @@ font-style: inherit;">NULL</span>)</span></code></pre></div>
 <p>But these long-run properties remain a bit abstract and seem “distant” from the practical implications of our <em>particular</em> experiment. This is where the three exercises above come in handy.</p>
 <p>The second exercise is a static plot. The plot shows 50 intervals; we can see that several include zero. These are wasted opporunities. We set out to reject a null hypothesis that the effect was less than or equal to zero, and we failed to do that.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-2_78347fc1f4c6c4bd4803caf03747ec05">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -7261,7 +7382,11 @@ background-color: null;
 font-style: inherit;">print</span>(gg)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -7281,7 +7406,7 @@ font-style: inherit;">print</span>(gg)</span></code></pre></div>
 <li>Add a grouping variable to indicate the states for the transitions. This is simply a row ID variable.</li>
 </ol>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-3_9b63ee8ce76ffb30d27f3e7b36871be3">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -7352,7 +7477,7 @@ font-style: inherit;"># group (row index)</span></span></code></pre></div>
 </div>
 <p>Now let’s plot the confidence intervals much like above, except with expanded scales to give some more room for movement.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-4_bccf09b3a4e33d5f2ca2fc0b58d685fc">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-4" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -7592,25 +7717,29 @@ font-style: inherit;">print</span>(gg_exp)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">Use dataset with <code>group</code> variable.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">Use dataset with <code>group</code> variable.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="7" data-code-cell="annotated-cell-4">Set <code>group</code> explicitly.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="7" data-code-annotation="2">Set <code>group</code> explicitly.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="30,31" data-code-cell="annotated-cell-4">Expand x- and y-axis.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="30,31" data-code-annotation="3">Expand x- and y-axis.</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now let’s add the animation. I like the confidence intervals to be shooting toward zero. This gives the feeling that “it might cross!” and makes the fear of a failed study real for each simulation.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-5_d6c5af01fb5dc06ee35cd4102c0f497e">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-5" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -7716,40 +7845,44 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-5">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="1">‘gg’ is created earlier. It’s the plot we want to make dynamic.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-5">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="2">The <code>transition_states()</code> function from gganimate creates an animation transitioning between different states of the data. In this case, the argument <code>states</code> is set to <code>group</code>. This makes each <code>group</code> (each row in the data frame <code>animate_data</code>) appear in the plot, one at a time.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-5">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="5" data-code-annotation="3">The <code>enter_drift()</code> function describes how new data points enter the frame. <code>x_mod = 2</code> makes new data enter by drifting along the x-axis 2 points from the right of their ending position.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-5">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="6" data-code-annotation="4">The <code>enter_grow()</code> function describes how new data points enter the frame. In this case, it makes them will grow from a size of 0 to their ending size.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="7" data-code-annotation="5">The <code>enter_recolor()</code> function again describes how new data points should enter the frame. Here, it makes the points and CIs change the color from black to their ending color as they appear. I want the final color to be a bit of a surprise, so I start them as black.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-5">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="8" data-code-annotation="6">The <code>ease_aes()</code> function determines how the aesthetics of the points change over the transitions. <code>color = "exponential-in"</code> means the color change will be at an exponential rate at the start of the transition. This makes the color change really fast at the end of the transition to maintain the surprise of the result.</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-lines="10" data-code-cell="annotated-cell-5">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="10" data-code-annotation="7">The <code>exit_fade()</code> function describes how data points leave the frame. <code>alpha = 0.3</code> specifies that points will fade out to 30% transparency when they exit (when the next data point reaches its position).</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-annotation="8" data-code-lines="11" data-code-cell="annotated-cell-5"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="11" data-code-annotation="8"><code>shadow_mark()</code> function keeps past data points in the frame. <code>alpha = 0.3</code> sets the transparency of the shadow marks to 30% to match the <code>exit_fade()</code> transparency.</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -7759,7 +7892,7 @@ font-style: inherit;">150</span>)</span><div class="code-annotation-gutter-bg"><
 <p>The exercises above (appropriately) undermine their trust in hypothesis tests. I want them to feel the riskiness of poorly-powered experiments that <a href="../../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like">consistently nestle confidence intervals right up against zero</a>. I want them ready to work hard to avoid that risk—to make sure they have statistical power. Hopefully, they see that carefully building power into your experiment isn’t <em>a</em> task, it’s <em>the</em> task of experimental design.</p>
 <p>As a concluding example, here’s the same dynamic plot for a study with about 98% power. Notice how “safe” this study feels compared to the one above with 80% power. I think this plot does a good job a translating probabilities into an appropriate sense of “danger.”</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-7_91c6c7359ff86daa6cc9a60562fe8217">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="annotated-cell-6" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -8350,7 +8483,7 @@ background-color: null;
 font-style: inherit;">150</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Effect</td>
@@ -8376,7 +8509,11 @@ font-style: inherit;">150</span>)</span></code></pre></div>
 </table>
 </div>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-7-1.gif" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index_files/figure-html/unnamed-chunk-7-1.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -8389,15 +8526,16 @@ font-style: inherit;">150</span>)</span></code></pre></div>
   <category>confidence intervals</category>
   <category>computing</category>
   <category>R</category>
-  <guid>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/</guid>
   <pubDate>Thu, 01 Jun 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
   <title>Power, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -8416,17 +8554,17 @@ A Paper
 </div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
-<div class="page-columns page-full"><p>In this post, I address confidence intervals that are nestled right up against zero.<sup>1</sup> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<sup>2</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></li></div></div>
-<p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
+<p>In this post, I address confidence intervals that are nestled right up against zero.<sup>1</sup> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<sup>2</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></div></div><p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
 <p>But instead, it should feel like a near-miss. Like an accident narrowly avoided. A confidence interval nestled right up against zero indicates that one of two things has happened: either you were (1) unlucky or (2) under-powered.</p>
 <p>Because “unlucky” is always a possibility, we can’t learn much from a <em>particular</em> confidence interval, but we can learn a lot from a <em>literature</em>. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, <em>do</em> tend to produce confidence intervals that nestle right up against zero.</p>
 </section>
 <section id="a-simulation" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="a-simulation">A Simulation</h2>
-<div class="page-columns page-full"><p>I’m going to explore the behavior of confidence intervals with a little simulation. In this simulation, I’m going to assert a standard error rather than create the standard error endogenously through sample size, etc. I use a true effect size of 0.5 and standard errors of 0.5, 0.3, 0.2, and 0.15 to create studies with 25%, 50%, 80%, and 95% power, respectively.<sup>3</sup> I think of 80% as “minimally-powered” and 95% as “well-powered.”</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;I’m ignoring how to choose the true effect, estimate the standard error, and compute power. For now, I’m placing all this behind the curtain. See Daniël Lakens’ book [<em>Improving Your Statistical Inferences</em>] for discussion (h/t <a href="https://bersco.github.io">Bermond Scoggins</a>).</p></li></div></div>
-<p>I’m using a one-sided test (hypothesizing a positive effect), so I’ll use 90% confidence intervals with arms that are 1.64 standard errors wide. Let’s simulate some estimates from each of our four studies and compute their confidence intervals. I simulate 5,000 confidence intervals to explore below.</p>
+<p>I’m going to explore the behavior of confidence intervals with a little simulation. In this simulation, I’m going to assert a standard error rather than create the standard error endogenously through sample size, etc. I use a true effect size of 0.5 and standard errors of 0.5, 0.3, 0.2, and 0.15 to create studies with 25%, 50%, 80%, and 95% power, respectively.<sup>3</sup> I think of 80% as “minimally-powered” and 95% as “well-powered.”</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;I’m ignoring how to choose the true effect, estimate the standard error, and compute power. For now, I’m placing all this behind the curtain. See Daniël Lakens’ book [<em>Improving Your Statistical Inferences</em>] for discussion (h/t <a href="https://bersco.github.io">Bermond Scoggins</a>).</p></div></div><p>I’m using a one-sided test (hypothesizing a positive effect), so I’ll use 90% confidence intervals with arms that are 1.64 standard errors wide. Let’s simulate some estimates from each of our four studies and compute their confidence intervals. I simulate 5,000 confidence intervals to explore below.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -8488,6 +8626,7 @@ font-style: inherit;"># create function to simulate estimates for each standard 
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(se, pwr) {</span>
 <span id="cb1-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8594,7 +8733,7 @@ font-style: inherit;">"Not nestled against zero"</span>))</span></code></pre></d
 </div>
 <p>Now let’s quickly confirm my power calculations by computing the proportion of confidence intervals to the right of zero. These are about right. In a later post, I’ll describe how I think about computing these quantities.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -8665,7 +8804,7 @@ background-color: null;
 font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">SE</th>
@@ -8702,8 +8841,8 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <section id="what-do-confidence-intervals-from-well-powered-studies-look-like" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="what-do-confidence-intervals-from-well-powered-studies-look-like">What Do Confidence Intervals from Well-Powered Studies Look Like?</h2>
 <p>Now let’s see what these confidence intervals look like. 5,000 is too many to plot, so I sample 25. But I applied the statistical significance filter first. This mimics the publication process and makes the plots a little easier to compare. My argument doesn’t depend on this filter, though.</p>
-<div class="page-columns page-full"><p>I plotted these 100 intervals below<sup>4</sup></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;4 studies x 25 simulated intervals per study = 100 intervals.</p></li></div></div>
-<p>There are three important vertical lines in these plots.</p>
+<p>I plotted these 100 intervals below<sup>4</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;4 studies x 25 simulated intervals per study = 100 intervals.</p></div></div><p>There are three important vertical lines in these plots.</p>
 <ol type="1">
 <li>The <strong>solid</strong> line indicates zero. All confidence intervals are above zero because I applied the significance filter.</li>
 <li>The <strong>dotted</strong> line indicates one standard error above zero. This varies across panels because the standard error varies across panels.</li>
@@ -8713,7 +8852,7 @@ font-style: inherit;">"markdown"</span>)</span></code></pre></div>
 <p>Notice how low-powered studies tend to nestle their confidence intervals right up against zero. Almost all of the confidence intervals from the study with 25% power are nestled right up against zero. Very few of the confidence intervals from the study with 95% power are nestled up against zero.</p>
 <p>Again, you should apply this standard to a <em>literature</em>. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors <a href="https://journals.sagepub.com/doi/10.1177/1745691614551642">(Gelman and Stern 2014)</a>.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">gg_df <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -8890,7 +9029,11 @@ background-color: null;
 font-style: inherit;">"Result"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -8898,7 +9041,7 @@ font-style: inherit;">"Result"</span>)</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="showing-this-another-way-density-of-the-lower-bounds">Showing This Another Way: Density of the Lower Bounds</h2>
 <p>We can also plot the density of the lower bounds of these 5,000 intervals. This approach shows the “nestling” most clearly. The plots below show that the lower bounds of confidence intervals tend to nestle close to zero when the power is low, and lie further from zero when the power is high.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">gg_df <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -8982,7 +9125,11 @@ background-color: null;
 font-style: inherit;">"Power"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -8990,7 +9137,7 @@ font-style: inherit;">"Power"</span>)</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="showing-this-another-way-frequency-of-nestling">Showing This Another Way: Frequency of Nestling</h2>
 <p>Lastly, I compute the percent of confidence intervals that are nestled right up against zero. For a well-powered study with 95% power, only about 1 in 5 confidence intervals nestle up against zero. For a poorly-powered study with 25% power, about 4 in 5 of confidence intervals nestle up against zero (among those that are above zero). The table below shows the remaining frequencies.</p>
 <div class="cell">
-<details>
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">ci_df <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -9165,7 +9312,7 @@ background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 11%">
@@ -9258,14 +9405,15 @@ Key Takeaway
   <category>confidence intervals</category>
   <category>computing</category>
   <category>R</category>
-  <guid>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/</guid>
   <pubDate>Thu, 25 May 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part I: Power Is for You, Not for Reviewer Two</title>
   <dc:creator>Carlisle Rainey</dc:creator>
-  <link>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</link>
+  <link>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -9289,14 +9437,14 @@ A Paper
 <li>Arel-Bundock, Vincent, Ryan C. Briggs, Hristos Doucouliagos, Marco Mendoza Aviña, and T.D. Stanley. 2022. “Quantitative Political Science Research Is Greatly Underpowered.” OSF Preprints. July 5. <a href="https://doi.org/10.31219/osf.io/7vy2f">doi: 10.31219/osf.io/7vy2f</a>.</li>
 <li>Kane, John V. 2023. “More Than Meets the ITT: A Guide for Investigating Null Results .” APSA Preprints. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">doi: 10.33774/apsa-2023-h4p0q-v2</a>.</li>
 </ol>
-<div class="page-columns page-full"><p>I’ve been long interested in statistical power (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a><sup>1</sup> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a><sup>2</sup>), and these new papers have me thinking even more about the importance of power.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Rainey, Carlisle. 2014. “Arguing for a Negligible Effect.” <em>American Journal of Political Science</em> 58(4): 1083-1091.</p></li><li id="fn2"><p><sup>2</sup>&nbsp;McCaskey, Kelly and Carlisle Rainey. 2015. “Substantive Importance and the Veil of Statistical Significance.” Statistics, Politics, and Policy 6(1-2): 77-96.</p></li></div></div>
-<p>In this post, I argue that statistical power isn’t something ancillary. Power is <em>primary</em>. I also argue that power isn’t something you–the researcher–build to satisfy an especially cranky Reviewer 2, it’s something you do for <em>yourself</em>, to make sure that your study succeeds.</p>
+<p>I’ve been long interested in statistical power (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a><sup>1</sup> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a><sup>2</sup>), and these new papers have me thinking even more about the importance of power.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Rainey, Carlisle. 2014. “Arguing for a Negligible Effect.” <em>American Journal of Political Science</em> 58(4): 1083-1091.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;McCaskey, Kelly and Carlisle Rainey. 2015. “Substantive Importance and the Veil of Statistical Significance.” Statistics, Politics, and Policy 6(1-2): 77-96.</p></div></div><p>In this post, I argue that statistical power isn’t something ancillary. Power is <em>primary</em>. I also argue that power isn’t something you–the researcher–build to satisfy an especially cranky Reviewer 2, it’s something you do for <em>yourself</em>, to make sure that your study succeeds.</p>
 </section>
 <section id="the-hypothesis-testing-framework" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="the-hypothesis-testing-framework">The Hypothesis Testing Framework</h2>
 <p>In the hypothesis testing framework, you consider two hypotheses: the null hypothesis and the alternative hypothesis.</p>
-<div class="page-columns page-full"><p>The hypothesis test is all about arguing <em>against</em> the null hypothesis <img src="https://latex.codecogs.com/png.latex?H_0"> (leaving the alternative <img src="https://latex.codecogs.com/png.latex?H_A"> as the only remaining possibility). You will (try to) show that your data would be “unusual” if the null hypothesis were correct.<sup>3</sup></p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;When hypothesizing about the average treatment effect (ATE), this can take a variety of forms. The form doesn’t really matter.</p></li></div></div>
-<p>If the data would <em>NOT</em> be unusual under the null hypothesis, then you <em>do not</em> reject the null hypothesis.</p>
+<p>The hypothesis test is all about arguing <em>against</em> the null hypothesis <img src="https://latex.codecogs.com/png.latex?H_0"> (leaving the alternative <img src="https://latex.codecogs.com/png.latex?H_A"> as the only remaining possibility). You will (try to) show that your data would be “unusual” if the null hypothesis were correct.<sup>3</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;When hypothesizing about the average treatment effect (ATE), this can take a variety of forms. The form doesn’t really matter.</p></div></div><p>If the data would <em>NOT</em> be unusual under the null hypothesis, then you <em>do not</em> reject the null hypothesis.</p>
 </section>
 <section id="intepreting-a-failure-to-reject" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="intepreting-a-failure-to-reject">Intepreting a Failure to Reject</h2>
@@ -9304,8 +9452,8 @@ A Paper
 <blockquote class="blockquote">
 <p>Political scientists commonly interpret a lack of statistical significance (i.e., a failure to reject the null) as evidence for a negligible effect (Gill 1999), but this approach acts as a broken compass… If the sample size is too small, the researcher often concludes that the effect is negligible even though the data are also consistent with large, meaningful effects. This occurs because the small sample leads to a large confidence interval, which is likely to contain both “no effect” and large effects.</p>
 </blockquote>
-<div class="page-columns page-full"><p><a href="https://www.jstor.org/stable/449153">Gill (1999)</a><sup>4</sup> describes this more forcefully:</p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Gill, Jeff. 1999. “The Insignificance of Null Hypothesis Significance Testing.” <em>Political Research Quarterly</em> 52(3): 647-674.</p></li></div></div>
-<blockquote class="blockquote">
+<p><a href="https://www.jstor.org/stable/449153">Gill (1999)</a><sup>4</sup> describes this more forcefully:</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Gill, Jeff. 1999. “The Insignificance of Null Hypothesis Significance Testing.” <em>Political Research Quarterly</em> 52(3): 647-674.</p></div></div><blockquote class="blockquote">
 <p>We teach graduate students to be very careful when describing the occurrence of not rejecting the null hypothesis. This is because failing to reject the null hypothesis does not rule out an infinite number of other competing research hypotheses. Null hypothesis significance testing is asymmetric: if the test statistic is sufficiently atypical given the null hypothesis then the null hypothesis is rejected, but if the test statistic is insufficiently atypical given the null hypothesis then the null hypothesis is not accepted. This is a double standard: H1 is held innocent until proven guilty and Ho is held guilty until proven innocent (Rozeboom 1960)…</p>
 </blockquote>
 <blockquote class="blockquote">
@@ -9329,8 +9477,8 @@ Important Point
 <section id="the-implication-of-a-non-conclusion" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="the-implication-of-a-non-conclusion">The Implication of a Non-Conclusion</h2>
 <p>If you cannot draw a conclusion then, what exactly has happened? Obtaining <img src="https://latex.codecogs.com/png.latex?p%20%3E%200.05"> will not be an “error” because you won’t make a strong claim that the research hypothesis is wrong. Instead, you will simply admit that you failed to uncover evidence against the null. Failing to uncover evidence isn’t an error.</p>
-<div class="page-columns page-full"><p>Indeed, <a href="https://psycnet.apa.org/fulltext/2000-16737-001.pdf">Jones and Tukey (2000)</a><sup>5</sup> write:</p><div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;Jones, Lyle V., and John W. Tukey. 2000. “A Sensible Formulation of the Significance Test.” <em>Psychological Methods</em> 5(4): 411-414.</p></li></div></div>
-<blockquote class="blockquote">
+<p>Indeed, <a href="https://psycnet.apa.org/fulltext/2000-16737-001.pdf">Jones and Tukey (2000)</a><sup>5</sup> write:</p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Jones, Lyle V., and John W. Tukey. 2000. “A Sensible Formulation of the Significance Test.” <em>Psychological Methods</em> 5(4): 411-414.</p></div></div><blockquote class="blockquote">
 <p>A conclusion is in error only when it is “a reversal,” when it asserts one direction while the (unknown) truth is the other direction. Asserting that the direction is not yet established may constitute a wasted opportunity, but it is not an error.</p>
 </blockquote>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -9368,10 +9516,10 @@ Important Point
 <p>Power isn’t a secondary quantity that you compute for thoroughness or in anticipation of a comment from Reviewer 2. Power is something that you build <em>for yourself</em>.</p>
 <p>Statisticians talk a lot about Type I errors because that’s their contribution. It’s your job to bring the power.</p>
 <p>And importantly, power is under your control. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane</a> provides a rich summary of ways to increase the power of your experiment. At a minimum, you have brute force control through sample size.</p>
-<div class="page-columns page-full"><p>Power isn’t an ancillary concern, it’s the entire game from the very beginning of the planning stage. It should be at the forefront of the researchers mind from the very beginning. You should want the power as high as possible.<sup>6</sup></p><div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;I hear that 80% is the standard, but I’m pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem “high” or “acceptable,” but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.</p></li></div></div>
-<p>You have to supply a test <em>overwhelming</em> evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.</p>
-<div class="page-columns page-full"><p>Power isn’t about Type S and M errors (<a href="https://journals.sagepub.com/doi/pdf/10.1177/1745691614551642">Gelman and Carlin 2014</a>)<sup>7</sup>. Power is about you protecting yourself from a failed study. And that seems like a protection worth pursuing carefully.<sup>8</sup></p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Gelman, Andrew, and John Carlin. “Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors.” <em>Perspectives on Psychological Science</em> 9(6): 641-651.</p></li><li id="fn8"><p><sup>8</sup>&nbsp;Of course it’s also about Type S and M errors, but those are discipline-level concerns. I’m talking about <em>your</em> incentives as a researcher.</p></li></div></div>
-</section>
+<p>Power isn’t an ancillary concern, it’s the entire game from the very beginning of the planning stage. It should be at the forefront of the researchers mind from the very beginning. You should want the power as high as possible.<sup>6</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;I hear that 80% is the standard, but I’m pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem “high” or “acceptable,” but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.</p></div></div><p>You have to supply a test <em>overwhelming</em> evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.</p>
+<p>Power isn’t about Type S and M errors (<a href="https://journals.sagepub.com/doi/pdf/10.1177/1745691614551642">Gelman and Carlin 2014</a>)<sup>7</sup>. Power is about you protecting yourself from a failed study. And that seems like a protection worth pursuing carefully.<sup>8</sup></p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Gelman, Andrew, and John Carlin. “Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors.” <em>Perspectives on Psychological Science</em> 9(6): 641-651.</p></div><div id="fn8"><p><sup>8</sup>&nbsp;Of course it’s also about Type S and M errors, but those are discipline-level concerns. I’m talking about <em>your</em> incentives as a researcher.</p></div></div></section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Here are the takeaways:</p>
@@ -9404,7 +9552,7 @@ Important Point
   <category>hypothesis tests</category>
   <category>power analysis</category>
   <category>methodology</category>
-  <guid>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html</guid>
+  <guid>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/</guid>
   <pubDate>Sun, 21 May 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>

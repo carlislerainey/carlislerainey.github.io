@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Carlisle Rainey - Papers</title>
+<title>Papers – Carlisle Rainey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,17 +38,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -157,14 +164,41 @@ gtag('js', new Date());
 gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Carlisle Rainey - Papers">
+<meta property="og:title" content="Papers – Carlisle Rainey">
 <meta property="og:description" content="">
-<meta property="og:site-name" content="Carlisle Rainey">
-<meta name="twitter:title" content="Carlisle Rainey - Papers">
+<meta property="og:site_name" content="Carlisle Rainey">
+<meta name="twitter:title" content="Papers – Carlisle Rainey">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://www.carlislerainey.com/profile-tw.png">
 <meta name="twitter:creator" content="@carlislerainey">
@@ -177,47 +211,47 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Carlisle Rainey</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../research/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link active" href="../research/index.html" aria-current="page"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html" rel="" target="">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link" href="../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../talks/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="../blog/index.xml" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
-    <a href="https://twitter.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://sciences.social/@CarlisleRainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
-    <a href="https://github.com/carlislerainey" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
+    <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -244,13 +278,17 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <p>If want to stay up-to-date on my work, follow me on <a href="https://scholar.google.com/citations?user=otXLf3wAAAAJ&amp;hl=en">Google Scholar</a>.</p>
 <section id="working-papers" class="level2">
 <h2 class="anchored" data-anchor-id="working-papers">Working Papers</h2>
 <div id="listing-unpublished-papers" class="quarto-listing quarto-listing-container-custom">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
 <style>
   .btn-xs {
     padding: 1px 5px;
@@ -260,131 +298,333 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
     font-size: 1.2em;  /* Adjust as needed */
   }
 </style>
+
 <ul class="list">
+  
     <li data-index="0" data-listing-date-sort="1741150800000">
       Power Rules: Practical Advice for Computing Power (and Automating with Pilot Data) 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Mar 5, 2025. Carlisle Rainey. Working Paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/osf/5am9q_v2" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
         <small class="text-secondary">
           <span class="note">I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> </span>    
         </small>
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="1" data-listing-date-sort="1736658000000">
       The Data Availability Policies of Political Science Journals 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Jan 12, 2025. Carlisle Rainey, Harley Roe. Working paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/df2ya" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/0YSJCX" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="2" data-listing-date-sort="1713499200000">
       Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Apr 19, 2024. Caroline Robbins, Alessandro Brunelli, José Castro, Ainsley Coty, Andrew Louis, Bryanna Major, María Alemán Martínez, Yadianis Lara Ojeda, Larissa Pontes, Elke Schumacher, Omer Turkomer, Luzmi Valenzuela, Valeria Veras, Carlisle Rainey. Working paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.31235/osf.io/9p5h8" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/2tf5j/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-osf ai-lg"></i> OSF
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/gjsft/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-preregistered ai-lg"></i> Preregistration 
         </a> 
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="3" data-listing-date-sort="1703307600000">
       The Dissent Score: Using Events Data to Measure Dissent 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Dec 23, 2023. Carlisle Rainey, Harley Roe, Qing Wang, Nick Dietrich. Working paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
         <a role="button" href="https://www.carlislerainey.com/dissent-scores/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-filetype-html ai-lg"></i> Project Website
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/dw7np" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
         <small class="text-secondary">
           <span class="note">The dissent score data set is available on <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CL4CA8">Dataverse</a>.</span>    
         </small>
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="4" data-listing-date-sort="1697169600000">
       Generational Differences in Abortion Attitudes in the United States: Will Dobbs v. Jackson Become Starkly Counter-Majoritarian? 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Oct 13, 2023. Carlisle Rainey, Robert Jackson. Working paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/jmz96/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/JFMXDH" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="5" data-categories="Age-Period-Cohort,Bayesian Inference,American Politics,Political Behavior" data-listing-date-sort="1690948800000">
+  
+    <li data-index="5" data-categories="QWdlLVBlcmlvZC1Db2hvcnQlMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ0FtZXJpY2FuJTIwUG9saXRpY3MlMkNQb2xpdGljYWwlMjBCZWhhdmlvcg==" data-listing-date-sort="1690948800000">
       Generation Effects on Americans' Symbolic Ideology and Attitudes Toward the Economic Role of Government 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Aug 2, 2023. Robert Jackson, Carlisle Rainey. Working paper.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/ck7de/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
 </ul>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -393,7 +633,9 @@ No matching items
 <section id="forthcoming" class="level2">
 <h2 class="anchored" data-anchor-id="forthcoming">Forthcoming</h2>
 <div id="listing-forthcoming-papers" class="quarto-listing quarto-listing-container-custom">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
 <style>
   .btn-xs {
     padding: 1px 5px;
@@ -403,71 +645,174 @@ No matching items
     font-size: 1.2em;  /* Adjust as needed */
   }
 </style>
+
 <ul class="list">
+  
     <li data-index="0" data-listing-date-sort="1740027600000">
       Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Feb 20, 2025. Carlisle Rainey. Forthcoming at <em>Meta-Psychology</em>.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.31222/osf.io/8z45v" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
         <small class="text-secondary">
           <span class="note">A peer-reviewed commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em></span>    
         </small>
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="1" data-listing-date-sort="1737694800000">
       The Limits (and Strengths) of Single-Topic Experiments 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Jan 24, 2025. Scott Clifford, Carlisle Rainey. Forthcoming at <em>Political Analysis</em>.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/pan.2024.20" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.31235/osf.io/zaykd" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
     <li data-index="2" data-listing-date-sort="1733461200000">
       Data and Code Availability in Political Science Publications from 1995 to 2022 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
         <small class="text-muted">
           Dec 6, 2024. Carlisle Rainey, Harley Roe, Qing Wang, Hao Zhou. Forthcoming at <em>PS: Political Science and Politics</em>.
         </small>
+      
+      
       <!-- paper info for published papers -->
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/S1049096524001276" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/a5yxe" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/JQTVYT" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
 </ul>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -476,7 +821,9 @@ No matching items
 <section id="published-papers" class="level2">
 <h2 class="anchored" data-anchor-id="published-papers">Published Papers</h2>
 <div id="listing-published-papers" class="quarto-listing quarto-listing-container-custom">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
 <style>
   .btn-xs {
     padding: 1px 5px;
@@ -486,420 +833,1008 @@ No matching items
     font-size: 1.2em;  /* Adjust as needed */
   }
 </style>
+
 <ul class="list">
+  
     <li data-index="0" data-listing-date-sort="1727755200000">
       Estimators for Topic-Sampling Designs 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2024. Scott Clifford, Carlisle Rainey. <em>Political Analysis</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/pan.2024.1" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/7ady6/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="1" data-categories="Political Methodology,Quantites of Interest" data-listing-date-sort="1719806400000">
+  
+    <li data-index="1" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNRdWFudGl0ZXMlMjBvZiUyMEludGVyZXN0" data-listing-date-sort="1719806400000">
       A Careful Consideration of CLARIFY: Simulation-Induced Bias in Point Estimates of Quantities of Interest 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2024. Carlisle Rainey. <em>Political Science Research and Methods</em>.
         </small>
+      
+      
       <br>
+
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2023.25" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-exclamation-diamond ai-lg"></i> Errata
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D26D25DE3D7316B92B09614C08FA6772/S2049847023000080a.pdf/a-careful-consideration-of-clarify-simulation-induced-bias-in-point-estimates-of-quantities-of-interest.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2023.8" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/5YKD4S" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://github.com/carlislerainey/unnecessary/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-github ai-lg"></i> GitHub 
         </a>
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="2" data-categories="Topic Sampling,Experimental Design,Hierachical Modeling,Bayesian Inference,Political Behavior,American Politics,Political Methodology" data-listing-date-sort="1717214400000">
+  
+    <li data-index="2" data-categories="VG9waWMlMjBTYW1wbGluZyUyQ0V4cGVyaW1lbnRhbCUyMERlc2lnbiUyQ0hpZXJhY2hpY2FsJTIwTW9kZWxpbmclMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ1BvbGl0aWNhbCUyMEJlaGF2aW9yJTJDQW1lcmljYW4lMjBQb2xpdGljcyUyQ1BvbGl0aWNhbCUyME1ldGhvZG9sb2d5" data-listing-date-sort="1717214400000">
       Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2024. Scott Clifford, Thomas Leeper, Carlisle Rainey. <em>Political Behavior</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/gte.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1007/s11109-023-09870-1" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/NNAVTE" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="3" data-categories="Hypothesis Testing,Logistic Regression,Separation,Medicaid Expansion,Political Methodology" data-listing-date-sort="1694059200000">
+  
+    <li data-index="3" data-categories="SHlwb3RoZXNpcyUyMFRlc3RpbmclMkNMb2dpc3RpYyUyMFJlZ3Jlc3Npb24lMkNTZXBhcmF0aW9uJTJDTWVkaWNhaWQlMjBFeHBhbnNpb24lMkNQb2xpdGljYWwlMjBNZXRob2RvbG9neQ==" data-listing-date-sort="1694059200000">
       Hypothesis Tests Under Separation 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2024. Carlisle Rainey. <em>Political Analysis</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/pan.2023.28" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="https://osf.io/preprints/socarxiv/bmvnu" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-doi ai-lg"></i> Preprint 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/6EYRJG" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
         <a role="button" href="https://osf.io/wn2s4/" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-osf ai-lg"></i> OSF
         </a>
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
         <small class="text-secondary">
           <span class="note">See also <a href="https://www.cambridge.org/core/journals/political-analysis">Rainey (2016)</a></span>    
         </small>
+      
       </p>
       <hr>
     </li>
-    <li data-index="4" data-categories="Political Methodology" data-listing-date-sort="1625112000000">
+  
+    <li data-index="4" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3k=" data-listing-date-sort="1625112000000">
       Estimating Logit Models with Small Samples 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2021. Carlisle Rainey, Kelly McCaskey. <em>Political Science Research and Methods</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/712F6039372475B650B123E9A1FE60E6/S2049847021000091a.pdf/estimating-logit-models-with-small-samples.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2021.9" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-open-access ai-lg"></i> Open Access
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/6XS8Z1" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="5" data-categories="Political Methodology" data-listing-date-sort="1593576000000">
+  
+    <li data-index="5" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3k=" data-listing-date-sort="1593576000000">
       When BLUE Is Not Best: Non-Normal Errors and the Linear Model 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2020. Daniel Baissa, Carlisle Rainey. <em>Political Science Research and Methods</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/heavy-tails.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2018.34" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/WZSUS3" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="6" data-categories="Political Methodology" data-listing-date-sort="1530417600000">
+  
+    <li data-index="6" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3k=" data-listing-date-sort="1530417600000">
       Unreliable Inferences about Unobservable Processes: A Critique of Partial Observability Models 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2018. Carlisle Rainey, Robert Jackson. <em>Political Science Research and Methods</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/unreliable.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2017.3" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.7910/DVN/OQWCZE" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="7" data-categories="Political Methodology,Quantities of Interest" data-listing-date-sort="1498881600000">
+  
+    <li data-index="7" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNRdWFudGl0aWVzJTIwb2YlMjBJbnRlcmVzdA==" data-listing-date-sort="1498881600000">
       Transformation-Induced Bias: Unbiased Coefficients Do Not Imply Unbiased Quantities of Interest 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2017. Carlisle Rainey. <em>Political Analysis</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/bias.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/pan.2017.11" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/CYXFB8" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="8" data-categories="Political Methodology,Hypothesis Testing,Interaction" data-listing-date-sort="1477972800000">
+  
+    <li data-index="8" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNIeXBvdGhlc2lzJTIwVGVzdGluZyUyQ0ludGVyYWN0aW9u" data-listing-date-sort="1477972800000">
       Compression and Conditional Effects: A Product Term Is Essential When Using Logistic Regression to Test for Interaction 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2016. Carlisle Rainey. <em>Political Science Research and Methods</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/compress.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1017/psrm.2015.59" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="../papers/compress-appendix.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
         </a>
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/ASSC0Y" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="9" data-categories="Political Methodology,Bayesian Inference,Separation" data-listing-date-sort="1464753600000">
+  
+    <li data-index="9" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNCYXllc2lhbiUyMEluZmVyZW5jZSUyQ1NlcGFyYXRpb24=" data-listing-date-sort="1464753600000">
       Dealing with Separation in Logistic Regression Models 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2016. Carlisle Rainey. <em>Political Analysis</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/separation.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1093/pan/mpw014" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="../papers/separation-appendix.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
         </a>
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/VW7G2Q" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="10" data-categories="Comparative Politics,Electoral Institutions,Political Parties,Mobilization,Turnout,Bayesian Inference,Hypothesis Testing,Equivalence Testing" data-listing-date-sort="1456808400000">
+  
+    <li data-index="10" data-categories="Q29tcGFyYXRpdmUlMjBQb2xpdGljcyUyQ0VsZWN0b3JhbCUyMEluc3RpdHV0aW9ucyUyQ1BvbGl0aWNhbCUyMFBhcnRpZXMlMkNNb2JpbGl6YXRpb24lMkNUdXJub3V0JTJDQmF5ZXNpYW4lMjBJbmZlcmVuY2UlMkNIeXBvdGhlc2lzJTIwVGVzdGluZyUyQ0VxdWl2YWxlbmNlJTIwVGVzdGluZw==" data-listing-date-sort="1456808400000">
       Does District Magnitude Matter: The Case of Taiwan 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2016. Carlisle Rainey. <em>Electoral Studies</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/taiwan.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1016/j.electstud.2015.08.009" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.7910/DVN/FMLYTY" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="11" data-categories="Comparative Politics,Electoral Institutions,Political Parties,Mobilization,Hierarchical Modeling,Bayesian Inference" data-listing-date-sort="1425186000000">
+  
+    <li data-index="11" data-categories="Q29tcGFyYXRpdmUlMjBQb2xpdGljcyUyQ0VsZWN0b3JhbCUyMEluc3RpdHV0aW9ucyUyQ1BvbGl0aWNhbCUyMFBhcnRpZXMlMkNNb2JpbGl6YXRpb24lMkNIaWVyYXJjaGljYWwlMjBNb2RlbGluZyUyQ0JheWVzaWFuJTIwSW5mZXJlbmNl" data-listing-date-sort="1425186000000">
       Strategic Mobilization: Why Proportional Representation Decreases Voter Mobilization 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2015. Carlisle Rainey. <em>Electoral Studies</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/stratmob.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1016/j.electstud.2014.10.008" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="../papers/stratmob-appendix.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
         </a>
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.7910/DVN/27666" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="12" data-categories="Political Methodology,Substantive Significance,Quantities of Interest,Hypothesis Testing,Equivalence Testing" data-listing-date-sort="1422766800000">
+  
+    <li data-index="12" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNTdWJzdGFudGl2ZSUyMFNpZ25pZmljYW5jZSUyQ1F1YW50aXRpZXMlMjBvZiUyMEludGVyZXN0JTJDSHlwb3RoZXNpcyUyMFRlc3RpbmclMkNFcXVpdmFsZW5jZSUyMFRlc3Rpbmc=" data-listing-date-sort="1422766800000">
       Substantive Importance and the Veil of Statistical Significance 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2015. Kelly McCaskey, Carlisle Rainey. <em>Statistics, Politics, and Policy</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/meaningful.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1515/spp-2015-0001" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="https://github.com/carlislerainey/meaningful-inferences" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-github ai-lg"></i> GitHub 
         </a>
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="13" data-categories="American Politics,Political Behavior" data-listing-date-sort="1422766800000">
+  
+    <li data-index="13" data-categories="QW1lcmljYW4lMjBQb2xpdGljcyUyQ1BvbGl0aWNhbCUyMEJlaGF2aW9y" data-listing-date-sort="1422766800000">
       Moral Concerns and Policy Attitudes: Investigating the Influence of Elite Rhetoric 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2015. Scott Clifford, Jennifer Jerit, Carlisle Rainey, Matt Motyl. <em>Political Communication</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/rhetoric.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1080/10584609.2014.944320" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="14" data-categories="American Politics,Public Policy,Medicaid Expansion,Partisanship" data-listing-date-sort="1417410000000">
+  
+    <li data-index="14" data-categories="QW1lcmljYW4lMjBQb2xpdGljcyUyQ1B1YmxpYyUyMFBvbGljeSUyQ01lZGljYWlkJTIwRXhwYW5zaW9uJTJDUGFydGlzYW5zaGlw" data-listing-date-sort="1417410000000">
       The Politics of Need: Examining Governors' Decisions to Oppose the 'Obamacare' Medicaid Expansion 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2014. Charles Barrillleaux, Carlisle Rainey. <em>State Politics and Policy Quarterly</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/need.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://journals.sagepub.com/doi/full/10.1177/1532440014561644" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="../papers/need-appendix.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
         </a>
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.15139/S3/12130" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="15" data-categories="Hierachical Modeling,Political Knowledge,American Politics,Political Behavior" data-listing-date-sort="1416459600000">
+  
+    <li data-index="15" data-categories="SGllcmFjaGljYWwlMjBNb2RlbGluZyUyQ1BvbGl0aWNhbCUyMEtub3dsZWRnZSUyQ0FtZXJpY2FuJTIwUG9saXRpY3MlMkNQb2xpdGljYWwlMjBCZWhhdmlvcg==" data-listing-date-sort="1416459600000">
       The Question(s) of Political Knowledge 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2014. Jason Barabas, Jennifer Jerit, William Pollock, Carlisle Rainey. <em>American Political Science Review</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/quadrants.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.1017/S0003055414000392" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
+      
+      
         <a role="button" href="http://dx.doi.org/10.7910/DVN/27572" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
-    <li data-index="16" data-categories="Political Methodology,Quantites of Interest,Substantive Significance,Equivalence Testing,Hypothesis Testing" data-listing-date-sort="1394168400000">
+  
+    <li data-index="16" data-categories="UG9saXRpY2FsJTIwTWV0aG9kb2xvZ3klMkNRdWFudGl0ZXMlMjBvZiUyMEludGVyZXN0JTJDU3Vic3RhbnRpdmUlMjBTaWduaWZpY2FuY2UlMkNFcXVpdmFsZW5jZSUyMFRlc3RpbmclMkNIeXBvdGhlc2lzJTIwVGVzdGluZw==" data-listing-date-sort="1394168400000">
       Arguing for a Negligible Effect 
       <br>
       <p>
       <!-- paper info for not-yet-published papers -->
+      
+      
       <!-- paper info for published papers -->
+      
         <small class="text-muted">
           2014. Carlisle Rainey. <em>American Journal of Political Science</em>.
         </small>
+      
+      
       <br>
+
+      
+      
+      
+      
+      
         <a role="button" href="../papers/nme.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
         </a> 
+      
+      
+      
+      
+      
         <a role="button" href="https://doi.org/10.1111/ajps.12102" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
         </a>
+      
+      
+      
+      
+      
         <a role="button" href="../papers/nme-appendix.pdf" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
         </a>
+      
+      
+      
         <a role="button" href="https://doi.org/10.7910/DVN/23818" type="button" class="btn btn-outline-secondary btn-xs"> 
           <i class="ai ai-dataverse ai-lg"></i> Dataverse 
         </a>
+      
+      
+      
+      
+      
+      
+      
+      
       <br>
+      
+      
       </p>
       <hr>
     </li>
+  
 </ul>
+
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -945,18 +1880,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -988,11 +1912,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.carlislerainey\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1002,8 +1963,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1015,7 +1985,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1059,6 +2151,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1084,6 +2177,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1144,6 +2263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
