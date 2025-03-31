@@ -5,7 +5,7 @@ listing:
   sort: 
     - "date desc"
   fields: [date, title, reading-time]
-  categories: true
+  categories: false
   feed:
     type: full
     title: "Carlisle's Blog"
