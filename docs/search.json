@@ -550,14 +550,14 @@
     "href": "blog/2025-03-21-customize-your-terminal-prompt-on-macOS/index.html",
     "title": "Customize Your Terminal Prompt on macOS",
     "section": "",
-    "text": "This is for macOS using the default zsh shell (used in macOS Catalina and later).\nThe command prompt on macOS doesn’t look nice by default. Here’s my preferred adjustment, where the prompt shows just the current folder followed by &gt;.\nLike this:\nmy-folder &gt;\nHere’s what I want the Terminal to look like on macOS (when I’m working on website/.\n\n\n\n\n\nAnd Here’s what I want it to look like in RStudio."
+    "text": "This is for macOS using the default zsh shell (used in macOS Catalina and later).\nThe command prompt on macOS doesn’t look nice by default. Here’s my preferred adjustment, where the prompt shows just the current folder followed by &gt;.\nLike this:\nmy-folder &gt;\nHere’s what I want the Terminal to look like on macOS (when I’m working on website/).\n\n\n\n\n\nAnd Here’s what I want it to look like in RStudio."
   },
   {
     "objectID": "blog/2025-03-21-customize-your-terminal-prompt-on-macOS/index.html#motivation",
     "href": "blog/2025-03-21-customize-your-terminal-prompt-on-macOS/index.html#motivation",
     "title": "Customize Your Terminal Prompt on macOS",
     "section": "",
-    "text": "This is for macOS using the default zsh shell (used in macOS Catalina and later).\nThe command prompt on macOS doesn’t look nice by default. Here’s my preferred adjustment, where the prompt shows just the current folder followed by &gt;.\nLike this:\nmy-folder &gt;\nHere’s what I want the Terminal to look like on macOS (when I’m working on website/.\n\n\n\n\n\nAnd Here’s what I want it to look like in RStudio."
+    "text": "This is for macOS using the default zsh shell (used in macOS Catalina and later).\nThe command prompt on macOS doesn’t look nice by default. Here’s my preferred adjustment, where the prompt shows just the current folder followed by &gt;.\nLike this:\nmy-folder &gt;\nHere’s what I want the Terminal to look like on macOS (when I’m working on website/).\n\n\n\n\n\nAnd Here’s what I want it to look like in RStudio."
   },
   {
     "objectID": "blog/2025-03-21-customize-your-terminal-prompt-on-macOS/index.html#how-to-do-it",

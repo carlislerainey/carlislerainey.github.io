@@ -21,7 +21,7 @@ Like this:
 my-folder >
 ```
 
-Here's what I want the Terminal to look like on macOS (when I'm working on `website/`.
+Here's what I want the Terminal to look like on macOS (when I'm working on `website/`).
 
 ![](images/macOS-terminal.png){fig-align="left" width="6in"}
 
