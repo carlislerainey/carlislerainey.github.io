@@ -29,15 +29,17 @@
   dataverse: "https://doi.org/10.7910/DVN/0YSJCX"
 
 - title: "Data and Code Availability in Political Science Publications from 1995 to 2022"
-  type: "Forthcoming"
+  type: "Published"
+  year: 2025
   author:
     - Carlisle Rainey
     - Harley Roe
     - Qing Wang
     - Hao Zhou
-  date: 2024-12-06
+  date: 2025-05-05
   pubopen: "https://doi.org/10.1017/S1049096524001276"
-  status: "Forthcoming at <em>PS: Political Science and Politics</em>"
+  journal: "<em>PS: Political Science and Politics</em>"
+  pubopen: "https://doi.org/10.1017/S1049096524001276"
   preprint: "https://osf.io/preprints/socarxiv/a5yxe"
   dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
 
