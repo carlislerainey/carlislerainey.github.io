@@ -133,8 +133,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </script>
-<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -288,7 +286,7 @@ window.Quarto = {
 
 <section id="background-on-arguing-for-a-negligible-effect" class="level2">
 <h2 class="anchored" data-anchor-id="background-on-arguing-for-a-negligible-effect">Background on arguing for a negligible effect</h2>
-<p>I remember sitting in a talk as a first-year graduate student, and the speaker said something like: “I expect no effect here, and, just as I expected, the difference is not statistically significant.” I was a little bit taken aback—of course, that’s not a compelling argument for a null effect. A lack of statistical significance is an absence of evidence for an effect; it is not evidence of an absence of an effect.</p>
+<p>I remember sitting in a talk while I was a graduate student, and the speaker said something like: “I expect no effect here, and, just as I expected, the difference is not statistically significant.” Of course, that’s not a compelling argument for a null effect. A lack of statistical significance is an absence of evidence for an effect; it is not evidence of an absence of an effect.</p>
 <p>But I saw this approach taken again and again in published work. (And still do!)</p>
 <p>My first publication was an <em>AJPS</em> article <span class="citation" data-cites="rainey2014">(<a href="#ref-rainey2014" role="doc-biblioref">Rainey 2014</a>)</span> (<a href="https://www.carlislerainey.com/papers/nme.pdf">Ungated PDF</a>) explaining why this doesn’t work well and how to do it better.</p>
 <p>Here’s what I wrote in that paper:</p>
@@ -317,94 +315,221 @@ window.Quarto = {
 <p>And here’s a reproduction of their estimates using the <code>cg2006</code> data from the <a href="http://www.carlislerainey.com/crdata/">{crdata} package</a> on GitHub.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Run <code>?crdata::cg2006</code> for detailed documentation of this data set.</p></div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install my data packages from github</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)  <span class="co"># only updates if newer version available</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load clark and golder's data set</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>cg <span class="ot">&lt;-</span> crdata<span class="sc">::</span>cg2006</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduce their estimates</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> enep <span class="sc">~</span> eneg<span class="sc">*</span><span class="fu">log</span>(average_magnitude) <span class="sc">+</span> eneg<span class="sc">*</span>upper_tier <span class="sc">+</span> en_pres<span class="sc">*</span>proximity</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(f, <span class="at">data =</span> cg)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># regression table</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(fit, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="sc">~</span> country, <span class="co"># cluster-robust SE; multiple observations per country</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>, </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install my data packages from github</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)  <span class="co"># only updates if newer version available</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># load clark and golder's data set</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cg <span class="ot">&lt;-</span> crdata<span class="sc">::</span>cg2006</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># reproduce their estimates</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> enep <span class="sc">~</span> eneg<span class="sc">*</span><span class="fu">log</span>(average_magnitude) <span class="sc">+</span> eneg<span class="sc">*</span>upper_tier <span class="sc">+</span> en_pres<span class="sc">*</span>proximity</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(f, <span class="at">data =</span> cg)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># regression table</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(fit, </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="sc">~</span> country, <span class="co"># cluster-robust SE; multiple observations per country</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>, </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> term <span class="sc">~</span> model <span class="sc">+</span> statistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
-<th colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-(1)
-</div></th>
-</tr>
-<tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Est.</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">S.E.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: center;">2.92</td>
-<td style="text-align: center;">0.35</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">eneg</td>
-<td style="text-align: center;">0.11</td>
-<td style="text-align: center;">0.14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">log(average_magnitude)</td>
-<td style="text-align: center;">0.08</td>
-<td style="text-align: center;">0.23</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">upper_tier</td>
-<td style="text-align: center;">−0.06</td>
-<td style="text-align: center;">0.03</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">en_pres</td>
-<td style="text-align: center;">0.26</td>
-<td style="text-align: center;">0.15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">proximity</td>
-<td style="text-align: center;">−3.10</td>
-<td style="text-align: center;">0.46</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">eneg × log(average_magnitude)</td>
-<td style="text-align: center;">0.26</td>
-<td style="text-align: center;">0.17</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">eneg × upper_tier</td>
-<td style="text-align: center;">0.06</td>
-<td style="text-align: center;">0.02</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">en_pres × proximity</td>
-<td style="text-align: center;">0.68</td>
-<td style="text-align: center;">0.23</td>
-</tr>
-</tbody>
-</table>
+<!-- preamble start -->
 
+    <script>
 
+      function styleCell_7wpemef4qvgzqe5kqtya(i, j, css_id) {
+          var table = document.getElementById("tinytable_7wpemef4qvgzqe5kqtya");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_7wpemef4qvgzqe5kqtya');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_7wpemef4qvgzqe5kqtya(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_7wpemef4qvgzqe5kqtya");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 0, j: 2 },  ], css_id: 'tinytable_css_5yxdj6q8ppedbu38r2wt',}, 
+          { positions: [ { i: 18, j: 2 }, { i: 18, j: 1 },  ], css_id: 'tinytable_css_j7jhhfwihktpogp4rpij',}, 
+          { positions: [ { i: 10, j: 2 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_1hdcr2zh6q1ovw9425dz',}, 
+          { positions: [ { i: 3, j: 1 }, { i: 4, j: 1 }, { i: 5, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 8, j: 1 }, { i: 9, j: 1 }, { i: 4, j: 2 }, { i: 11, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 16, j: 1 }, { i: 17, j: 1 }, { i: 12, j: 2 }, { i: 6, j: 1 }, { i: 14, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 11, j: 2 }, { i: 16, j: 2 }, { i: 13, j: 2 }, { i: 15, j: 2 },  ], css_id: 'tinytable_css_xbzkpqiogs0aijjbtkek',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_9xkd3zka0a874cbnea59',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_gi182u7xjtwjbinv4e5i',}, 
+          { positions: [ { i: 18, j: 0 },  ], css_id: 'tinytable_css_riykb52b0qg853yk9n3d',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_ii7gy3ugmj1cw245qvgz',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 },  ], css_id: 'tinytable_css_vlekgzur4laltls0548k',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_jqdrusupnqh0epmu6j7t',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_qbzn4qr57esute045y9g',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_7wpemef4qvgzqe5kqtya(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_5yxdj6q8ppedbu38r2wt, .table th.tinytable_css_5yxdj6q8ppedbu38r2wt { text-align: center; text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_j7jhhfwihktpogp4rpij, .table th.tinytable_css_j7jhhfwihktpogp4rpij { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_1hdcr2zh6q1ovw9425dz, .table th.tinytable_css_1hdcr2zh6q1ovw9425dz { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_xbzkpqiogs0aijjbtkek, .table th.tinytable_css_xbzkpqiogs0aijjbtkek { text-align: center; }
+      .table td.tinytable_css_9xkd3zka0a874cbnea59, .table th.tinytable_css_9xkd3zka0a874cbnea59 { text-align: center; text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_gi182u7xjtwjbinv4e5i, .table th.tinytable_css_gi182u7xjtwjbinv4e5i { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_riykb52b0qg853yk9n3d, .table th.tinytable_css_riykb52b0qg853yk9n3d { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_ii7gy3ugmj1cw245qvgz, .table th.tinytable_css_ii7gy3ugmj1cw245qvgz { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_vlekgzur4laltls0548k, .table th.tinytable_css_vlekgzur4laltls0548k { text-align: left; }
+      .table td.tinytable_css_jqdrusupnqh0epmu6j7t, .table th.tinytable_css_jqdrusupnqh0epmu6j7t { text-align: left; text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_qbzn4qr57esute045y9g, .table th.tinytable_css_qbzn4qr57esute045y9g { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_7wpemef4qvgzqe5kqtya" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+<tr>
+<th scope="col" align="center" colspan="1"> </th>
+<th scope="col" align="center" colspan="2">(1)</th>
+</tr>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Est.</th>
+                <th scope="col">S.E.</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td>(Intercept)</td>
+                  <td>2.92</td>
+                  <td>0.35</td>
+                </tr>
+                <tr>
+                  <td>eneg</td>
+                  <td>0.11</td>
+                  <td>0.14</td>
+                </tr>
+                <tr>
+                  <td>log(average_magnitude)</td>
+                  <td>0.08</td>
+                  <td>0.23</td>
+                </tr>
+                <tr>
+                  <td>upper_tier</td>
+                  <td>-0.06</td>
+                  <td>0.03</td>
+                </tr>
+                <tr>
+                  <td>en_pres</td>
+                  <td>0.26</td>
+                  <td>0.15</td>
+                </tr>
+                <tr>
+                  <td>proximity</td>
+                  <td>-3.10</td>
+                  <td>0.46</td>
+                </tr>
+                <tr>
+                  <td>eneg × log(average_magnitude)</td>
+                  <td>0.26</td>
+                  <td>0.17</td>
+                </tr>
+                <tr>
+                  <td>eneg × upper_tier</td>
+                  <td>0.06</td>
+                  <td>0.02</td>
+                </tr>
+                <tr>
+                  <td>en_pres × proximity</td>
+                  <td>0.68</td>
+                  <td>0.23</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>487</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>R2</td>
+                  <td>0.397</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>R2 Adj.</td>
+                  <td>0.387</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>AIC</td>
+                  <td>1672.5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>BIC</td>
+                  <td>1714.3</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Log.Lik.</td>
+                  <td>-826.229</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RMSE</td>
+                  <td>1.32</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Std.Errors</td>
+                  <td>by: country</td>
+                  <td></td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
 <p>Success!</p>
@@ -444,77 +569,95 @@ window.Quarto = {
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"average_magnitude"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>)), <span class="co"># low to high value</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">conf_level =</span> <span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>This <code>c</code> outputted from <code>comparisons()</code> is a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default print method</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+              Term    Contrast Estimate Std. Error     z Pr(&gt;|z|)    S  5.0 %
+ average_magnitude 7 - 1          0.696      0.175 3.973   &lt;0.001 13.8  0.408
+ eneg              2.48 - 1.06    0.158      0.204 0.779    0.436  1.2 -0.176
+ 95.0 %
+  0.984
+  0.493
+
+Type:  response </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quick look at the bare data frame</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2
+Columns: 19
+$ rowid             &lt;int&gt; 1, 1
+$ term              &lt;chr&gt; "average_magnitude", "eneg"
+$ contrast          &lt;chr&gt; "7 - 1", "2.48 - 1.06"
+$ estimate          &lt;dbl&gt; 0.6956014, 0.1584771
+$ std.error         &lt;dbl&gt; 0.1750741, 0.2035052
+$ statistic         &lt;dbl&gt; 3.9731830, 0.7787372
+$ p.value           &lt;dbl&gt; 7.091852e-05, 4.361345e-01
+$ s.value           &lt;dbl&gt; 13.783478, 1.197155
+$ conf.low          &lt;dbl&gt; 0.4076302, -0.1762592
+$ conf.high         &lt;dbl&gt; 0.9835727, 0.4932134
+$ predicted_lo      &lt;dbl&gt; 3.034008, 3.034008
+$ predicted_hi      &lt;dbl&gt; 3.729609, 3.192485
+$ predicted         &lt;dbl&gt; 3.034008, 3.034008
+$ eneg              &lt;dbl&gt; 1.06, 1.06
+$ average_magnitude &lt;dbl&gt; 1, 1
+$ upper_tier        &lt;dbl&gt; 0, 0
+$ en_pres           &lt;dbl&gt; 0, 0
+$ proximity         &lt;dbl&gt; 0, 0
+$ enep              &lt;dbl&gt; 5.75, 5.75</code></pre>
+</div>
+</div>
 <p>Now we can just plot the 90% CIs with <code>ggplot()</code> and check whether the entire interval falls inside the bounds.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bind the comparisons together and plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(c, <span class="fu">aes</span>(<span class="at">x =</span> estimate,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmin =</span> conf.low,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xmax =</span> conf.high, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> term)) <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>() <span class="sc">+</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>In this case, we conclude that social heterogeneity (<code>eneg</code>) has a negligible effect because the 90% CI only contains substantively negligible values. However, the 90% CI for district magnitude (<code>average_magnitude</code>) contains substantively negligible and meaningful values, so we cannot reject the null hypothesis of a meaningful effect.</p>
 </section>
-<section id="computing-the-tost-p-values-using-hypotheses" class="level2 page-columns page-full">
+<section id="computing-the-tost-p-values-using-hypotheses" class="level2">
 <h2 class="anchored" data-anchor-id="computing-the-tost-p-values-using-hypotheses">Computing the TOST <em>p</em>-values using <code>hypotheses()</code></h2>
-<p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Note, though, that <strong>you must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</strong> I might have expected them to carry forward from the <code>comparisons()</code> above.</p>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Note this warning from <code>?hypotheses()</code>: <em>Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.</em></p></div></div><div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You must resupply the <code>vcov</code> and <code>conf_level</code> arguments.</p>
-</div>
-</div>
+<p>It’s then almost trivial to use the <code>hypotheses()</code> function to compute the TOST <em>p</em>-values.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note: you must re-supply the vcov and conf_level arguments</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(c, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">conf_level =</span> <span class="fl">0.90</span>, <span class="at">vcov =</span> <span class="sc">~</span> country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(c, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-              Term    Contrast Estimate Std. Error     z Pr(&gt;|z|)    S  5.0 %
- average_magnitude 7 - 1          0.696      0.175 3.973   &lt;0.001 13.8  0.408
- eneg              2.48 - 1.06    0.158      0.204 0.779    0.436  1.2 -0.176
- 95.0 % p (NonSup) p (NonInf) p (Equiv) eneg average_magnitude upper_tier
-  0.984     0.6671     &lt;0.001    0.6671 1.06                 1          0
-  0.493     0.0117     &lt;0.001    0.0117 1.06                 1          0
- en_pres proximity
-       0         0
-       0         0
-
-Columns: rowid, term, contrast, estimate, std.error, statistic, p.value, s.value, conf.low, conf.high, predicted_lo, predicted_hi, predicted, eneg, average_magnitude, upper_tier, en_pres, proximity, enep, statistic.noninf, statistic.nonsup, p.value.noninf, p.value.nonsup, p.value.equiv 
-Type:  response </code></pre>
+              Term Estimate Std. Error     z Pr(&gt;|z|)    S  5.0 % 95.0 %
+ average_magnitude    0.696      0.175 3.973   &lt;0.001 13.8  0.408  0.984
+ eneg                 0.158      0.204 0.779    0.436  1.2 -0.176  0.493
+ p (NonInf) p (NonSup) p (Equiv)
+     &lt;0.001     0.6671    0.6671
+     &lt;0.001     0.0117    0.0117</code></pre>
 </div>
 </div>
 <p>This doesn’t print super-nicely into this document, so let’s extract the important parts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests, extracting the important pieces</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(c, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m), <span class="at">conf_level =</span> <span class="fl">0.90</span>, <span class="at">vcov =</span> <span class="sc">~</span> country) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, contrast, estimate, conf.low, conf.high, p.value.equiv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hypothesis tests, extracting the important pieces</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hypotheses</span>(c, <span class="at">equivalence =</span> <span class="fu">c</span>(<span class="sc">-</span>m, m)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate, conf.low, conf.high, p.value.equiv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-              Term    Contrast Estimate CI low CI high p (Equiv)
- average_magnitude 7 - 1          0.696  0.408   0.984    0.6671
- eneg              2.48 - 1.06    0.158 -0.176   0.493    0.0117
-
-Columns: term, contrast, estimate, conf.low, conf.high, p.value.equiv </code></pre>
+              Term Estimate CI low CI high p (Equiv)
+ average_magnitude    0.696  0.408   0.984    0.6671
+ eneg                 0.158 -0.176   0.493    0.0117</code></pre>
 </div>
 </div>
 <p>Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST <em>p</em>-value (i.e., the <code>p(Equiv)</code> column) is less than 0.05, so our conclusions are (and must be) identical.</p>
@@ -523,7 +666,8 @@ Columns: term, contrast, estimate, conf.low, conf.high, p.value.equiv </code></p
 <h2 class="anchored" data-anchor-id="other-references">Other references</h2>
 <p>For more on effective arguments for no effect, see the following:</p>
 <ul>
-<li><span class="citation" data-cites="lakens2018">Lakens, Scheel, and Isager (<a href="#ref-lakens2018" role="doc-biblioref">2018</a>)</span> offer an accessible introduction to equivalences tests for psychologists.</li>
+<li><span class="citation" data-cites="lakens2017">Lakens (<a href="#ref-lakens2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="lakens2018">Lakens, Scheel, and Isager (<a href="#ref-lakens2018" role="doc-biblioref">2018</a>)</span> offer an accessible introduction to equivalences tests for psychologists.</li>
+<li><span class="citation" data-cites="fitzgerald2025">Fitzgerald (<a href="#ref-fitzgerald2025" role="doc-biblioref">2025</a>)</span> offers and introduction to and argument for equivalence tests for economists.</li>
 <li><span class="citation" data-cites="kane2024">Kane (<a href="#ref-kane2024" role="doc-biblioref">2024</a>)</span> offers an excellent summary of design considerations when arguing for no effect.</li>
 <li><span class="citation" data-cites="mccaskey2015">McCaskey and Rainey (<a href="#ref-mccaskey2015" role="doc-biblioref">2015</a>)</span> (<a href="https://www.carlislerainey.com/papers/meaningful.pdf">Ungated PDF</a>) argue that researchers should make “claims if and only if those claims hold for the entire confidence interval.” This extends the logic of equivalence testing to a broader collection of possible hypotheses.</li>
 </ul>
@@ -532,13 +676,13 @@ Columns: term, contrast, estimate, conf.low, conf.high, p.value.equiv </code></p
 <h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
 <ol type="1">
 <li>{marginaleffects} is a great package <span class="citation" data-cites="marginaleffects">(<a href="#ref-marginaleffects" role="doc-biblioref">Arel-Bundock 2024</a>)</span>. I think it’s the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I’m very impressed so far.</li>
-<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> has a whole <a href="https://marginaleffects.com/vignettes/equivalence.html">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
-<li>For a more recent example, Jake Jares and Neil Malhotra have a <a href="https://jakejares.com/publication/jares_malhotra_working_paper_2023/">new paper</a> that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model to follow. See pp.&nbsp;27-32. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers’ propensity to view the intervention as helpful.”</li>
+<li>The {marginaleffects} <a href="https://marginaleffects.com">book</a> <em>Model to Meaning</em> has a whole <a href="https://marginaleffects.com/chapters/hypothesis.html#sec-hypothesis_equivalence">chapter</a> on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a <em>p</em>-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you’re using {marginaleffects} to do equivalence tests, I recommend setting <code>conf_level = 0.90</code>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>For a more recent example, <span class="citation" data-cites="jares2024">Jares and Malhotra (<a href="#ref-jares2024" role="doc-biblioref">2024</a>)</span> discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It’s an excellent model to follow. See pp.&nbsp;12-13. They “show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers’ propensity to view the intervention as helpful.”</li>
 </ol>
 
 
 
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></div></div></section>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;I would make a similar point about one-sided tests as well, but that’s less correct, because it should be a <em>one-sided</em> 95% CI.</p></div></div></section>
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -551,11 +695,20 @@ Arel-Bundock, Vincent. 2024. <em>Marginaleffects: Predictions, Comparisons, Slop
 <div id="ref-clark2006" class="csl-entry" role="listitem">
 Clark, William Roberts, and Matt Golder. 2006. <span>“Rehabilitating Duverger<span>’</span>s Theory.”</span> <em>Comparative Political Studies</em> 39 (6): 679–708. <a href="https://doi.org/10.1177/0010414005278420">https://doi.org/10.1177/0010414005278420</a>.
 </div>
+<div id="ref-fitzgerald2025" class="csl-entry" role="listitem">
+Fitzgerald, Jack. 2025. <span>“The Need for Equivalence Testing in Economics.”</span> Center for Open Science. <a href="https://doi.org/10.31222/osf.io/d7sqr_v1">https://doi.org/10.31222/osf.io/d7sqr_v1</a>.
+</div>
 <div id="ref-gill1999" class="csl-entry" role="listitem">
 Gill, Jeff. 1999. <span>“The Insignificance of Null Hypothesis Significance Testing.”</span> <em>Political Research Quarterly</em> 52 (3): 647–74. <a href="https://doi.org/10.1177/106591299905200309">https://doi.org/10.1177/106591299905200309</a>.
 </div>
+<div id="ref-jares2024" class="csl-entry" role="listitem">
+Jares, Jake Alton, and Neil Malhotra. 2024. <span>“Policy Impact and Voter Mobilization: Evidence from Farmers’ Trade War Experiences.”</span> <em>American Political Science Review</em> 119 (2): 847–69. <a href="https://doi.org/10.1017/s0003055424000571">https://doi.org/10.1017/s0003055424000571</a>.
+</div>
 <div id="ref-kane2024" class="csl-entry" role="listitem">
 Kane, John V. 2024. <span>“More Than Meets the ITT: A Guide for Anticipating and Investigating Nonsignificant Results in Survey Experiments.”</span> <em>Journal of Experimental Political Science</em>, February, 1–16. <a href="https://doi.org/10.1017/xps.2024.1">https://doi.org/10.1017/xps.2024.1</a>.
+</div>
+<div id="ref-lakens2017" class="csl-entry" role="listitem">
+Lakens, Daniël. 2017. <span>“Equivalence Tests.”</span> <em>Social Psychological and Personality Science</em> 8 (4): 355–62. <a href="https://doi.org/10.1177/1948550617697177">https://doi.org/10.1177/1948550617697177</a>.
 </div>
 <div id="ref-lakens2018" class="csl-entry" role="listitem">
 Lakens, Daniël, Anne M. Scheel, and Peder M. Isager. 2018. <span>“Equivalence Testing for Psychological Research: A Tutorial.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 1 (2): 259–69. <a href="https://doi.org/10.1177/2515245918770963">https://doi.org/10.1177/2515245918770963</a>.

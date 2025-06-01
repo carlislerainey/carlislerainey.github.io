@@ -27,7 +27,7 @@ bibliography: references.bib
 
 ## Background on arguing for a negligible effect
 
-I remember sitting in a talk as a first-year graduate student, and the speaker said something like: "I expect no effect here, and, just as I expected, the difference is not statistically significant." I was a little bit taken aback---of course, that's not a compelling argument for a null effect. A lack of statistical significance is an absence of evidence for an effect; it is not evidence of an absence of an effect.
+I remember sitting in a talk while I was a graduate student, and the speaker said something like: "I expect no effect here, and, just as I expected, the difference is not statistically significant." Of course, that's not a compelling argument for a null effect. A lack of statistical significance is an absence of evidence for an effect; it is not evidence of an absence of an effect.
 
 But I saw this approach taken again and again in published work. (And still do!)
 
@@ -67,6 +67,7 @@ And here's a reproduction of their estimates using the `cg2006` data from the [{
 #| message: false
 
 # load packages
+library(tidyverse)
 library(sandwich)
 library(modelsummary)
 
@@ -131,13 +132,22 @@ c <- comparisons(fit,
             conf_level = 0.90)
 ```
 
+This `c` outputted from `comparisons()` is a data frame.
+
+```{r}
+# default print method
+print(c)
+```
+
+```{r}
+# quick look at the bare data frame
+glimpse(c)
+```
+
 Now we can just plot the 90% CIs with `ggplot()` and check whether the entire interval falls inside the bounds.
 
 ```{r}
 #| message: false
-
-# load packages
-library(tidyverse)
 
 # bind the comparisons together and plot
 ggplot(c, aes(x = estimate,
@@ -153,29 +163,19 @@ In this case, we conclude that social heterogeneity (`eneg`) has a negligible ef
 
 ## Computing the TOST *p*-values using `hypotheses()`
 
-
-
-
-It's then almost trivial to use the `hypotheses()` function to compute the TOST *p*-values.[^3] Note, though, that **you must resupply the `vcov` and `conf_level` arguments.** I might have expected them to carry forward from the `comparisons()` above.
-
-[^3]: Note this warning from `?hypotheses()`: *Warning #2: For hypothesis tests on objects produced by the marginaleffects package, it is safer to use the hypothesis argument of the original function. Using hypotheses() may not work in certain environments, in lists, or when working programmatically with apply style functions.*
-
-::: callout-warning
-You must resupply the `vcov` and `conf_level` arguments.
-:::
+It's then almost trivial to use the `hypotheses()` function to compute the TOST *p*-values.
 
 ```{r}
 # hypothesis tests
-# note: you must re-supply the vcov and conf_level arguments
-hypotheses(c, equivalence = c(-m, m), conf_level = 0.90, vcov = ~ country)
+hypotheses(c, equivalence = c(-m, m))
 ```
 
 This doesn't print super-nicely into this document, so let's extract the important parts.
 
 ```{r}
 # hypothesis tests, extracting the important pieces
-hypotheses(c, equivalence = c(-m, m), conf_level = 0.90, vcov = ~ country) %>%
-  select(term, contrast, estimate, conf.low, conf.high, p.value.equiv)
+hypotheses(c, equivalence = c(-m, m)) %>%
+  select(term, estimate, conf.low, conf.high, p.value.equiv)
 ```
 
 Checking that the 90% CIs fall within the bounds created by the smallest substantively-meaningful effect is equivalent to checking whether the TOST *p*-value (i.e., the `p(Equiv)` column) is less than 0.05, so our conclusions are (and must be) identical.
@@ -184,14 +184,15 @@ Checking that the 90% CIs fall within the bounds created by the smallest substan
 
 For more on effective arguments for no effect, see the following:
 
--   @lakens2018 offer an accessible introduction to equivalences tests for psychologists.
+-   @lakens2017 and @lakens2018 offer an accessible introduction to equivalences tests for psychologists.
+- @fitzgerald2025 offers and introduction to and argument for equivalence tests for economists.
 -   @kane2024 offers an excellent summary of design considerations when arguing for no effect.
 -   @mccaskey2015 ([Ungated PDF](https://www.carlislerainey.com/papers/meaningful.pdf)) argue that researchers should make "claims if and only if those claims hold for the entire confidence interval." This extends the logic of equivalence testing to a broader collection of possible hypotheses.
 
 ## Final thoughts
 
 1.  {marginaleffects} is a great package [@marginaleffects]. I think it's the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I'm very impressed so far.
-2.  The {marginaleffects} [book](https://marginaleffects.com) has a whole [chapter](https://marginaleffects.com/vignettes/equivalence.html) on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a *p*-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you're using {marginaleffects} to do equivalence tests, I recommend setting `conf_level = 0.90`.[^4]
-3.  For a more recent example, Jake Jares and Neil Malhotra have a [new paper](https://jakejares.com/publication/jares_malhotra_working_paper_2023/) that discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It's an excellent model to follow. See pp. 27-32. They "show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers' propensity to view the intervention as helpful."
+2.  The {marginaleffects} [book](https://marginaleffects.com) *Model to Meaning* has a whole [chapter](https://marginaleffects.com/chapters/hypothesis.html#sec-hypothesis_equivalence) on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a *p*-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you're using {marginaleffects} to do equivalence tests, I recommend setting `conf_level = 0.90`.[^4]
+3.  For a more recent example, @jares2024 discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It's an excellent model to follow. See pp. 12-13. They "show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers' propensity to view the intervention as helpful."
 
 [^4]: I would make a similar point about one-sided tests as well, but that's less correct, because it should be a *one-sided* 95% CI.
