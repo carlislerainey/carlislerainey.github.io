@@ -16,9 +16,9 @@ reference-location: margin
 toc: false
 twitter-card:
   card-style: summary_large_image
-  image: "images/twitter-card.png"
+  image: "twitter-card.png"
 open-graph:   
-  image: "images/og-card.png"
+  image: "og-card.png"
 draft: false
 ---
 
