@@ -17,7 +17,135 @@
 <width>144</width>
 </image>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 31 Mar 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 18 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>For Your Syllabus: Statistical Power</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>As you prepare your courses on quantitative methods, consider including a section on <strong>statistical power</strong>.</p>
+<p>Here are five readings I like and often recommend.</p>
+<section id="quantitative-political-science-research-is-greatly-underpowered-arel-bundock-et-al." class="level2">
+<h2 class="anchored" data-anchor-id="quantitative-political-science-research-is-greatly-underpowered-arel-bundock-et-al.">Quantitative Political Science Research is Greatly Underpowered (Arel-Bundock et al.)</h2>
+<p>This paper shows that low power is a real problem—“doing what others have done” does not guarantee a well-powered study for the true effect. Instead, power requires some thinking!</p>
+<p>From the abstract:<br>
+&gt; “Only about 1 in 10 tests have at least 80% power to detect the consensus effects reported in the literature.”</p>
+<ul>
+<li>🔗 Journal DOI (<em>JOP</em>): <a href="https://doi.org/10.1086/734279" class="uri">https://doi.org/10.1086/734279</a><br>
+</li>
+<li>🔗 Preprint DOI (OSF): <a href="https://doi.org/10.31219/osf.io/7vy2f" class="uri">https://doi.org/10.31219/osf.io/7vy2f</a></li>
+</ul>
+<p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/arel-bundock-power-figure.png" class="img-fluid"></p>
+</section>
+<section id="minimum-detectable-effects-bloom-1995" class="level2">
+<h2 class="anchored" data-anchor-id="minimum-detectable-effects-bloom-1995">Minimum Detectable Effects (Bloom 1995)</h2>
+<p>Instead of focusing on power curves or abstract probabilities, Bloom asks a concrete question: <em>“What’s the smallest effect this design could reliably detect?”</em></p>
+<p>The paper: - Defines the minimum detectable effect (MDE) clearly<br>
+- Provides formulas and tables to compute it<br>
+- Explains how design choices affect statistical power</p>
+<ul>
+<li>🔗 Journal DOI: <a href="https://doi.org/10.1177/0193841X9501900504" class="uri">https://doi.org/10.1177/0193841X9501900504</a><br>
+</li>
+<li>🔗 PDF: <a href="https://sites.uci.edu/gduncan/files/2021/03/Bloom-MDES-Eval-Rev-1995-Bloom.pdf" class="uri">https://sites.uci.edu/gduncan/files/2021/03/Bloom-MDES-Eval-Rev-1995-Bloom.pdf</a></li>
+</ul>
+<p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/bloom-mde-figure.png" class="img-fluid"></p>
+</section>
+<section id="power-rules" class="level2">
+<h2 class="anchored" data-anchor-id="power-rules">Power Rules</h2>
+<p>My (unpublished) paper updates Bloom’s ideas. Especially for political scientists or others using OLS and robust SEs, this paper may be useful.</p>
+<p>It: 1. Builds intuition for power<br>
+2. Develops simple rules for back-of-the-envelope power calculations<br>
+3. Describes how to incorporate pilot data into power calculations</p>
+<ul>
+<li>🔗 Preprint DOI (OSF): <a href="https://doi.org/10.31219/osf.io/5am9q" class="uri">https://doi.org/10.31219/osf.io/5am9q</a></li>
+</ul>
+<p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/rainey-mde-figure.png" class="img-fluid"></p>
+</section>
+<section id="sample-size-justification-lakens-2022" class="level2">
+<h2 class="anchored" data-anchor-id="sample-size-justification-lakens-2022">Sample Size Justification (Lakens 2022)</h2>
+<p>Power is just one way to justify sample size. This paper offers a broader framework to align your design with your research goals.</p>
+<p>Lakens outlines six common justifications: 1. Collecting data from (almost) the entire population<br>
+2. Choosing a sample size based on resource constraints<br>
+3. Performing an a-priori power analysis<br>
+4. Planning for a desired accuracy (e.g., CI width)<br>
+5. Using heuristics (e.g., 30 per group)<br>
+6. Explicitly acknowledging the absence of a justification</p>
+<ul>
+<li>🔗 Journal DOI (open): <a href="https://doi.org/10.1525/collabra.33267" class="uri">https://doi.org/10.1525/collabra.33267</a></li>
+</ul>
+<p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/lakens-justification-table.png" class="img-fluid"></p>
+</section>
+<section id="declaring-and-diagnosing-research-designs-blair-et-al.-2019" class="level2">
+<h2 class="anchored" data-anchor-id="declaring-and-diagnosing-research-designs-blair-et-al.-2019">Declaring and Diagnosing Research Designs (Blair et al.&nbsp;2019)</h2>
+<p>The authors introduce a much more general way to think about designs. They propose the <strong>MIDA framework</strong>:</p>
+<ul>
+<li><p><strong>M</strong>odel: Assumptions about how the world works<br>
+</p></li>
+<li><p><strong>I</strong>nquiry: The specific question being asked<br>
+</p></li>
+<li><p><strong>D</strong>ata Strategy: The plan for collecting data<br>
+</p></li>
+<li><p><strong>A</strong>nswer Strategy: The method to answer the inquiry</p></li>
+<li><p>🔗 Journal DOI (open): <a href="https://doi.org/10.1017/S0003055419000194" class="uri">https://doi.org/10.1017/S0003055419000194</a><br>
+</p></li>
+<li><p>📚 Book (open): <a href="https://book.declaredesign.org/" class="uri">https://book.declaredesign.org/</a><br>
+</p></li>
+<li><p>💻 R package site: <a href="https://declaredesign.org/r/declaredesign/" class="uri">https://declaredesign.org/r/declaredesign/</a></p></li>
+</ul>
+<p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/blair-mida-table.png" class="img-fluid"></p>
+</section>
+<section id="closing" class="level2">
+<h2 class="anchored" data-anchor-id="closing">Closing</h2>
+<p>These five readings complement each other really well. Students have a lot to gain from each.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Paper</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://doi.org/10.1086/734279">Arel-Bundock et al.</a></td>
+<td>Shows that most political science studies are underpowered; demonstrates the importance of thinking carefully about design.</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.1177/0193841X9501900504">Bloom (1995)</a></td>
+<td>Defines the minimum detectable effect (MDE) and explains how design choices influence power.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://doi.org/10.31219/osf.io/5am9q">Rainey</a></td>
+<td>Provides intuitive rules of thumb for power analysis, including using pilot data.</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.1525/collabra.33267">Lakens (2022)</a></td>
+<td>Broadens the discussion; outlines six ways to justify sample size beyond traditional power analysis.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://doi.org/10.1017/S0003055419000194">Blair et al.&nbsp;(2019)</a></td>
+<td>Introduces the MIDA framework for formally declaring and diagnosing research designs.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+ ]]></description>
+  <category>statistical power</category>
+  <category>power analysis</category>
+  <category>minimum detectable effect</category>
+  <category>sample size</category>
+  <category>research design</category>
+  <category>for your syllabus</category>
+  <category>teaching</category>
+  <guid>https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/</guid>
+  <pubDate>Mon, 18 Aug 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Customize Your Terminal Prompt on macOS</title>
   <dc:creator>Carlisle Rainey</dc:creator>

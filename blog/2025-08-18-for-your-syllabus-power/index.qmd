@@ -1,0 +1,113 @@
+---
+title: "*For Your Syllabus:* Statistical Power"
+subtitle: "Readings on power analysis, MDEs, sample size planning, and research design diagnostics"
+author: "Carlisle Rainey"
+date: "2025-08-18"
+categories: 
+  - statistical power
+  - power analysis
+  - minimum detectable effect
+  - sample size
+  - research design
+  - for your syllabus
+  - teaching
+description: "Five papers you can assign when teaching about statistical power: power analysis, minimum detectable effects, sample size planning, and design diagnosis."
+reference-location: margin
+toc: false
+twitter-card:
+  card-style: summary_large_image
+  image: "images/twitter-card.png"
+open-graph:   
+  image: "images/og-card.png"
+draft: false
+---
+
+As you prepare your courses on quantitative methods, consider including a section on **statistical power**.
+
+Here are five readings I like and often recommend.
+
+## Quantitative Political Science Research is Greatly Underpowered (Arel-Bundock et al.)
+
+This paper shows that low power is a real problem—“doing what others have done” does not guarantee a well-powered study for the true effect. Instead, power requires some thinking!
+
+From the abstract:  
+> “Only about 1 in 10 tests have at least 80% power to detect the consensus effects reported in the literature.”
+
+- 🔗 Journal DOI (*JOP*): <https://doi.org/10.1086/734279>  
+- 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/7vy2f>
+
+![](images/arel-bundock-power-figure.png)
+
+## Minimum Detectable Effects (Bloom 1995)
+
+Instead of focusing on power curves or abstract probabilities, Bloom asks a concrete question: *“What’s the smallest effect this design could reliably detect?”*
+
+The paper:
+- Defines the minimum detectable effect (MDE) clearly  
+- Provides formulas and tables to compute it  
+- Explains how design choices affect statistical power
+
+- 🔗 Journal DOI: <https://doi.org/10.1177/0193841X9501900504>  
+- 🔗 PDF: <https://sites.uci.edu/gduncan/files/2021/03/Bloom-MDES-Eval-Rev-1995-Bloom.pdf>
+
+![](images/bloom-mde-figure.png)
+
+
+## Power Rules
+
+My (unpublished) paper updates Bloom’s ideas. Especially for political scientists or others using OLS and robust SEs, this paper may be useful.
+
+It:
+1. Builds intuition for power  
+2. Develops simple rules for back-of-the-envelope power calculations  
+3. Describes how to incorporate pilot data into power calculations
+
+- 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/5am9q>
+
+![](images/rainey-mde-figure.png)
+
+
+## Sample Size Justification (Lakens 2022)
+
+Power is just one way to justify sample size. This paper offers a broader framework to align your design with your research goals.
+
+Lakens outlines six common justifications:
+1. Collecting data from (almost) the entire population  
+2. Choosing a sample size based on resource constraints  
+3. Performing an a-priori power analysis  
+4. Planning for a desired accuracy (e.g., CI width)  
+5. Using heuristics (e.g., 30 per group)  
+6. Explicitly acknowledging the absence of a justification
+
+- 🔗 Journal DOI (open): <https://doi.org/10.1525/collabra.33267>
+
+![](images/lakens-justification-table.png)
+
+
+## Declaring and Diagnosing Research Designs (Blair et al. 2019)
+
+The authors introduce a much more general way to think about designs. They propose the **MIDA framework**:
+
+- **M**odel: Assumptions about how the world works  
+- **I**nquiry: The specific question being asked  
+- **D**ata Strategy: The plan for collecting data  
+- **A**nswer Strategy: The method to answer the inquiry  
+
+- 🔗 Journal DOI (open): <https://doi.org/10.1017/S0003055419000194>  
+- 📚 Book (open): <https://book.declaredesign.org/>  
+- 💻 R package site: <https://declaredesign.org/r/declaredesign/>
+
+![](images/blair-mida-table.png)
+
+## Closing
+
+These five readings complement each other really well. Students have a lot to gain from each.
+
+| Paper | Value |
+|----------|-------|
+| [Arel-Bundock et al.](https://doi.org/10.1086/734279) | Shows that most political science studies are underpowered; demonstrates the importance of thinking carefully about design. |
+| [Bloom (1995)](https://doi.org/10.1177/0193841X9501900504) | Defines the minimum detectable effect (MDE) and explains how design choices influence power. |
+| [Rainey](https://doi.org/10.31219/osf.io/5am9q) | Provides intuitive rules of thumb for power analysis, including using pilot data. |
+| [Lakens (2022)](https://doi.org/10.1525/collabra.33267) | Broadens the discussion; outlines six ways to justify sample size beyond traditional power analysis. |
+| [Blair et al. (2019)](https://doi.org/10.1017/S0003055419000194) | Introduces the MIDA framework for formally declaring and diagnosing research designs. |
+
