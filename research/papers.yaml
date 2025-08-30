@@ -92,12 +92,13 @@
   dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
   
 - title: "The Limits (and Strengths) of Single-Topic Experiments"
-  type: "Forthcoming"
+  type: "Published"
   author:
     - Scott Clifford
     - Carlisle Rainey
-  date: 2025-01-24
-  status: "Forthcoming at <em>Political Analysis</em>"
+  date: 2025-08-30
+  year: 2025
+  journal: "<em>Political Analysis</em>"
   pubopen: "https://doi.org/10.1017/pan.2024.20"
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
