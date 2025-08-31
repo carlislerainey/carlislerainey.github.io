@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlisle Rainey">
+<meta name="dcterms.date" content="2025-08-30">
+<meta name="description" content="Statistical power is the chance to reject the null when it’s false. Why it matters, how to compute it, and why both researchers and readers should care. This is a one-page primer with rules of thumb and key readings.">
 
-<title>Blog – Carlisle Rainey</title>
+<title>A One-Page Primer on: Statistical Power – Carlisle Rainey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.ico" rel="icon">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-F57WQLHH67"></script>
 
 <script type="text/javascript">
@@ -138,25 +110,30 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Carlisle's Blog" href="index.xml" data-external="1"><meta property="og:title" content="Blog – Carlisle Rainey">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="A One-Page Primer on: Statistical Power – Carlisle Rainey">
+<meta property="og:description" content="Statistical power is the chance to reject the null when it’s false. Why it matters, how to compute it, and why both researchers and readers should care. This is a one-page primer with rules of thumb and key readings.">
+<meta property="og:image" content="https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/1p-statistical-power-card.png">
 <meta property="og:site_name" content="Carlisle Rainey">
-<meta name="twitter:title" content="Blog – Carlisle Rainey">
-<meta name="twitter:image" content="https://www.carlislerainey.com/profile-tw.png">
+<meta property="og:image:height" content="418">
+<meta property="og:image:width" content="800">
+<meta name="twitter:title" content="A One-Page Primer on: Statistical Power – Carlisle Rainey">
+<meta name="twitter:description" content="Statistical power is the chance to reject the null when it’s false. Why it matters, how to compute it, and why both researchers and readers should care. This is a one-page primer with rules of thumb and key readings.">
+<meta name="twitter:image" content="https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/1p-statistical-power-card.png">
 <meta name="twitter:creator" content="@carlislerainey">
-<meta name="twitter:image-height" content="533">
-<meta name="twitter:image-width" content="800">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="418">
+<meta name="twitter:image-width" content="800">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Carlisle Rainey</span>
     </a>
   </div>
@@ -167,29 +144,29 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research/index.html"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html"> 
+    <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
+    <a href="../../blog/index.xml" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-rss"></i></a>
     <a href="https://twitter.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <a href="https://sciences.social/@CarlisleRainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-mastodon"></i></a>
     <a href="https://github.com/carlislerainey" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
@@ -201,22 +178,44 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">A One-Page Primer on: Statistical Power</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistical power</div>
+    <div class="quarto-category">power analysis</div>
+    <div class="quarto-category">minimum detectable effect</div>
+    <div class="quarto-category">sample size</div>
+    <div class="quarto-category">research design</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Statistical power is the chance to reject the null when it’s false. Why it matters, how to compute it, and why both researchers and readers should care. This is a one-page primer with rules of thumb and key readings.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlisle Rainey </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 30, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -226,208 +225,58 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<blockquote class="blockquote">
+<p>“Of course, investigators could not have known how underpowered their research was, as their training had not prepared them to know anything about power, let alone how to use it in research planning. One might think that after 1969, when I published my power handbook that made power analysis as easy as falling off a log, the concepts and methods of power analysis would be taken to the hearts of null hypothesis testers. So one might think. (Stay tuned.)” — <a href="https://users.cla.umn.edu/~nwaller/prelim/cohensofar.pdf">Cohen (1990)</a></p>
+</blockquote>
+<div style="text-align:center; margin: 1.5em 0;">
+<p><a href="1p-power-analysis.pdf" class="btn btn-warning btn-lg" role="button"> <i class="bi bi-file-earmark-pdf-fill"></i> One-Page Primer </a> <a href="mailto:?subject=A One-Page Primer on Statistical Power&amp;body=Hi! This is a resource on statistical power on Carlisle Rainey's website. It's a quick, one-page primer on statistical power. The HTML version is at https://www.carlislerainey.com/1p-statistical-power; the PDF version is at https://www.carlislerainey.com/1p-statistical-power/1p-statistical-power.pdf." class="btn btn-success btn-lg" role="button"> <i class="bi bi-envelope-fill"></i> Send to My Inbox </a></p>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-Reading Time
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtaW5pbXVtJTIwZGV0ZWN0YWJsZSUyMGVmZmVjdCUyQ3NhbXBsZSUyMHNpemUlMkNyZXNlYXJjaCUyMGRlc2lnbg==" data-listing-date-sort="1756526400000" data-listing-file-modified-sort="1756636560619" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1047" data-listing-title-sort="A One-Page Primer on: Statistical Power" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 30, 2025</span>
-</td>
-<td>
-<a href="../blog/2025-08-30-1p-statistical-power/index.html" class="title listing-title">A One-Page Primer on: Statistical Power</a>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtaW5pbXVtJTIwZGV0ZWN0YWJsZSUyMGVmZmVjdCUyQ3NhbXBsZSUyMHNpemUlMkNyZXNlYXJjaCUyMGRlc2lnbiUyQ2ZvciUyMHlvdXIlMjBzeWxsYWJ1cyUyQ3RlYWNoaW5n" data-listing-date-sort="1755489600000" data-listing-file-modified-sort="1755511628448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="475" data-listing-title-sort="*For Your Syllabus:* Statistical Power" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 18, 2025</span>
-</td>
-<td>
-<a href="../blog/2025-08-18-for-your-syllabus-power/index.html" class="title listing-title"><em>For Your Syllabus:</em> Statistical Power</a>
-</td>
-<td>
-<span class="listing-reading-time">3 min</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1743393600000" data-listing-file-modified-sort="1743436606147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148" data-listing-title-sort="Customize Your Terminal Prompt on macOS" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Mar 31, 2025</span>
-</td>
-<td>
-<a href="../blog/2025-03-21-customize-your-terminal-prompt-on-macOS/index.html" class="title listing-title">Customize Your Terminal Prompt on macOS</a>
-</td>
-<td>
-<span class="listing-reading-time">1 min</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neQ==" data-listing-date-sort="1742356800000" data-listing-file-modified-sort="1742410892079" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1137" data-listing-title-sort="Kane (2025) as a Power Paper" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Mar 19, 2025</span>
-</td>
-<td>
-<a href="../blog/2025-03-19-kane-2025-as-a-power-paper/index.html" class="title listing-title">Kane (2025) as a Power Paper</a>
-</td>
-<td>
-<span class="listing-reading-time">6 min</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neQ==" data-listing-date-sort="1717992000000" data-listing-file-modified-sort="1741629100714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2142" data-listing-title-sort="Statistical Power from Pilot Data: An Example" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 10, 2024</span>
-</td>
-<td>
-<a href="../blog/2024-06-10-pilot-power-example/index.html" class="title listing-title">Statistical Power from Pilot Data: An Example</a>
-</td>
-<td>
-<span class="listing-reading-time">11 min</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neQ==" data-listing-date-sort="1717387200000" data-listing-file-modified-sort="1741629197779" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2111" data-listing-title-sort="Statistical Power from Pilot Data: Simulations to Illustrate" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 3, 2024</span>
-</td>
-<td>
-<a href="../blog/2024-06-03-pilot-power/index.html" class="title listing-title">Statistical Power from Pilot Data: Simulations to Illustrate</a>
-</td>
-<td>
-<span class="listing-reading-time">11 min</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="bWV0aG9kb2xvZ3klMkNsb2dpc3RpYyUyMHJlZ3Jlc3Npb24lMkNzbWFsbCUyMHNhbXBsZXMlMkNGaXJ0aA==" data-listing-date-sort="1693368000000" data-listing-file-modified-sort="1693434934093" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="405" data-listing-title-sort="Firth's Logit: Some References" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 30, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-08-30-firth-references/index.html" class="title listing-title">Firth’s Logit: Some References</a>
-</td>
-<td>
-<span class="listing-reading-time">3 min</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="aHlwb3RoZXNpcyUyMHRlc3RzJTJDY29uZmlkZW5jZSUyMGludGVydmFscyUyQ2VxdWl2YWxlbmNlJTIwdGVzdHMlMkNUT1NUcyUyQ25lZ2xpZ2libGUlMjBlZmZlY3RzJTJDY29tcHV0aW5nJTJDUiUyQ21hcmdpbmFsZWZmZWN0cw==" data-listing-date-sort="1692331200000" data-listing-file-modified-sort="1748775241920" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1568" data-listing-title-sort="Equivalence Tests Using {marginaleffects}" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 18, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-08-18-equivalence-tests/index.html" class="title listing-title">Equivalence Tests Using {marginaleffects}</a>
-</td>
-<td>
-<span class="listing-reading-time">8 min</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="d3JpdGluZw==" data-listing-date-sort="1692072000000" data-listing-file-modified-sort="1692036985000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1298" data-listing-title-sort="Daily Writing" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 15, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-08-15-daily-writing/index.html" class="title listing-title">Daily Writing</a>
-</td>
-<td>
-<span class="listing-reading-time">7 min</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="bG9naXN0aWMlMjByZWdyZXNzaW9uJTJDc21hbGwlMjBzYW1wbGVzJTJDRmlydGglMkNjb21wdXRpbmclMkNS" data-listing-date-sort="1691726400000" data-listing-file-modified-sort="1691866040148" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="616" data-listing-title-sort="Benchmarking Firth's Logit: {brglm2} versus {logistf}" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 11, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-08-11-benchmarking-firth/index.html" class="title listing-title">Benchmarking Firth’s Logit: {brglm2} versus {logistf}</a>
-</td>
-<td>
-<span class="listing-reading-time">4 min</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neSUyQ2NvbmZpZGVuY2UlMjBpbnRlcnZhbHMlMkNjb21wdXRpbmclMkNS" data-listing-date-sort="1686542400000" data-listing-file-modified-sort="1741629266819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4797" data-listing-title-sort="Power, Part III: The Rule of 3.64 for Statistical Power" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 12, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-06-12-power-3-rule-of-364/index.html" class="title listing-title">Power, Part III: The Rule of 3.64 for Statistical Power</a>
-</td>
-<td>
-<span class="listing-reading-time">24 min</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="bWV0aG9kb2xvZ3klMkNoeXBvdGhlc2lzJTIwdGVzdHMlMkNjb25maWRlbmNlJTIwaW50ZXJ2YWxzJTJDY29tcHV0aW5nJTJDUg==" data-listing-date-sort="1685592000000" data-listing-file-modified-sort="1691003489000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3815" data-listing-title-sort="Teaching Confidence Intervals and Hypothesis Testing with gganimate" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jun 1, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-06-01-teaching-confidence-intervals-with-gganimate/index.html" class="title listing-title">Teaching Confidence Intervals and Hypothesis Testing with gganimate</a>
-</td>
-<td>
-<span class="listing-reading-time">20 min</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neSUyQ2NvbmZpZGVuY2UlMjBpbnRlcnZhbHMlMkNjb21wdXRpbmclMkNS" data-listing-date-sort="1684987200000" data-listing-file-modified-sort="1741629234046" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1828" data-listing-title-sort="Power, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 25, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/index.html" class="title listing-title">Power, Part II: What Do Confidence Intervals from Well-Powered Studies Look Like?</a>
-</td>
-<td>
-<span class="listing-reading-time">10 min</span>
-</td>
-</tr>
-<tr data-index="13" data-categories="c3RhdGlzdGljYWwlMjBwb3dlciUyQ2h5cG90aGVzaXMlMjB0ZXN0cyUyQ3Bvd2VyJTIwYW5hbHlzaXMlMkNtZXRob2RvbG9neQ==" data-listing-date-sort="1684641600000" data-listing-file-modified-sort="1741629223995" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1504" data-listing-title-sort="Power, Part I: Power Is for *You*, Not for Reviewer Two" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">May 21, 2023</span>
-</td>
-<td>
-<a href="../blog/2023-05-22-power-1-for-you-not-reviewer-2/index.html" class="title listing-title">Power, Part I: Power Is for <em>You</em>, Not for Reviewer Two</a>
-</td>
-<td>
-<span class="listing-reading-time">8 min</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+<div style="text-align:center; margin: 1.5em 0;">
+
 </div>
-</div></main> <!-- /main -->
+<section id="what-is-statistical-power" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-statistical-power">What is statistical power?</h2>
+<p>Statistical power is the chance that your data lead you to reject the null hypothesis if that null hypothesis is incorrect. Power depends on the magnitude of the effect, so you must assume an effect for a power calculation. Claims about power have the form:</p>
+<p>“the experiment has <strong><em>% power to detect an effect of </em></strong>.”</p>
+</section>
+<section id="why-does-power-matter-to-the-researcher" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-power-matter-to-the-researcher">Why does power matter to the researcher?</h2>
+<p>You are a clever theorist and hypothesize that X increases Y; then the null hypothesis is that X does not increase Y. You design an experiment and statistical test. You plan to reject the null hypothesis if the p-value is less than 0.05. Two types of errors can occur.</p>
+<p><strong>Type I:</strong> First, you might incorrectly reject the null hypothesis. That is, the null is true, but your p-value is less than 0.05 and you reject it.</p>
+<p><strong>Type II:</strong> Second, you might incorrectly fail to reject the null hypothesis. That is, the null is false (i.e., the research hypothesis is correct), but your p-value is greater than 0.05 and you do not reject the null.</p>
+<p>Let’s think more on this second “error.” You’ve paid all the costs of designing and fielding an experiment. But in the end, you cannot distinguish between your research hypothesis and the null hypothesis. This is a wasted opportunity. Researchers care about statistical power because they do not want to waste their time, effort, and money.</p>
+</section>
+<section id="why-does-power-matter-to-the-reader" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-power-matter-to-the-reader">Why does power matter to the reader?</h2>
+<p>When reading a paper, why should you care about power?</p>
+<p><em>My perspective:</em> Power doesn’t matter after running the experiment. All relevant information is in the confidence interval. Caveat: power does change the meaning of “not significant,” but this information is in the CI.</p>
+<p><em>Others’ perspective:</em> Power matters greatly after running the experiment. Authors and reviewers dismiss papers without significant findings. This significance filter combined with low power causes published estimates to diverge from the truth.</p>
+</section>
+<section id="how-can-i-compute-statistical-power" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-i-compute-statistical-power">How can I compute statistical power?</h2>
+<p>To compute statistical power, first ask: “for what effect?” Identify the range of substantively interesting effects and choose the smallest effect in this range. This is the smallest effect of substantive interest (SESOI). The experiment should be well-powered for the SESOI.</p>
+<p>Fancy software can compute power for you, but I like simple rules of thumb. Experiments have:</p>
+<ul>
+<li>80% power to detect effects that are 2.5 times the standard error, and</li>
+<li>95% power to detect effects that are 3.3 times the standard error.</li>
+</ul>
+<p>As a reader, you can simply multiply the reported standard errors by 2.5 and ask yourself: “is this effect substantively small?” If 2.5 times the reported standard error is a substantively large effect, then the experiment is underpowered.</p>
+<p>As a researcher, you can predict the standard error of a simple two-group, difference-in-means comparison using <span class="math inline">\(\text{SE} = \frac{\sigma}{\sqrt{n}}\)</span>, where <span class="math inline">\(\sigma\)</span> is the standard deviation of the outcome variable and <span class="math inline">\(n\)</span> is the sample size per condition. You can obtain a suitable value of <span class="math inline">\(\sigma\)</span> from an existing study of the same outcome and population. Or from a pilot study, if you plan to use one. As a too-crude shortcut in a pinch, you might use range/4.</p>
+<p>Regression adjustment can increase power; it shrinks the standard error by a factor of about <span class="math inline">\(\sqrt{1 - R^2}\)</span>, where <span class="math inline">\(R^2\)</span> is the <span class="math inline">\(R^2\)</span> of the regression of the predictors on the outcome variable. Unless predictors are highly predictive of the outcome, adjustment doesn’t matter much. However, in pre–post designs, the researcher measures the outcome before and after the treatment and adjusts for the pre-treatment measure. This shrinks the standard error at least 30%, typically 50%, and perhaps 70%. You can obtain a suitable value of <span class="math inline">\(R^2\)</span> from a pilot study, if you have one.</p>
+</section>
+<section id="what-should-i-read-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-should-i-read-next">What should I read next?</h2>
+<p><a href="https://doi.org/10.4324/9780203771587">Cohen (1988)</a> provides the foundational introduction to power analysis; <a href="https://users.cla.umn.edu/~nwaller/prelim/cohensofar.pdf">Cohen (1990)</a> offers an engaging personal and historical perspective. <a href="https://www.pearson.com/en-us/subject-catalog/p/probability-and-statistics-classic-version/P200000006163/9780137981694">DeGroot and Schervish (2010, ch.&nbsp;9)</a> and <a href="https://doi.org/10.1201/9781003456285">Casella and Berger (2002, ch.&nbsp;8)</a> provide a thorough technical discussion. <a href="https://psycnet.apa.org/fulltext/2000-16737-001.pdf">Jones and Tukey (2000)</a> discuss Type II errs as “wasted opportunities.”</p>
+<p><a href="https://doi.org/10.1177/0193841X9501900504">Bloom (1995)</a> offers a practical and intuitive approach using the minimum detectable effect. <a href="https://doi.org/10.31219/osf.io/5am9q">Rainey (2025)</a> updates Bloom’s perspective. <a href="https://doi.org/10.1007/s10654-016-0149-3">Greenland et al.&nbsp;(2016)</a> offer an accessible discussion organized around potential misunderstandings. <a href="https://doi.org/10.1037/0033-2909.112.1.155">Cohen (1992)</a>, <a href="https://doi.org/10.1198/000313001317098149">Lenth (2001)</a>, and <a href="https://doi.org/10.1093/jcr/ucx110">Meyvis and van Osselaer (2018)</a> also offer practical guides.</p>
+<p><a href="https://www.carlislerainey.com/papers/nme.pdf">Rainey (2014)</a>, <a href="https://www.carlislerainey.com/papers/meaningful.pdf">McCaskey and Rainey (2015)</a>, and <a href="https://doi.org/10.1177/2515245918770963">Lakens, Scheel, and Isager (2018, see esp.&nbsp;pp.&nbsp;261-263)</a> discuss the SESOI. <a href="https://doi.org/10.1002/ejsp.2752">Lovakov and Agadullina (2021)</a> offer empirical rules for effect sizes derived from social psychology. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">Leon, Davis, and Kraemer (2011)</a> and <a href="https://doi.org/10.1016/j.jesp.2017.09.004">Albers and Lakens (2018)</a> explain why pilot data should not be used to estimate the effect for the power calculation, though <a href="https://doi.org/10.1177/1745691614528519">Marco Perugini, Gallucci, and Costantini (2014)</a> propose a conservative alternative.</p>
+<p><a href="https://doi.org/10.1198/000313001300339897">Hoenig and Heisey (2001)</a> explain why power should not be used for interpreting results. <a href="https://doi.org/10.1177/1745691614551642">Gelman and Carlin (2014)</a> explain the pernicious effects of filtering on statistical significance when power is low. <a href="https://doi.org/10.1086/734279">Arel-Bundock et al.&nbsp;(2025)</a> show that observed power in political science is very low. <a href="https://doi.org/10.1111/ecoj.12461">Ioannidis, Stanley, and Doucouliagos (2017)</a> examine economics; <a href="https://doi.org/10.1037/bul0000169">Stanley, Carter, and Doucouliagos (2018)</a> examine psychology.</p>
+<p>Meyvis and van Osselaer (2018) discuss regression adjustment in the context of experiments. <a href="https://doi.org/10.1017/S0003055421000241">Clifford, Sheagley, and Piston (2021)</a> show huge boosts in power of the pre–post design; <a href="https://doi.org/10.31219/osf.io/q6czp_v2">Jordan, Ollerenshaw, and Trexler (2025)</a> validate their findings.</p>
+<p><a href="https://doi.org/10.1525/collabra.33267">Lakens (2022)</a> offers a broader perspective on sample size justification beyond statistical power. <a href="https://doi.org/10.1017/S0003055419000194">Blair et al.&nbsp;(2019)</a> and <a href="https://book.declaredesign.org/">Blair, Coppock, and Humphreys (2023)</a> offer a useful conceptual framework and software for comprehensive evaluation of research designs.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

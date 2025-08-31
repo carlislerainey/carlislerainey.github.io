@@ -17,7 +17,76 @@
 <width>144</width>
 </image>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 18 Aug 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 30 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>A One-Page Primer on: Statistical Power</title>
+  <dc:creator>Carlisle Rainey</dc:creator>
+  <link>https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>“Of course, investigators could not have known how underpowered their research was, as their training had not prepared them to know anything about power, let alone how to use it in research planning. One might think that after 1969, when I published my power handbook that made power analysis as easy as falling off a log, the concepts and methods of power analysis would be taken to the hearts of null hypothesis testers. So one might think. (Stay tuned.)” — <a href="https://users.cla.umn.edu/~nwaller/prelim/cohensofar.pdf">Cohen (1990)</a></p>
+</blockquote>
+<div style="text-align:center; margin: 1.5em 0;">
+<p><a href="1p-power-analysis.pdf" class="btn btn-warning btn-lg"> <i class="bi bi-file-earmark-pdf-fill"></i> One-Page Primer </a> <a href="mailto:?subject=A One-Page Primer on Statistical Power&amp;body=Hi! This is a resource on statistical power on Carlisle Rainey's website. It's a quick, one-page primer on statistical power. The HTML version is at https://www.carlislerainey.com/1p-statistical-power; the PDF version is at https://www.carlislerainey.com/1p-statistical-power/1p-statistical-power.pdf." class="btn btn-success btn-lg"> <i class="bi bi-envelope-fill"></i> Send to My Inbox </a></p>
+</div>
+<div style="text-align:center; margin: 1.5em 0;">
+
+</div>
+<section id="what-is-statistical-power" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-statistical-power">What is statistical power?</h2>
+<p>Statistical power is the chance that your data lead you to reject the null hypothesis if that null hypothesis is incorrect. Power depends on the magnitude of the effect, so you must assume an effect for a power calculation. Claims about power have the form:</p>
+<p>“the experiment has <strong><em>% power to detect an effect of </em></strong>.”</p>
+</section>
+<section id="why-does-power-matter-to-the-researcher" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-power-matter-to-the-researcher">Why does power matter to the researcher?</h2>
+<p>You are a clever theorist and hypothesize that X increases Y; then the null hypothesis is that X does not increase Y. You design an experiment and statistical test. You plan to reject the null hypothesis if the p-value is less than 0.05. Two types of errors can occur.</p>
+<p><strong>Type I:</strong> First, you might incorrectly reject the null hypothesis. That is, the null is true, but your p-value is less than 0.05 and you reject it.</p>
+<p><strong>Type II:</strong> Second, you might incorrectly fail to reject the null hypothesis. That is, the null is false (i.e., the research hypothesis is correct), but your p-value is greater than 0.05 and you do not reject the null.</p>
+<p>Let’s think more on this second “error.” You’ve paid all the costs of designing and fielding an experiment. But in the end, you cannot distinguish between your research hypothesis and the null hypothesis. This is a wasted opportunity. Researchers care about statistical power because they do not want to waste their time, effort, and money.</p>
+</section>
+<section id="why-does-power-matter-to-the-reader" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-power-matter-to-the-reader">Why does power matter to the reader?</h2>
+<p>When reading a paper, why should you care about power?</p>
+<p><em>My perspective:</em> Power doesn’t matter after running the experiment. All relevant information is in the confidence interval. Caveat: power does change the meaning of “not significant,” but this information is in the CI.</p>
+<p><em>Others’ perspective:</em> Power matters greatly after running the experiment. Authors and reviewers dismiss papers without significant findings. This significance filter combined with low power causes published estimates to diverge from the truth.</p>
+</section>
+<section id="how-can-i-compute-statistical-power" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-i-compute-statistical-power">How can I compute statistical power?</h2>
+<p>To compute statistical power, first ask: “for what effect?” Identify the range of substantively interesting effects and choose the smallest effect in this range. This is the smallest effect of substantive interest (SESOI). The experiment should be well-powered for the SESOI.</p>
+<p>Fancy software can compute power for you, but I like simple rules of thumb. Experiments have:</p>
+<ul>
+<li>80% power to detect effects that are 2.5 times the standard error, and</li>
+<li>95% power to detect effects that are 3.3 times the standard error.</li>
+</ul>
+<p>As a reader, you can simply multiply the reported standard errors by 2.5 and ask yourself: “is this effect substantively small?” If 2.5 times the reported standard error is a substantively large effect, then the experiment is underpowered.</p>
+<p>As a researcher, you can predict the standard error of a simple two-group, difference-in-means comparison using <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BSE%7D%20=%20%5Cfrac%7B%5Csigma%7D%7B%5Csqrt%7Bn%7D%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Csigma"> is the standard deviation of the outcome variable and <img src="https://latex.codecogs.com/png.latex?n"> is the sample size per condition. You can obtain a suitable value of <img src="https://latex.codecogs.com/png.latex?%5Csigma"> from an existing study of the same outcome and population. Or from a pilot study, if you plan to use one. As a too-crude shortcut in a pinch, you might use range/4.</p>
+<p>Regression adjustment can increase power; it shrinks the standard error by a factor of about <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B1%20-%20R%5E2%7D">, where <img src="https://latex.codecogs.com/png.latex?R%5E2"> is the <img src="https://latex.codecogs.com/png.latex?R%5E2"> of the regression of the predictors on the outcome variable. Unless predictors are highly predictive of the outcome, adjustment doesn’t matter much. However, in pre–post designs, the researcher measures the outcome before and after the treatment and adjusts for the pre-treatment measure. This shrinks the standard error at least 30%, typically 50%, and perhaps 70%. You can obtain a suitable value of <img src="https://latex.codecogs.com/png.latex?R%5E2"> from a pilot study, if you have one.</p>
+</section>
+<section id="what-should-i-read-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-should-i-read-next">What should I read next?</h2>
+<p><a href="https://doi.org/10.4324/9780203771587">Cohen (1988)</a> provides the foundational introduction to power analysis; <a href="https://users.cla.umn.edu/~nwaller/prelim/cohensofar.pdf">Cohen (1990)</a> offers an engaging personal and historical perspective. <a href="https://www.pearson.com/en-us/subject-catalog/p/probability-and-statistics-classic-version/P200000006163/9780137981694">DeGroot and Schervish (2010, ch.&nbsp;9)</a> and <a href="https://doi.org/10.1201/9781003456285">Casella and Berger (2002, ch.&nbsp;8)</a> provide a thorough technical discussion. <a href="https://psycnet.apa.org/fulltext/2000-16737-001.pdf">Jones and Tukey (2000)</a> discuss Type II errs as “wasted opportunities.”</p>
+<p><a href="https://doi.org/10.1177/0193841X9501900504">Bloom (1995)</a> offers a practical and intuitive approach using the minimum detectable effect. <a href="https://doi.org/10.31219/osf.io/5am9q">Rainey (2025)</a> updates Bloom’s perspective. <a href="https://doi.org/10.1007/s10654-016-0149-3">Greenland et al.&nbsp;(2016)</a> offer an accessible discussion organized around potential misunderstandings. <a href="https://doi.org/10.1037/0033-2909.112.1.155">Cohen (1992)</a>, <a href="https://doi.org/10.1198/000313001317098149">Lenth (2001)</a>, and <a href="https://doi.org/10.1093/jcr/ucx110">Meyvis and van Osselaer (2018)</a> also offer practical guides.</p>
+<p><a href="https://www.carlislerainey.com/papers/nme.pdf">Rainey (2014)</a>, <a href="https://www.carlislerainey.com/papers/meaningful.pdf">McCaskey and Rainey (2015)</a>, and <a href="https://doi.org/10.1177/2515245918770963">Lakens, Scheel, and Isager (2018, see esp.&nbsp;pp.&nbsp;261-263)</a> discuss the SESOI. <a href="https://doi.org/10.1002/ejsp.2752">Lovakov and Agadullina (2021)</a> offer empirical rules for effect sizes derived from social psychology. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">Leon, Davis, and Kraemer (2011)</a> and <a href="https://doi.org/10.1016/j.jesp.2017.09.004">Albers and Lakens (2018)</a> explain why pilot data should not be used to estimate the effect for the power calculation, though <a href="https://doi.org/10.1177/1745691614528519">Marco Perugini, Gallucci, and Costantini (2014)</a> propose a conservative alternative.</p>
+<p><a href="https://doi.org/10.1198/000313001300339897">Hoenig and Heisey (2001)</a> explain why power should not be used for interpreting results. <a href="https://doi.org/10.1177/1745691614551642">Gelman and Carlin (2014)</a> explain the pernicious effects of filtering on statistical significance when power is low. <a href="https://doi.org/10.1086/734279">Arel-Bundock et al.&nbsp;(2025)</a> show that observed power in political science is very low. <a href="https://doi.org/10.1111/ecoj.12461">Ioannidis, Stanley, and Doucouliagos (2017)</a> examine economics; <a href="https://doi.org/10.1037/bul0000169">Stanley, Carter, and Doucouliagos (2018)</a> examine psychology.</p>
+<p>Meyvis and van Osselaer (2018) discuss regression adjustment in the context of experiments. <a href="https://doi.org/10.1017/S0003055421000241">Clifford, Sheagley, and Piston (2021)</a> show huge boosts in power of the pre–post design; <a href="https://doi.org/10.31219/osf.io/q6czp_v2">Jordan, Ollerenshaw, and Trexler (2025)</a> validate their findings.</p>
+<p><a href="https://doi.org/10.1525/collabra.33267">Lakens (2022)</a> offers a broader perspective on sample size justification beyond statistical power. <a href="https://doi.org/10.1017/S0003055419000194">Blair et al.&nbsp;(2019)</a> and <a href="https://book.declaredesign.org/">Blair, Coppock, and Humphreys (2023)</a> offer a useful conceptual framework and software for comprehensive evaluation of research designs.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>statistical power</category>
+  <category>power analysis</category>
+  <category>minimum detectable effect</category>
+  <category>sample size</category>
+  <category>research design</category>
+  <guid>https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/</guid>
+  <pubDate>Sat, 30 Aug 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>For Your Syllabus: Statistical Power</title>
   <dc:creator>Carlisle Rainey</dc:creator>
