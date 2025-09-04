@@ -8,7 +8,7 @@ categories:
   - minimum detectable effect
   - sample size
   - research design
-description: "Statistical power is the chance to reject the null when it’s false. Why it matters, how to compute it, and why both researchers and readers should care. This is a one-page primer with rules of thumb and key readings."
+description: "Statistical power is the chance of rejecting the null when it’s false. Why it matters, how to compute it. This is a one-page primer with rules of thumb and key readings."
 reference-location: margin
 toc: false
 twitter-card:
