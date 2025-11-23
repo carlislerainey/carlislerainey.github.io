@@ -280,6 +280,19 @@ window.Quarto = {
 
 
 <hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Power Rules
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is based on <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a> called “Power Rules.”</p>
+</div>
+</div>
 <p>We can think of statistical power as determined by the ratio <span class="math inline">\(\frac{\tau}{SE}\)</span>, where <span class="math inline">\(\tau\)</span> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
 <p>And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use <em>pilot</em> data.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Here’s how <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (<a href="#ref-leon2011" role="doc-biblioref">2011</a>)</span> describe the purpose of a pilot study. “The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated.”</p></div></div><p>Usually:</p>
@@ -305,7 +318,7 @@ Predicting the SE in the planned study using pilot data
 <p>Conservatively, the standard error will be about <span class="math inline">\(\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack\)</span>, where <span class="math inline">\(n^{pilot}\)</span> is the number of respondents per condition in the pilot data, <span class="math inline">\(SE_{\widehat{\tau}}^{pilot}\)</span> is the estimated standard error using the pilot data, and <span class="math inline">\(n^{planned}\)</span> is the number of respondents per condition in the planned study.</p>
 </div>
 </div>
-<p>The factor <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> For the details, see <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this early paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
+<p>The factor <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> For the details, see <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></div></div></section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
@@ -586,7 +599,7 @@ $ pid_strength &lt;dbl&gt; 2, 2, 3, 3, 3, 2, 0, 2, 2, 1, 2, 0, 3, 1, 2, 3, 2, 3,
 <li>Store the estimated standard error from each analysis.</li>
 </ol>
 <p>Repeat the process above many times. For each standard error estimate, compute the implied statistical power. This gives a distribution of power estimates. Find a value near the bottom of this distribution. The factor we used above—The factor <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span>—nudges the standard error to about the 2.5th percentile, so we can use that here, too.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_20fedaa4129096dd9b515c1a1bc80fa3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of bootstrap iterations</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>n_bs <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -607,14 +620,14 @@ $ pid_strength &lt;dbl&gt; 2, 2, 3, 3, 3, 2, 0, 2, 2, 1, 2, 0, 3, 1, 2, 3, 2, 3,
 <span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(pwr, <span class="at">probs =</span> <span class="fl">0.025</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5% 
-0.8206062 </code></pre>
+0.8199688 </code></pre>
 </div>
 </div>
 <p>Using the analytical approximation, we got 0.815 as a conservative estimate of power. The bootstrap gave us 0.820 as a conservative estimate. The actual power in the full study turned out to be about 0.843. (Remember, all of these power calculations are <em>power to detected an effect of 0.35 points on the seven-point scale.</em>)</p>
 </section>
 <section id="the-paper" class="level2">
 <h2 class="anchored" data-anchor-id="the-paper">The paper</h2>
-<p>I have an <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">early draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
+<p>I have a <a href="https://osf.io/preprints/osf/5am9q_v2">draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
 
 
 

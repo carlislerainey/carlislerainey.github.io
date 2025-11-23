@@ -21,6 +21,11 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
+::: {.callout-tip}
+## Power Rules
+This post is based on [this paper](https://osf.io/preprints/osf/5am9q_v2) called "Power Rules."
+:::
+
 We can think of statistical power as determined by the ratio $\frac{\tau}{SE}$, where $\tau$ is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.
 
 And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use *pilot* data.[^1]

@@ -17,7 +17,7 @@
 <width>144</width>
 </image>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Sat, 30 Aug 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 30 Aug 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>A One-Page Primer on: Statistical Power</title>
   <dc:creator>Carlisle Rainey</dc:creator>
@@ -85,7 +85,7 @@
   <category>sample size</category>
   <category>research design</category>
   <guid>https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/</guid>
-  <pubDate>Sat, 30 Aug 2025 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 30 Aug 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>For Your Syllabus: Statistical Power</title>
@@ -213,7 +213,7 @@
   <category>for your syllabus</category>
   <category>teaching</category>
   <guid>https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/</guid>
-  <pubDate>Mon, 18 Aug 2025 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 18 Aug 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Customize Your Terminal Prompt on macOS</title>
@@ -255,7 +255,7 @@
 
  ]]></description>
   <guid>https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/</guid>
-  <pubDate>Mon, 31 Mar 2025 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Mar 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Kane (2025) as a Power Paper</title>
@@ -496,7 +496,7 @@ Stagnaro, Michael N, James Druckman, Adam J Berinsky, Antonio A Arechar, Robb Wi
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/</guid>
-  <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Mar 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: An Example</title>
@@ -508,6 +508,19 @@ Stagnaro, Michael N, James Druckman, Adam J Berinsky, Antonio A Arechar, Robb Wi
 
 
 <hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Power Rules
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is based on <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a> called “Power Rules.”</p>
+</div>
+</div>
 <p>We can think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
 <p>And as data-oriented researchers, we often want to use data to inform these predictions and assumptions. We might want to use <em>pilot</em> data.<sup>1</sup></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Here’s how <span class="citation" data-cites="leon2011">Leon, Davis, and Kraemer (2011)</span> describe the purpose of a pilot study. “The fundamental purpose of conducting a pilot study is to examine the feasibility of an approach that is intended to ultimately be used in a larger scale study. This applies to all types of research studies. Here we use the randomized controlled clinical trial (RCT) for illustration. Prior to initiating a full scale RCT an investigator may choose to conduct a pilot study in order to evaluate the feasibility of recruitment, randomization, retention, assessment procedures, new methods, and/or implementation of the novel intervention. A pilot study, however, is not used for hypothesis testing. Instead it serves as an earlier-phase developmental function that will enhance the probability of success in the larger subsequent RCTs that are anticipated.”</p></div></div><p>Usually:</p>
@@ -533,7 +546,7 @@ Predicting the SE in the planned study using pilot data
 <p>Conservatively, the standard error will be about <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7B%5Cfrac%7Bn%5E%7Bpilot%7D%7D%7Bn%5E%7Bplanned%7D%7D%7D%20%5Ccdot%20%5Cleft%5Clbrack%20%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)%20%5Ccdot%20%7B%5Cwidehat%7BSE%7D%7D_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D%20%5Cright%5Crbrack">, where <img src="https://latex.codecogs.com/png.latex?n%5E%7Bpilot%7D"> is the number of respondents per condition in the pilot data, <img src="https://latex.codecogs.com/png.latex?SE_%7B%5Cwidehat%7B%5Ctau%7D%7D%5E%7Bpilot%7D"> is the estimated standard error using the pilot data, and <img src="https://latex.codecogs.com/png.latex?n%5E%7Bplanned%7D"> is the number of respondents per condition in the planned study.</p>
 </div>
 </div>
-<p>The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<sup>2</sup> For the details, see <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">this early paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
+<p>The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)"> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<sup>2</sup> For the details, see <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></div></div></section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
@@ -1064,7 +1077,7 @@ font-style: inherit;">$</span>stderr)</span></code></pre></div>
 <li>Store the estimated standard error from each analysis.</li>
 </ol>
 <p>Repeat the process above many times. For each standard error estimate, compute the implied statistical power. This gives a distribution of power estimates. Find a value near the bottom of this distribution. The factor we used above—The factor <img src="https://latex.codecogs.com/png.latex?%5Cleft(%20%5Csqrt%7B%5Cfrac%7B1%7D%7Bn%5E%7Bpilot%7D%7D%7D%20+%201%20%5Cright)">—nudges the standard error to about the 2.5th percentile, so we can use that here, too.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_20fedaa4129096dd9b515c1a1bc80fa3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># number of bootstrap iterations</span></span>
@@ -1167,14 +1180,14 @@ background-color: null;
 font-style: inherit;">0.025</span>)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5% 
-0.8206062 </code></pre>
+0.8199688 </code></pre>
 </div>
 </div>
 <p>Using the analytical approximation, we got 0.815 as a conservative estimate of power. The bootstrap gave us 0.820 as a conservative estimate. The actual power in the full study turned out to be about 0.843. (Remember, all of these power calculations are <em>power to detected an effect of 0.35 points on the seven-point scale.</em>)</p>
 </section>
 <section id="the-paper" class="level2">
 <h2 class="anchored" data-anchor-id="the-paper">The paper</h2>
-<p>I have an <a href="https://github.com/carlislerainey/power-rules/blob/main/power-rules.pdf">early draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
+<p>I have a <a href="https://osf.io/preprints/osf/5am9q_v2">draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
 
 
 
@@ -1197,7 +1210,7 @@ Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, 
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/</guid>
-  <pubDate>Mon, 10 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 10 Jun 2024 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: Simulations to Illustrate</title>
@@ -2436,7 +2449,7 @@ Perugini, Marco, Marcello Gallucci, and Giulio Costantini. 2014. <span>“Safegu
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/</guid>
-  <pubDate>Mon, 03 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 03 Jun 2024 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Firth’s Logit: Some References</title>
@@ -2549,7 +2562,7 @@ Zorn, Christopher. 2005. <span>“A Solution to Separation in Binary Response Mo
   <category>small samples</category>
   <category>Firth</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-30-firth-references/</guid>
-  <pubDate>Wed, 30 Aug 2023 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 30 Aug 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Equivalence Tests Using {marginaleffects}</title>
@@ -3228,7 +3241,7 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
   <category>R</category>
   <category>marginaleffects</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/</guid>
-  <pubDate>Fri, 18 Aug 2023 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 18 Aug 2023 05:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" medium="image" type="image/png" height="118" width="144"/>
 </item>
 <item>
@@ -3311,7 +3324,7 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
  ]]></description>
   <category>writing</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/</guid>
-  <pubDate>Tue, 15 Aug 2023 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 15 Aug 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Benchmarking Firth’s Logit: {brglm2} versus {logistf}</title>
@@ -3689,7 +3702,7 @@ Weisiger, Alex. 2014. <span>“Victory Without Peace: Conquest, Insurgency, and 
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/</guid>
-  <pubDate>Fri, 11 Aug 2023 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 11 Aug 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part III: The Rule of 3.64 for Statistical Power</title>
@@ -7211,7 +7224,7 @@ font-style: inherit;"># fraction above, not below</span></span></code></pre></di
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/</guid>
-  <pubDate>Mon, 12 Jun 2023 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 12 Jun 2023 05:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -8867,7 +8880,7 @@ font-style: inherit;">150</span>)</span></code></pre></div>
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/</guid>
-  <pubDate>Thu, 01 Jun 2023 04:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Jun 2023 05:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -9746,7 +9759,7 @@ Key Takeaway
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/</guid>
-  <pubDate>Thu, 25 May 2023 04:00:00 GMT</pubDate>
+  <pubDate>Thu, 25 May 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part I: Power Is for You, Not for Reviewer Two</title>
@@ -9893,7 +9906,7 @@ Important Point
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/</guid>
-  <pubDate>Sun, 21 May 2023 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 21 May 2023 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
