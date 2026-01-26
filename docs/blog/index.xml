@@ -17,7 +17,7 @@
 <width>144</width>
 </image>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Sat, 30 Aug 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 30 Aug 2025 04:00:00 GMT</lastBuildDate>
 <item>
   <title>A One-Page Primer on: Statistical Power</title>
   <dc:creator>Carlisle Rainey</dc:creator>
@@ -85,7 +85,7 @@
   <category>sample size</category>
   <category>research design</category>
   <guid>https://www.carlislerainey.com/blog/2025-08-30-1p-statistical-power/</guid>
-  <pubDate>Sat, 30 Aug 2025 05:00:00 GMT</pubDate>
+  <pubDate>Sat, 30 Aug 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>For Your Syllabus: Statistical Power</title>
@@ -213,7 +213,7 @@
   <category>for your syllabus</category>
   <category>teaching</category>
   <guid>https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/</guid>
-  <pubDate>Mon, 18 Aug 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 18 Aug 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Customize Your Terminal Prompt on macOS</title>
@@ -255,7 +255,7 @@
 
  ]]></description>
   <guid>https://www.carlislerainey.com/blog/2025-03-21-customize-your-terminal-prompt-on-macOS/</guid>
-  <pubDate>Mon, 31 Mar 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Mar 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Kane (2025) as a Power Paper</title>
@@ -496,7 +496,7 @@ Stagnaro, Michael N, James Druckman, Adam J Berinsky, Antonio A Arechar, Robb Wi
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2025-03-19-kane-2025-as-a-power-paper/</guid>
-  <pubDate>Wed, 19 Mar 2025 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Mar 2025 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: An Example</title>
@@ -1210,7 +1210,7 @@ Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, 
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/</guid>
-  <pubDate>Mon, 10 Jun 2024 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 10 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Statistical Power from Pilot Data: Simulations to Illustrate</title>
@@ -2449,7 +2449,7 @@ Perugini, Marco, Marcello Gallucci, and Giulio Costantini. 2014. <span>“Safegu
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2024-06-03-pilot-power/</guid>
-  <pubDate>Mon, 03 Jun 2024 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 03 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Firth’s Logit: Some References</title>
@@ -2562,7 +2562,7 @@ Zorn, Christopher. 2005. <span>“A Solution to Separation in Binary Response Mo
   <category>small samples</category>
   <category>Firth</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-30-firth-references/</guid>
-  <pubDate>Wed, 30 Aug 2023 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 30 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Equivalence Tests Using {marginaleffects}</title>
@@ -3241,7 +3241,7 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
   <category>R</category>
   <category>marginaleffects</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/</guid>
-  <pubDate>Fri, 18 Aug 2023 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 18 Aug 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-08-18-equivalence-tests/rainey-2014-cg-example.png" medium="image" type="image/png" height="118" width="144"/>
 </item>
 <item>
@@ -3324,7 +3324,7 @@ Rainey, Carlisle. 2014. <span>“Arguing for a Negligible Effect.”</span> <em>
  ]]></description>
   <category>writing</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-15-daily-writing/</guid>
-  <pubDate>Tue, 15 Aug 2023 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 15 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Benchmarking Firth’s Logit: {brglm2} versus {logistf}</title>
@@ -3702,7 +3702,7 @@ Weisiger, Alex. 2014. <span>“Victory Without Peace: Conquest, Insurgency, and 
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/</guid>
-  <pubDate>Fri, 11 Aug 2023 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 11 Aug 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part III: The Rule of 3.64 for Statistical Power</title>
@@ -7224,7 +7224,7 @@ font-style: inherit;"># fraction above, not below</span></span></code></pre></di
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/</guid>
-  <pubDate>Mon, 12 Jun 2023 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 12 Jun 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -8880,7 +8880,7 @@ font-style: inherit;">150</span>)</span></code></pre></div>
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/</guid>
-  <pubDate>Thu, 01 Jun 2023 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 01 Jun 2023 04:00:00 GMT</pubDate>
   <media:content url="https://www.carlislerainey.com/blog/2023-06-01-teaching-confidence-intervals-with-gganimate/twitter-card.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -9759,7 +9759,7 @@ Key Takeaway
   <category>computing</category>
   <category>R</category>
   <guid>https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/</guid>
-  <pubDate>Thu, 25 May 2023 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 25 May 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Power, Part I: Power Is for You, Not for Reviewer Two</title>
@@ -9906,7 +9906,7 @@ Important Point
   <category>power analysis</category>
   <category>methodology</category>
   <guid>https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/</guid>
-  <pubDate>Sun, 21 May 2023 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 21 May 2023 04:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

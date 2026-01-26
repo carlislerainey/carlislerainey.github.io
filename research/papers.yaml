@@ -10,21 +10,23 @@
   note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
-  type: "Forthcoming"
+  type: "Published"
   author:
     - Carlisle Rainey
   date: 2025-02-20
-  status: "Forthcoming at <em>Meta-Psychology</em>"
+  year: 2025
+  journal: "<em>Meta-Psychology</em>"
+  pubopen: "https://doi.org/10.15626/MP.2024.4216"
   preprint: "https://doi.org/10.31222/osf.io/8z45v"
   note: 'A peer-reviewed commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em>'
 
 - title: "The Data Availability Policies of Political Science Journals"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
     - Harley Roe
   date: 2025-01-12
-  status: "Working paper"
+  status: "Accepted at <em>Scientific Data</em>"
   preprint: "https://osf.io/preprints/socarxiv/df2ya"
   dataverse: "https://doi.org/10.7910/DVN/0YSJCX"
 
@@ -39,9 +41,28 @@
   date: 2025-05-05
   pubopen: "https://doi.org/10.1017/S1049096524001276"
   journal: "<em>PS: Political Science and Politics</em>"
-  pubopen: "https://doi.org/10.1017/S1049096524001276"
   preprint: "https://osf.io/preprints/socarxiv/a5yxe"
   dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
+
+- title: "Lurking for the Common Good: Does Observing Civil Cross-Party Dialogue on Social Media Reduce Affective Polarization? A Registered Report"
+  type: "Working"
+  author:
+    - J. Grady Anderson
+    - Miguel Arcero-Miranda
+    - Emma Barrett
+    - Sarah Bhalla
+    - Courtney Boutilier
+    - Emma Clark
+    - Ella Garcia
+    - Holden Mamula
+    - Denise Perez
+    - Francisca Puiatti
+    - Alyssa Robinson
+    - Maria Clara Sandoval Durski
+    - Carlisle Rainey
+  date: 2025-12-07
+  status: "Working Paper"
+  pdf: "https://www.carlislerainey.com/papers/lurking.pdf"
 
 
 - title: "Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight"
@@ -68,26 +89,35 @@
   osf: "https://osf.io/2tf5j/"
 
 - title: "The Dissent Score: Using Events Data to Measure Dissent"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
     - Harley Roe
     - Qing Wang
     - Nick Dietrich
   date: 2023-12-23
-  status: "Working paper"
+  status: "Accepted at <em>Journal of Peace Research</em>"
   preprint: "https://osf.io/preprints/socarxiv/dw7np"
   website: "https://www.carlislerainey.com/dissent-scores/"
   note: 'The dissent score data set is available on <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CL4CA8">Dataverse</a>.'
 
+- title: "Merely Asking: A Replication of Ahler and Sood (2018)"
+  type: "Working"
+  author:
+    - Austin Cutler
+    - Matthew Pietrka
+    - Carlisle Rainey
+  date: 2025-12-31
+  status: "Working Paper"
+  pdf: "https://www.dropbox.com/scl/fi/cldf7etwj4d8d1nfkx3kl/cutler_pietryka_rainey_merely_asking.pdf?rlkey=iztyo4d92z841qbjlvezky6un&e=1&st=2rzv98ii&dl=0"
 
 - title: "Generational Differences in Abortion Attitudes in the United States: Will Dobbs v. Jackson Become Starkly Counter-Majoritarian?"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
     - Robert Jackson
   date: 2023-10-13
-  status: "Working paper"
+  status: "Accepted at <em>PLOS ONE</em>"
   preprint: "https://osf.io/preprints/socarxiv/jmz96/"
   dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
   
