@@ -4,6 +4,7 @@ project:
   resources: 
     - "cv.pdf"
     - CNAME
+    - "papers/"
   render:
     - "*.qmd"
     - "!pols-209/files/"  # dir has .Rmd (-> .pdf) files that should be re-compiled.
