@@ -62,7 +62,7 @@ It:
 2. Develops simple rules for back-of-the-envelope power calculations  
 3. Describes how to incorporate pilot data into power calculations
 
-- 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/5am9q>
+- 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/5am9q_v3>
 
 ![](images/rainey-mde-figure.png)
 
@@ -107,7 +107,7 @@ These five readings complement each other really well. Students have a lot to ga
 |----------|-------|
 | [Arel-Bundock et al.](https://doi.org/10.1086/734279) | Shows that most political science studies are underpowered; demonstrates the importance of thinking carefully about design. |
 | [Bloom (1995)](https://doi.org/10.1177/0193841X9501900504) | Defines the minimum detectable effect (MDE) and explains how design choices influence power. |
-| [Rainey](https://doi.org/10.31219/osf.io/5am9q) | Provides intuitive rules of thumb for power analysis, including using pilot data. |
+| [Rainey](https://doi.org/10.31219/osf.io/5am9q_v3) | Provides intuitive rules of thumb for power analysis, including using pilot data. |
 | [Lakens (2022)](https://doi.org/10.1525/collabra.33267) | Broadens the discussion; outlines six ways to justify sample size beyond traditional power analysis. |
 | [Blair et al. (2019)](https://doi.org/10.1017/S0003055419000194) | Introduces the MIDA framework for formally declaring and diagnosing research designs. |
 

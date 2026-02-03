@@ -18,7 +18,7 @@ bibliography: references.bib
 
 It's helpful to think of statistical power as determined by the ratio $\frac{\tau}{SE}$, where $\tau$ is the treatment effect and SE is the standard error of the estimate.[^1]
 
-[^1]: @bloom1995 has a really beautiful paper on this idea. It's one of my favorites. I also have a [preprint](https://osf.io/preprints/osf/5am9q_v2) on the topic.
+[^1]: @bloom1995 has a really beautiful paper on this idea. It's one of my favorites. I also have a [preprint](https://osf.io/preprints/osf/5am9q_v3) on the topic.
 
 [I like this ratio](https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/) because it makes two distinct tasks clear:
 
@@ -33,7 +33,7 @@ For a "well-powered experiment," the task is to get the ratio $\frac{\tau}{SE}$ 
 
 [^2]: Remember that "well-powered" isn't a given. Most political science research is "greatly underpowered" [@arel-bundock2022].
 
-Here's [the idea](https://osf.io/preprints/osf/5am9q_v2):
+Here's [the idea](https://osf.io/preprints/osf/5am9q_v3):
 
 > Power equals $1 - \Phi_{std}\left( 1.64 - \frac{\tau}{SE} \right)$, where $\Phi_{std}(z)$ is the standard normal CDF (as found in a standard $z$ table), $SE$ is the standard error of the estimated treatment effect, and $\tau$ is the treatment effect.
 
@@ -76,11 +76,11 @@ The table below lists all of Kane's categories and action items and notes the pa
 |  | Make treatment stronger (assuming no ceiling/floor effect) | Increase treatment effect. |
 |  | Postpone the study until treatment has lower salience in the real world | Increase treatment effect. |
 |  | Investigate using a non-experimental design | NA |
-| **#4: Statistical power** | Conduct power analyses to determine necessary n size (assuming smallest meaningful effect size) | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v2) for more. |
-|  | Choose sample size cognizant of number of conditions, subgroup analyses, and likely inattentiveness | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v2) for more. |
+| **#4: Statistical power** | Conduct power analyses to determine necessary n size (assuming smallest meaningful effect size) | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v3) for more. |
+|  | Choose sample size cognizant of number of conditions, subgroup analyses, and likely inattentiveness | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v3) for more. |
 |  | Use pre-registered covariates in model, blocking, or a within-subjects design | Decrease standard error; see @blair2019 and @blair2023 for a framework to assess the impact of these design choices; ; see @clifford2021 for a good approach using a pre-post design. |
 |  | Aim to collect a larger sample | Decrease standard error. |
-|  | Choose sample size cognizant of quantities learned from first study: effect size, SD of Y, level of inattentiveness, and number/size of subgroup analyses | Decrease standard error; this [this preprint](https://osf.io/preprints/osf/5am9q_v2) presents some ideas about how to connect power analysis to existing studies. |
+|  | Choose sample size cognizant of quantities learned from first study: effect size, SD of Y, level of inattentiveness, and number/size of subgroup analyses | Decrease standard error; this [this preprint](https://osf.io/preprints/osf/5am9q_v3) presents some ideas about how to connect power analysis to existing studies. |
 |  | Consider an alternative design structure (e.g., within-subjects) | Decrease standard error. |
 | **#5: Poor measurement of the dependent variable** | Check Y's criterion validity | Decrease standard error; perhaps also increase treatment effect. |
 |  | If possible, use existing (validated) measures of Y | Decrease standard error; perhaps also increase treatment effect. |

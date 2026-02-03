@@ -69,7 +69,7 @@
 <section id="what-should-i-read-next" class="level2">
 <h2 class="anchored" data-anchor-id="what-should-i-read-next">What should I read next?</h2>
 <p><a href="https://doi.org/10.4324/9780203771587">Cohen (1988)</a> provides the foundational introduction to power analysis; <a href="https://users.cla.umn.edu/~nwaller/prelim/cohensofar.pdf">Cohen (1990)</a> offers an engaging personal and historical perspective. <a href="https://www.pearson.com/en-us/subject-catalog/p/probability-and-statistics-classic-version/P200000006163/9780137981694">DeGroot and Schervish (2010, ch.&nbsp;9)</a> and <a href="https://doi.org/10.1201/9781003456285">Casella and Berger (2002, ch.&nbsp;8)</a> provide a thorough technical discussion. <a href="https://psycnet.apa.org/fulltext/2000-16737-001.pdf">Jones and Tukey (2000)</a> discuss Type II errs as “wasted opportunities.”</p>
-<p><a href="https://doi.org/10.1177/0193841X9501900504">Bloom (1995)</a> offers a practical and intuitive approach using the minimum detectable effect. <a href="https://doi.org/10.31219/osf.io/5am9q">Rainey (2025)</a> updates Bloom’s perspective. <a href="https://doi.org/10.1007/s10654-016-0149-3">Greenland et al.&nbsp;(2016)</a> offer an accessible discussion organized around potential misunderstandings. <a href="https://doi.org/10.1037/0033-2909.112.1.155">Cohen (1992)</a>, <a href="https://doi.org/10.1198/000313001317098149">Lenth (2001)</a>, and <a href="https://doi.org/10.1093/jcr/ucx110">Meyvis and van Osselaer (2018)</a> also offer practical guides.</p>
+<p><a href="https://doi.org/10.1177/0193841X9501900504">Bloom (1995)</a> offers a practical and intuitive approach using the minimum detectable effect. <a href="https://doi.org/10.31219/osf.io/5am9q_v3">Rainey (2025)</a> updates Bloom’s perspective. <a href="https://doi.org/10.1007/s10654-016-0149-3">Greenland et al.&nbsp;(2016)</a> offer an accessible discussion organized around potential misunderstandings. <a href="https://doi.org/10.1037/0033-2909.112.1.155">Cohen (1992)</a>, <a href="https://doi.org/10.1198/000313001317098149">Lenth (2001)</a>, and <a href="https://doi.org/10.1093/jcr/ucx110">Meyvis and van Osselaer (2018)</a> also offer practical guides.</p>
 <p><a href="https://www.carlislerainey.com/papers/nme.pdf">Rainey (2014)</a>, <a href="https://www.carlislerainey.com/papers/meaningful.pdf">McCaskey and Rainey (2015)</a>, and <a href="https://doi.org/10.1177/2515245918770963">Lakens, Scheel, and Isager (2018, see esp.&nbsp;pp.&nbsp;261-263)</a> discuss the SESOI. <a href="https://doi.org/10.1002/ejsp.2752">Lovakov and Agadullina (2021)</a> offer empirical rules for effect sizes derived from social psychology. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">Leon, Davis, and Kraemer (2011)</a> and <a href="https://doi.org/10.1016/j.jesp.2017.09.004">Albers and Lakens (2018)</a> explain why pilot data should not be used to estimate the effect for the power calculation, though <a href="https://doi.org/10.1177/1745691614528519">Marco Perugini, Gallucci, and Costantini (2014)</a> propose a conservative alternative.</p>
 <p><a href="https://doi.org/10.1198/000313001300339897">Hoenig and Heisey (2001)</a> explain why power should not be used for interpreting results. <a href="https://doi.org/10.1177/1745691614551642">Gelman and Carlin (2014)</a> explain the pernicious effects of filtering on statistical significance when power is low. <a href="https://doi.org/10.1086/734279">Arel-Bundock et al.&nbsp;(2025)</a> show that observed power in political science is very low. <a href="https://doi.org/10.1111/ecoj.12461">Ioannidis, Stanley, and Doucouliagos (2017)</a> examine economics; <a href="https://doi.org/10.1037/bul0000169">Stanley, Carter, and Doucouliagos (2018)</a> examine psychology.</p>
 <p>Meyvis and van Osselaer (2018) discuss regression adjustment in the context of experiments. <a href="https://doi.org/10.1017/S0003055421000241">Clifford, Sheagley, and Piston (2021)</a> show huge boosts in power of the pre–post design; <a href="https://doi.org/10.31219/osf.io/q6czp_v2">Jordan, Ollerenshaw, and Trexler (2025)</a> validate their findings.</p>
@@ -130,7 +130,7 @@
 2. Develops simple rules for back-of-the-envelope power calculations<br>
 3. Describes how to incorporate pilot data into power calculations</p>
 <ul>
-<li>🔗 Preprint DOI (OSF): <a href="https://doi.org/10.31219/osf.io/5am9q" class="uri">https://doi.org/10.31219/osf.io/5am9q</a></li>
+<li>🔗 Preprint DOI (OSF): <a href="https://doi.org/10.31219/osf.io/5am9q_v3" class="uri">https://doi.org/10.31219/osf.io/5am9q_v3</a></li>
 </ul>
 <p><img src="https://www.carlislerainey.com/blog/2025-08-18-for-your-syllabus-power/images/rainey-mde-figure.png" class="img-fluid"></p>
 </section>
@@ -187,7 +187,7 @@
 <td>Defines the minimum detectable effect (MDE) and explains how design choices influence power.</td>
 </tr>
 <tr class="odd">
-<td><a href="https://doi.org/10.31219/osf.io/5am9q">Rainey</a></td>
+<td><a href="https://doi.org/10.31219/osf.io/5am9q_v3">Rainey</a></td>
 <td>Provides intuitive rules of thumb for power analysis, including using pilot data.</td>
 </tr>
 <tr class="even">
@@ -267,7 +267,7 @@
 
 
 <p>It’s helpful to think of statistical power as determined by the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D">, where <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect and SE is the standard error of the estimate.<sup>1</sup></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites. I also have a <a href="https://osf.io/preprints/osf/5am9q_v2">preprint</a> on the topic.</p></div></div><p><a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">I like this ratio</a> because it makes two distinct tasks clear:</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<span class="citation" data-cites="bloom1995">Bloom (1995)</span> has a really beautiful paper on this idea. It’s one of my favorites. I also have a <a href="https://osf.io/preprints/osf/5am9q_v3">preprint</a> on the topic.</p></div></div><p><a href="https://www.carlislerainey.com/blog/2023-06-12-power-3-rule-of-364/">I like this ratio</a> because it makes two distinct tasks clear:</p>
 <ol type="1">
 <li>create a treatment with some oomph and</li>
 <li>estimate it precisely.</li>
@@ -276,7 +276,7 @@
 <section id="power-as-a-ratio" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="power-as-a-ratio">Power as a Ratio</h2>
 <p>For a “well-powered experiment,” the task is to get the ratio <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Ctau%7D%7BSE%7D"> above at least 2.5 (for 80% power) and ideally to 3.3 (for 95% power).<sup>2</sup></p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember that “well-powered” isn’t a given. Most political science research is “greatly underpowered” <span class="citation" data-cites="arel-bundock2022">(Arel-Bundock et al. 2022)</span>.</p></div></div><p>Here’s <a href="https://osf.io/preprints/osf/5am9q_v2">the idea</a>:</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember that “well-powered” isn’t a given. Most political science research is “greatly underpowered” <span class="citation" data-cites="arel-bundock2022">(Arel-Bundock et al. 2022)</span>.</p></div></div><p>Here’s <a href="https://osf.io/preprints/osf/5am9q_v3">the idea</a>:</p>
 <blockquote class="blockquote">
 <p>Power equals <img src="https://latex.codecogs.com/png.latex?1%20-%20%5CPhi_%7Bstd%7D%5Cleft(%201.64%20-%20%5Cfrac%7B%5Ctau%7D%7BSE%7D%20%5Cright)">, where <img src="https://latex.codecogs.com/png.latex?%5CPhi_%7Bstd%7D(z)"> is the standard normal CDF (as found in a standard <img src="https://latex.codecogs.com/png.latex?z"> table), <img src="https://latex.codecogs.com/png.latex?SE"> is the standard error of the estimated treatment effect, and <img src="https://latex.codecogs.com/png.latex?%5Ctau"> is the treatment effect.</p>
 </blockquote>
@@ -385,12 +385,12 @@ Two Key Tasks
 <tr class="even">
 <td><strong>#4: Statistical power</strong></td>
 <td>Conduct power analyses to determine necessary n size (assuming smallest meaningful effect size)</td>
-<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> for more.</td>
+<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v3">this preprint</a> for more.</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Choose sample size cognizant of number of conditions, subgroup analyses, and likely inattentiveness</td>
-<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> for more.</td>
+<td>Decrease standard error; see <span class="citation" data-cites="bloom1995">Bloom (1995)</span> and <a href="https://osf.io/preprints/osf/5am9q_v3">this preprint</a> for more.</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -405,7 +405,7 @@ Two Key Tasks
 <tr class="even">
 <td></td>
 <td>Choose sample size cognizant of quantities learned from first study: effect size, SD of Y, level of inattentiveness, and number/size of subgroup analyses</td>
-<td>Decrease standard error; this <a href="https://osf.io/preprints/osf/5am9q_v2">this preprint</a> presents some ideas about how to connect power analysis to existing studies.</td>
+<td>Decrease standard error; this <a href="https://osf.io/preprints/osf/5am9q_v3">this preprint</a> presents some ideas about how to connect power analysis to existing studies.</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -9780,7 +9780,7 @@ A Paper
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v3">here</a>.</p>
 </div>
 </div>
 <section id="background" class="level2 page-columns page-full">

@@ -44,7 +44,7 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
-      #- href: https://osf.io/preprints/osf/5am9q_v2
+      #- href: https://osf.io/preprints/osf/5am9q_v3
       #  text: The Statistical Power Paper
       #- href: email-list/index.qmd
       #  text: "Email List"
