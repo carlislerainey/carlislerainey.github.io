@@ -1,12 +1,13 @@
 ---
 title: "Customize Your Terminal Prompt on macOS"
 author: "Carlisle Rainey"
-date: "2025-03-31"
+date: "2025-03-21"
+categories: [computing, macOS]
 description: "Create a cleaner macOS prompt showing only the current folder and a `>`"
 toc: false
+image: images/rstudio-terminal-01.png
 twitter-card:
   card-style: summary
-draft: false
 ---
 
 ## Motivation
@@ -23,11 +24,11 @@ my-folder >
 
 Here's what I want the Terminal to look like on macOS (when I'm working on `website/`).
 
-![](images/macOS-terminal.png){fig-align="left" width="6in"}
+![Terminal prompt showing only the current folder name followed by a > symbol](images/macOS-terminal.png){fig-align="left" width="6in"}
 
-And Here's what I want it to look like in RStudio.
+And here's what I want it to look like in RStudio.
 
-![](images/rstudio-terminal-01.png){width="2in"}
+![The same simplified prompt, showing only the current folder name and a > symbol, in RStudio's terminal pane](images/rstudio-terminal-01.png){width="2in"}
 
 ## How to Do It
 

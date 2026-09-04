@@ -17,7 +17,6 @@ open-graph:
   image: "twitter-card.png"
   title: "What Do CIs from Well-Powered Studies Look Like?"  # less than 55 chars
   description: "A literature with confidence intervals that nestle right up against zero is likely a collection of under-powered studies."  # less than 125 chars
-draft: false
 ---
 
 ::: callout-important
@@ -28,9 +27,9 @@ This post turned out to be somewhat popular, so I've written up a more formal, c
 
 ## Background
 
-In this post, I address confidence intervals that are nestled right up against zero.^[This is the second post in a series. In my [previous post](blog/2023-05-22-power-1-for-you-not-reviewer-2), I mentioned two new papers that have me thinking about power: [Arel-Bundock *et al.*'s "Quantitative Political Science Research Is Greatly Underpowered"](https://doi.org/10.31219/osf.io/7vy2f) and [Kane's "More Than Meets the ITT: A Guide for Investigating Null Results"](https://doi.org/10.33774/apsa-2023-h4p0q-v2). Go check out that post and those papers if you haven't.] These intervals indicate that an estimate is "barely" significant. I want to be clear: "barely significant" is still significant, so you should still reject the null hypothesis.[^1]
+In this post, I address confidence intervals that are nestled right up against zero.^[This is the second post in a series. In my [previous post](/blog/2023-05-22-power-1-for-you-not-reviewer-2), I mentioned two new papers that have me thinking about power: [Arel-Bundock *et al.*'s "Quantitative Political Science Research Is Greatly Underpowered"](https://doi.org/10.31219/osf.io/7vy2f) and [Kane's "More Than Meets the ITT: A Guide for Investigating Null Results"](https://doi.org/10.33774/apsa-2023-h4p0q-v2). Go check out that post and those papers if you haven't.] These intervals indicate that an estimate is "barely" significant. I want to be clear: "barely significant" is still significant, so you should still reject the null hypothesis.[^1]
 
-[^1]: I'm focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf). In the cases I discuss, whether one checks whether the *p*-value is less than 0.05 or checks that confidence interval contains zero are equivalent.
+[^1]: I'm focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf). In the cases I discuss, whether one checks whether the *p*-value is less than 0.05 or checks that the confidence interval contains zero are equivalent.
 
 But I want to address a *feeling* that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.
 
@@ -50,6 +49,8 @@ I'm using a one-sided test (hypothesizing a positive effect), so I'll use 90% co
 
 # load packages
 library(tidyverse)
+
+set.seed(20230525)
 
 # create a parameter for the true effect
 true_effect <- 0.5 # just assumed by me
@@ -74,9 +75,10 @@ simulate_estimates <- function(se, pwr) {
 
 # simulate the estimates, compute the confidence intervals, and wrangle
 n_cis <- 5000  # the number of cis to create
-ci_df <- se_df %>% 
+ci_df <- se_df %>%
   # simulate estimates
-  pmap_dfr(simulate_estimates) %>%
+  pmap(simulate_estimates) %>%
+  list_rbind() %>%
   # compute confidence intervals
   mutate(lwr = est - 1.64*se, 
          upr = est + 1.64*se) %>%
@@ -116,15 +118,16 @@ The intervals are green when the lower bound of the 90% confidence interval fall
 
 Notice how low-powered studies tend to nestle their confidence intervals right up against zero. Almost all of the confidence intervals from the study with 25% power are nestled right up against zero. Very few of the confidence intervals from the study with 95% power are nestled up against zero.
 
-Again, you should apply this standard to a *literature*. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors [(Gelman and Stern 2014)](https://journals.sagepub.com/doi/10.1177/1745691614551642).
+Again, you should apply this standard to a *literature*. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors [(Gelman and Carlin 2014)](https://journals.sagepub.com/doi/10.1177/1745691614551642).
 
 ```{r, fig.height=10, fig.width=6}
+#| fig-alt: "Four stacked panels, one per power level (25%, 50%, 80%, 95%), each showing 25 simulated 90% confidence intervals as horizontal error bars ordered by estimate. A solid vertical line marks zero, a dotted line marks one standard error above zero, and a dashed line marks the true effect of 0.5. Intervals are colored orange when their lower bound clears one standard error above zero and green when it does not. In the 25%-power panel almost every interval is green (nestled against zero); in the 95%-power panel almost every interval is orange (not nestled), showing that well-powered studies produce confidence intervals that sit further from zero."
 
 gg_df <- ci_df %>%
   filter(lwr > 0) %>% # apply significance filter 
   # sample 25 intervals (from those that are significant)
   group_by(se, pwr) %>%
-  sample_n(25) %>%
+  slice_sample(n = 25) %>%
   # create id (ordered by estimate value)
   group_by(se, pwr) %>%
   arrange(est) %>%
@@ -150,8 +153,10 @@ ggplot(gg_df, aes(x = est, xmin = lwr, xmax = upr, y = ci_id,
 We can also plot the density of the lower bounds of these 5,000 intervals. This approach shows the "nestling" most clearly. The plots below show that the lower bounds of confidence intervals tend to nestle close to zero when the power is low, and lie further from zero when the power is high.
 
 ```{r fig.height=5, fig.width=7}
+#| fig-alt: "Four density plots, one per power level (25%, 50%, 80%, 95%), showing the distribution of the lower bound of the 90% confidence interval among significant estimates. A dotted vertical line marks one standard error above zero in each panel. At 25% power the density piles up just to the right of zero (nestled against zero); as power rises to 95% the density shifts further to the right, away from the dotted line."
+
 gg_df <- ci_df %>%
-  filter(lwr > 0) # apply significance filter 
+  filter(lwr > 0) # apply significance filter
 ggplot(gg_df, aes(x = lwr)) + 
   facet_wrap(vars(pwr), scales = "free_x") + 
   geom_density(fill = "grey50") + 
@@ -190,7 +195,7 @@ In this post, I address confidence intervals that are nestled right up against z
 
 Because "unlucky" is always a possibility, we can't learn much from a *particular* confidence interval, but we can learn a lot from a *literature*. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, *do* tend to produce confidence intervals that nestle right up against zero.
 
-::: callout
+::: {.callout-important}
 ## Key Takeaway
 Under-powered studies tend to produce confidence intervals that are nestled right up against zero. Well-powered studies tend to produce confidence intervals that fall further away. A literature that produces confidence intervals that consistently nestle right up against zero is likely a collection of under-powered studies.
 :::

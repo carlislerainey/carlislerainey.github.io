@@ -1,16 +1,16 @@
 ---
 title: "Blog"
+description: "Blog posts by Carlisle Rainey on statistical power, hypothesis testing, research design, and R."
 listing:
   type: table
-  sort: 
+  sort:
     - "date desc"
   fields: [date, title, reading-time]
   categories: false
   feed:
     type: full
     title: "Carlisle's Blog"
-    image: profile.png
-    categories: [R]
+    image: profile-tw.png
 comments: false
 format: 
   html: 

@@ -1,110 +1,67 @@
 ```{=html}
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
-
-<style>
-  .btn-xs {
-    padding: 1px 5px;
-    font-size: 15px;
+<%
+  // Quarto flattens a YAML author list into one comma-separated string
+  // before the template sees it, so split it back apart before formatting.
+  function formatAuthors(author) {
+    if (!author) return '';
+    var authors = Array.isArray(author) ? author : String(author).split(',');
+    authors = authors.map(function (a) { return a.trim(); }).filter(Boolean);
+    if (authors.length === 0) return '';
+    if (authors.length === 1) return authors[0];
+    if (authors.length === 2) return authors[0] + ' and ' + authors[1];
+    return authors.slice(0, -1).join(', ') + ', and ' + authors[authors.length - 1];
   }
-  .ai-lg {
-    font-size: 1.2em;  /* Adjust as needed */
+
+  // Citation line: published papers show year and journal; everything else
+  // shows the date and status. Missing fields are skipped rather than
+  // printed as "undefined".
+  function citation(item) {
+    var parts = item.type === 'Published'
+      ? [item.year, formatAuthors(item.author), item.journal]
+      : [item.date, formatAuthors(item.author), item.status];
+    parts = parts.filter(function (p) { return p !== undefined && p !== null && String(p).trim() !== ''; });
+    return parts.length ? parts.join('. ') + '.' : '';
   }
-</style>
+
+  // Link buttons, in display order. Each entry is [yaml key, icon classes, label].
+  // Add or reorder buttons here; nothing else needs to change.
+  var linkTypes = [
+    ['errata',    'bi bi-exclamation-diamond', 'Errata'],
+    ['website',   'bi bi-filetype-html',       'Project Website'],
+    ['pdf',       'bi bi-file-earmark-pdf',    'PDF'],
+    ['pubopen',   'ai ai-open-access',         'Open Access'],
+    ['pubclosed', 'ai ai-closed-access',       "Publisher's Version"],
+    ['preprint',  'ai ai-doi',                 'Preprint'],
+    ['appendix',  'bi bi-file-earmark-plus',   'Appendix'],
+    ['dataverse', 'ai ai-dataverse',           'Dataverse'],
+    ['osf',       'ai ai-osf',                 'OSF'],
+    ['github',    'bi bi-github',              'GitHub'],
+    ['prereg',    'ai ai-preregistered',       'Preregistration']
+  ];
+%>
 
 <ul class="list">
   <% for (const item of items) { %>
+    <% var links = linkTypes.filter(function (l) { return item[l[0]]; }); %>
     <li <%= metadataAttrs(item) %>>
-      <%= item.title %> 
+      <span class="paper-title"><%= item.title %></span>
       <br/>
       <p>
-      <!-- paper info for not-yet-published papers -->
-      <% if (item.type !== 'Published') { %>
-        <small class="text-muted">
-          <%= item.date %>. <%= item.author %>. <%= item.status %>.
-        </small>
-      <% } %>
-      
-      <!-- paper info for published papers -->
-      <% if (item.type === 'Published') { %>
-        <small class="text-muted">
-          <%= item.year %>. <%= item.author %>. <%= item.journal %>.
-        </small>
-      <% } %>
-      
-      <br/>
+      <small class="text-muted"><%= citation(item) %></small>
 
-      <% if (item.errata) { %>
-        <a role="button" href="<%= item.errata %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-exclamation-diamond ai-lg"></i> Errata
-        </a> 
+      <% if (links.length) { %>
+        <br/>
+        <% for (const l of links) { %>
+          <a href="<%= item[l[0]] %>" class="btn btn-outline-secondary btn-xs">
+            <i class="<%= l[1] %> ai-lg"></i> <%= l[2] %>
+          </a>
+        <% } %>
       <% } %>
-      
-      <% if (item.website) { %>
-        <a role="button" href="<%= item.website %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-filetype-html ai-lg"></i> Project Website
-        </a>
-      <% } %>
-      
-      <% if (item.pdf) { %>
-        <a role="button" href="<%= item.pdf %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-file-earmark-pdf ai-lg"></i> PDF 
-        </a> 
-      <% } %>
-      
-      <% if (item.pubopen) { %>
-        <a role="button" href="<%= item.pubopen %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-open-access ai-lg"></i> Open Access
-        </a>
-      <% } %>
-      
-      <% if (item.pubclosed) { %>
-        <a role="button" href="<%= item.pubclosed %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-closed-access ai-lg"></i> Publisher's Version 
-        </a>
-      <% } %>
-      
-      <% if (item.preprint) { %>
-        <a role="button" href="<%= item.preprint %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-doi ai-lg"></i> Preprint 
-        </a> 
-      <% } %>
-      
-      <% if (item.appendix) { %>
-        <a role="button" href="<%= item.appendix %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-file-earmark-plus ai-lg"></i> Appendix 
-        </a>
-      <% } %>
-      
-      <% if (item.dataverse) { %>
-        <a role="button" href="<%= item.dataverse %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-dataverse ai-lg"></i> Dataverse 
-        </a>
-      <% } %>
-      
-      <% if (item.osf) { %>
-        <a role="button" href="<%= item.osf %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-osf ai-lg"></i> OSF
-        </a>
-      <% } %>
-      
-      <% if (item.github) { %>
-        <a role="button" href="<%= item.github %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="bi bi-github ai-lg"></i> GitHub 
-        </a>
-      <% } %>
-      
-      <% if (item.prereg) { %>
-        <a role="button" href="<%= item.prereg %>" type="button" class="btn btn-outline-secondary btn-xs"> 
-          <i class="ai ai-preregistered ai-lg"></i> Preregistration 
-        </a> 
-      <% } %>
-      
-      <br/>
-      
+
       <% if (item.note) { %>
+        <br/>
         <small class="text-secondary">
-          <span class="note"><%= item.note %></span>    
+          <span class="note"><%= item.note %></span>
         </small>
       <% } %>
       </p>
@@ -112,7 +69,4 @@
     </li>
   <% } %>
 </ul>
-
 ```
-
-

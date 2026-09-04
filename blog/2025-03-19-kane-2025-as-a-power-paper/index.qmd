@@ -10,9 +10,12 @@ toc: false
 twitter-card:
   card-style: summary_large_image
   image: "twitter-card.png"
-open-graph:   
+  title: "Kane (2025) as a Power Paper"  # less than 55 chars
+  description: "Kane (2025)'s suggestions for avoiding null results double as action items for maximizing statistical power."  # less than 125 chars
+open-graph:
   image: "twitter-card.png"
-draft: false
+  title: "Kane (2025) as a Power Paper"  # less than 55 chars
+  description: "Kane (2025)'s suggestions for avoiding null results double as action items for maximizing statistical power."  # less than 125 chars
 bibliography: references.bib
 ---
 
@@ -78,7 +81,7 @@ The table below lists all of Kane's categories and action items and notes the pa
 |  | Investigate using a non-experimental design | NA |
 | **#4: Statistical power** | Conduct power analyses to determine necessary n size (assuming smallest meaningful effect size) | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v3) for more. |
 |  | Choose sample size cognizant of number of conditions, subgroup analyses, and likely inattentiveness | Decrease standard error; see @bloom1995 and [this preprint](https://osf.io/preprints/osf/5am9q_v3) for more. |
-|  | Use pre-registered covariates in model, blocking, or a within-subjects design | Decrease standard error; see @blair2019 and @blair2023 for a framework to assess the impact of these design choices; ; see @clifford2021 for a good approach using a pre-post design. |
+|  | Use pre-registered covariates in model, blocking, or a within-subjects design | Decrease standard error; see @blair2019 and @blair2023 for a framework to assess the impact of these design choices; see @clifford2021 for a good approach using a pre-post design. |
 |  | Aim to collect a larger sample | Decrease standard error. |
 |  | Choose sample size cognizant of quantities learned from first study: effect size, SD of Y, level of inattentiveness, and number/size of subgroup analyses | Decrease standard error; this [this preprint](https://osf.io/preprints/osf/5am9q_v3) presents some ideas about how to connect power analysis to existing studies. |
 |  | Consider an alternative design structure (e.g., within-subjects) | Decrease standard error. |
@@ -95,4 +98,4 @@ The table below lists all of Kane's categories and action items and notes the pa
 
 And for completeness, here is Kane's original table:
 
-![](images/clipboard-1273155981.png)
+![Kane's (2025) Table 1: alternative explanations for null results and recommended actions](images/clipboard-1273155981.png)

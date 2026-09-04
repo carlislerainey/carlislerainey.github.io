@@ -9,14 +9,19 @@ toc: false
 twitter-card:
   card-style: summary_large_image
   image: "twitter-card.png"
-open-graph:   
+  title: "Statistical Power from Pilot Data: Simulations"  # less than 55 chars
+  description: "In this post, I discuss how pilot data can be used to predict the standard error in a planned study."  # less than 125 chars
+open-graph:
   image: "twitter-card.png"
+  title: "Statistical Power from Pilot Data: Simulations"  # less than 55 chars
+  description: "In this post, I discuss how pilot data can be used to predict the standard error in a planned study."  # less than 125 chars
 bibliography: references.bib
-draft: false
 ---
 
 ```{r include=FALSE}
 library(tidyverse)
+
+set.seed(20240603)
 ```
 
 ------------------------------------------------------------------------
@@ -170,9 +175,10 @@ Now let's take a look a these standard errors from the simulated pilot studies. 
 
 ```{r}
 #| message: false
-ggplot(res, aes(x = pilot_se_hat)) + 
-  geom_histogram() + 
-  facet_wrap(vars(n_pilot)) + 
+#| fig-alt: "Five histograms, one per pilot sample size (10, 30, 60, 90, 150 respondents per condition), showing the distribution of the estimated standard error across 10,000 simulated pilot studies. A vertical line marks the true standard error of the planned 500-per-condition study. In every panel the pilot standard errors are centered above that line, and the smaller the pilot, the more the distribution spreads out and overshoots it."
+ggplot(res, aes(x = pilot_se_hat)) +
+  geom_histogram() +
+  facet_wrap(vars(n_pilot)) +
   geom_vline(xintercept = se)
 ```
 
@@ -182,9 +188,10 @@ However, we can translate the standard error from the pilot studies into predict
 
 ```{r}
 #| message: false
-ggplot(res, aes(x = sqrt(n_pilot/n_planned)*pilot_se_hat)) + 
-  geom_histogram() + 
-  facet_wrap(vars(n_pilot)) + 
+#| fig-alt: "Five histograms, one per pilot sample size, showing the pilot standard error rescaled by sqrt(n_pilot/n_planned) to predict the standard error of the planned 500-per-condition study. A vertical line marks the true planned-study standard error; the rescaled predictions are now centered right on that line in every panel, though the distribution still spreads below it (an underestimate) for the smallest pilots."
+ggplot(res, aes(x = sqrt(n_pilot/n_planned)*pilot_se_hat)) +
+  geom_histogram() +
+  facet_wrap(vars(n_pilot)) +
   geom_vline(xintercept = se)
 ```
 
@@ -194,9 +201,10 @@ As a solution, we can gently nudge the standard error from the pilot up by a fac
 
 ```{r}
 #| message: false
-ggplot(res, aes(x = sqrt(n_pilot/n_planned)*(sqrt(1/n_pilot) + 1)*pilot_se_hat)) + 
-  geom_histogram() + 
-  facet_wrap(vars(n_pilot)) + 
+#| fig-alt: "Five histograms, one per pilot sample size, showing the rescaled pilot standard error after the conservative nudge factor (sqrt(1/n_pilot) + 1) is applied. A vertical line marks the true planned-study standard error; the nudged predictions now sit almost entirely at or above that line in every panel, so the standard error is rarely underestimated."
+ggplot(res, aes(x = sqrt(n_pilot/n_planned)*(sqrt(1/n_pilot) + 1)*pilot_se_hat)) +
+  geom_histogram() +
+  facet_wrap(vars(n_pilot)) +
   geom_vline(xintercept = se)
 ```
 
@@ -218,6 +226,7 @@ First, we can compute the minimum detectable effect with 80% power. This is abou
 
 ```{r}
 #| message: false
+#| fig-alt: "Five histograms, one per pilot sample size, showing the distribution of the conservative minimum detectable effect (2.5 times the predicted standard error) implied by each simulated pilot. A vertical line marks the true treatment effect of 1; the minimum detectable effect distributions cluster near that line and shift slightly higher and wider for smaller pilots."
 # compute minimum detectable effect
 mde <- res %>%
   mutate(pred_se_cons = sqrt(n_pilot/n_planned)*(sqrt(1/n_pilot) + 1)*pilot_se_hat, 
@@ -225,9 +234,9 @@ mde <- res %>%
   glimpse()
 
 # plot minimum detectable effect
-ggplot(mde, aes(x = mde_cons)) + 
-  geom_histogram() + 
-  facet_wrap(vars(n_pilot)) + 
+ggplot(mde, aes(x = mde_cons)) +
+  geom_histogram() +
+  facet_wrap(vars(n_pilot)) +
   geom_vline(xintercept = tau)
 ```
 
@@ -237,6 +246,7 @@ Second, we can compute the statistical power for given treatment effect. Power e
 
 ```{r}
 #| message: false
+#| fig-alt: "Five histograms, one per pilot sample size, showing the distribution of the conservative power estimate implied by each simulated pilot for a treatment effect of 1. A vertical line marks the target of 80% power; the power distributions cluster around and mostly above that line, with more spread for smaller pilots."
 # compute the power
 pwr <- res %>%
   mutate(pred_se_cons = sqrt(n_pilot/n_planned)*(sqrt(1/n_pilot) + 1)*pilot_se_hat, 
@@ -258,6 +268,7 @@ As I described above, for 80% power to detect the treatment effect $\widetilde{\
 
 ```{r}
 #| message: false
+#| fig-alt: "Five histograms, one per pilot sample size, showing the distribution of the conservative required sample size per condition implied by each simulated pilot, for 80% power to detect a treatment effect of 1. A vertical line marks the true required sample size of 500; the distributions cluster above that line, meaning the conservative rule usually recommends more respondents than strictly necessary, and the excess shrinks as the pilot gets larger."
 # compute the required sample size
 ss <- res %>%
   mutate(ss_cons = n_pilot*((2.5/tau)*(sqrt(1/n_pilot) + 1)*pilot_se_hat)^2) %>%
@@ -284,9 +295,9 @@ ss %>%
   summarize(avg_waste = scales::percent(mean(waste), accuracy = 1), 
             pct_too_small = scales::percent(mean(ss_cons < 500), accuracy = 1)) %>%
   rename(`Respondents per condition in pilot study` = n_pilot,
-         `Average waste (needed 1,000 respondents and used 1,300 means waste is 30%)` = avg_waste, 
+         `Average waste (needed 1,000 respondents and used 1,300 means waste is 30%)` = avg_waste,
          `Percent of sample sizes that produce less than 80% power` = pct_too_small) %>%
-  tinytable::tt()
+  knitr::kable()
 ```
 
 ## Summary

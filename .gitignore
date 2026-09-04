@@ -9,3 +9,17 @@ papers2/
 /.luarc.json
 cv.pages
 .claude/
+
+.Rhistory*
+twitter-cards.key
+blog/*/index_cache/
+blog/*/index_files/
+talks/*/index_cache/
+talks/*/index_files/
+
+# Claude / review artifacts — never push
+.claude/
+CLAUDE.md
+**/CLAUDE.md
+_review/
+_review-*/

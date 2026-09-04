@@ -165,6 +165,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../assets/academicons/css/academicons.min.css">
 <meta property="og:title" content="Statistical Power from Pilot Data: An Example – Carlisle Rainey">
 <meta property="og:description" content="In this post, I provide an example of how pilot data can be used to predict the standard error in a planned study.">
 <meta property="og:image" content="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/twitter-card.png">
@@ -178,6 +179,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image-height" content="418">
 <meta name="twitter:image-width" content="800">
+<link rel="canonical" href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">
 </head>
 
 <body class="nav-fixed">
@@ -290,7 +292,7 @@ Power Rules
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post is based on <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a> called “Power Rules.”</p>
+<p>This post is based on <a href="https://osf.io/preprints/osf/5am9q_v3">this paper</a> called “Power Rules.”</p>
 </div>
 </div>
 <p>We can think of statistical power as determined by the ratio <span class="math inline">\(\frac{\tau}{SE}\)</span>, where <span class="math inline">\(\tau\)</span> is the treatment effect and SE is the standard error of the estimate. To reason about statistical power, one needs to make assumptions or predictions about the treatment effect and the standard error.</p>
@@ -318,7 +320,7 @@ Predicting the SE in the planned study using pilot data
 <p>Conservatively, the standard error will be about <span class="math inline">\(\sqrt{\frac{n^{pilot}}{n^{planned}}} \cdot \left\lbrack \left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right) \cdot {\widehat{SE}}_{\widehat{\tau}}^{pilot} \right\rbrack\)</span>, where <span class="math inline">\(n^{pilot}\)</span> is the number of respondents per condition in the pilot data, <span class="math inline">\(SE_{\widehat{\tau}}^{pilot}\)</span> is the estimated standard error using the pilot data, and <span class="math inline">\(n^{planned}\)</span> is the number of respondents per condition in the planned study.</p>
 </div>
 </div>
-<p>The factor <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> For the details, see <a href="https://osf.io/preprints/osf/5am9q_v2">this paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
+<p>The factor <span class="math inline">\(\left( \sqrt{\frac{1}{n^{pilot}}} + 1 \right)\)</span> nudges the standard error from the pilot study in a conservative direction, since it might be an under-estimate of the actual standard error.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> For the details, see <a href="https://osf.io/preprints/osf/5am9q_v3">this paper</a>, but this conservative standard error estimate is approximately the upper bound of a 95% confidence interval for the <em>standard error</em> using the pilot data.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;More generally, we can use a bootstrap to conservatively estimate the standard error, without relying on this analytical approximation.</p></div></div></section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
@@ -326,27 +328,22 @@ Predicting the SE in the planned study using pilot data
 <h3 class="anchored" data-anchor-id="the-robbins-et-al.-study">The Robbins et al.&nbsp;study</h3>
 <p>As an example, let’s use half of the experiment conducted by <span class="citation" data-cites="robbins2024">Robbins et al. (<a href="#ref-robbins2024" role="doc-biblioref">2024</a>)</span>.</p>
 <p>Robbins et al.&nbsp;use a 2x2 factorial vignette design, randomly assigning each respondent to read one of four vignettes. The vignette describes a hypothetical covert operation ordered by the president that ends in either success or failure. Then, the vignette describes a whistleblower coming forward and describes the president’s opposition in Congress as either amplifying or ignoring the whistleblower.</p>
-
-
-
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 15px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-
-
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 15px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
 
 
 <table class="caption-top table" data-quarto-postprocess="true">
@@ -374,12 +371,8 @@ Predicting the SE in the planned study using pilot data
 </tr>
 </tbody>
 </table>
-
-
-
-
 <p>After the vignette, the respondent is asked whether they approve of the opposition in Congress’ actions on a seven-point Likert scale from strongly approve to strongly disapprove.</p>
-<p>For a simple example, let’s <strong>focus on the effect of amplifying the whistleblower when the operation succeeds</strong>. That is, let’s compare responses after Vignette 1 and Vignette 3. How much does amplifying a whistleblower increase approval <em>when the opperation succeeds</em>? We expect a small effect here, so we should pay careful attention to power.</p>
+<p>For a simple example, let’s <strong>focus on the effect of amplifying the whistleblower when the operation succeeds</strong>. That is, let’s compare responses after Vignette 1 and Vignette 3. How much does amplifying a whistleblower increase approval <em>when the operation succeeds</em>? We expect a small effect here, so we should pay careful attention to power.</p>
 </section>
 </section>
 <section id="the-task" class="level2">
@@ -620,14 +613,14 @@ $ pid_strength &lt;dbl&gt; 2, 2, 3, 3, 3, 2, 0, 2, 2, 1, 2, 0, 3, 1, 2, 3, 2, 3,
 <span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(pwr, <span class="at">probs =</span> <span class="fl">0.025</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5% 
-0.8199688 </code></pre>
+0.8198949 </code></pre>
 </div>
 </div>
 <p>Using the analytical approximation, we got 0.815 as a conservative estimate of power. The bootstrap gave us 0.820 as a conservative estimate. The actual power in the full study turned out to be about 0.843. (Remember, all of these power calculations are <em>power to detected an effect of 0.35 points on the seven-point scale.</em>)</p>
 </section>
 <section id="the-paper" class="level2">
 <h2 class="anchored" data-anchor-id="the-paper">The paper</h2>
-<p>I have a <a href="https://osf.io/preprints/osf/5am9q_v2">draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
+<p>I have a <a href="https://osf.io/preprints/osf/5am9q_v3">draft of a paper</a> on these (and other) ideas. Please test them out in your own work and let me know if you have questions, comments, and suggestions. I’m interested in making the paper as clear and useful as I can.</p>
 
 
 
@@ -642,7 +635,7 @@ Bloom, Howard S. 1995. <span>“Minimum Detectable Effects.”</span> <em>Evalua
 Leon, Andrew C., Lori L. Davis, and Helena C. Kraemer. 2011. <span>“The Role and Interpretation of Pilot Studies in Clinical Research.”</span> <em>Journal of Psychiatric Research</em> 45 (5): 626–29. <a href="https://doi.org/10.1016/j.jpsychires.2010.10.008">https://doi.org/10.1016/j.jpsychires.2010.10.008</a>.
 </div>
 <div id="ref-robbins2024" class="csl-entry" role="listitem">
-Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, Bryanna Major, Maria A Martinez, et al. 2024. <span>“Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight.”</span> SocArXiv. <a href="https://doi.org/10.31235/osf.io/9p5h8">https://doi.org/10.31235/osf.io/9p5h8</a>.
+Robbins, Caroline, Alessandro Brunelli, Jose Casto, Ainsley Coty, Andrew Louis, Bryanna Major, Maria Aleman Martinez, et al. 2024. <span>“Overt Consequences of Covert Actions: Success, Failure, and Voters’ Preferences for Legislative Oversight.”</span> SocArXiv. <a href="https://doi.org/10.31235/osf.io/9p5h8">https://doi.org/10.31235/osf.io/9p5h8</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -17,11 +17,9 @@ open-graph:
   image: "twitter-card.png"
   title: "Equivalence Tests with {marginaleffects}"  # less than 55 chars
   description: "Reproducing the Clark and Golder (2006) example from Rainey (2014)"  # less than 125 chars
-code-annotations: hover
 code-fold: false
-execute: 
+execute:
   cache: false
-draft: false
 bibliography: references.bib
 ---
 
@@ -35,7 +33,7 @@ My first publication was an *AJPS* article [@rainey2014] ([Ungated PDF](https://
 
 Here's what I wrote in that paper:
 
-> Hypothesis testing is a powerful empirical argument not because it shows that the data are consistent with the research hypothesis, but because it shows that the data are inconsistent with other hypotheses (i.e., the null hypothesis). However, researchers sometimes reverse this logic when arguing for a negligible effect, showing only that the data are consistent with "no effect" and failing to show that the data are inconsistent with meaningful effects. When researchers argue that a variable has "no effect" because its confidence interval contains zero, they take no steps to rule out large, meaningful effects, making the empirical claim considerably less persuasive . [@altman1995; @gill1999; @nickerson2000]
+> Hypothesis testing is a powerful empirical argument not because it shows that the data are consistent with the research hypothesis, but because it shows that the data are inconsistent with other hypotheses (i.e., the null hypothesis). However, researchers sometimes reverse this logic when arguing for a negligible effect, showing only that the data are consistent with "no effect" and failing to show that the data are inconsistent with meaningful effects. When researchers argue that a variable has "no effect" because its confidence interval contains zero, they take no steps to rule out large, meaningful effects, making the empirical claim considerably less persuasive [@altman1995; @gill1999; @nickerson2000].
 
 But here's a critical point, it's impossible to reject every hypothesis except *exactly* no effect. Instead, the researcher must define a range of substantively "negligible" effects. The researcher *can* reject the null hypothesis that the effect falls outside this range of negligible effects. However, this requires a substantive judgement about those effects that are negligible and those that are not.
 
@@ -57,7 +55,7 @@ Thus, they expect that electoral institutions won't matter in socially homogeneo
 
 Before computing their specific quantities of interest, let's reproduce their regression model. Here's their table that we're trying to reproduce.
 
-![](clark-golder-2006-table2.png)
+![Clark and Golder (2006) Table 2, reproduced regression results](clark-golder-2006-table2.png)
 
 And here's a reproduction of their estimates using the `cg2006` data from the [{crdata} package](http://www.carlislerainey.com/crdata/) on GitHub.[^1]
 
@@ -90,7 +88,7 @@ modelsummary(fit,
 
 Success!
 
-They use `averge_magnitude` to measure the permissiveness of the electoral system and `eneg` to measure social heterogeneity.
+They use `average_magnitude` to measure the permissiveness of the electoral system and `eneg` to measure social heterogeneity.
 
 ## Using `comparisons()` to compute the effects
 
@@ -101,7 +99,7 @@ Now let's compute the two quantities of interest. Clark and Golder argue for two
 
 And comparing the U.S. and the U.K., I argue that the smallest substantively interesting effect is 0.62. In @rainey2014, I made the plot below. I want to reproduce it with {marginaleffects}.
 
-![](rainey-2014-cg-example.png)
+![Plot from Rainey (2014) showing the equivalence-test bounds for the Clark and Golder (2006) example](rainey-2014-cg-example.png)
 
 These differences (and the 90% CIs) are really easy to compute using {marginaleffects}![^2]
 
@@ -154,9 +152,9 @@ ggplot(c, aes(x = estimate,
                  xmin = conf.low,
                  xmax = conf.high, 
                  y = term)) + 
-  geom_vline(xintercept = c(-m, m), linetype = "dashed") + 
-  geom_errorbarh() + 
-  geom_point() 
+  geom_vline(xintercept = c(-m, m), linetype = "dashed") +
+  geom_errorbar(orientation = "y") +
+  geom_point()
 ```
 
 In this case, we conclude that social heterogeneity (`eneg`) has a negligible effect because the 90% CI only contains substantively negligible values. However, the 90% CI for district magnitude (`average_magnitude`) contains substantively negligible and meaningful values, so we cannot reject the null hypothesis of a meaningful effect.
@@ -192,7 +190,7 @@ For more on effective arguments for no effect, see the following:
 ## Final thoughts
 
 1.  {marginaleffects} is a great package [@marginaleffects]. I think it's the first package in which the syntax matches the way I think about computing quantities of interest. That said, this is just my first try at it. But I'm very impressed so far.
-2.  The {marginaleffects} [book](https://marginaleffects.com) *Model to Meaning* has a whole [chapter](https://marginaleffects.com/chapters/hypothesis.html#sec-hypothesis_equivalence) on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a *p*-value for an equivalence test. However, the 90% confidence interval correspondents to a size-5% equivalence test. So if you're using {marginaleffects} to do equivalence tests, I recommend setting `conf_level = 0.90`.[^4]
-3.  For a more recent example, @jares2024 discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It's an excellent model to follow. See pp. 12-13. They "show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers' propensity to view the intervention as helpful."
+2.  The {marginaleffects} [book](https://marginaleffects.com) *Model to Meaning* has a whole [chapter](https://marginaleffects.com/chapters/hypothesis.html#sec-hypothesis_equivalence) on equivalence tests. My only caution is that there is a mismatch between 95% confidence intervals and equivalence tests. By default, {marginaleffects} reports a 95% CI, even when producing a *p*-value for an equivalence test. However, the 90% confidence interval corresponds to a size-5% equivalence test. So if you're using {marginaleffects} to do equivalence tests, I recommend setting `conf_level = 0.90`.[^4]
+3.  For a more recent example, @jares2024 discusses negligible effects and hypothesis tests in a way that I find clear and compelling. It's an excellent model to follow (page reference is to an earlier working-paper version, not the published pagination). They "show that improved compensation outcomes had negligible impacts on Republican farmers’ midterm turnout and campaign contributions, even though such variation in benefits significantly affected farmers' propensity to view the intervention as helpful."
 
 [^4]: I would make a similar point about one-sided tests as well, but that's less correct, because it should be a *one-sided* 95% CI.

@@ -102,9 +102,13 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../assets/academicons/css/academicons.min.css">
 <meta property="og:title" content="Firth’s Logit: Some References – Carlisle Rainey">
 <meta property="og:description" content="In this note, I collect some older and more recent work on Firth’s penalized maximum likelihood estimator.">
+<meta property="og:image" content="https://www.carlislerainey.com/profile-tw.png">
 <meta property="og:site_name" content="Carlisle Rainey">
+<meta property="og:image:height" content="533">
+<meta property="og:image:width" content="800">
 <meta name="twitter:title" content="Firth’s Logit: Some References – Carlisle Rainey">
 <meta name="twitter:description" content="In this note, I collect some older and more recent work on Firth’s penalized maximum likelihood estimator.">
 <meta name="twitter:image" content="https://www.carlislerainey.com/profile-tw.png">
@@ -112,6 +116,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image-height" content="533">
 <meta name="twitter:image-width" content="800">
+<link rel="canonical" href="https://www.carlislerainey.com/blog/2023-08-30-firth-references/">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -212,7 +217,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </header>
 
 
-<p>In <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span>, Kelly McCaskey and I offer a accessible and practical (re)introduction to Firth’s penalized maximum likelihood estimator that (1) corrects the small sample bias and (2) reduces the excessive variance of the usual maximum likelihood estimator.</p>
+<p>In <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span>, Kelly McCaskey and I offer an accessible and practical (re)introduction to Firth’s penalized maximum likelihood estimator that (1) corrects the small sample bias and (2) reduces the excessive variance of the usual maximum likelihood estimator.</p>
 <p>Below, I bookmark other references that might be helpful.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -231,7 +236,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <li><span class="citation" data-cites="firth1993">Firth (<a href="#ref-firth1993" role="doc-biblioref">1993</a>)</span> originally introduced the idea. Kelly and I draw mostly on this paper—it’s a wonderful paper.</li>
 <li><span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> follow-up with additional theoretical results that are relevant for the estimator as used in practice since 1993. This happened to come out while our paper was working its way through the publication process. Most importantly, they discuss the shrinkage property of the estimator, which is what Kelly and I highlight as under-appreciated (and really important!).</li>
 </ol>
-<p>From my perpective, these are the two main papers to refer to if you’re concerned about small sample bias in logistic regression models.</p>
+<p>From my perspective, these are the two main papers to refer to if you’re concerned about small sample bias in logistic regression models.</p>
 </section>
 <section id="extensions" class="level3">
 <h3 class="anchored" data-anchor-id="extensions">Extensions</h3>
@@ -246,7 +251,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 </section>
 <section id="separation-and-finiteness" class="level3">
 <h3 class="anchored" data-anchor-id="separation-and-finiteness">Separation and Finiteness</h3>
-<p>I learned about Firth’s estimator from <span class="citation" data-cites="zorn2005">Zorn (<a href="#ref-zorn2005" role="doc-biblioref">2005</a>)</span>, who follows <span class="citation" data-cites="heinze2002">Heinze and Schemper (<a href="#ref-heinze2002" role="doc-biblioref">2002</a>)</span> in suggesting it as a solution to separation. According to David Firth in <a href="https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/">this blog post</a>, this is the application that stimulated interest in the approach after it went relatively unnoticed for a few years. <em>(Great post, I highly recommend reading it!)</em> This application piqued my interest in Firth’s estimator. Briefly, I think Firth’s default penalty might not be substantively reasonable in a given application <span class="citation" data-cites="rainey2016">(<a href="#ref-rainey2016" role="doc-biblioref">Rainey 2016</a>)</span> (see also <span class="citation" data-cites="beiser-mcgrath2020">Beiser-McGrath (<a href="#ref-beiser-mcgrath2020" role="doc-biblioref">2020</a>)</span>) and the usual likelihood ratio and score tests work well without the penalty <span class="citation" data-cites="rainey2023">(<a href="#ref-rainey2023" role="doc-biblioref">Rainey 2023</a>)</span>.</p>
+<p>I learned about Firth’s estimator from <span class="citation" data-cites="zorn2005">Zorn (<a href="#ref-zorn2005" role="doc-biblioref">2005</a>)</span>, who follows <span class="citation" data-cites="heinze2002">Heinze and Schemper (<a href="#ref-heinze2002" role="doc-biblioref">2002</a>)</span> in suggesting it as a solution to separation. According to David Firth in <a href="https://davidfirth.github.io/blog/2023/01/05/f93-citations-and-history/">this blog post</a>, this is the application that stimulated interest in the approach after it went relatively unnoticed for a few years. <em>(Great post, I highly recommend reading it!)</em> This application piqued my interest in Firth’s estimator. Briefly, I think Firth’s default penalty might not be substantively reasonable in a given application <span class="citation" data-cites="rainey2016">(<a href="#ref-rainey2016" role="doc-biblioref">Rainey 2016</a>)</span> (see also <span class="citation" data-cites="beiser-mcgrath2020">Beiser-McGrath (<a href="#ref-beiser-mcgrath2020" role="doc-biblioref">2020</a>)</span>) and the usual likelihood ratio and score tests work well without the penalty <span class="citation" data-cites="rainey2023">(<a href="#ref-rainey2023" role="doc-biblioref">Rainey 2024</a>)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -285,7 +290,7 @@ Puhr, Rainer, Georg Heinze, Mariana Nold, Lara Lusa, and Angelika Geroldinger. 2
 Rainey, Carlisle. 2016. <span>“Dealing with Separation in Logistic Regression Models.”</span> <em>Political Analysis</em> 24 (3): 339–55. <a href="https://doi.org/10.1093/pan/mpw014">https://doi.org/10.1093/pan/mpw014</a>.
 </div>
 <div id="ref-rainey2023" class="csl-entry" role="listitem">
-———. 2023. <span>“Hypothesis Tests Under Separation.”</span> <a href="http://dx.doi.org/10.31235/osf.io/bmvnu">http://dx.doi.org/10.31235/osf.io/bmvnu</a>.
+———. 2024. <span>“Hypothesis Tests Under Separation.”</span> <em>Political Analysis</em> 32 (2): 172–85. <a href="https://doi.org/10.1017/pan.2023.28">https://doi.org/10.1017/pan.2023.28</a>.
 </div>
 <div id="ref-rainey2021" class="csl-entry" role="listitem">
 Rainey, Carlisle, and Kelly McCaskey. 2021. <span>“Estimating Logit Models with Small Samples.”</span> <em>Political Science Research and Methods</em> 9 (3): 549–64. <a href="https://doi.org/10.1017/psrm.2021.9">https://doi.org/10.1017/psrm.2021.9</a>.
@@ -300,7 +305,7 @@ Röver, Christian, Moreno Ursino, Tim Friede, and Sarah Zohar. 2022. <span>“A 
 Sterzinger, Philipp, and Ioannis Kosmidis. 2023. <span>“Maximum Softly-Penalized Likelihood for Mixed Effects Logistic Regression.”</span> <em>Statistics and Computing</em> 33 (2). <a href="https://doi.org/10.1007/s11222-023-10217-3">https://doi.org/10.1007/s11222-023-10217-3</a>.
 </div>
 <div id="ref-turner2012" class="csl-entry" role="listitem">
-Turner, Heather, and David Firth. 2012. <span>“Bradley-Terry Models in<span><em>R</em></span>: The<span><strong>BradleyTerry2</strong></span>Package.”</span> <em>Journal of Statistical Software</em> 48 (9). <a href="https://doi.org/10.18637/jss.v048.i09">https://doi.org/10.18637/jss.v048.i09</a>.
+Turner, Heather, and David Firth. 2012. <span>“Bradley-Terry Models in <span><em>R</em></span>: The <span><strong>BradleyTerry2</strong></span> Package.”</span> <em>Journal of Statistical Software</em> 48 (9). <a href="https://doi.org/10.18637/jss.v048.i09">https://doi.org/10.18637/jss.v048.i09</a>.
 </div>
 <div id="ref-zietkiewicz2023" class="csl-entry" role="listitem">
 Zietkiewicz, Patrick, and Ioannis Kosmidis. 2023. <span>“Bounded-Memory Adjusted Scores Estimation in Generalized Linear Models with Large Data Sets.”</span> <a href="https://doi.org/10.48550/ARXIV.2307.07342">https://doi.org/10.48550/ARXIV.2307.07342</a>.
@@ -667,64 +672,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
-      for (let i=0; i<annoteTargets.length; i++) {
-        const annoteTarget = annoteTargets[i];
-        const targetCell = annoteTarget.getAttribute("data-target-cell");
-        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
-        const contentFn = () => {
-          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          if (content) {
-            const tipContent = content.cloneNode(true);
-            tipContent.classList.add("code-annotation-tip-content");
-            return tipContent.outerHTML;
-          }
-        }
-        const config = {
-          allowHTML: true,
-          content: contentFn,
-          onShow: (instance) => {
-            selectCodeLines(instance.reference);
-            instance.reference.classList.add('code-annotation-active');
-            window.tippy.hideAll();
-          },
-          onHide: (instance) => {
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
             unselectCodeLines();
-            instance.reference.classList.remove('code-annotation-active');
-          },
-          maxWidth: 300,
-          delay: [50, 0],
-          duration: [200, 0],
-          offset: [5, 10],
-          arrow: true,
-          appendTo: function(el) {
-            return el.parentElement.parentElement.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'quarto',
-          placement: 'right',
-          popperOptions: {
-            modifiers: [
-            {
-              name: 'flip',
-              options: {
-                flipVariations: false, // true by default
-                allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
-              },
-            },
-            {
-              name: 'preventOverflow',
-              options: {
-                mainAxis: false,
-                altAxis: false
-              }
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
             }
-            ]        
-          }      
-        };
-        window.tippy(annoteTarget, config); 
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;

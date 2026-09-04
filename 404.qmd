@@ -1,0 +1,7 @@
+---
+title: "Page Not Found"
+---
+
+Sorry, the page you're looking for doesn't exist. It may have been moved or removed.
+
+Try the [home page](/), [research](/research/), or the [blog](/blog/) instead.

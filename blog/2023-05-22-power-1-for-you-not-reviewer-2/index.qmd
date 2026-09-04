@@ -1,8 +1,8 @@
 ---
 title: "Power, Part I: Power Is for *You*, Not for Reviewer Two"
-subtitle: "Type II Errors Are Not Errors, They Wasted Opportunities"
+subtitle: "Type II Errors Are Not Errors, They're Wasted Opportunities"
 author: "Carlisle Rainey"
-date: "2023-05-21"
+date: "2023-05-22"
 categories: [statistical power, hypothesis tests, power analysis, methodology]
 description: "The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that's not *a* task, that's *the* task."
 reference-location: margin
@@ -16,7 +16,6 @@ open-graph:
   image: "twitter-card.png"
   title: "Power Is for *You*, Not for Reviewer Two"  # less than 55 chars
   description: "In experimental design, building statistical power is not *a* task, it's *the* task."  # less than 125 chars
-draft: false
 ---
 
 ::: callout-important
@@ -45,9 +44,9 @@ The hypothesis test is all about arguing *against* the null hypothesis $H_0$ (le
 
 If the data would *NOT* be unusual under the null hypothesis, then you *do not* reject the null hypothesis.
 
-## Intepreting a Failure to Reject
+## Interpreting a Failure to Reject
 
-A failure to reject means that the data "would not be unusual under the null hypothesis." This does not imply that you should conclude the data are *only* consistent with the null. Indeed, there is a sharp asymmetry in hypothesis testing. I describe this in my [2014 *AJPS*]((http://www.carlislerainey.com/papers/nme.pdf)):
+A failure to reject means that the data "would not be unusual under the null hypothesis." This does not imply that you should conclude the data are *only* consistent with the null. Indeed, there is a sharp asymmetry in hypothesis testing. I describe this in my [2014 *AJPS*](http://www.carlislerainey.com/papers/nme.pdf):
 
 > Political scientists commonly interpret a lack of statistical significance (i.e., a failure to reject the null) as evidence for a negligible effect (Gill 1999), but this approach acts as a broken compass... If the sample size is too small, the researcher often concludes that the effect is negligible even though the data are also consistent with large, meaningful effects. This occurs because the small sample leads to a large confidence interval, which is likely to contain both "no effect" and large effects.
 
@@ -81,14 +80,14 @@ This is worth emphasizing in a different way. Tests are not magical tools that t
 
 ## The Implication for Power Calculations
 
-This perspective helps motivate power calculations. By their design, tests control the error rate in certain situations (when then null is correct). You do not need to worry about Type I errors. First, the test controls the error rate under the null. Second, you are pretty sure the null is wrong (see your theory section).
+This perspective helps motivate power calculations. By their design, tests control the error rate in certain situations (when the null is correct). You do not need to worry about Type I errors. First, the test controls the error rate under the null. Second, you are pretty sure the null is wrong (see your theory section).
 
 ::: {.callout-important}
 ## Important Point
-The hypothesis test takes care of the the Type I error rate. If you choose a properly-sized test, you don't need to worry about those errors any more.
+The hypothesis test takes care of the Type I error rate. If you choose a properly-sized test, you don't need to worry about those errors any more.
 :::
 
-If you aren't worried about Type I errors, what are you worried about? They only thing left to worry about is wasting your time and money. **Statistical power** is the chance not of wasting your time and money. 
+If you aren't worried about Type I errors, what are you worried about? The only thing left to worry about is wasting your time and money. **Statistical power** is the chance not of wasting your time and money. 
 
 Power isn't a secondary quantity that you compute for thoroughness or in anticipation of a comment from Reviewer 2. Power is something that you build *for yourself*.
 
@@ -96,9 +95,9 @@ Statisticians talk a lot about Type I errors because that's their contribution. 
 
 And importantly, power is under your control. [Kane](https://doi.org/10.33774/apsa-2023-h4p0q-v2) provides a rich summary of ways to increase the power of your experiment. At a minimum, you have brute force control through sample size.
 
-Power isn't an ancillary concern, it's the entire game from the very beginning of the planning stage. It should be at the forefront of the researchers mind from the very beginning. You should want the power as high as possible.^[I hear that 80% is the standard, but I'm pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem "high" or "acceptable," but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.]
+Power isn't an ancillary concern, it's the entire game from the very beginning of the planning stage. It should be at the forefront of the researcher's mind from the very beginning. You should want the power as high as possible.^[I hear that 80% is the standard, but I'm pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem "high" or "acceptable," but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.]
 
-You have to supply a test *overwhelming* evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.
+You have to supply the test with overwhelming evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.
 
 Power isn't about Type S and M errors ([Gelman and Carlin 2014](https://journals.sagepub.com/doi/pdf/10.1177/1745691614551642))^[Gelman, Andrew, and John Carlin. "Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors." *Perspectives on Psychological Science* 9(6): 641-651.]. Power is about you protecting yourself from a failed study. And that seems like a protection worth pursuing carefully.^[Of course it's also about Type S and M errors, but those are discipline-level concerns. I'm talking about *your* incentives as a researcher.]
 

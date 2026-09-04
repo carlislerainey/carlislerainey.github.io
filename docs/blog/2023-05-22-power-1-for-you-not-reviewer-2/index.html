@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Carlisle Rainey">
-<meta name="dcterms.date" content="2023-05-21">
+<meta name="dcterms.date" content="2023-05-22">
 <meta name="description" content="The hypothesis test is no oracle. It will not consistently reject the null (even when the null is wrong) unless you supply overwhelming evidence. In experimental design, that’s not a task, that’s the task.">
 
 <title>Power, Part I: Power Is for You, Not for Reviewer Two – Carlisle Rainey</title>
@@ -111,6 +111,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../assets/academicons/css/academicons.min.css">
 <meta property="og:title" content="Power Is for You, Not for Reviewer Two">
 <meta property="og:description" content="In experimental design, building statistical power is not a task, it’s the task.">
 <meta property="og:image" content="https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/twitter-card.png">
@@ -124,6 +125,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image-height" content="500">
 <meta name="twitter:image-width" content="1000">
+<link rel="canonical" href="https://www.carlislerainey.com/blog/2023-05-22-power-1-for-you-not-reviewer-2/">
 </head>
 
 <body class="nav-fixed">
@@ -186,7 +188,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Power, Part I: Power Is for <em>You</em>, Not for Reviewer Two</h1>
-<p class="subtitle lead">Type II Errors Are Not Errors, They Wasted Opportunities</p>
+<p class="subtitle lead">Type II Errors Are Not Errors, They’re Wasted Opportunities</p>
   <div class="quarto-categories">
     <div class="quarto-category">statistical power</div>
     <div class="quarto-category">hypothesis tests</div>
@@ -214,7 +216,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 21, 2023</p>
+      <p class="date">May 22, 2023</p>
     </div>
   </div>
   
@@ -255,9 +257,9 @@ A Paper
 <p>The hypothesis test is all about arguing <em>against</em> the null hypothesis <span class="math inline">\(H_0\)</span> (leaving the alternative <span class="math inline">\(H_A\)</span> as the only remaining possibility). You will (try to) show that your data would be “unusual” if the null hypothesis were correct.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;When hypothesizing about the average treatment effect (ATE), this can take a variety of forms. The form doesn’t really matter.</p></div></div><p>If the data would <em>NOT</em> be unusual under the null hypothesis, then you <em>do not</em> reject the null hypothesis.</p>
 </section>
-<section id="intepreting-a-failure-to-reject" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="intepreting-a-failure-to-reject">Intepreting a Failure to Reject</h2>
-<p>A failure to reject means that the data “would not be unusual under the null hypothesis.” This does not imply that you should conclude the data are <em>only</em> consistent with the null. Indeed, there is a sharp asymmetry in hypothesis testing. I describe this in my <a href="(http://www.carlislerainey.com/papers/nme.pdf)">2014 <em>AJPS</em></a>:</p>
+<section id="interpreting-a-failure-to-reject" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="interpreting-a-failure-to-reject">Interpreting a Failure to Reject</h2>
+<p>A failure to reject means that the data “would not be unusual under the null hypothesis.” This does not imply that you should conclude the data are <em>only</em> consistent with the null. Indeed, there is a sharp asymmetry in hypothesis testing. I describe this in my <a href="http://www.carlislerainey.com/papers/nme.pdf">2014 <em>AJPS</em></a>:</p>
 <blockquote class="blockquote">
 <p>Political scientists commonly interpret a lack of statistical significance (i.e., a failure to reject the null) as evidence for a negligible effect (Gill 1999), but this approach acts as a broken compass… If the sample size is too small, the researcher often concludes that the effect is negligible even though the data are also consistent with large, meaningful effects. This occurs because the small sample leads to a large confidence interval, which is likely to contain both “no effect” and large effects.</p>
 </blockquote>
@@ -307,7 +309,7 @@ Important Point
 </section>
 <section id="the-implication-for-power-calculations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="the-implication-for-power-calculations">The Implication for Power Calculations</h2>
-<p>This perspective helps motivate power calculations. By their design, tests control the error rate in certain situations (when then null is correct). You do not need to worry about Type I errors. First, the test controls the error rate under the null. Second, you are pretty sure the null is wrong (see your theory section).</p>
+<p>This perspective helps motivate power calculations. By their design, tests control the error rate in certain situations (when the null is correct). You do not need to worry about Type I errors. First, the test controls the error rate under the null. Second, you are pretty sure the null is wrong (see your theory section).</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,15 +320,15 @@ Important Point
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The hypothesis test takes care of the the Type I error rate. If you choose a properly-sized test, you don’t need to worry about those errors any more.</p>
+<p>The hypothesis test takes care of the Type I error rate. If you choose a properly-sized test, you don’t need to worry about those errors any more.</p>
 </div>
 </div>
-<p>If you aren’t worried about Type I errors, what are you worried about? They only thing left to worry about is wasting your time and money. <strong>Statistical power</strong> is the chance not of wasting your time and money.</p>
+<p>If you aren’t worried about Type I errors, what are you worried about? The only thing left to worry about is wasting your time and money. <strong>Statistical power</strong> is the chance not of wasting your time and money.</p>
 <p>Power isn’t a secondary quantity that you compute for thoroughness or in anticipation of a comment from Reviewer 2. Power is something that you build <em>for yourself</em>.</p>
 <p>Statisticians talk a lot about Type I errors because that’s their contribution. It’s your job to bring the power.</p>
 <p>And importantly, power is under your control. <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane</a> provides a rich summary of ways to increase the power of your experiment. At a minimum, you have brute force control through sample size.</p>
-<p>Power isn’t an ancillary concern, it’s the entire game from the very beginning of the planning stage. It should be at the forefront of the researchers mind from the very beginning. You should want the power as high as possible.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;I hear that 80% is the standard, but I’m pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem “high” or “acceptable,” but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.</p></div></div><p>You have to supply a test <em>overwhelming</em> evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.</p>
+<p>Power isn’t an ancillary concern, it’s the entire game from the very beginning of the planning stage. It should be at the forefront of the researcher’s mind from the very beginning. You should want the power as high as possible.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;I hear that 80% is the standard, but I’m pretty uncomfortable spending dozens of hours and thousands of dollars running for a 1 in 5 chance of wasting my time. I want that chance as close to zero as I can get it. I want power close to 100%. 99% power and 80% power might both seem “high” or “acceptable,” but these are not the same. 80% power means 1 in 5 studies fail. 99% power means that 1 in 100 studies fail.</p></div></div><p>You have to supply the test with overwhelming evidence to consistently reject the null. Careful power calculations help you make sure you succeed in this war against the null.</p>
 <p>Power isn’t about Type S and M errors (<a href="https://journals.sagepub.com/doi/pdf/10.1177/1745691614551642">Gelman and Carlin 2014</a>)<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Power is about you protecting yourself from a failed study. And that seems like a protection worth pursuing carefully.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Gelman, Andrew, and John Carlin. “Beyond Power Calculations: Assessing Type S (Sign) and Type M (Magnitude) Errors.” <em>Perspectives on Psychological Science</em> 9(6): 641-651.</p></div><div id="fn8"><p><sup>8</sup>&nbsp;Of course it’s also about Type S and M errors, but those are discipline-level concerns. I’m talking about <em>your</em> incentives as a researcher.</p></div></div></section>
 <section id="summary" class="level2">

@@ -1,8 +1,10 @@
 # options specified here will apply to all posts in this folder
 
-# freeze computational output
+# freeze computational output; "auto" re-executes a post's code only when
+# its source file has changed since the last render, so prose-only edits to
+# a code post are never silently discarded by a stale freeze
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
-freeze: true
+freeze: auto
 
 # Enable banner style title blocks
 #title-block-banner: true

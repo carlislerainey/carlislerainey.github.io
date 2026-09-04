@@ -14,17 +14,17 @@ bibliography: references.bib
 ## Paper and slides 
 
 ::: {.callout-tip}
-- **You can find the paper [here](https://doi.org/10.31219/osf.io/5am9q_v3)**. 
-- You can find an experimental R package at [here](https://www.carlislerainey.com/powerrules/). 
+- **The paper is [on OSF](https://doi.org/10.31219/osf.io/5am9q_v3)**.
+- You can find an experimental [R package](https://www.carlislerainey.com/powerrules/).
 :::
 
-- The GitHub repo for the paper is [here](https://github.com/carlislerainey/power-rules).
-- You can find the iCloud version of the slides [here](https://www.icloud.com/keynote/0d6aPDe-yVieB2J1BTzRonphA#power-rules) and a pdf version of the slides [here](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
+- The code is [on GitHub](https://github.com/carlislerainey/power-rules).
+- The slides are on [iCloud](https://www.icloud.com/keynote/0d6aPDe-yVieB2J1BTzRonphA#power-rules), or as a [PDF](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
 
 
 ## Other things from me
 
-- You can find several relevant blog posts on the topic [here](https://www.carlislerainey.com/blog/).  
+- I've written [several blog posts](https://www.carlislerainey.com/blog/) on the topic.
 - "Arguing for a Negligible Effect" [[PDF](https://www.carlislerainey.com/papers/nme.pdf)] describes how you can use an equivalence test to argue *in favor* of "no effect."
 - "Substantive Importance and the Veil of Statistical Significance" [[PDF](https://www.carlislerainey.com/papers/meaningful.pdf)] makes a more general argument about how we should test claims.
 

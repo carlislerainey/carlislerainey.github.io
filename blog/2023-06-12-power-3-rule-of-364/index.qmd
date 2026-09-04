@@ -17,11 +17,9 @@ open-graph:
   image: "twitter-card.png"
   title: "The Rule of 3.64 for Statistical Power"  # less than 55 chars
   description: "I develop the intuition of simple, actionable guidelines for statistical power."  # less than 125 chars
-code-annotations: hover
 code-fold: true
-execute: 
+execute:
   cache: true
-draft: false
 ---
 
 ::: callout-important
@@ -51,25 +49,28 @@ Let's imagine that we did the exact same study 50 times. Let's say that we compu
 
 [^1]: I just want an easy-to-use unit here, and dollars meets that criteria. Other units work fine, too.
 
-We can visualize this with ggnaminate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.
+We can visualize this with gganimate. We can imagine each iteration of the study as producing a particular estimate. We continue to repeat the study and collect the estimates. Eventually, we can produce a histogram from this collection of estimates. This histogram represents the sampling distribution and is fundamental to the calculations that follow. The figure belows shows how we might collect the points into a histogram.
 
 ```{r}
 #| column: screen-inset-right
 #| warning: false
 #| message: false
+#| fig-alt: "Side-by-side animation. The left panel builds a scatterplot of 50 simulated study estimates (dollars) one point at a time, with dashed reference lines at the true effect and at 1, 2, and 3 standard errors above and below it, each labeled with its share of the normal distribution. The right panel simultaneously builds a histogram of the same accumulating estimates. Together they show individual draws from a sampling distribution assembling into the bell-shaped histogram that the distribution predicts."
 
 library(tidyverse)
 library(gganimate)
 library(magick)
 
+set.seed(20230612)
+
 # gif pars
-duration <- 24 # must be even
-fps <- 25
+duration <- 12 # must be even
+fps <- 15
 nframes <- duration*fps
 scale <- 2.5
 width <- 8
 height <- 6
-res <- 125
+res <- 90
 
 # study parameters
 true_effect <- 1
@@ -79,7 +80,7 @@ se <- 0.4
 n_studies <- 50 # nframes
 
 # create a data frame of confidence intervals
-ests <- tibble(study_id = 1:n_studies, 
+ests <- tibble(study_id = 1:n_studies,
                est = c(rnorm(n_studies, true_effect, se))) %>%
   mutate(reject_null = ifelse(est - 1.64*se > 0, "Yes", "No"))
 
@@ -184,7 +185,7 @@ gg2_mgif <- image_read("gg2.gif")
 
 
 new_gif <- image_append(c(gg1_mgif[1], gg2_mgif[1]), stack = FALSE)
-for(i in 2:nframes){
+for(i in 2:min(length(gg1_mgif), length(gg2_mgif))){  # gganimate may adjust nframes to fit the states
   combined_gif <- image_append(c(gg1_mgif[i], gg2_mgif[i]), stack = FALSE)
   new_gif <- c(new_gif, combined_gif)
 }
@@ -219,7 +220,7 @@ To understand how the true effect and the SE relate to power, we need to introdu
 
 ## Testing with Confidence Intervals
 
-I like to use 90% confidence intervals to test hypotheses (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf)). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05.\] The formula for a 90% CI is $\text{estimate} \pm 1.64\text{SE}$. That is, we put "arms" around our estimate---one to the left and another to the right. Each arm is 1.64 standard errors long.
+I like to use 90% confidence intervals to test hypotheses (see [Rainey 2014](http://www.carlislerainey.com/papers/nme.pdf) and [Rainey 2015](http://www.carlislerainey.com/papers/meaningful.pdf)). In short, 90% confidence intervals correspond to one-tailed tests with size 0.05 and equivalence tests with size 0.05. The formula for a 90% CI is $\text{estimate} \pm 1.64\text{SE}$. That is, we put "arms" around our estimate---one to the left and another to the right. Each arm is 1.64 standard errors long.
 
 I'll assume we have a one-sided research hypothesis that suggests a positive effect. If the lower bound ($\text{estimate} - 1.64\text{SE}$) is less than zero, then we fail to reject the null hypothesis. If this lower bound is greater than zero, then we reject the null hypothesis.[^4]
 
@@ -227,7 +228,7 @@ I'll assume we have a one-sided research hypothesis that suggests a positive eff
 
 This focus on *testing* rather than *estimation* changes the nature of the sampling distribution. Rather than an estimate along a continuous range, we get a binary outcome: either (1) reject the null hypothesis or (2) fail to reject the null hypothesis.
 
-But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that \*if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.
+But the sampling distribution of estimates and the associated outcomes of tests are closely related. In particular, the logic of the test implies that if the estimate falls less than 1.64 SEs above zero, we cannot reject the null.
 
 We can reconstruct the figure above using this logic. Rather than plot the points continuously along the x-axis, we can color the points (and now error bars) according to whether the lower bound falls above zero or not. And we can use a bar plot showing the number of rejections and non-rejections.
 
@@ -235,18 +236,20 @@ We can reconstruct the figure above using this logic. Rather than plot the point
 #| column: screen-inset-right
 #| warning: false
 #| message: false
+#| fig-alt: "Side-by-side animation. The left panel adds 50 simulated study estimates one at a time as points with 90% confidence interval error bars, colored green when the interval's lower bound clears zero (reject the null) and orange when it does not; a vertical line marks 1.64 standard errors above zero. The right panel simultaneously builds a bar chart tallying how many of the accumulated studies rejected the null versus failed to reject it, ending with most studies rejecting but a visible minority not."
+
 library(tidyverse)
 library(gganimate)
 library(magick)
 
 # gif pars
-duration <- 24 # must be even
-fps <- 25
+duration <- 12 # must be even
+fps <- 15
 nframes <- duration*fps
 scale <- 2.5
 width <- 8
 height <- 6
-res <- 125
+res <- 90
 
 # study parameters
 true_effect <- 1
@@ -256,7 +259,7 @@ se <- 0.4
 n_studies <- 50 # nframes
 
 # create a data frame of confidence intervals
-ests <- tibble(study_id = 1:n_studies, 
+ests <- tibble(study_id = 1:n_studies,
                est = c(rnorm(n_studies, true_effect, se))) %>%
   mutate(reject_null = ifelse(est - 1.64*se > 0, "Yes", "No"),
          lwr = est - 1.64*se,
@@ -355,7 +358,7 @@ gg2_mgif <- image_read("gg2.gif")
 
 
 new_gif <- image_append(c(gg1_mgif[1], gg2_mgif[1]), stack = FALSE)
-for(i in 2:nframes){
+for(i in 2:min(length(gg1_mgif), length(gg2_mgif))){  # gganimate may adjust nframes to fit the states
   combined_gif <- image_append(c(gg1_mgif[i], gg2_mgif[i]), stack = FALSE)
   new_gif <- c(new_gif, combined_gif)
 }
@@ -372,6 +375,7 @@ The key to building statistical power into your experiment is to get "almost all
 #| message: false
 #| fig-height: 5
 #| fig-width: 10
+#| fig-alt: "A normal density curve for the sampling distribution of the estimate (true effect 1, SE 0.4), with dashed reference lines at the true effect and at multiples of the SE. A vertical green line marks 1.64 SEs above zero, the threshold for rejecting the null, and the orange-shaded area to its right (the tail of the distribution beyond that threshold) is labeled 'fraction rejected,' showing what portion of the sampling distribution clears the rejection threshold."
 
 library(tidyverse)
 
@@ -405,7 +409,7 @@ ggplot() +
   geom_label(data = se_lines, aes(x = se, y = Inf, label = label, group = NULL), vjust = 1.5, color = alpha('black', bg_alpha)) + 
   geom_label(data = se_lines, aes(x = ch_loc, y = 0, label = chance, group = NULL), vjust = -1, color = alpha('black', bg_alpha)) + 
   geom_vline(xintercept = 0) + 
-  geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), size = 1) + 
+  geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), linewidth = 1) + 
   theme_bw() + 
   labs(x = "Estimate of Effect",
        y = "Density") + 
@@ -413,12 +417,12 @@ ggplot() +
             stat = "function", fun = dnorm, args = list(mean = true_effect, sd = se),
             fill = "#d95f02", alpha = 0.1, xlim = c(1.64*se, 3**se + true_effect)) + 
   annotate("label", x = 1.3, y = .1, label = "fraction rejected", color = "#d95f02", size = 6) +
-  annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = dnorm(1.64*se, mean = true_effect, sd = se), color = "#1b9e77", size = 1) + 
+  annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = dnorm(1.64*se, mean = true_effect, sd = se), color = "#1b9e77", linewidth = 1) + 
   annotate("label", x = 1.64*se, y = dnorm(1.64*se, mean = true_effect, sd = se)/2, label = "1.64 SEs above zero", color = "#1b9e77") + 
   annotate("segment", x = 0, xend = 1.64*se, 
            y = dnorm(1.64*se, mean = true_effect, sd = se), 
            yend = dnorm(1.64*se, mean = true_effect, sd = se), 
-           color = "#7570b3", size = 1) + 
+           color = "#7570b3", linewidth = 1) + 
   annotate("label", x = 0.5*1.64*se, y = dnorm(1.64*se, mean = true_effect, sd = se), label = "width of 90% CI", color = "#7570b3") + 
   theme(legend.position = "none") + 
   xlim(-1, 3)
@@ -433,12 +437,13 @@ You'll remember that "almost all" of the normal distribution falls within two st
 #| message: false
 #| fig-height: 5
 #| fig-width: 10
+#| fig-alt: "A normal density curve for the sampling distribution when the true effect is 3.64 standard errors above zero (SE = 1/3.64). Annotated segments mark the true effect, 1.64 SEs above zero (the rejection threshold), the 1.64-SE width of the 90% confidence interval, the roughly 2-SE gap researchers should aim to add beyond that threshold, and the full 3.64-SE distance from zero to the true effect, illustrating how the two pieces (1.64 + 2) combine into the rule of 3.64."
 
 library(tidyverse)
 
 # study parameters
 true_effect <- 1
-se <- 1/3.84
+se <- 1/3.64
 
 x <- rnorm(500000, mean = true_effect, sd = se)
 df <- data.frame(x)
@@ -451,7 +456,7 @@ ggplot() +
   geom_label(data = se_lines, aes(x = se, y = Inf, label = label, group = NULL), vjust = 1.5, color = alpha('black', bg_alpha)) + 
   geom_label(data = se_lines, aes(x = ch_loc, y = 0, label = chance, group = NULL), vjust = -1, color = alpha('black', bg_alpha)) + 
   geom_vline(xintercept = 0) + 
-  geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), size = 1) + 
+  geom_function(fun = dnorm, args = list(mean = true_effect, sd = se), linewidth = 1) + 
   theme_bw() + 
   labs(x = "Estimate of Effect",
        y = "Density") + 
@@ -459,27 +464,27 @@ ggplot() +
             stat = "function", fun = dnorm, args = list(mean = true_effect, sd = se),
             fill = "#d95f02", alpha = 0.1, xlim = c(1.64*se, 3**se + true_effect)) + 
   #annotate("label", x = 1.3, y = .1, label = "fraction rejected", color = "#d95f02", size = 6) +
-  annotate("segment", x = true_effect, xend = true_effect, y = 0, yend = dnorm(true_effect, mean = true_effect, sd = se), color = "#d95f02", size = 1) + 
+  annotate("segment", x = true_effect, xend = true_effect, y = 0, yend = dnorm(true_effect, mean = true_effect, sd = se), color = "#d95f02", linewidth = 1) + 
   annotate("label", x = true_effect, y = dnorm(true_effect, mean = true_effect, sd = se)/2, label = "true effect", color = "#d95f02") +   
-  annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = .75, color = "#1b9e77", size = 1) + 
+  annotate("segment", x = 1.64*se, xend = 1.64*se, y = 0, yend = .75, color = "#1b9e77", linewidth = 1) + 
   annotate("label", x = 1.64*se, y = .75, label = "1.64 SEs above zero", color = "#1b9e77") + 
   annotate("segment", x = 0, xend = 1.64*se, 
            y = .125, 
            yend = .125, 
-           color = "#7570b3", size = 1,
+           color = "#7570b3", linewidth = 1,
            lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.1, "inches"), ends = "both")) + 
   annotate("label", x = 0.5*1.64*se, y = .125, label = "1.64 SEs", color = "#7570b3", size = 4) + 
   annotate("segment", x = true_effect, xend = 1.64*se, 
            y = .125, 
            yend = .125, 
-           color = "black", size = 1,
+           color = "black", linewidth = 1,
            lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.1, "inches"), ends = "both")) + 
   annotate("label", x = 1.64*se + (true_effect - 1.64*se)/2, y = .125
   
   , label = "ideally 2 SEs", color = "black", size = 4) + 
   annotate("segment", x = true_effect, xend = 0, 
            y = 1, yend = 1, 
-           color = "black", size = 1,
+           color = "black", linewidth = 1,
            lineend = "round", linejoin = "round", arrow = arrow(length = unit(0.1, "inches"), ends = "both")) + 
   annotate("label", x = true_effect/2, y = 1, label = "ideally 3.64 SEs", color = "black", size = 4) + 
   theme(legend.position = "none") + 

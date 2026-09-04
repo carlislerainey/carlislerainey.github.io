@@ -136,12 +136,13 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../assets/academicons/css/academicons.min.css">
 <meta property="og:title" content="Benchmarking Firth’s Logit: {brglm2} versus {logistf} – Carlisle Rainey">
 <meta property="og:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
-<meta property="og:image" content="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/index_files/figure-html/unnamed-chunk-2-1.png">
+<meta property="og:image" content="https://www.carlislerainey.com/profile-tw.png">
 <meta property="og:site_name" content="Carlisle Rainey">
-<meta property="og:image:height" content="960">
-<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="533">
+<meta property="og:image:width" content="800">
 <meta name="twitter:title" content="Benchmarking Firth’s Logit: {brglm2} versus {logistf} – Carlisle Rainey">
 <meta name="twitter:description" content="In this post, I benchmark the brglm2 and logistf packages for fitting logistic regression models with Firth’s penalty.">
 <meta name="twitter:image" content="https://www.carlislerainey.com/profile-tw.png">
@@ -149,6 +150,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image-height" content="533">
 <meta name="twitter:image-width" content="800">
+<link rel="canonical" href="https://www.carlislerainey.com/blog/2023-08-11-benchmarking-firth/">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -253,13 +255,13 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 <section id="firths-logit" class="level2">
 <h2 class="anchored" data-anchor-id="firths-logit">Firth’s Logit</h2>
-<p>I like Firth’s logistic regression model <span class="citation" data-cites="firth1993">(<a href="#ref-firth1993" role="doc-biblioref">Firth 1993</a>)</span>. I talk about that in <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span> and <a href="https://twitter.com/carlislerainey/status/1686389777225113601">this Twitter thread</a>. <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> offer an excellent, recent follow-up as well.</p>
+<p>I like Firth’s logistic regression model <span class="citation" data-cites="firth1993">(<a href="#ref-firth1993" role="doc-biblioref">Firth 1993</a>)</span>. I talk about that in <span class="citation" data-cites="rainey2021">Rainey and McCaskey (<a href="#ref-rainey2021" role="doc-biblioref">2021</a>)</span> and <a href="https://twitter.com/carlislerainey/status/1686389777225113601">this Twitter thread</a>. <span class="citation" data-cites="kosmidis2021">Kosmidis and Firth (<a href="#ref-kosmidis2021" role="doc-biblioref">2021</a>)</span> offer an excellent follow-up as well.</p>
 <p>I’ll refer you to the papers for a careful discussion of the benefits, but Firth’s penalty reduces the bias <em>and variance</em> of the logit coefficients.</p>
 </section>
 <section id="goals-for-benchmarking" class="level2">
 <h2 class="anchored" data-anchor-id="goals-for-benchmarking">Goals for Benchmarking</h2>
 <p>In this post, I want to compare the brglm2 and logistf packages. Which fits logistic regression models with Firth’s penalty the fastest?</p>
-<p>These packages both fit the models almost instantly, so there is no practical difference when fitting just one model. But large Monte Carlo simulations (or perhaps bootstraps), small differences might add up to a substantial time difference.</p>
+<p>These packages both fit the models almost instantly, so there is no practical difference when fitting just one model. But in large Monte Carlo simulations (or perhaps bootstraps), small differences might add up to a substantial time difference.</p>
 <p>Here, I benchmark the two packages for fitting logistic regression models with Firth’s penalty in a <em>small sample</em>–the results might not generalize to a larger sample. The data set comes from <span class="citation" data-cites="weisiger2014">Weisiger (<a href="#ref-weisiger2014" role="doc-biblioref">2014</a>)</span> (see <code>?crdata::weisiger2014</code>). It has only 35 observations.</p>
 <p>You can find the benchmarking code as a <a href="https://gist.github.com/carlislerainey/8bf23a322252bead64d0a07391f7383d">GitHub Gist</a>.</p>
 </section>
@@ -269,11 +271,11 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <ol type="1">
 <li>A vanilla <code>glm()</code> logit model.</li>
 <li>A Firth’s logit via brglm2 by supplying <code>method = brglm2::brglmFit</code> to <code>glm()</code>.</li>
-<li>A Firth’s logit via logistf via <code>logistf()</code> using the default settings.</li>
-<li>A Firth’s logit via logistf via <code>logistf()</code> with the argument <code>pl = FALSE</code>. This argument is important because it skips hypothesis testing using profile likelihoods, which are computationally costly.</li>
+<li>A Firth’s logit via <code>logistf()</code> using the default settings.</li>
+<li>A Firth’s logit via <code>logistf()</code> with the argument <code>pl = FALSE</code>. This argument is important because it skips hypothesis testing using profile likelihoods, which are computationally costly.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to egt weisiger2014 data set</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install crdata package to get weisiger2014 data set</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"carlislerainey/crdata"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
@@ -320,24 +322,24 @@ overflows</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
                     expr      min        lq      mean    median        uq
-           regular glm()  500.651  547.0425  591.5304  560.0805  584.4550
-                  brglm2 2469.266 2546.9405 2735.6438 2591.5690 2672.3800
-       logistf (default) 3303.329 3432.6635 3942.9122 3481.6585 3558.1235
- logistf (w/ pl = FALSE)  513.197  553.3155  594.6205  570.8225  608.9115
-       max neval
-  2713.708   100
-  9735.983   100
- 17672.148   100
-  1698.343   100</code></pre>
+           regular glm()  468.138  516.0055  574.0000  528.7975  543.8445
+                  brglm2 2215.066 2319.7185 2601.4779 2380.9930 2472.6075
+       logistf (default) 3437.358 3573.4780 3726.1759 3630.7140 3717.7365
+ logistf (w/ pl = FALSE)  518.117  546.7350  677.8669  559.9985  578.7355
+       max neval cld
+  4115.539   100 a  
+ 10332.000   100  b 
+  9496.502   100   c
+ 11267.620   100 a  </code></pre>
 </div>
 </div>
-<p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster. On average, it’s faster than <code>glm()</code>, because <code>glm()</code> has the occasional <em>really</em> slow computation.</p>
+<p>In short, logistf is slower than brglm2, but only because it computes the profile likelihood <em>p</em>-values by default. Once we skip those calculations using <code>pl = FALSE</code>, logistf is <em>much</em> faster, roughly as fast as <code>glm()</code> itself.</p>
 <p>Here’s a plot showing the computation times of the four fits. Remember that all of these are computed practically instantly, so it only makes a difference when the fits are done thousands of times, like in a Monte Carlo simulation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot times</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(expr) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_time =</span> <span class="fu">mean</span>(time)<span class="sc">*</span><span class="fl">10e-5</span>) <span class="sc">%&gt;%</span>  <span class="co"># convert to milliseconds</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_time =</span> <span class="fu">mean</span>(time)<span class="sc">*</span><span class="fl">1e-6</span>) <span class="sc">%&gt;%</span>  <span class="co"># convert to milliseconds</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(expr), <span class="at">y =</span> avg_time)) <span class="sc">+</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Method"</span>, </span>
@@ -346,7 +348,7 @@ overflows</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Horizontal bar chart comparing average fitting time in milliseconds across four estimators: regular glm() and logistf with pl = FALSE are both fast, at well under one millisecond; brglm2 is noticeably slower, taking a few milliseconds; and logistf using its default settings is the slowest, taking several milliseconds." width="672"></p>
 </figure>
 </div>
 </div>
@@ -361,17 +363,17 @@ overflows</code></pre>
 <pre><code>                  [,1]       [,2]
 (Intercept) -0.4771934 -0.4771935
 polity_conq -2.2771109 -2.2771117
-lndist       3.4020241  3.4020215
-terrain      1.1018696  1.1018713
+lndist       3.4020239  3.4020215
+terrain      1.1018697  1.1018713
 soldperterr -0.5952096 -0.5952110
-gdppc2      -1.1542010 -1.1541998
-coord        3.0514481  3.0514473</code></pre>
+gdppc2      -1.1542009 -1.1541998
+coord        3.0514480  3.0514473</code></pre>
 </div>
 </div>
 <p>Ioannis Kosmidis made me aware of two things.</p>
 <ol type="1">
-<li>logistf has a C++ backend (thus explaining the speed).</li>
-<li>brglm2 is written entirely in R. He noted that a new version is coming out soon that might be substantially faster. (brglm2 is also more general; it supports a variety of models and corrections).</li>
+<li>logistf has a C backend (thus explaining the speed).</li>
+<li>brglm2’s fitting routine for logistic regression is written entirely in R. (brglm2 is also more general; it supports a variety of models and corrections).</li>
 </ol>
 <section id="computer" class="level2">
 <h2 class="anchored" data-anchor-id="computer">Computer</h2>
@@ -760,64 +762,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
-      for (let i=0; i<annoteTargets.length; i++) {
-        const annoteTarget = annoteTargets[i];
-        const targetCell = annoteTarget.getAttribute("data-target-cell");
-        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
-        const contentFn = () => {
-          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          if (content) {
-            const tipContent = content.cloneNode(true);
-            tipContent.classList.add("code-annotation-tip-content");
-            return tipContent.outerHTML;
-          }
-        }
-        const config = {
-          allowHTML: true,
-          content: contentFn,
-          onShow: (instance) => {
-            selectCodeLines(instance.reference);
-            instance.reference.classList.add('code-annotation-active');
-            window.tippy.hideAll();
-          },
-          onHide: (instance) => {
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
             unselectCodeLines();
-            instance.reference.classList.remove('code-annotation-active');
-          },
-          maxWidth: 300,
-          delay: [50, 0],
-          duration: [200, 0],
-          offset: [5, 10],
-          arrow: true,
-          appendTo: function(el) {
-            return el.parentElement.parentElement.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'quarto',
-          placement: 'right',
-          popperOptions: {
-            modifiers: [
-            {
-              name: 'flip',
-              options: {
-                flipVariations: false, // true by default
-                allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
-              },
-            },
-            {
-              name: 'preventOverflow',
-              options: {
-                mainAxis: false,
-                altAxis: false
-              }
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
             }
-            ]        
-          }      
-        };
-        window.tippy(annoteTarget, config); 
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;

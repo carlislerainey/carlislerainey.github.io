@@ -12,21 +12,23 @@ categories:
   - for your syllabus
   - teaching
 description: "Five papers you can assign when teaching about statistical power: power analysis, minimum detectable effects, sample size planning, and design diagnosis."
-reference-location: margin
 toc: false
 twitter-card:
   card-style: summary_large_image
   image: "twitter-card.png"
-open-graph:   
+  title: "*For Your Syllabus:* Statistical Power"  # less than 55 chars
+  description: "Five readings on power analysis, MDEs, sample size planning, and research design diagnostics."  # less than 125 chars
+open-graph:
   image: "og-card.png"
-draft: false
+  title: "*For Your Syllabus:* Statistical Power"  # less than 55 chars
+  description: "Five readings on power analysis, MDEs, sample size planning, and research design diagnostics."  # less than 125 chars
 ---
 
 As you prepare your courses on quantitative methods, consider including a section on **statistical power**.
 
 Here are five readings I like and often recommend.
 
-## Quantitative Political Science Research is Greatly Underpowered (Arel-Bundock et al.)
+## Quantitative Political Science Research is Greatly Underpowered (Arel-Bundock et al. 2026)
 
 This paper shows that low power is a real problem—“doing what others have done” does not guarantee a well-powered study for the true effect. Instead, power requires some thinking!
 
@@ -36,7 +38,7 @@ From the abstract:
 - 🔗 Journal DOI (*JOP*): <https://doi.org/10.1086/734279>  
 - 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/7vy2f>
 
-![](images/arel-bundock-power-figure.png)
+![Figure from Arel-Bundock et al. showing the distribution of statistical power across political science studies](images/arel-bundock-power-figure.png)
 
 ## Minimum Detectable Effects (Bloom 1995)
 
@@ -50,7 +52,7 @@ The paper:
 - 🔗 Journal DOI: <https://doi.org/10.1177/0193841X9501900504>  
 - 🔗 PDF: <https://sites.uci.edu/gduncan/files/2021/03/Bloom-MDES-Eval-Rev-1995-Bloom.pdf>
 
-![](images/bloom-mde-figure.png)
+![Figure from Bloom (1995) illustrating the minimum detectable effect](images/bloom-mde-figure.png)
 
 
 ## Power Rules
@@ -64,7 +66,7 @@ It:
 
 - 🔗 Preprint DOI (OSF): <https://doi.org/10.31219/osf.io/5am9q_v3>
 
-![](images/rainey-mde-figure.png)
+![Figure from Rainey's "Power Rules" paper illustrating rules of thumb for power calculations](images/rainey-mde-figure.png)
 
 
 ## Sample Size Justification (Lakens 2022)
@@ -81,7 +83,7 @@ Lakens outlines six common justifications:
 
 - 🔗 Journal DOI (open): <https://doi.org/10.1525/collabra.33267>
 
-![](images/lakens-justification-table.png)
+![Table from Lakens (2022) summarizing the six sample size justifications](images/lakens-justification-table.png)
 
 
 ## Declaring and Diagnosing Research Designs (Blair et al. 2019)
@@ -97,7 +99,7 @@ The authors introduce a much more general way to think about designs. They propo
 - 📚 Book (open): <https://book.declaredesign.org/>  
 - 💻 R package site: <https://declaredesign.org/r/declaredesign/>
 
-![](images/blair-mida-table.png)
+![Table from Blair et al. (2019) summarizing the MIDA framework for declaring research designs](images/blair-mida-table.png)
 
 ## Closing
 

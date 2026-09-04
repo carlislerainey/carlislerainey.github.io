@@ -19,9 +19,8 @@ open-graph:
   description: "I share R code to illustrate that hypothesis tests and confidence intervals are chaotic, noisy quantities."  # less than 125 chars
 code-annotations: hover
 code-fold: true
-execute: 
+execute:
   cache: true
-draft: false
 ---
 
 ## Background
@@ -35,8 +34,8 @@ Because their instincts are wrong, I want to undermine their trust in hypothesis
 To help undermine their confidence in confidence intervals, I like three exercises that mimic a test with 80% power. In each case, we are assuming that we have formulated a correct hypothesis and designed an excellent experiment with 80% power.
 
 1. First, I have students roll a six-sided die. If the die produces a <i class="bi bi-dice-6"></i>, then their study fails---they wasted their opportunity. See [this post](/blog/2023-05-22-power-1-for-you-not-reviewer-2) for details on this perspective. This simulates the riskiness of an experiment with 80% power quite well. They get lots of failed experiments in a short period of time. They become well-aware of the possibility of a failed study and grow increasingly interested in reducing this risk.
-3. Second, I use a computer to produce a plot of many (about 50 seems right) confidence intervals from the same repeated study. I explain that the interval we will get in the study we actually conduct is like a random draw from this collection. (See below for an example of this figure.)
-4. Third, I make the plot *dynamic*. I find that dynamics make the plot more memorable and convey the (appropriate) idea that hypothesis tests and confidence intervals are chaotic, noisy quantities.
+2. Second, I use a computer to produce a plot of many (about 50 seems right) confidence intervals from the same repeated study. I explain that the interval we will get in the study we actually conduct is like a random draw from this collection. (See below for an example of this figure.)
+3. Third, I make the plot *dynamic*. I find that dynamics make the plot more memorable and convey the (appropriate) idea that hypothesis tests and confidence intervals are chaotic, noisy quantities.
 
 These exercises make it clear that failed studies are real possibilities. Hopefully they clearly see and "feel":
 
@@ -59,7 +58,7 @@ library(tidyverse)
 
 # study parameters
 true_effect <- 1
-se <- 0.40  # 1/2.48
+se <- 0.40  # ≈ 1/2.48
 
 # identify effects of interest
 eoi <- tribble(
@@ -90,6 +89,7 @@ The second exercise is a static plot. The plot shows 50 intervals; we can see th
 #| warning: false
 #| fig-height: 6
 #| fig-width: 6
+#| fig-alt: "A scatterplot of 50 simulated point estimates with 90% confidence interval error bars, one row per study, for a study with 80% power (true effect 1, SE 0.4). A dotted vertical line marks the true effect and a solid vertical line marks zero. Intervals are colored orange when they include zero (fail to reject the null) and green when they exclude it (reject the null); several of the 50 intervals overlap zero."
 
 # number of studies to simulate
 n_studies <- 50
@@ -182,6 +182,7 @@ Now let's plot the confidence intervals much like above, except with expanded sc
 #| fig-height: 6
 #| fig-width: 6
 #| cache: true
+#| fig-alt: "The same 50-study confidence-interval plot as above (80% power, colored green for reject-null and orange for fail-to-reject), redrawn with extra padding on the x- and y-axes to leave room for points to animate into place."
 
 # same ggplot, except three annotated changes
 gg_exp <- ggplot(animate_data, aes(x = est,    # <1>
@@ -232,22 +233,23 @@ Now let's add the animation. I like the confidence intervals to be shooting towa
 #| fig-height: 6
 #| fig-width: 8
 #| cache: true
+#| fig-alt: "Animated version of the 50-study confidence-interval plot for a study with 80% power: each study's estimate and 90% confidence interval drifts in from the right, one at a time, colored black on entry and then recoloring to green (reject the null) or orange (fail to reject), with earlier studies left behind as faded shadow marks."
 
 # add dyamics to the plot
-anim <- gg_exp +  # <1> 
+anim <- gg_exp +  # <1>
   transition_states(states = group) +  # <2>
   # how points enter
   enter_drift(x_mod = 2) +  # <3>
-  enter_grow() +  # <4> 
-  enter_recolor(color = "black") +  # <5> 
-  ease_aes(color = "exponential-in") +  # <6> 
+  enter_grow() +  # <4>
+  enter_recolor(color = "black") +  # <5>
+  ease_aes(color = "exponential-in") +  # <6>
   # how points exit/remain
-  exit_fade(alpha = 0.3) +  # <7> 
-  shadow_mark(alpha = 0.3)  # <8> 
+  exit_fade(alpha = 0.3) +  # <7>
+  shadow_mark(alpha = 0.3)  # <8>
 
 # make magic happen!
-animate(anim, duration = n_studies, fps = 10, 
-        height = 6, width = 8, units = "in", res = 150)
+animate(anim, duration = 12, fps = 15,
+        height = 6, width = 8, units = "in", res = 90)
 ```
 
 1. 'gg' is created earlier. It's the plot we want to make dynamic. 
@@ -266,8 +268,8 @@ animate(anim, duration = n_studies, fps = 10,
 #| fig-width: 6
 #| echo: false
 #| include: false
-animate(anim, duration = n_studies/2, fps = 20, 
-        height = 4, width = 8, units = "in", res = 100)
+animate(anim, duration = 12, fps = 15,
+        height = 4, width = 8, units = "in", res = 90)
 anim_save(file = "dynamic-cis.gif") # save plot
 ```
 
@@ -285,6 +287,7 @@ As a concluding example, here's the same dynamic plot for a study with about 98%
 #| fig-height: 6
 #| fig-width: 8
 #| cache: true
+#| fig-alt: "Animated version of the 50-study confidence-interval plot for a study with about 98% power (SE 0.27): each study's estimate and 90% confidence interval drifts in from the right and recolors to green (reject the null) or orange (fail to reject); almost every interval ends up green, in contrast to the 80%-power animation above where several stay orange."
 
 # study parameters
 se <- 0.27  # 1/3.64
@@ -363,8 +366,8 @@ anim <- gg_exp +  # <1>
   shadow_mark(alpha = 0.3)  # <8> 
 
 # make magic happen!
-animate(anim, duration = n_studies, fps = 10, 
-        height = 6, width = 8, units = "in", res = 150)
+animate(anim, duration = 12, fps = 15,
+        height = 6, width = 8, units = "in", res = 90)
 ```
 
 

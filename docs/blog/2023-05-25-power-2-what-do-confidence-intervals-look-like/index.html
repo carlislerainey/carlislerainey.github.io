@@ -116,6 +116,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../assets/academicons/css/academicons.min.css">
 <meta property="og:title" content="What Do CIs from Well-Powered Studies Look Like?">
 <meta property="og:description" content="A literature with confidence intervals that nestle right up against zero is likely a collection of under-powered studies.">
 <meta property="og:image" content="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/twitter-card.png">
@@ -129,6 +130,7 @@ gtag('config', 'G-F57WQLHH67', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image-height" content="500">
 <meta name="twitter:image-width" content="1000">
+<link rel="canonical" href="https://www.carlislerainey.com/blog/2023-05-25-power-2-what-do-confidence-intervals-look-like/">
 </head>
 
 <body class="nav-fixed">
@@ -244,13 +246,13 @@ A Paper
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v2">here</a>.</p>
+<p>This post turned out to be somewhat popular, so I’ve written up a more formal, careful description of the idea in a full-length paper. You can find the preprint “Power Rules” <a href="https://osf.io/preprints/osf/5am9q_v3">here</a>.</p>
 </div>
 </div>
 <section id="background" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>In this post, I address confidence intervals that are nestled right up against zero.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These intervals indicate that an estimate is “barely” significant. I want to be clear: “barely significant” is still significant, so you should still reject the null hypothesis.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that confidence interval contains zero are equivalent.</p></div></div><p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;This is the second post in a series. In my <a href="../../blog/2023-05-22-power-1-for-you-not-reviewer-2">previous post</a>, I mentioned two new papers that have me thinking about power: <a href="https://doi.org/10.31219/osf.io/7vy2f">Arel-Bundock <em>et al.</em>’s “Quantitative Political Science Research Is Greatly Underpowered”</a> and <a href="https://doi.org/10.33774/apsa-2023-h4p0q-v2">Kane’s “More Than Meets the ITT: A Guide for Investigating Null Results”</a>. Go check out that post and those papers if you haven’t.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;I’m focusing on confidence intervals here because inference from confidence intervals is a bit more intuitive (see <a href="http://www.carlislerainey.com/papers/nme.pdf">Rainey 2014</a> and <a href="http://www.carlislerainey.com/papers/meaningful.pdf">Rainey 2015</a>. In the cases I discuss, whether one checks whether the <em>p</em>-value is less than 0.05 or checks that the confidence interval contains zero are equivalent.</p></div></div><p>But I want to address a <em>feeling</em> that can come along with a confidence interval nestled right up against zero. A feeling of victory. It seems like a perfectly designed study. You rejected the null and collected just enough data to do it.</p>
 <p>But instead, it should feel like a near-miss. Like an accident narrowly avoided. A confidence interval nestled right up against zero indicates that one of two things has happened: either you were (1) unlucky or (2) under-powered.</p>
 <p>Because “unlucky” is always a possibility, we can’t learn much from a <em>particular</em> confidence interval, but we can learn a lot from a <em>literature</em>. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, <em>do</em> tend to produce confidence intervals that nestle right up against zero.</p>
 </section>
@@ -264,39 +266,42 @@ A Paper
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a parameter for the true effect</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># just assumed by me</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a data frame of standard errors (with approximate power)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>se_df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>se,    <span class="sc">~</span>pwr,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.5</span>,    <span class="st">"about 25% power"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span>,    <span class="st">"about 50% power"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.2</span>,    <span class="st">"about 80% power"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.15</span>,   <span class="st">"about 95% power"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># create function to simulate estimates for each standard error</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>simulate_estimates <span class="ot">&lt;-</span> <span class="cf">function</span>(se, pwr) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">est =</span> <span class="fu">rnorm</span>(n_cis, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> se,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">pwr =</span> pwr</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the estimates, compute the confidence intervals, and wrangle</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>n_cis <span class="ot">&lt;-</span> <span class="dv">5000</span>  <span class="co"># the number of cis to create</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ci_df <span class="ot">&lt;-</span> se_df <span class="sc">%&gt;%</span> </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># simulate estimates</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmap_dfr</span>(simulate_estimates) <span class="sc">%&gt;%</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute confidence intervals</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lwr =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">upr =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se) <span class="sc">%&gt;%</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarize the location of the confidence interval</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result =</span> <span class="fu">case_when</span>(lwr <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Not significant"</span>,</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>                            lwr <span class="sc">&lt;</span> se <span class="sc">~</span> <span class="st">"Nestled against zero"</span>,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>                            lwr <span class="sc">&gt;=</span> se<span class="sc">~</span> <span class="st">"Not nestled against zero"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20230525</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create a parameter for the true effect</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>true_effect <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># just assumed by me</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create a data frame of standard errors (with approximate power)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>se_df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>se,    <span class="sc">~</span>pwr,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.5</span>,    <span class="st">"about 25% power"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span>,    <span class="st">"about 50% power"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.2</span>,    <span class="st">"about 80% power"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.15</span>,   <span class="st">"about 95% power"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># create function to simulate estimates for each standard error</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>simulate_estimates <span class="ot">&lt;-</span> <span class="cf">function</span>(se, pwr) {</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">est =</span> <span class="fu">rnorm</span>(n_cis, <span class="at">mean =</span> true_effect, <span class="at">sd =</span> se),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> se,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">pwr =</span> pwr</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the estimates, compute the confidence intervals, and wrangle</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>n_cis <span class="ot">&lt;-</span> <span class="dv">5000</span>  <span class="co"># the number of cis to create</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ci_df <span class="ot">&lt;-</span> se_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># simulate estimates</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pmap</span>(simulate_estimates) <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># compute confidence intervals</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lwr =</span> est <span class="sc">-</span> <span class="fl">1.64</span><span class="sc">*</span>se, </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">upr =</span> est <span class="sc">+</span> <span class="fl">1.64</span><span class="sc">*</span>se) <span class="sc">%&gt;%</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarize the location of the confidence interval</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result =</span> <span class="fu">case_when</span>(lwr <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"Not significant"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>                            lwr <span class="sc">&lt;</span> se <span class="sc">~</span> <span class="st">"Nestled against zero"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                            lwr <span class="sc">&gt;=</span> se<span class="sc">~</span> <span class="st">"Not nestled against zero"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now let’s quickly confirm my power calculations by computing the proportion of confidence intervals to the right of zero. These are about right. In a later post, I’ll describe how I think about computing these quantities.</p>
@@ -331,12 +336,12 @@ A Paper
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
-<td style="text-align: left;">80%</td>
+<td style="text-align: left;">81%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">52%</td>
+<td style="text-align: left;">51%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
@@ -360,7 +365,7 @@ A Paper
 </ol>
 <p>The intervals are green when the lower bound of the 90% confidence interval falls within one standard error of zero—that’s my definition of “nestled up against zero.” The intervals are orange when the lower bound falls further than one standard error above zero.</p>
 <p>Notice how low-powered studies tend to nestle their confidence intervals right up against zero. Almost all of the confidence intervals from the study with 25% power are nestled right up against zero. Very few of the confidence intervals from the study with 95% power are nestled up against zero.</p>
-<p>Again, you should apply this standard to a <em>literature</em>. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors <a href="https://journals.sagepub.com/doi/10.1177/1745691614551642">(Gelman and Stern 2014)</a>.</p>
+<p>Again, you should apply this standard to a <em>literature</em>. You should not apply this standard to a particular study because even well-powered studies sometimes produce confidence intervals that nestle up against zero. But when you start to see confidence intervals consistently falling close to zero, you should start to assume that the literature uses under-powered studies and that the estimates in that literature are inflated due to Type M errors <a href="https://journals.sagepub.com/doi/10.1177/1745691614551642">(Gelman and Carlin 2014)</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -368,7 +373,7 @@ A Paper
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="co"># apply significance filter </span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sample 25 intervals (from those that are significant)</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(se, pwr) <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create id (ordered by estimate value)</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(se, pwr) <span class="sc">%&gt;%</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(est) <span class="sc">%&gt;%</span></span>
@@ -388,10 +393,17 @@ A Paper
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>,</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Result"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `geom_errorbarh()` was deprecated in ggplot2 4.0.0.
+ℹ Please use the `orientation` argument of `geom_errorbar()` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`height` was translated to `width`.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" alt="Four stacked panels, one per power level (25%, 50%, 80%, 95%), each showing 25 simulated 90% confidence intervals as horizontal error bars ordered by estimate. A solid vertical line marks zero, a dotted line marks one standard error above zero, and a dashed line marks the true effect of 0.5. Intervals are colored orange when their lower bound clears one standard error above zero and green when it does not. In the 25%-power panel almost every interval is green (nestled against zero); in the 95%-power panel almost every interval is orange (not nestled), showing that well-powered studies produce confidence intervals that sit further from zero." width="576"></p>
 </figure>
 </div>
 </div>
@@ -403,21 +415,25 @@ A Paper
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gg_df <span class="ot">&lt;-</span> ci_df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="co"># apply significance filter </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gg_df, <span class="fu">aes</span>(<span class="at">x =</span> lwr)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pwr), <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"grey50"</span>) <span class="sc">+</span> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_df, <span class="fu">aes</span>(<span class="at">xintercept =</span> se), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Location of Lower Bound of 90% CI"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Power"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gg_df <span class="ot">&lt;-</span> ci_df <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lwr <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="co"># apply significance filter</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gg_df, <span class="fu">aes</span>(<span class="at">x =</span> lwr)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pwr), <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"grey50"</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> se_df, <span class="fu">aes</span>(<span class="at">xintercept =</span> se), <span class="at">linetype =</span> <span class="st">"dotted"</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Location of Lower Bound of 90% CI"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Power"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Ignoring unknown labels:
+• colour : "Power"</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Four density plots, one per power level (25%, 50%, 80%, 95%), showing the distribution of the lower bound of the 90% confidence interval among significant estimates. A dotted vertical line marks one standard error above zero in each panel. At 25% power the density piles up just to the right of zero (nestled against zero); as power rises to 95% the density shifts further to the right, away from the dotted line." width="672"></p>
 </figure>
 </div>
 </div>
@@ -429,21 +445,21 @@ A Paper
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ci_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(se, pwr, result) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">frac =</span> <span class="fu">n</span>()<span class="sc">/</span>n_cis, <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> result, <span class="at">values_from =</span> frac) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Nestled, given significant</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Nestled against zero</span><span class="st">`</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Not nestled against zero</span><span class="st">`</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">SE =</span> se, </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Power =</span> pwr,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Nestled against zero</span><span class="st">`</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled against zero</span><span class="st">`</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Nestled, given significant</span><span class="st">`</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">Not significant</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span>, <span class="sc">~</span> scales<span class="sc">::</span><span class="fu">percent</span>(., <span class="at">accuracy =</span> <span class="dv">1</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ci_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(se, pwr, result) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">frac =</span> <span class="fu">n</span>()<span class="sc">/</span>n_cis, <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> result, <span class="at">values_from =</span> frac) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Nestled, given significant</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Nestled against zero</span><span class="st">`</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">Not nestled against zero</span><span class="st">`</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">SE =</span> se, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">Power =</span> pwr,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not significant</span><span class="st">`</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Nestled against zero</span><span class="st">`</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled against zero</span><span class="st">`</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Nestled, given significant</span><span class="st">`</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">Not significant</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Not nestled, given significant</span><span class="st">`</span>, <span class="sc">~</span> scales<span class="sc">::</span><span class="fu">percent</span>(., <span class="at">accuracy =</span> <span class="dv">1</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -474,26 +490,26 @@ A Paper
 <td style="text-align: left;">4%</td>
 <td style="text-align: left;">20%</td>
 <td style="text-align: left;">76%</td>
-<td style="text-align: left;">20%</td>
-<td style="text-align: left;">80%</td>
+<td style="text-align: left;">21%</td>
+<td style="text-align: left;">79%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.20</td>
 <td style="text-align: left;">about 80% power</td>
-<td style="text-align: left;">20%</td>
+<td style="text-align: left;">19%</td>
 <td style="text-align: left;">36%</td>
-<td style="text-align: left;">44%</td>
+<td style="text-align: left;">45%</td>
 <td style="text-align: left;">45%</td>
 <td style="text-align: left;">55%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.30</td>
 <td style="text-align: left;">about 50% power</td>
-<td style="text-align: left;">48%</td>
-<td style="text-align: left;">36%</td>
+<td style="text-align: left;">49%</td>
+<td style="text-align: left;">34%</td>
 <td style="text-align: left;">17%</td>
-<td style="text-align: left;">68%</td>
-<td style="text-align: left;">32%</td>
+<td style="text-align: left;">67%</td>
+<td style="text-align: left;">33%</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
@@ -513,10 +529,10 @@ A Paper
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>In this post, I address confidence intervals that are nestled right up against zero. These intervals can suggest a perfectly powered study—not too much, not too little. But instead, a confidence interval nestled right up against zero indicates that one of two things has happened: either you were (1) unlucky or (2) under-powered.</p>
 <p>Because “unlucky” is always a possibility, we can’t learn much from a <em>particular</em> confidence interval, but we can learn a lot from a <em>literature</em>. A literature with well-powered studies produces confidence intervals that often fall far from zero. A well-powered literature does not produce confidence intervals that consistently nestle up against zero. Under-powered studies, though, <em>do</em> tend to produce confidence intervals that nestle right up against zero.</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Key Takeaway

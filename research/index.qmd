@@ -1,6 +1,6 @@
 ---
-title: "Papers"
-description: "" 
+title: "Research"
+description: "Research papers by Carlisle Rainey on political methodology, statistical power, hypothesis testing, and survey experiments."
 listing:
   - id: unpublished-papers
     include: 
@@ -33,7 +33,7 @@ toc: false
 #page-layout: full
 ---
 
-If want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en). 
+If you want to stay up-to-date on my work, follow me on [Google Scholar](https://scholar.google.com/citations?user=otXLf3wAAAAJ&hl=en).
 
 ## Working Papers
 

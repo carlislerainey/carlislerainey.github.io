@@ -4,6 +4,9 @@ description: "A talk at the March 6, 2024, meeting of the Connected_Politics Lab
 author: "Carlisle Rainey"
 date: "2024-03-06"
 image: dissent-scores.png
+twitter-card:
+  image: "dissent-scores-tw.png"
+  card-style: "summary_large_image"
 ---
 
 
@@ -35,6 +38,6 @@ dissent <- get_dataframe_by_name(
 
 ## Other links
 
-- `gamson.csv` is available [here](https://pos3713.github.io/data/gamson.csv), via the [data sets](https://pos3713.github.io/data.html) for my undergraduate research methods class. 
+- `gamson.csv` is available [here](https://pos3713ri.github.io/data/gamson.csv), via the [data sets](https://pos3713ri.github.io/data.html) for my undergraduate research methods class.
 - "Data and Code Availability in Political Science Publications from 1995 to 2022" [[DOI](https://osf.io/preprints/socarxiv/a5yxe)]
 - "The Data Availability Policies of Political Science Journals" [[DOI](https://osf.io/preprints/socarxiv/df2ya)]
