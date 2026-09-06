@@ -1,6 +1,5 @@
 ---
 title: "Research"
-description: "Research papers by Carlisle Rainey on political methodology, statistical power, hypothesis testing, and survey experiments."
 listing:
   - id: unpublished-papers
     include: 

@@ -1,6 +1,5 @@
 ---
 title: "Talks"
-description: "Talks by Carlisle Rainey on statistical power, topic sampling, and political methodology."
 listing:
   id: grids
   type: grid

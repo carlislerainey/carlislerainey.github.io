@@ -1,6 +1,5 @@
 ---
 title: "Carlisle Rainey"
-description: "Carlisle Rainey is a Professor of Political Science at Florida State University. Research on political methodology, statistical power, hypothesis testing, and survey experiments."
 image: profile.png
 twitter-card:
   image: "/profile-tw.png"

@@ -1,6 +1,5 @@
 ---
 title: Teaching
-description: "Courses taught by Carlisle Rainey at Florida State University, with archived course materials."
 ---
 
 ## Current Classes
