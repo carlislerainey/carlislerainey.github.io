@@ -16,7 +16,7 @@
   date: 2025-02-20
   year: 2025
   journal: "<em>Meta-Psychology</em>"
-  pdf: "../papers/misuse.pdf"
+  pdf: "/papers/misuse.pdf"
   pubopen: "https://doi.org/10.15626/MP.2024.4216"
   preprint: "https://doi.org/10.31222/osf.io/8z45v"
   note: 'A peer-reviewed commentary on <a href="https://osf.io/preprints/metaarxiv/knjea">Replication value as a function of citation impact and sample size</a> in <em>Meta-Psychology</em>'
@@ -41,7 +41,7 @@
     - Hao Zhou
   date: 2025-05-05
   journal: "<em>PS: Political Science and Politics</em>"
-  pdf: "../papers/availability.pdf"
+  pdf: "/papers/availability.pdf"
   pubopen: "https://doi.org/10.1017/S1049096524001276"
   preprint: "https://osf.io/preprints/socarxiv/a5yxe"
   dataverse: "https://doi.org/10.7910/DVN/JQTVYT"
@@ -112,7 +112,7 @@
     - Carlisle Rainey
   date: 2026-01-16
   status: "Invitation to revise and resubmit at <em>Journal of Politics</em>"
-  pdf: "../papers/merely-asking.pdf"
+  pdf: "/papers/merely-asking.pdf"
 
 - title: "Does Support for the Legal Right to an Abortion Differ Across Generations in the United States?"
   type: "Published"
@@ -122,32 +122,34 @@
   date: 2026-03-09
   year: 2026
   journal: "<em>PLOS One</em>"
-  pdf: "../papers/abortion.pdf"
+  pdf: "/papers/abortion.pdf"
   pubopen: "https://doi.org/10.1371/journal.pone.0341223"
   preprint: "https://osf.io/preprints/socarxiv/jmz96/"
   dataverse: "https://doi.org/10.7910/DVN/JFMXDH"
   
 - title: "The Limits (and Strengths) of Single-Topic Experiments"
   type: "Published"
+  project: "topic-sampling"  # listed on research/topic-sampling/
   author:
     - Scott Clifford
     - Carlisle Rainey
   date: 2025-08-30
   year: 2025
   journal: "<em>Political Analysis</em>"
-  pdf: "../papers/limits.pdf"
+  pdf: "/papers/limits.pdf"
   pubopen: "https://doi.org/10.1017/pan.2024.20"
   preprint: "https://doi.org/10.31235/osf.io/zaykd"
 
 - title: "Estimators for Topic-Sampling Designs"
   type: "Published"
+  project: "topic-sampling"  # listed on research/topic-sampling/
   author:
     - Scott Clifford
     - Carlisle Rainey
   date: 2024-10-01
   year: 2024
   journal: "<em>Political Analysis</em>"
-  pdf: "../papers/estimators.pdf"
+  pdf: "/papers/estimators.pdf"
   preprint: "https://osf.io/preprints/socarxiv/7ady6/"
   pubopen: "https://doi.org/10.1017/pan.2024.1"
 
@@ -171,7 +173,7 @@
   date: 2023-09-07
   year: 2024
   journal: "<em>Political Analysis</em>"
-  pdf: "../papers/wilks.pdf"
+  pdf: "/papers/wilks.pdf"
   pubopen: "https://doi.org/10.1017/pan.2023.28"
   preprint: "https://osf.io/preprints/socarxiv/bmvnu"
   osf: "https://osf.io/wn2s4/"
@@ -186,6 +188,7 @@
   
 - title: "Generalizing Survey Experiments Using Topic Sampling: An Application to Party Cues"
   type: "Published"
+  project: "topic-sampling"  # listed on research/topic-sampling/
   author: 
     - Scott Clifford
     - Thomas Leeper
@@ -193,7 +196,7 @@
   date: 2024-06-01
   year: 2024
   journal: "<em>Political Behavior</em>"
-  pdf: "../papers/gte.pdf"
+  pdf: "/papers/gte.pdf"
   pubclosed: "https://doi.org/10.1007/s11109-023-09870-1"
   dataverse: "https://doi.org/10.7910/DVN/NNAVTE"
   categories: 
@@ -212,7 +215,7 @@
   date: 2024-07-01
   year: 2024
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/clarify.pdf"
+  pdf: "/papers/clarify.pdf"
   pubopen: "https://doi.org/10.1017/psrm.2023.8"
   dataverse: "https://doi.org/10.7910/DVN/5YKD4S"  
   github: "https://github.com/carlislerainey/unnecessary/"
@@ -229,7 +232,7 @@
   date: 2021-07-01
   year: 2021
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/small.pdf"
+  pdf: "/papers/small.pdf"
   pubopen: "https://doi.org/10.1017/psrm.2021.9"
   dataverse: "https://doi.org/10.7910/DVN/6XS8Z1"
   categories: 
@@ -243,7 +246,7 @@
   date: 2020-07-01
   year: 2020
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/heavy-tails.pdf"
+  pdf: "/papers/heavy-tails.pdf"
   pubclosed: "https://doi.org/10.1017/psrm.2018.34"
   dataverse: "https://doi.org/10.7910/DVN/WZSUS3"
   categories: 
@@ -257,7 +260,7 @@
   date: 2018-07-01
   year: 2018
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/unreliable.pdf"
+  pdf: "/papers/unreliable.pdf"
   pubclosed: "https://doi.org/10.1017/psrm.2017.3"
   dataverse: "https://doi.org/10.7910/DVN/OQWCZE"
   categories: 
@@ -270,7 +273,7 @@
   date: 2017-07-01
   year: 2017
   journal: "<em>Political Analysis</em>"
-  pdf: "../papers/bias.pdf"
+  pdf: "/papers/bias.pdf"
   pubclosed: "https://doi.org/10.1017/pan.2017.11"
   dataverse: "https://doi.org/10.7910/DVN/CYXFB8"
   categories: 
@@ -284,8 +287,8 @@
   date: 2016-06-01
   year: 2016
   journal: "<em>Political Analysis</em>"
-  pdf: "../papers/separation.pdf"
-  appendix: "../papers/separation-appendix.pdf"
+  pdf: "/papers/separation.pdf"
+  appendix: "/papers/separation-appendix.pdf"
   pubclosed: "https://doi.org/10.1093/pan/mpw014"
   dataverse: "https://doi.org/10.7910/DVN/VW7G2Q"
   categories: 
@@ -301,8 +304,8 @@
   date: 2016-11-01
   year: 2016
   journal: "<em>Political Science Research and Methods</em>"
-  pdf: "../papers/compress.pdf"
-  appendix: "../papers/compress-appendix.pdf"
+  pdf: "/papers/compress.pdf"
+  appendix: "/papers/compress-appendix.pdf"
   pubclosed: "https://doi.org/10.1017/psrm.2015.59"
   dataverse: "https://doi.org/10.7910/DVN/ASSC0Y"
   categories: 
@@ -318,7 +321,7 @@
   date: 2016-03-01
   year: 2016
   journal: "<em>Electoral Studies</em>"
-  pdf: "../papers/taiwan.pdf"
+  pdf: "/papers/taiwan.pdf"
   pubclosed: "https://doi.org/10.1016/j.electstud.2015.08.009"
   dataverse: "https://doi.org/10.7910/DVN/FMLYTY"
   categories: 
@@ -340,7 +343,7 @@
   date: 2015-02-01
   year: 2015
   journal: "<em>Statistics, Politics, and Policy</em>"
-  pdf: "../papers/meaningful.pdf"
+  pdf: "/papers/meaningful.pdf"
   pubclosed: "https://doi.org/10.1515/spp-2015-0001"
   github: "https://github.com/carlislerainey/meaningful-inferences"
   categories: 
@@ -360,7 +363,7 @@
   date: 2015-02-01
   year: 2015
   journal: "<em>Political Communication</em>"
-  pdf: "../papers/rhetoric.pdf"
+  pdf: "/papers/rhetoric.pdf"
   pubclosed: "https://doi.org/10.1080/10584609.2014.944320"
   categories: 
     - American Politics
@@ -373,8 +376,8 @@
   date: 2015-03-01
   year: 2015
   journal: "<em>Electoral Studies</em>"
-  pdf: "../papers/stratmob.pdf"
-  appendix: "../papers/stratmob-appendix.pdf"
+  pdf: "/papers/stratmob.pdf"
+  appendix: "/papers/stratmob-appendix.pdf"
   pubclosed: "https://doi.org/10.1016/j.electstud.2014.10.008"
   dataverse: "https://doi.org/10.7910/DVN/27666"
   categories: 
@@ -393,8 +396,8 @@
   date: 2014-12-01
   year: 2014
   journal: "<em>State Politics and Policy Quarterly</em>"
-  pdf: "../papers/need.pdf"
-  appendix: "../papers/need-appendix.pdf"
+  pdf: "/papers/need.pdf"
+  appendix: "/papers/need-appendix.pdf"
   pubclosed: "https://doi.org/10.1177/1532440014561644"
   dataverse: "https://doi.org/10.15139/S3/12130"
   categories: 
@@ -410,8 +413,8 @@
   date: 2014-03-07
   year: 2014
   journal: "<em>American Journal of Political Science</em>"
-  pdf: "../papers/nme.pdf"
-  appendix: "../papers/nme-appendix.pdf"
+  pdf: "/papers/nme.pdf"
+  appendix: "/papers/nme-appendix.pdf"
   pubclosed: "https://doi.org/10.1111/ajps.12102"
   dataverse: "https://doi.org/10.7910/DVN/23818"
   categories: 
@@ -425,7 +428,7 @@
   type: "Published"
   date: 2014-11-20
   year: 2014
-  pdf: "../papers/quadrants.pdf"
+  pdf: "/papers/quadrants.pdf"
   pubclosed: "https://doi.org/10.1017/S0003055414000392"
   journal: "<em>American Political Science Review</em>"
   dataverse: "https://doi.org/10.7910/DVN/27572"

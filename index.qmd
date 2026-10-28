@@ -1,6 +1,6 @@
 ---
 title: "Carlisle Rainey"
-image: profile.png
+image: profile.jpg
 # description lives in these hidden fields only; a top-level `description:` would also print under the title
 twitter-card:
   image: "/profile-tw.png"
@@ -27,9 +27,16 @@ about:
     # - icon: github
     #   text: Github
     #   href: https://github.com/carlislerainey
+toc: false
 ---
 
 :::: {#hero-heading}
 I'm a Professor in the Department of Political Science at Florida State University. I currently serve as the Director of Graduate Studies and as an Associate Editor at *Political Analysis*. My research has appeared in the *American Political Science Review*, the *American Journal of Political Science*, *Political Analysis*, and other peer-reviewed journals. I teach courses in American politics, comparative politics, and political methodology.
+
+**Selected Papers**
+
+- [Power Rules: Practical Advice for Computing Statistical Power](https://osf.io/preprints/osf/5am9q_v3)
+- [Arguing for a Negligible Effect](papers/nme.pdf)
+- The three [topic-sampling](research/topic-sampling/index.qmd) papers
 
 ::::

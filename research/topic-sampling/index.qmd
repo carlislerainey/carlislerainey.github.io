@@ -1,0 +1,36 @@
+---
+title: "Topic Sampling"
+image: /assets/featured/topic-sampling.png
+listing:
+  - id: topic-sampling-papers
+    contents: ../papers.yaml
+    include:
+      project: "topic-sampling"
+    template: ../papers.ejs
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
+  - id: topic-sampling-talks
+    contents:
+      - ../../talks/2024-03-02-topic-sampling/index.qmd
+      - ../../talks/2024-topic-sampling/index.qmd
+      - ../../talks/2023-topic-sampling/index.qmd
+    type: grid
+    grid-columns: 3
+    image-height: 160px
+    fields: [image, title, date]
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
+toc: false
+---
+
+## Papers
+
+:::{#topic-sampling-papers}
+:::
+
+## Talks
+
+:::{#topic-sampling-talks}
+:::
