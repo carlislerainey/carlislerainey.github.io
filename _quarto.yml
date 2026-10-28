@@ -1,11 +1,11 @@
 project:
   type: website
   output-dir: docs
-  resources: 
-    - "cv.pdf"
-    - CNAME
-    - "papers/"
-    - "assets/"
+  resources: # leading "/" anchors to the repo root; unanchored globs match at any depth
+    - "/cv.pdf"
+    - "/CNAME"
+    - "/papers/"
+    - "/assets/"
   render:
     - "*.qmd"
     - "!pols-209/files/"  # dir has .Rmd (-> .pdf) files that should be re-compiled.
@@ -24,13 +24,25 @@ website:
     tools:    
       - icon: rss
         href: blog/index.xml
-        #text: Blog RSS
+        text: Blog RSS
       - icon: twitter
         href: https://twitter.com/carlislerainey
+        text: Twitter
+      - icon: bluesky
+        href: https://bsky.app/profile/carlislerainey.bsky.social
+        text: Bluesky
       - icon: mastodon
         href: https://sciences.social/@CarlisleRainey
+        text: Mastodon
       - icon: github
         href: https://github.com/carlislerainey
+        text: GitHub
+      - icon: google-scholar
+        href: https://scholar.google.com/citations?user=otXLf3wAAAAJ
+        text: Google Scholar
+      - icon: orcid
+        href: https://orcid.org/0000-0002-8728-4696
+        text: ORCID
 
     left:
       - href: index.qmd

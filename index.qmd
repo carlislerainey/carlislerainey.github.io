@@ -1,10 +1,15 @@
 ---
 title: "Carlisle Rainey"
 image: profile.png
+# description lives in these hidden fields only; a top-level `description:` would also print under the title
 twitter-card:
   image: "/profile-tw.png"
+  description: "Carlisle Rainey, a political scientist at Florida State University, shares papers, talks, and courses on research design and statistical inference."
 open-graph:
   image: "/profile-tw.png"
+  description: "Carlisle Rainey, a political scientist at Florida State University, shares papers, talks, and courses on research design and statistical inference."
+include-in-header:
+  text: '<meta name="description" content="Carlisle Rainey, a political scientist at Florida State University, shares papers, talks, and courses on research design and statistical inference.">'
 about:
   id: hero-heading
   template: trestles

@@ -1,5 +1,12 @@
 ---
 title: "Blog"
+# description lives in these hidden fields only; a top-level `description:` would also print under the title
+open-graph:
+  description: "Carlisle Rainey's blog posts on statistical power, equivalence tests, and Firth's logit, with R code, reading lists, and teaching handouts."
+twitter-card:
+  description: "Carlisle Rainey's blog posts on statistical power, equivalence tests, and Firth's logit, with R code, reading lists, and teaching handouts."
+include-in-header:
+  text: '<meta name="description" content="Carlisle Rainey''s blog posts on statistical power, equivalence tests, and Firth''s logit, with R code, reading lists, and teaching handouts.">'
 listing:
   type: table
   sort:

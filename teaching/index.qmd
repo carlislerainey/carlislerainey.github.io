@@ -1,5 +1,12 @@
 ---
 title: Teaching
+# description lives in these hidden fields only; a top-level `description:` would also print under the title
+open-graph:
+  description: "Carlisle Rainey's courses on regression, maximum likelihood, and Bayesian inference, with slides, notes, and exercises."
+twitter-card:
+  description: "Carlisle Rainey's courses on regression, maximum likelihood, and Bayesian inference, with slides, notes, and exercises."
+include-in-header:
+  text: '<meta name="description" content="Carlisle Rainey''s courses on regression, maximum likelihood, and Bayesian inference, with slides, notes, and exercises.">'
 ---
 
 ## Current Classes

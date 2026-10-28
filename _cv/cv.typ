@@ -80,9 +80,9 @@
 
 == Working Papers, R&Rs, and Conditionally Accepted Papers
 
-- "Power Rules: Practical Advice for Computing Power (and Automating with Pilot Data)." Revised version conditionally accepted at _Political Analysis_. #doi("https://doi.org/10.31219/osf.io/5am9q")
+- "Power Rules: Practical Advice for Computing Statistical Power." Revised version conditionally accepted at _Political Analysis_. #doi("https://doi.org/10.31219/osf.io/5am9q")
 
-- "Merely Asking: A Replication of Ahler and Sood (2018)." Invitation to revise and resubmit at _Journal of Politics_. #dropbox("https://www.dropbox.com/scl/fi/cldf7etwj4d8d1nfkx3kl/cutler_pietryka_rainey_merely_asking.pdf?rlkey=iztyo4d92z841qbjlvezky6un&st=2rzv98ii&e=1&dl=0")
+- "Merely Asking: A Replication of Ahler and Sood (2018)." Invitation to revise and resubmit at _Journal of Politics_. #pdf("https://www.carlislerainey.com/papers/merely-asking.pdf")
 
 - "Overt Consequences of Covert Actions: Success, Failure, and Voters' Preferences for Legislative Oversight." Invitation to revise and resubmit at _Journal of Experimental Political Science_. #doi("https://doi.org/10.31235/osf.io/9p5h8")
 
@@ -94,7 +94,7 @@
 
 - Rainey, Carlisle, and Harley Roe. 2025. "The Data Availability Policies of Political Science Journals." Accepted at _Scientific Data_. #doi("https://osf.io/preprints/socarxiv/df2ya")
 
-- Rainey, Carlisle, Harley Roe, Qing Wang, and Nick Dietrich. 2025. "The Dissent Score: Using Events Data to Measure Dissent." Accepted at the _Journal of Peace Research_. #doi("https://osf.io/preprints/socarxiv/dw7np") #website("https://www.carlislerainey.com/dissent-scores/")
+- Rainey, Carlisle, Harley Roe, Qing Wang, and Nick Dietrich. 2026. "The Dissent Score: Using Events Data to Measure Dissent When Media Scrutiny Varies." Forthcoming at the _Journal of Peace Research_. #doi("https://doi.org/10.1093/jopres/xjag027") #website("https://www.carlislerainey.com/dissent-scores/")
 
 == Published Papers
 

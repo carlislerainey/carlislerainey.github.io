@@ -1,10 +1,10 @@
 
 
-- title: "Power Rules: Practical Advice for Computing Power (and Automating with Pilot Data)"
+- title: "Power Rules: Practical Advice for Computing Statistical Power"
   type: "Working"
   author:
     - Carlisle Rainey
-  date: 2025-03-05
+  date: 2026-08-28
   status: "Revised version conditionally accepted at <em>Political Analysis</em>"
   preprint: "https://osf.io/preprints/osf/5am9q_v3"
   note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
@@ -90,15 +90,16 @@
   prereg: "https://osf.io/gjsft/"
   osf: "https://osf.io/2tf5j/"
 
-- title: "The Dissent Score: Using Events Data to Measure Dissent"
+- title: "The Dissent Score: Using Events Data to Measure Dissent When Media Scrutiny Varies"
   type: "Forthcoming"
   author:
     - Carlisle Rainey
     - Harley Roe
     - Qing Wang
     - Nick Dietrich
-  date: 2023-12-23
-  status: "Accepted at <em>Journal of Peace Research</em>"
+  date: 2026-10-12
+  status: "Forthcoming at <em>Journal of Peace Research</em>"
+  pubclosed: "https://doi.org/10.1093/jopres/xjag027"
   preprint: "https://osf.io/preprints/socarxiv/dw7np"
   website: "https://www.carlislerainey.com/dissent-scores/"
   note: 'The dissent score data set is available on <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/CL4CA8">Dataverse</a>.'
@@ -111,7 +112,7 @@
     - Carlisle Rainey
   date: 2026-01-16
   status: "Invitation to revise and resubmit at <em>Journal of Politics</em>"
-  pdf: "https://www.dropbox.com/scl/fi/cldf7etwj4d8d1nfkx3kl/cutler_pietryka_rainey_merely_asking.pdf?rlkey=iztyo4d92z841qbjlvezky6un&st=2rzv98ii&e=1&dl=0"
+  pdf: "../papers/merely-asking.pdf"
 
 - title: "Does Support for the Legal Right to an Abortion Differ Across Generations in the United States?"
   type: "Published"

@@ -1,5 +1,12 @@
 ---
 title: "Talks"
+# description lives in these hidden fields only; a top-level `description:` would also print under the title
+open-graph:
+  description: "Carlisle Rainey's talks on statistical power, survey experiments, and measuring dissent, with slides, papers, and code."
+twitter-card:
+  description: "Carlisle Rainey's talks on statistical power, survey experiments, and measuring dissent, with slides, papers, and code."
+include-in-header:
+  text: '<meta name="description" content="Carlisle Rainey''s talks on statistical power, survey experiments, and measuring dissent, with slides, papers, and code.">'
 listing:
   id: grids
   type: grid
