@@ -20,7 +20,6 @@ website:
     image: "/profile-tw.png"
   open-graph: true
   navbar:
-    #right:
     tools:    
       - icon: rss
         href: blog/index.xml
@@ -47,8 +46,6 @@ website:
     left:
       - href: index.qmd
         text: About
-      #- href: papers/index.qmd
-      #  text: Papers
       - href: research/index.qmd
         text: Research
       - href: teaching/index.qmd
@@ -57,12 +54,6 @@ website:
         text: Talks
       - href: blog/index.qmd
         text: Blog
-      #- href: https://osf.io/preprints/osf/5am9q_v3
-      #  text: The Statistical Power Paper
-      #- href: email-list/index.qmd
-      #  text: "Email List"
-        
-  #margin-header: subscribe.html
       
 
 format:

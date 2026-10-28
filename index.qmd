@@ -21,12 +21,6 @@ about:
     - icon: filetype-pdf
       text: CV
       href: cv.pdf
-    # - icon: twitter
-    #   text: Twitter
-    #   href: https://twitter.com/carlislerainey
-    # - icon: github
-    #   text: Github
-    #   href: https://github.com/carlislerainey
 toc: false
 ---
 

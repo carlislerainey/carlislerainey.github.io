@@ -5,6 +5,3 @@
 # a code post are never silently discarded by a stale freeze
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
 freeze: auto
-
-# Enable banner style title blocks
-#title-block-banner: true

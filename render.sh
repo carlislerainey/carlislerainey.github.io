@@ -12,6 +12,13 @@ set -euo pipefail
 ROOT=$(cd "$(dirname "$0")" && pwd)
 BUILD=${TMPDIR:-/tmp}/carlislerainey-website-build
 
+# Rebuild the CV and publish it at the root (index.qmd links to /cv.pdf).
+# Stamp the PDF with the time its source last changed, not the build time,
+# so an unchanged CV produces an identical file and git sees no change.
+STAMP=$(stat -f %m "$ROOT"/_cv/cv.typ "$ROOT"/_cv/cv-style.typ | sort -n | tail -1)
+typst compile --creation-timestamp "$STAMP" "$ROOT"/_cv/cv.typ "$ROOT"/_cv/cv.pdf
+cmp -s "$ROOT"/_cv/cv.pdf "$ROOT"/cv.pdf || cp "$ROOT"/_cv/cv.pdf "$ROOT"/cv.pdf
+
 mkdir -p "$BUILD"
 rsync -a --delete \
   --exclude docs/ --exclude .git/ --exclude .redesign/ --exclude _old/ \

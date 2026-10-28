@@ -11,6 +11,5 @@ teaching grid, and the bracketed-link helpers (`#doi(url)`, `#pdf(url)`, `#lk(la
 You should not need to touch it to update the CV.
 
 **Publishing:** the website serves the CV from the repo root — `_quarto.yml` lists `cv.pdf`
-under `resources` and `index.qmd` links to `cv.pdf`. After building, either copy
-`_cv/cv.pdf` over the root `cv.pdf`, or point `_quarto.yml` and `index.qmd` at `_cv/cv.pdf`.
-The build here never overwrites the root `cv.pdf`.
+under `resources` and `index.qmd` links to `cv.pdf`. `./render.sh` rebuilds `_cv/cv.pdf`
+and copies it over the root `cv.pdf` on every site build, so there is no manual step.
