@@ -1,0 +1,646 @@
+/* Power Rules, the designed HTML version (make web).
+
+   One column of text with the notes in the right margin and the contents in the left margin;
+   below 60rem the notes open in place when their number is tapped, and below 70rem the
+   contents move under the abstract. One accent color, for the notes and for the reader's place
+   in the contents (and for links under the pointer); the rules alone get a tint. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #fcfcfa;
+  --text: #1d1d1b;
+  --text-2: #4a4a46;     /* notes, captions */
+  --muted: #6b6b65;      /* labels, code comments, output (5.2:1 on --bg) */
+  --line: #e4e3dd;
+  --tint: #f3f2ed;       /* rule boxes, open code */
+  --accent: #1f5c99;
+  --literal: #8a4a12;    /* numbers and strings in code */
+  --shade: rgba(0, 0, 0, 0.14);  /* the edge of a table that scrolls */
+
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --text-w: 36rem;
+  --gap: 2.5rem;
+  --note-w: 15rem;
+  --toc-w: 15rem;
+  --toc-gap: 3rem;
+  --gutter: 1.25rem;
+}
+
+/* a narrower contents column on laptop windows, so that it fits beside the text and the notes */
+@media (min-width: 70rem) and (max-width: 77.99rem) {
+  :root { --toc-w: 12rem; --toc-gap: 2rem; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615;
+    --text: #e4e2dc;
+    --text-2: #bdbbb4;
+    --muted: #8d8b85;
+    --line: #34332f;
+    --tint: #21201e;
+    --accent: #8cb7e6;
+    --literal: #e0a872;
+    --shade: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* page ------------------------------------------------------------------- */
+
+html { scroll-padding-top: 1.5rem; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+header, main, #TOC {
+  box-sizing: border-box;
+  max-width: calc(var(--text-w) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+main { padding-bottom: 6rem; }
+
+p { margin: 0 0 1.1em; hyphens: auto; -webkit-hyphens: auto; text-wrap: pretty; }
+
+/* hyphenate only long words, and never split off fewer than three letters */
+p, li { hyphenate-limit-chars: 7 3 3; -webkit-hyphenate-limit-before: 3; -webkit-hyphenate-limit-after: 3; }
+
+@media (max-width: 39.99rem) {
+  body { font-size: 1.0625rem; }  /* about 40 characters a line on a phone, rather than 37 */
+}
+
+/* the text column moves left to make room for the notes, then right for the contents */
+@media (min-width: 60rem) {
+  header, main {
+    max-width: none;
+    width: var(--text-w);
+    padding: 0;
+    margin-left: calc((100% - var(--text-w) - var(--gap) - var(--note-w)) / 2);
+  }
+  #TOC { max-width: var(--text-w); padding: 0; margin-left: calc((100% - var(--text-w) - var(--gap) - var(--note-w)) / 2); }
+}
+
+@media (min-width: 70rem) {
+  header, main {
+    margin-left: calc((100% - var(--toc-w) - var(--toc-gap) - var(--text-w) - var(--gap) - var(--note-w)) / 2
+                      + var(--toc-w) + var(--toc-gap));
+  }
+}
+
+/* title block --------------------------------------------------------------- */
+
+header { padding-top: 4.5rem; }
+
+.title {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+}
+
+.subtitle {
+  font-size: 1.375rem;
+  line-height: 1.3;
+  font-style: italic;
+  color: var(--text-2);
+  margin: 0 0 1.75rem;
+  hyphens: none;
+}
+
+.author {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 2.5rem;
+}
+
+.abstract {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.abstract p:last-child { margin-bottom: 0; }
+
+.abstract-title, h4 {
+  font: 600 0.75rem/1.4 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+
+/* the journal version, the PDF, and the replication files */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2.25rem;
+  font: 500 0.8125rem/1.4 var(--sans);
+}
+
+.links a {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.links a:hover { color: var(--accent); border-color: currentColor; }
+
+/* contents ---------------------------------------------------------------- */
+
+#TOC {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+#TOC details {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+#TOC summary {
+  cursor: pointer;
+  padding: 0.7rem 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+#TOC summary::-webkit-details-marker { display: none; }
+#TOC summary::after { content: " +"; }
+#TOC details[open] summary::after { content: " \2212"; }
+
+#TOC ul { list-style: none; margin: 0; padding: 0 0 0.75rem; }
+
+#TOC a {
+  display: block;
+  padding: 0.28rem 0;
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+#TOC a:hover { color: var(--accent); }
+#TOC a.active { color: var(--text); }
+
+/* the appendices and the references, set apart from the main text */
+#TOC li:has(> a[href="#app:tests"]), #TOC li:has(> a[href="#references"]) { margin-top: 0.9rem; }
+
+@media (min-width: 70rem) {
+  #TOC {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: calc((100% - var(--toc-w) - var(--toc-gap) - var(--text-w) - var(--gap) - var(--note-w)) / 2);
+    width: var(--toc-w);
+    max-width: none;
+    margin: 0;
+    padding: 3rem 0 2rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    font-size: 0.8125rem;
+  }
+  /* a hanging indent for entries that wrap, and a bar at the reader's place */
+  #TOC a {
+    padding: 0.15rem 0 0.15rem 1.25rem;
+    text-indent: -0.5rem;
+    line-height: 1.3;
+    border-left: 2px solid transparent;
+  }
+  #TOC a.active { border-left-color: var(--accent); }
+  #TOC details { border: 0; }
+  #TOC summary { pointer-events: none; padding: 0 0 0.6rem 0.75rem; }
+  #TOC details[open] summary::after { content: none; }
+}
+
+/* headings ---------------------------------------------------------------- */
+
+h1, h2, h3 { font-weight: 600; hyphens: none; text-wrap: balance; }
+
+h1 {
+  font-size: 1.625rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  margin: 3.75rem 0 1rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 2.75rem 0 0.75rem;
+}
+
+h4 { margin-top: 2.25rem; }
+
+h1 + h2 { margin-top: 1.5rem; }
+
+main > h1:first-child { margin-top: 3rem; }
+
+/* the appendices and the references begin after a rule */
+h1#app\:tests, h1#references {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+/* links ------------------------------------------------------------------- */
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.18em;
+}
+
+a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+/* a rule cross-reference is a single digit: widen what the pointer can hit */
+main a[href^="#rule:"] { padding: 0 0.25em; margin: 0 -0.25em; }
+
+/* citations and cross-references are frequent, so they carry no underline (the pointer shows them) */
+a[href^="#"] { text-decoration: none; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+/* rules -------------------------------------------------------------------- */
+
+.rulebox {
+  background: var(--tint);
+  border-radius: 6px;
+  padding: 1rem 1.15rem;
+  margin: 1.75rem 0 0.9rem;
+}
+
+/* the box's text keeps the column's left edge when there is room to hang the tint */
+@media (min-width: 40rem) {
+  .rulebox { margin-left: -1.15rem; margin-right: -1.15rem; }
+}
+
+.rulebox p:last-child { margin-bottom: 0; }
+
+/* the rules are the sentences readers quote and come back to: no hyphens */
+.rulebox p { hyphens: manual; -webkit-hyphens: manual; }
+
+/* "Rule 3 (From the SD to the SE):" on its own line */
+.rulebox > p:first-child > strong:first-child {
+  display: block;
+  font: 600 0.8125rem/1.4 var(--sans);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.rulenote {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-2);
+  margin-bottom: 1.6rem;
+}
+
+/* margin notes -------------------------------------------------------------- */
+
+/* the checkbox that opens a note on a narrow screen: hidden, but reachable from the keyboard */
+.margin-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; clip-path: inset(50%); }
+label:has(+ .margin-toggle:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+@media (min-width: 60rem) { .margin-toggle { display: none; } }
+
+.sidenote-number {
+  font: 600 0.68em/0 var(--sans);
+  vertical-align: 0.55em;
+  color: var(--accent);
+  padding: 0 0.1em 0 0.12em;
+}
+
+.sidenote {
+  display: none;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;
+  text-wrap: pretty;
+}
+
+.sidenote::before {
+  content: attr(data-n);
+  font: 600 0.9em/1 var(--sans);
+  color: var(--accent);
+  margin-right: 0.45em;
+}
+
+.sn-p { display: inline; }
+.sn-p + .sn-p, .sn-quote { display: block; margin-top: 0.45em; }
+.sn-quote { margin-left: 1em; }
+
+/* a note and its number, under the pointer */
+.sidenote-number.hl, .sidenote.hl::before { text-decoration: underline; text-underline-offset: 0.15em; }
+.sidenote.hl { color: var(--text); }
+@media (min-width: 60rem) { .js-notes .sidenote.covered { visibility: hidden; } }
+
+/* narrow: a tap on the number opens the note under the line */
+@media (max-width: 59.99rem) {
+  .sidenote-number { cursor: pointer; display: inline-block; min-width: 24px; text-align: center; padding: 0.4em 0; margin: -0.4em -0.2em; }
+  .margin-toggle:checked + .sidenote {
+    display: block;
+    margin: 0.6rem 0 0.9rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--tint);
+    border-radius: 6px;
+  }
+}
+
+/* wide: the notes sit in the margin, beside their marks */
+@media (min-width: 60rem) {
+  .sidenote {
+    display: block;
+    float: right;
+    clear: right;
+    box-sizing: border-box;
+    width: var(--note-w);
+    margin: 0.3rem calc(-1 * (var(--note-w) + var(--gap))) 1rem 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    position: relative;
+  }
+}
+
+/* with the script, each note is placed beside its mark (and below the note before it),
+   rather than floated, so that an open code box can cover it */
+@media (min-width: 60rem) {
+  .js-notes main { position: relative; }
+  .js-notes .sidenote { position: absolute; float: none; margin: 0; right: calc(-1 * (var(--note-w) + var(--gap))); }
+}
+
+/* tables and the figure ------------------------------------------------------- */
+
+div[id^="tbl:"] { margin: 2rem 0; }
+.table-scroll { overflow-x: auto; }
+
+table {
+  width: 100% !important;  /* pandoc sets 99% on some; the caption takes the table's width */
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  font-variant-numeric: lining-nums tabular-nums;
+  border-top: 1px solid var(--text);
+  border-bottom: 1px solid var(--text);
+}
+
+.table-caption, figcaption {
+  text-align: left;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  padding-bottom: 0.9rem;
+}
+
+.table-caption p { margin: 0; }
+
+.caption-label { font-weight: 600; color: var(--text); }
+
+th, td { padding: 0.4rem 0.7rem; vertical-align: top; text-align: left; }
+/* the outer columns start and end with the caption and the rules */
+th:first-child, td:first-child, #tbl\:how th:first-child, #tbl\:how td:first-child { padding-left: 0; }
+th:last-child, td:last-child, #tbl\:how th:last-child, #tbl\:how td:last-child { padding-right: 0; }
+thead th { border-bottom: 1px solid var(--text); font-weight: 600; }
+tbody tr:first-child td { padding-top: 0.6rem; }
+tbody tr:last-child td { padding-bottom: 0.6rem; }
+th strong { font-weight: 600; }
+
+/* Table 2 is wide: it takes the margin as well, below any notes still there */
+#tbl\:how table { font-size: 0.875rem; min-width: 44rem; }
+#tbl\:how td, #tbl\:how th { padding: 0.2rem 0.6rem; }
+/* each rule on the line of its equation, with the arrow between two rules */
+#tbl\:how td:nth-child(4) > p:not(:has(.math)), #tbl\:how td:nth-child(5) > p {
+  display: flex; align-items: center; min-height: 3.6rem; margin: 0;
+}
+#tbl\:how td:nth-child(4) > p:has(.math) {
+  display: flex; align-items: center; height: 0; margin: 0; color: var(--muted);
+}
+/* a line between the three goals */
+#tbl\:how tbody tr:has(> td:first-child:not(:empty)):not(:first-child) td { border-top: 1px solid var(--line); }
+
+/* a shadow at an edge where a table continues out of view */
+.table-scroll {
+  background:
+    linear-gradient(to right, var(--bg) 30%, transparent) left / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 30%, transparent) right / 2rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--shade), transparent) left / 0.8rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--shade), transparent) right / 0.8rem 100% no-repeat scroll;
+}
+/* on a tablet, Table 2 takes the empty side margins before it scrolls */
+@media (max-width: 59.99rem) {
+  #tbl\:how { --w: min(calc(100vw - 2 * var(--gutter)), 48rem); width: var(--w); margin-left: calc((100% - var(--w)) / 2); }
+}
+@media (min-width: 60rem) {
+  #tbl\:how { width: calc(var(--text-w) + var(--gap) + var(--note-w)); clear: right; }
+  #tbl\:how .table-caption { max-width: var(--text-w); }
+}
+
+figure { margin: 2.25rem 0; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { padding: 0.9rem 0 0; }
+
+@media (prefers-color-scheme: dark) {
+  figure img { background: #fcfcfa; border-radius: 6px; padding: 0.75rem; box-sizing: border-box; }
+}
+
+/* lists, quotes, the reference list ------------------------------------------- */
+
+ul, ol { padding-left: 1.4em; margin: 0 0 1.1em; }
+li { margin: 0.25em 0; }
+li > p { margin-bottom: 0.4em; }
+
+blockquote { margin: 1.25rem 0 1.25rem 1.25rem; color: var(--text-2); }
+
+#refs { font-size: 0.9375rem; line-height: 1.5; }
+.csl-entry { padding-left: 1.5em; text-indent: -1.5em; margin-bottom: 0.55rem; }
+.csl-entry a { word-break: break-word; }
+
+/* code ---------------------------------------------------------------------- */
+
+details.code { margin: -0.35rem 0 1.25rem; position: relative; }
+details.code:not([open]) + details.code { margin-top: -1rem; }  /* two closed boxes in a row sit together */
+
+details.code > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  cursor: pointer;
+  list-style: none;
+  font: 500 0.8125rem/1.4 var(--sans);
+  color: var(--muted);
+  padding: 0.2rem 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+details.code > summary::-webkit-details-marker { display: none; }
+
+details.code > summary::before {
+  content: "";
+  width: 0.38em;
+  height: 0.38em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+details.code > summary:hover { color: var(--accent); }
+details.code[open] > summary::before { transform: rotate(45deg) translate(-0.1em, -0.1em); }
+
+details.code[open] {
+  box-shadow: inset 0 0 0 1px var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 1.15rem 0.9rem;
+  margin-left: -1.15rem;
+  margin-right: -1.15rem;
+}
+
+/* wide, with the notes placed by the script: an open box runs to the margin's edge and covers
+   any note beside it until it is closed */
+@media (min-width: 60rem) {
+  .js-notes details.code[open] {
+    z-index: 2;
+    background: var(--bg);
+    margin-right: calc(-1 * (var(--gap) + var(--note-w) + 1.15rem));
+  }
+}
+
+@media (max-width: 39.99rem) {
+  details.code[open] { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); border-radius: 0; padding-left: var(--gutter); padding-right: var(--gutter); box-shadow: inset 0 1px var(--line), inset 0 -1px var(--line); }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; }  /* the comments explain the code; keep them on screen */
+}
+
+.copy {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.9rem;
+  font: 500 0.75rem/1.4 var(--sans);
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+
+.copy:hover { color: var(--accent); border-color: currentColor; }
+
+pre {
+  font: 0.8125rem/1.55 var(--mono);
+  margin: 0.6rem 0 0;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+code { font-family: var(--mono); font-size: 0.85em; }
+pre code { font-size: inherit; }
+
+pre.sourceCode > code > span > a:first-child { display: none; }  /* pandoc's line anchors */
+
+.cell-output pre {
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  padding-left: 0.8rem;
+  margin: 0.35rem 0 0.7rem;
+}
+
+/* tabs in a code box (Base R / DeclareDesign): radio buttons, so they work without the script */
+.tabs { margin-top: 0.6rem; }
+.tabs > input { position: absolute; opacity: 0; width: 0; height: 0; }
+.tabs > label {
+  display: inline-block;
+  font: 500 0.8125rem/1.4 var(--sans);
+  color: var(--muted);
+  padding: 0.2rem 0.7rem 0.3rem;
+  margin-right: 0.15rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.tabs > label:hover { color: var(--accent); }
+.tabs > input:checked + label { color: var(--text); border-bottom-color: var(--accent); }
+.tabs > input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.tabs > .tab-panel { display: none; }
+.tabs > input:nth-of-type(1):checked ~ .tab-panel:nth-of-type(1),
+.tabs > input:nth-of-type(2):checked ~ .tab-panel:nth-of-type(2),
+.tabs > input:nth-of-type(3):checked ~ .tab-panel:nth-of-type(3) { display: block; }
+.tabs > .tab-panel > pre:first-child { margin-top: 0.4rem; }
+.tabs > .tab-panel > p { font: 0.875rem/1.5 var(--sans); color: var(--text-2); margin: 0.6rem 0 0.2rem; }
+
+/* syntax: comments recede, literals stand out */
+.sourceCode .co { color: var(--muted); font-style: italic; }
+.sourceCode .dv, .sourceCode .fl, .sourceCode .st, .sourceCode .cn { color: var(--literal); }
+
+/* previews of a citation or a rule, on hover --------------------------------------- */
+
+.peek {
+  position: absolute;
+  z-index: 10;
+  box-sizing: border-box;
+  max-width: min(28rem, calc(100vw - 2rem));
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+  padding: 0.85rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+}
+
+.peek.on { opacity: 1; visibility: visible; }
+.peek .rulebox { background: none; padding: 0; margin: 0; }
+.peek .csl-entry { padding: 0; text-indent: 0; margin: 0; }
+.peek table { font-size: 0.8125rem; width: auto !important; }
+
+/* print ------------------------------------------------------------------- */
+
+@media print {
+  #TOC, details.code, .peek, .links { display: none; }
+  .rulebox, figure, tr { break-inside: avoid; }
+  h1, h2, h4 { break-after: avoid; }
+  body { background: none; font-size: 11pt; color: #000; }
+  .sidenote { display: block !important; float: none; width: auto; margin: 0.3rem 0 0.7rem 1.5rem; font-size: 9pt; color: #000; }
+  .sidenote-number, .sidenote::before, a { color: #000 !important; }
+  .table-scroll { overflow: visible; background: none; }
+  #tbl\:how table { min-width: 0; font-size: 8.5pt; }
+}
+
+/* the blanks ("___% power"): 1.3 times the type size, as the PA build prints them */
+u {
+  display: inline-block;
+  width: 1.3em;
+  height: 0;
+  overflow: hidden;
+  vertical-align: -0.17em;
+  border-bottom: 0.06em solid currentColor;
+  text-decoration: none;
+}

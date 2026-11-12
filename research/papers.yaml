@@ -1,13 +1,14 @@
 
 
 - title: "Power Rules: Practical Advice for Computing Statistical Power"
-  type: "Working"
+  type: "Forthcoming"
   author:
     - Carlisle Rainey
   date: 2026-08-28
-  status: "Revised version conditionally accepted at <em>Political Analysis</em>"
-  preprint: "https://osf.io/preprints/osf/5am9q_v3"
-  note: 'I provide detailed examples with R code in the blog posts <a href="https://www.carlislerainey.com/blog/2024-06-03-pilot-power/">Statistical Power from Pilot Data: Simulations to Illustrate</a> and <a href="https://www.carlislerainey.com/blog/2024-06-10-pilot-power-example/">Statistical Power from Pilot Data: An Example</a> '
+  status: "Accepted at <em>Political Analysis</em>"
+  html: "/papers/power-rules/"
+  pdf: "/papers/power-rules/power-rules.pdf"
+  preprint: "https://osf.io/preprints/osf/5am9q_v4"
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
   type: "Published"
