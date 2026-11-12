@@ -12,7 +12,7 @@ bibliography: references.bib
 
 ## Paper and slides 
 
-- **The paper is [on OSF](https://doi.org/10.31219/osf.io/5am9q_v3).**
+- **The paper is [on OSF](https://doi.org/10.31219/osf.io/5am9q).**
 - The code is [on GitHub](https://github.com/carlislerainey/power-rules).
 - The slides are on [iCloud](https://www.icloud.com/keynote/0d6aPDe-yVieB2J1BTzRonphA#power-rules), or as a [PDF](https://www.dropbox.com/scl/fi/6fv0hwrh6vyy492e3e8iu/power-rules.pdf?rlkey=36q5k7joj0ci40xbyu9c4j3es&dl=0).
 

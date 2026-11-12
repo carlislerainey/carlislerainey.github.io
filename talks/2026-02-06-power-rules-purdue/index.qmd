@@ -14,7 +14,7 @@ bibliography: references.bib
 ## Paper and slides 
 
 ::: {.callout-tip}
-- **The paper is [on OSF](https://doi.org/10.31219/osf.io/5am9q_v3)**.
+- **The paper is [on OSF](https://doi.org/10.31219/osf.io/5am9q)**.
 - You can find an experimental [R package](https://www.carlislerainey.com/powerrules/).
 :::
 

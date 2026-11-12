@@ -669,7 +669,7 @@
     "href": "blog/2025-08-18-for-your-syllabus-power/index.html#power-rules",
     "title": "For Your Syllabus: Statistical Power",
     "section": "Power Rules",
-    "text": "Power Rules\nMy (unpublished) paper updates Bloom’s ideas. Especially for political scientists or others using OLS and robust SEs, this paper may be useful.\nIt: 1. Builds intuition for power\n2. Develops simple rules for back-of-the-envelope power calculations\n3. Describes how to incorporate pilot data into power calculations\n\n🔗 Preprint DOI (OSF): https://doi.org/10.31219/osf.io/5am9q_v3\n\n\n\n\nFigure from Rainey’s “Power Rules” paper illustrating rules of thumb for power calculations"
+    "text": "Power Rules\nMy (unpublished) paper updates Bloom’s ideas. Especially for political scientists or others using OLS and robust SEs, this paper may be useful.\nIt: 1. Builds intuition for power\n2. Develops simple rules for back-of-the-envelope power calculations\n\n🔗 Preprint DOI (OSF): https://doi.org/10.31219/osf.io/5am9q\n\n\n\n\nFigure from Rainey’s “Power Rules” paper illustrating rules of thumb for power calculations"
   },
   {
     "objectID": "blog/2025-08-18-for-your-syllabus-power/index.html#sample-size-justification-lakens-2022",
@@ -690,7 +690,7 @@
     "href": "blog/2025-08-18-for-your-syllabus-power/index.html#closing",
     "title": "For Your Syllabus: Statistical Power",
     "section": "Closing",
-    "text": "Closing\nThese five readings complement each other really well. Students have a lot to gain from each.\n\n\n\nPaper\nValue\n\n\n\n\nArel-Bundock et al.\nShows that most political science studies are underpowered; demonstrates the importance of thinking carefully about design.\n\n\nBloom (1995)\nDefines the minimum detectable effect (MDE) and explains how design choices influence power.\n\n\nRainey\nProvides intuitive rules of thumb for power analysis, including using pilot data.\n\n\nLakens (2022)\nBroadens the discussion; outlines six ways to justify sample size beyond traditional power analysis.\n\n\nBlair et al. (2019)\nIntroduces the MIDA framework for formally declaring and diagnosing research designs."
+    "text": "Closing\nThese five readings complement each other really well. Students have a lot to gain from each.\n\n\n\nPaper\nValue\n\n\n\n\nArel-Bundock et al.\nShows that most political science studies are underpowered; demonstrates the importance of thinking carefully about design.\n\n\nBloom (1995)\nDefines the minimum detectable effect (MDE) and explains how design choices influence power.\n\n\nRainey\nProvides intuitive rules of thumb for power analysis.\n\n\nLakens (2022)\nBroadens the discussion; outlines six ways to justify sample size beyond traditional power analysis.\n\n\nBlair et al. (2019)\nIntroduces the MIDA framework for formally declaring and diagnosing research designs."
   },
   {
     "objectID": "blog/index.html",

@@ -29,7 +29,7 @@ I'm a Professor in the Department of Political Science at Florida State Universi
 
 **Selected Papers**
 
-- [Power Rules: Practical Advice for Computing Statistical Power](https://osf.io/preprints/osf/5am9q_v3)
+- [Power Rules: Practical Advice for Computing Statistical Power](https://osf.io/preprints/osf/5am9q)
 - [Arguing for a Negligible Effect](papers/nme.pdf)
 - The three [topic-sampling](research/topic-sampling/index.qmd) papers
 
