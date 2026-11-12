@@ -9,6 +9,7 @@
   html: "/papers/power-rules/"
   pdf: "/papers/power-rules/power-rules.pdf"
   preprint: "https://osf.io/preprints/osf/5am9q_v4"
+  dataverse: "https://doi.org/10.7910/DVN/EMLFBT"
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
   type: "Published"
