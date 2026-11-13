@@ -12,6 +12,7 @@
   dataverse: "https://doi.org/10.7910/DVN/EMLFBT"
   app: "https://www.carlislerainey.com/power-rules/app/"
   package: "https://www.carlislerainey.com/powerrules/"
+  markdown: "https://www.carlislerainey.com/power-rules/md-version/power-rules.md"
 
 - title: "Use and Misuse of a Fast Approximation: Not a Criticism, but a Caution"
   type: "Published"
