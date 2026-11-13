@@ -1,4 +1,4 @@
-// Power Rules, the designed HTML version (make web). Four small behaviors; the page reads
+// Power Rules, the HTML version (make page). Four small behaviors; the page reads
 // the same without them.
 //   1. The contents: open in the left margin on wide screens (closed under the abstract on
 //      narrow ones), with the section being read marked.
@@ -18,7 +18,7 @@
 (() => {
   // 1. contents ---------------------------------------------------------------
   const toc = document.querySelector("#TOC details");
-  const wide = matchMedia("(min-width: 70rem)");
+  const wide = matchMedia("(min-width: 73rem)");
   const setOpen = () => {  // in the margin the contents stay open: no toggle to tab to
     if (!toc) return;
     toc.open = wide.matches;
@@ -53,7 +53,7 @@
   const notes = [...document.querySelectorAll(".sidenote")];
   const marks = notes.map(n => document.querySelector(`label[for="sn-${n.dataset.n}"]`));
   const obstacles = [...document.querySelectorAll("#tbl\\:how")];
-  const notesWide = matchMedia("(min-width: 60rem)");
+  const notesWide = matchMedia("(min-width: 63rem)");
   document.documentElement.classList.add("js-notes");
   let queued = false;
   const place = () => {

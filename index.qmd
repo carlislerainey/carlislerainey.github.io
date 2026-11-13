@@ -21,6 +21,9 @@ about:
     - icon: filetype-pdf
       text: CV
       href: cv.pdf
+    - icon: substack
+      text: Subscribe to my Substack
+      href: https://carlislerainey.substack.com
 toc: false
 ---
 

@@ -1,7 +1,7 @@
-/* Power Rules, the designed HTML version (make web).
+/* Power Rules, the HTML version (make page).
 
    One column of text with the notes in the right margin and the contents in the left margin;
-   below 60rem the notes open in place when their number is tapped, and below 70rem the
+   below 63rem the notes open in place when their number is tapped, and below 73rem the
    contents move under the abstract. One accent color, for the notes and for the reader's place
    in the contents (and for links under the pointer); the rules alone get a tint. */
 
@@ -21,7 +21,7 @@
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  --text-w: 36rem;
+  --text-w: 39rem;  /* about 75 characters a line at the body size */
   --gap: 2.5rem;
   --note-w: 15rem;
   --toc-w: 15rem;
@@ -30,7 +30,7 @@
 }
 
 /* a narrower contents column on laptop windows, so that it fits beside the text and the notes */
-@media (min-width: 70rem) and (max-width: 77.99rem) {
+@media (min-width: 73rem) and (max-width: 80.99rem) {
   :root { --toc-w: 12rem; --toc-gap: 2rem; }
 }
 
@@ -83,7 +83,7 @@ p, li { hyphenate-limit-chars: 7 3 3; -webkit-hyphenate-limit-before: 3; -webkit
 }
 
 /* the text column moves left to make room for the notes, then right for the contents */
-@media (min-width: 60rem) {
+@media (min-width: 63rem) {
   header, main {
     max-width: none;
     width: var(--text-w);
@@ -93,7 +93,7 @@ p, li { hyphenate-limit-chars: 7 3 3; -webkit-hyphenate-limit-before: 3; -webkit
   #TOC { max-width: var(--text-w); padding: 0; margin-left: calc((100% - var(--text-w) - var(--gap) - var(--note-w)) / 2); }
 }
 
-@media (min-width: 70rem) {
+@media (min-width: 73rem) {
   header, main {
     margin-left: calc((100% - var(--toc-w) - var(--toc-gap) - var(--text-w) - var(--gap) - var(--note-w)) / 2
                       + var(--toc-w) + var(--toc-gap));
@@ -206,7 +206,7 @@ header { padding-top: 4.5rem; }
 /* the appendices and the references, set apart from the main text */
 #TOC li:has(> a[href="#app:tests"]), #TOC li:has(> a[href="#references"]) { margin-top: 0.9rem; }
 
-@media (min-width: 70rem) {
+@media (min-width: 73rem) {
   #TOC {
     position: fixed;
     top: 0;
@@ -322,7 +322,7 @@ a[href^="#"] { text-decoration: none; }
 /* the checkbox that opens a note on a narrow screen: hidden, but reachable from the keyboard */
 .margin-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; clip-path: inset(50%); }
 label:has(+ .margin-toggle:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-@media (min-width: 60rem) { .margin-toggle { display: none; } }
+@media (min-width: 63rem) { .margin-toggle { display: none; } }
 
 .sidenote-number {
   font: 600 0.68em/0 var(--sans);
@@ -356,10 +356,10 @@ label:has(+ .margin-toggle:focus-visible) { outline: 2px solid var(--accent); ou
 /* a note and its number, under the pointer */
 .sidenote-number.hl, .sidenote.hl::before { text-decoration: underline; text-underline-offset: 0.15em; }
 .sidenote.hl { color: var(--text); }
-@media (min-width: 60rem) { .js-notes .sidenote.covered { visibility: hidden; } }
+@media (min-width: 63rem) { .js-notes .sidenote.covered { visibility: hidden; } }
 
 /* narrow: a tap on the number opens the note under the line */
-@media (max-width: 59.99rem) {
+@media (max-width: 62.99rem) {
   .sidenote-number { cursor: pointer; display: inline-block; min-width: 24px; text-align: center; padding: 0.4em 0; margin: -0.4em -0.2em; }
   .margin-toggle:checked + .sidenote {
     display: block;
@@ -371,7 +371,7 @@ label:has(+ .margin-toggle:focus-visible) { outline: 2px solid var(--accent); ou
 }
 
 /* wide: the notes sit in the margin, beside their marks */
-@media (min-width: 60rem) {
+@media (min-width: 63rem) {
   .sidenote {
     display: block;
     float: right;
@@ -387,7 +387,7 @@ label:has(+ .margin-toggle:focus-visible) { outline: 2px solid var(--accent); ou
 
 /* with the script, each note is placed beside its mark (and below the note before it),
    rather than floated, so that an open code box can cover it */
-@media (min-width: 60rem) {
+@media (min-width: 63rem) {
   .js-notes main { position: relative; }
   .js-notes .sidenote { position: absolute; float: none; margin: 0; right: calc(-1 * (var(--note-w) + var(--gap))); }
 }
@@ -451,10 +451,10 @@ th strong { font-weight: 600; }
     radial-gradient(farthest-side at 100% 50%, var(--shade), transparent) right / 0.8rem 100% no-repeat scroll;
 }
 /* on a tablet, Table 2 takes the empty side margins before it scrolls */
-@media (max-width: 59.99rem) {
+@media (max-width: 62.99rem) {
   #tbl\:how { --w: min(calc(100vw - 2 * var(--gutter)), 48rem); width: var(--w); margin-left: calc((100% - var(--w)) / 2); }
 }
-@media (min-width: 60rem) {
+@media (min-width: 63rem) {
   #tbl\:how { width: calc(var(--text-w) + var(--gap) + var(--note-w)); clear: right; }
   #tbl\:how .table-caption { max-width: var(--text-w); }
 }
@@ -522,7 +522,7 @@ details.code[open] {
 
 /* wide, with the notes placed by the script: an open box runs to the margin's edge and covers
    any note beside it until it is closed */
-@media (min-width: 60rem) {
+@media (min-width: 63rem) {
   .js-notes details.code[open] {
     z-index: 2;
     background: var(--bg);
