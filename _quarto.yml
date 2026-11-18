@@ -43,6 +43,11 @@ website:
         href: https://orcid.org/0000-0002-8728-4696
         text: ORCID
 
+    right:
+      - icon: substack
+        text: Subscribe
+        href: https://carlislerainey.substack.com
+
     left:
       - href: index.qmd
         text: About
