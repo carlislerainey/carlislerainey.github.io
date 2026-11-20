@@ -77,7 +77,7 @@ As a reader, you can simply multiply the reported standard errors by 2.5 and ask
 
 As a researcher, you can predict the standard error of a simple two-group, difference-in-means comparison using $\text{SE} = \sigma\sqrt{\dfrac{2}{n}}$, where $\sigma$ is the standard deviation of the outcome variable and $n$ is the sample size per condition. You can obtain a suitable value of $\sigma$ from an existing study of the same outcome and population. Or from a pilot study, if you plan to use one. As a too-crude shortcut in a pinch, you might use range/4. 
 
-Regression adjustment can increase power; it shrinks the standard error by a factor of about $\sqrt{1 - R^2}$, where $R^2$ is the $R^2$ of the regression of the predictors on the outcome variable. Unless predictors are highly predictive of the outcome, adjustment doesn’t matter much. However, in pre–post designs, the researcher measures the outcome before and after the treatment and adjusts for the pre-treatment measure. This shrinks the standard error at least 30%, typically 50%, and perhaps 70%. You can obtain a suitable value of $R^2$ from a pilot study, if you have one.
+Regression adjustment can increase power; it shrinks the standard error by a factor of about $\sqrt{1 - R^2}$, where $R^2$ is the $R^2$ of the regression of the outcome variable on the predictors. Unless predictors are highly predictive of the outcome, adjustment doesn’t matter much. However, in pre–post designs, the researcher measures the outcome before and after the treatment and adjusts for the pre-treatment measure. This shrinks the standard error at least 30%, typically 50%, and perhaps 70%. You can obtain a suitable value of $R^2$ from a pilot study, if you have one.
 
 ## What should I read next?
 
