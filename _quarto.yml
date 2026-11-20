@@ -6,6 +6,7 @@ project:
     - "/CNAME"
     - "/papers/"
     - "/assets/"
+    - "/files/"     # files to share: carlislerainey.com/files/<name>
   render:
     - "*.qmd"
     - "!pols-209/files/"  # dir has .Rmd (-> .pdf) files that should be re-compiled.
